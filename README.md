@@ -1,3 +1,15 @@
+# Down Arena
+
+## 🎮 Chơi online
+
+### [▶ Mở Down Arena online](https://tai23082004l02-svg.github.io/Live-Youtube-American/dist/)
+
+Mở liên kết trên bằng Chrome hoặc Edge, đợi tải tài nguyên rồi chọn chế độ và bắt đầu trận. Không cần tải game hoặc chạy máy chủ trên máy.
+
+README là trang giới thiệu; bấm liên kết để mở game trên GitHub Pages.
+
+---
+
 ## Sukuna presentation impact revision — 2026-10-21 (latest)
 
 User feedback: Sukuna lacked visual force compared with Gojo. Compared Gojo native VFX and measured strong-alpha actor heights: original Sukuna~110px versus Gojo~125px. Increased Sukuna actor presentation scale from.86 to.98 (~125px); adjusted spectator entrance compensation to avoid a size pop. Source art, extraction and all combat/audio parameters remain unchanged.
