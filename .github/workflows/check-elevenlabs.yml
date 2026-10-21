@@ -21,6 +21,7 @@ jobs:
         run: |
           import json
           import os
+          import re
           import sys
           import urllib.error
           import urllib.request
@@ -37,7 +38,18 @@ jobs:
               with urllib.request.urlopen(request, timeout=30) as response:
                   data = json.load(response)
           except urllib.error.HTTPError as error:
-              print(f'::error::ElevenLabs returned HTTP {error.code}. Check key validity and Voices read permission. Response body omitted to protect credentials.')
+              try:
+                  payload = json.loads(error.read(16384))
+              except (ValueError, OSError):
+                  payload = {}
+              detail = payload.get('detail', {}) if isinstance(payload, dict) else {}
+              status = detail.get('status', '') if isinstance(detail, dict) else ''
+              if not isinstance(status, str) or not re.fullmatch(r'[a-zA-Z0-9_-]{1,100}', status) or key in status:
+                  status = 'unavailable'
+              print(f'::error::ElevenLabs HTTP {error.code}; diagnostic status: {status}. No speech was generated.')
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+                  summary.write(f'ElevenLabs returned HTTP {error.code}. Diagnostic status: `{status}`.\n\n')
+                  summary.write('Secret values and raw response are omitted. HTTP 400 alone does not establish an invalid key or missing permission. No speech request was sent.\n')
               sys.exit(1)
           except (urllib.error.URLError, TimeoutError, ValueError):
               print('::error::Could not retrieve a valid voice catalog. No speech request was sent.')
