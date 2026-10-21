@@ -1,0 +1,35 @@
+import {BOA_ULTIMATE_CINEMATIC_STEPS} from '../dist/src/engine/ultimate-rules.js';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {Duel} from '../dist/src/engine/sim.js';
+import {boa_hancock,BOA_SKILLS,boaPose} from '../dist/src/characters/boa_hancock.js';
+import {BOA_META} from '../dist/src/render/boa-meta.js';
+import {drawBoaActor,drawBoaBack,drawBoaWorld,drawBoaCinematic} from '../dist/src/render/boa.js';
+import {applyHitStatus,isPetrified} from '../dist/src/engine/status.js';
+import {setTeamUltimateEnabled} from '../dist/src/engine/team-ultimate.js';
+import {Tournament} from '../dist/src/engine/tournament.js';
+function fixture(pair=['boa_hancock','goku'],teams=null){const d=new Duel('BOA',false,pair,{},teams);while(d.introRemaining)d.step();setTeamUltimateEnabled(d,false);d.fighters.forEach((f,i)=>Object.assign(f,{think:1e9,x:200+i*180,y:270,critChance:0,dodgeChance:0,blinkChance:0,blockChance:0,reactionChance:0}));return d;}
+const advance=(d,n)=>{for(let i=0;i<n;i++)d.step();};
+let d=fixture(),[f,t]=d.fighters;assert.equal(f.max,1050);f.skillPower=500;d.act(f,'heartshot',1,0);advance(d,80);assert.equal(t.hp,t.max-65);assert.equal(f.invulnerable,0);
+d=fixture();[f,t]=d.fighters;d.act(f,'pistolkiss',1,0);advance(d,80);assert.equal(t.hp,t.max-150);
+d=fixture();[f,t]=d.fighters;t.x=300;d.act(f,'slavearrow',1,0);advance(d,90);assert.equal(t.hp,t.max-225);
+d=fixture();[f,t]=d.fighters;d.act(f,'perfumefemur',1,0);advance(d,55);assert.equal(t.hp,t.max-150);assert(t.boaSlowUntil>d.tick);assert(f.x>200);
+d=fixture();[f,t]=d.fighters;f.rootUntil=100;f.rootX=f.x;f.rootY=f.y;d.act(f,'perfumefemur',1,0);advance(d,55);assert.equal(t.hp,t.max);assert.equal(f.x,200);
+// Mellow cancels an active cast, freezes movement, then grants a shared anti-chain immunity.
+d=fixture();[f,t]=d.fighters;t.state='beam';t.age=-1;d.act(f,'meromellow',1,0);advance(d,40);assert.equal(t.hp,t.max-100);assert(isPetrified(d,t));assert.equal(t.state,'idle');assert.equal(d.evade(t,true),false);assert.equal(d.act(t,'beam',-1,0),false);const end=t.petrifyUntil,x=t.x,y=t.y;advance(d,20);assert.equal(t.x,x);assert.equal(t.y,y);applyHitStatus(d,t,{value:1,petrifyTicks:42});assert.equal(t.petrifyUntil,end);d.tick=end;assert(!isPetrified(d,t));applyHitStatus(d,t,{value:1,petrifyTicks:42});assert.equal(t.petrifyUntil,end,'cannot reapply during immunity');d.tick=t.petrifyImmuneUntil;applyHitStatus(d,t,{value:1,petrifyTicks:1000});assert.equal(t.petrifyUntil-d.tick,60,'hard stun cap');
+for(const defense of [{dodgeChance:100},{blockChance:100,blockReduction:100}]){d=fixture();[f,t]=d.fighters;Object.assign(t,defense);d.act(f,'meromellow',1,0);advance(d,60);assert.equal(t.hp,t.max);assert(!t.petrifyUntil);}
+d=fixture(['boa_hancock','naruto']);[f,t]=d.fighters;t.state='transform';t.transformTicks=-1000;d.act(f,'meromellow',1,0);advance(d,60);assert.equal(t.hp,t.max);assert(!t.petrifyUntil);
+d=fixture(['boa_hancock','boa_hancock','goku'],['A','A','B']);[f,t]=d.fighters;t.x=380;d.fighters[2].x=400;d.act(f,'meromellow',1,0);advance(d,45);assert.equal(t.hp,t.max);assert(!t.petrifyUntil);assert(isPetrified(d,d.fighters[2]));
+// Personal ultimate cannot start while petrified; after release it launches3 arrows + kick.
+d=fixture(['boa_hancock','ichigo']);[f,t]=d.fighters;f.rage=100;applyHitStatus(d,f,{value:1,petrifyTicks:18});d.step();assert.equal(d.personalUltimate.cinematic,null);advance(d,18);assert(d.personalUltimate.cinematic);
+d=fixture(['boa_hancock','ichigo']);[f,t]=d.fighters;f.rage=100;t.rage=100;f.rageReadyTick=0;t.rageReadyTick=1;const snapshot=JSON.stringify([d.tick,d.rng,f.meromellowCd]);for(let i=0;i<BOA_ULTIMATE_CINEMATIC_STEPS;i++){d.step();assert.equal(JSON.stringify([d.tick,d.rng,f.meromellowCd]),snapshot);}assert.equal(d.personalUltimate.attack.kind,'judgment');assert.equal(t.personalUses,0);t.rage=0;advance(d,190);assert.equal(t.hp,t.max-840);assert(Math.abs(f.rage-190*2/60)<1e-8);assert(Math.abs(t.rage-190*2/60)<1e-8);assert.equal(d.personalUltimate.attack,null);
+d=fixture();[f,t]=d.fighters;t.dodgeChance=t.blinkChance=100;t.invulnerable=10;f.rage=100;advance(d,230);assert(t.hp<t.max);assert.equal(t.evades,0);assert.equal(t.blinks,0);
+d=fixture();[f,t]=d.fighters;f.rage=100;advance(d,BOA_ULTIMATE_CINEMATIC_STEPS);applyHitStatus(d,f,{value:1,petrifyTicks:42});d.step();assert.equal(d.personalUltimate.attack,null);
+d=fixture(['boa_hancock','goku'],['A','B']);[f,t]=d.fighters;setTeamUltimateEnabled(d,true);d.teamUltimate.teams.A.rage=100;applyHitStatus(d,f,{value:1,petrifyTicks:18});d.step();assert.equal(d.teamUltimate.cinematic,null);
+// Native full-cell intro: petals/serpent first, then materialization, then hair-flick stance.
+{d=fixture();f=d.fighters[0];const images=Object.fromEntries(Object.keys(BOA_META).map(id=>[id,{id,complete:true,naturalWidth:9999}]));for(const age of [0,.5,.89,.9,1.4,1.84,1.85,2.49]){const calls=[],ctx=new Proxy({drawImage(im,...a){calls.push([im,...a]);}},{get:(o,k)=>o[k]??(()=>{}),set:(o,k,v)=>(o[k]=v,true)});f.introAge=age;drawBoaBack(ctx,images,d);drawBoaActor(ctx,images,d,f);drawBoaWorld(ctx,images,d);const bodies=calls.filter(c=>c[0].id==='boa_hancock_intro');assert.equal(bodies.length,1);assert.equal(bodies[0][2]/BOA_META.boa_hancock_intro.frameSize[1],age<.9?0:age<1.85?1:2);for(const [im,...a] of calls){assert.equal(a[2],BOA_META[im.id].frameSize[0]);assert.equal(a[3],BOA_META[im.id].frameSize[1]);}}f.introAge=null;f.rage=100;advance(d,30);const calls=[],ctx=new Proxy({drawImage(im,...a){calls.push([im,...a]);}},{get:(o,k)=>o[k]??(()=>{}),set:(o,k,v)=>(o[k]=v,true)});drawBoaCinematic(ctx,images,d);assert(calls.some(c=>c[0].id==='boa_hancock_dialogue'));}
+for(const state of ['idle','run','melee','heartshot','dash','guard','hurt','defeat',...Object.keys(BOA_SKILLS)])for(const age of [0,.3,1,20])assert(boaPose({...f,state,age,introAge:null}).frame<6);
+for(const [key,meta] of Object.entries(BOA_META)){const saved=JSON.parse(readFileSync(new URL('../art/frames/boa_hancock/'+key+'.json',import.meta.url)));assert.deepEqual(meta.frameSize,saved.frameSize);}
+for(const [pair,teams] of [[['boa_hancock','beerus'],null],[['boa_hancock','tatsumaki','saber','ichigo','naruto'],null],[Array(10).fill('boa_hancock'),Array(5).fill('A').concat(Array(5).fill('B'))]]){const run=()=>{const g=new Duel('BOA-REPLAY',false,pair,{},teams);advance(g,40000);assert(g.result);for(const f of g.fighters)assert(Number.isFinite(f.hp+f.x+f.y));return JSON.stringify([g.tick,g.rng,g.fighters,g.events]);};assert.equal(run(),run());}
+const cup=new Tournament(Array.from({length:8},(_,i)=>({name:'Boa '+i,players:['boa_hancock']})),{format:'single'});assert.deepEqual(cup.battleConfig().pair,['boa_hancock','boa_hancock']);const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');assert.equal((html.match(/<option value="boa_hancock">/g)||[]).length,16);
+console.log('Boa passed: heart scaling/fan/kick/slow/root, petrify cap/immunity/defenses/cancel/ultimate eligibility, friendly slots, Judgment queue/freeze/420/no rage, native staging and deterministic FFA/mirrored5v5/tournament.');

@@ -1,0 +1,90 @@
+{
+  "down_arena": {
+    "width": 827,
+    "height": 295,
+    "sourceBounds": [
+      78,
+      9,
+      857,
+      256
+    ],
+    "padding": 24
+  },
+  "victory": {
+    "width": 880,
+    "height": 247,
+    "sourceBounds": [
+      913,
+      45,
+      1745,
+      244
+    ],
+    "padding": 24
+  },
+  "champion": {
+    "width": 931,
+    "height": 296,
+    "sourceBounds": [
+      33,
+      241,
+      916,
+      489
+    ],
+    "padding": 24
+  },
+  "vs": {
+    "width": 718,
+    "height": 275,
+    "sourceBounds": [
+      1034,
+      257,
+      1704,
+      484
+    ],
+    "padding": 24
+  },
+  "tournament_draw": {
+    "width": 763,
+    "height": 262,
+    "sourceBounds": [
+      978,
+      477,
+      1693,
+      691
+    ],
+    "padding": 24
+  },
+  "next_battle": {
+    "width": 925,
+    "height": 217,
+    "sourceBounds": [
+      40,
+      510,
+      917,
+      679
+    ],
+    "padding": 24
+  },
+  "draw": {
+    "width": 840,
+    "height": 238,
+    "sourceBounds": [
+      0,
+      688,
+      792,
+      878
+    ],
+    "padding": 24
+  },
+  "rematch": {
+    "width": 821,
+    "height": 234,
+    "sourceBounds": [
+      961,
+      691,
+      1734,
+      877
+    ],
+    "padding": 24
+  }
+}

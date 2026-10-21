@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {Duel} from '../dist/src/engine/sim.js';
+import {assetsForPair} from '../dist/src/engine/assets.js';
+import {SUKUNA_SKILLS,sukuna} from '../dist/src/characters/sukuna.js';
+import {SUKUNA_META} from '../dist/src/render/sukuna-meta.js';
+import {drawSukunaActor,drawSukunaBack,drawSukunaWorld,drawSukunaCinematic,drawSukunaShot,drawSukunaBurst} from '../dist/src/render/sukuna.js';
+import {setTeamUltimateEnabled} from '../dist/src/engine/team-ultimate.js';
+import {SUKUNA_ULTIMATE_CINEMATIC_STEPS} from '../dist/src/engine/ultimate-rules.js';
+function fixture(pair=['sukuna','goku'],teams=null){const stats=Object.fromEntries([...new Set(pair)].map(id=>[id,{hp:20000,dodgeChance:0,blinkChance:0,blockChance:0,critChance:0,reactionChance:0,counterChance:0}]));const d=new Duel('SUKUNA',false,pair,stats,teams);while(d.introRemaining)d.step();setTeamUltimateEnabled(d,false);d.fighters.forEach((f,i)=>{f.x=300+i*180;f.y=270;f.think=999;f.rage=0;});return d;}
+const advance=(d,n)=>{for(let i=0;i<n;i++)d.step();};
+for(const skill of Object.keys(SUKUNA_SKILLS)){const d=fixture(),[f,t]=d.fighters;d.act(f,skill,1,0);advance(d,120);assert.equal(t.max-t.hp,{dismantle:150,cleave:190,furnace:230}[skill],skill);assert.equal(f.skillUses[skill],1);assert(f[skill+'Cd']>0);}
+{const d=fixture(),[f,t]=d.fighters;f.rootUntil=200;f.rootX=f.x;f.rootY=f.y;t.x=520;d.act(f,'cleave',1,0);advance(d,70);assert.equal(f.x,300);assert.equal(t.hp,t.max,'root prevents approach and target is out of reach');}
+{const d=fixture(),[f,t]=d.fighters;d.act(f,'dismantle',1,0);t.y=380;advance(d,120);assert.equal(t.hp,t.max,'fixed slash direction can miss');}
+{const d=fixture(['sukuna','goku','vegeta'],['A','B','B']),[f,t,other]=d.fighters;other.x=t.x+40;d.act(f,'furnace',1,0);advance(d,120);assert.equal(t.max-t.hp,230);assert.equal(other.max-other.hp,70,'splash excludes direct target');}
+{const d=fixture(['sukuna','sukuna','goku'],['A','A','B']),[f,ally,t]=d.fighters;ally.x=390;t.x=470;d.act(f,'dismantle',1,0);advance(d,120);assert.equal(ally.hp,ally.max);assert.equal(t.max-t.hp,150);}
+{const d=fixture(),[f,t]=d.fighters;f.hp=f.max*.3;t.x=850;const hp=f.hp;advance(d,181);assert.equal(f.hp-hp,f.max*.15);assert(f.reverseUsed);assert.equal(f.reverseUntil,0);f.hp=hp;advance(d,200);assert.equal(f.hp,hp,'one healing activation per match');}
+{const d=fixture(),f=d.fighters[0];f.hp=1;d.step();f.hp=0;sukuna.onDeath(d,f);advance(d,200);assert.equal(f.hp,0,'no resurrection');assert.equal(f.reverseUntil,0);}
+{const d=fixture(),[f,t]=d.fighters;f.rage=100;const tick=d.tick,rng=d.rng;for(let i=0;i<SUKUNA_ULTIMATE_CINEMATIC_STEPS-1;i++){d.step();assert(d.personalUltimate.cinematic);assert.equal(d.tick,tick);assert.equal(d.rng,rng);}d.step();assert.equal(d.personalUltimate.cinematic,null);assert.equal(d.personalUltimate.attack.kind,'shrine');advance(d,217);assert.equal(t.max-t.hp,840);assert.equal(d.personalUltimate.attack,null);assert(f.rage>0);}
+{const d=fixture(),[f,t]=d.fighters;f.rage=100;d.step();while(d.personalUltimate.cinematic)d.step();t.x=850;advance(d,220);assert.equal(t.hp,t.max,'escape fixed domain');}
+{const d=fixture(),[f,t]=d.fighters;f.rage=100;d.step();while(d.personalUltimate.cinematic)d.step();t.dodgeChance=t.blinkChance=100;advance(d,220);assert.equal(t.max-t.hp,840,'ultimate bypasses automatic dodge');}
+{const d=fixture(),f=d.fighters[0];f.rage=100;d.step();while(d.personalUltimate.cinematic)d.step();f.hp=0;advance(d,220);assert.equal(d.personalUltimate.attack,null,'owner death cancels domain');}
+assert.equal(assetsForPair(['sukuna']).length,8);
+const images=Object.fromEntries(Object.keys(SUKUNA_META).map(key=>[key,{key,complete:true,naturalWidth:9999}]));let depth=0;const draws=[];const ctx=new Proxy({globalAlpha:1,createRadialGradient(){return {addColorStop(){}};},save(){depth++;},restore(){depth--;},drawImage(...a){draws.push(a);}}, {get:(o,k)=>o[k]??((...args)=>assert(args.filter(a=>typeof a==='number').every(Number.isFinite)))});
+{const d=fixture(),f=d.fighters[0];f.introAge=0;drawSukunaActor(ctx,images,d,f);assert.equal(draws.length,0,'portal before actor');for(const age of [0,.5,.8,1.5,2.49]){f.introAge=age;drawSukunaBack(ctx,images,d,age);drawSukunaActor(ctx,images,d,f);}f.introAge=null;for(const skill of Object.keys(SUKUNA_SKILLS)){f.state=skill;f.age=.2;drawSukunaActor(ctx,images,d,f);}f.state='idle';f.rage=100;d.step();drawSukunaActor(ctx,images,d,f);drawSukunaCinematic(ctx,images,d);while(d.personalUltimate.cinematic)d.step();advance(d,40);drawSukunaBack(ctx,images,d,1);drawSukunaWorld(ctx,images,d,1);drawSukunaShot(ctx,images,{kind:'furnace',vx:1,vy:0},500,250,1);}
+drawSukunaBurst(ctx,images,{action:'furnace',life:.4,max:.5,x:480,y:270});drawSukunaBurst(ctx,images,{action:'cleave',life:.2,max:.32,x:480,y:270},true);
+// Visuals must stay deterministic and presentation-only, including reduced effects.
+{const d=fixture(),f=d.fighters[0];f.state='furnace';f.age=.8;const before=JSON.stringify(d),random=Math.random;Math.random=()=>{throw new Error('render RNG');};try{for(const reduced of [false,true]){drawSukunaBack(ctx,images,d,1,reduced);drawSukunaWorld(ctx,images,d,1,reduced);drawSukunaShot(ctx,images,{kind:'dismantle',vx:-700,vy:30},480,270,1,reduced);}}finally{Math.random=random;}assert.equal(JSON.stringify(d),before);}
+assert.equal(depth,0);assert(draws.some(a=>a[0].key==='sukuna_dialogue'));for(const a of draws){const m=SUKUNA_META[a[0].key];assert.equal(a[3],m.frameSize[0]);assert.equal(a[4],m.frameSize[1]);assert(a.slice(1).every(Number.isFinite));}
+for(const m of Object.values(SUKUNA_META))for(const b of m.bounds)assert(Math.min(b[0],b[1],m.frameSize[0]-b[2],m.frameSize[1]-b[3])>=32);
+for(const layout of [null,'portrait']){const pair=layout?Array(10).fill('sukuna'):['sukuna','gojo'],teams=layout?Array(5).fill('A').concat(Array(5).fill('B')):null;const run=()=>{const d=new Duel('SUKUNA-REPLAY',false,pair,{},teams,2,1,layout);for(let i=0;i<6000&&!d.result;i++)d.step();for(const f of d.fighters)assert([f.hp,f.x,f.y].every(Number.isFinite));return JSON.stringify(d);};assert.equal(run(),run(),'seeded replay '+layout);}
+assert.deepEqual(readFileSync('dist/assets/audio/voices/sukuna_ultimate_ja.mp3'),readFileSync('art/audio/elevenlabs/sukuna_malevolent_shrine_japanese_raw.mp3'),'clean voice unchanged');
+const report=JSON.parse(readFileSync('art/frames/sukuna/extraction_report.json'));assert.equal(report.sources.length,6);assert.equal(report.sources.reduce((n,s)=>n+s.frames.length,0),140);assert(report.sources.every(s=>s.exactRGBAReconstruction));
+console.log('Sukuna passed: skills/miss/root/splash/team safety, one-use15% healing/no resurrection,245-step freeze,840 domain/escape/auto-dodge/death, native complete frames,8 assets and deterministic duel/portrait5v5.');

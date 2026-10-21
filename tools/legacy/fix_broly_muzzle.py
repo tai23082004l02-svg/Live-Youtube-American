@@ -1,0 +1,21 @@
+from pathlib import Path
+p=Path('down-arena/dist/app.js');s=p.read_text(encoding='utf-8');s=s.replace("import {AssetLoader,assetsForPair} from './assets.js';", "import {AssetLoader,assetsForPair} from './assets.js';\nimport {BROLY_SPRITE,brolyCastFrame,brolyMuzzle,shotSocket,shotScreenPosition} from './presentation.js';")
+s=s.replace("const loader=new AssetLoader();", "let shotSockets=new WeakMap();\nconst loader=new AssetLoader();")
+s=s.replace("function reset(){duel=", "function reset(){shotSockets=new WeakMap();duel=")
+s=s.replace("function drawCharge(f){if(f.id==='broly'){drawBrolyEffect('charge',Math.min(5,Math.floor(f.age/(f.state==='roar'?1.05:.75)*6)),f.x+f.actionX*30,f.y-30,.45);return;}", "function drawCharge(f){if(f.id==='broly'){const muzzle=brolyMuzzle(f);drawBrolyEffect('charge',Math.min(5,Math.floor(f.age/(f.state==='roar'?1.05:.75)*6)),muzzle.x,muzzle.y,.45);return;}")
+s=s.replace("function drawShot(s,enhanced){", "function drawShot(s,enhanced){const screen=shotScreenPosition(s,shotSockets.get(s));")
+s=s.replace("s.x,s.y-28,s.kind==='roar'", "screen.x,screen.y,s.kind==='roar'")
+s=s.replace("ctx.translate(s.x,s.y-28);", "ctx.translate(screen.x,screen.y);")
+s=s.replace("const blue=s.id==='goku',color=s.kind==='final'", "const blue=s.id==='goku',color=s.id==='broly'?'#94ff54':s.kind==='final'")
+s=s.replace("else circle(f.x+f.actionX*28,f.y-28,8+f.age*18,color,3);", "else{const muzzle=f.id==='broly'?brolyMuzzle(f):{x:f.x+f.actionX*28,y:f.y-28};circle(muzzle.x,muzzle.y,8+f.age*18,color,3);}")
+s=s.replace("frame=Math.min(2,Math.floor(f.age*4));", "frame=brolyCastFrame(f);")
+s=s.replace("const scale=f.id==='broly'?1.04:.86;", "const scale=f.id==='broly'?BROLY_SPRITE.scale:.86;")
+s=s.replace("duel.step();if(duel.tick", "duel.step();for(const shot of duel.shots)if(shot.id==='broly'&&!shotSockets.has(shot)){const source=duel.fighters.find(f=>f.id===shot.id),target=duel.fighters.find(f=>f.id!==shot.id);shotSockets.set(shot,shotSocket(shot,source,target));}if(duel.tick")
+# Charge glow is a foreground layer, so it sits on the visible hand rather than behind the torso.
+s=s.replace("if($('vfx').checked)drawCharge(f);else{", "if($('vfx').checked){if(f.id!=='broly')drawCharge(f);}else{")
+s=s.replace(" for(const shot of duel.shots)drawShot", " for(const f of duel.fighters)if(f.id==='broly'&&['beam','roar'].includes(f.state)&&!f.hit&&$('vfx').checked)drawCharge(f);\n for(const shot of duel.shots)drawShot")
+p.write_text(s,encoding='utf-8')
+# Keep the optional exporter compatible; do not regenerate standalone HTML.
+p=Path('down-arena/build_standalone.py');s=p.read_text(encoding='utf-8-sig');s=s.replace("\"import {AssetLoader,assetsForPair} from './assets.js';\"]", "\"import {AssetLoader,assetsForPair} from './assets.js';\",\"import {BROLY_SPRITE,brolyCastFrame,brolyMuzzle,shotSocket,shotScreenPosition} from './presentation.js';\"]")
+s=s.replace("code='try{\\n'+meta", "presentation=(r/'presentation.js').read_text(encoding='utf-8-sig').replace('export const','const').replace('export function','function')\ncode='try{\\n'+presentation+'\\n'+meta");p.write_text(s,encoding='utf-8')
+p=Path('down-arena/ui-smoke.mjs');s=p.read_text(encoding='utf-8');s=s.replace("vm.runInContext(readFileSync('dist/assets.js'", "vm.runInContext(readFileSync('dist/presentation.js','utf8').replace(/export /g,'')+'\\n'+readFileSync('dist/assets.js'");p.write_text(s,encoding='utf-8')

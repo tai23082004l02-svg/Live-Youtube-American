@@ -1,0 +1,8 @@
+import {CHARACTERS} from '../characters/index.js';
+export const DEFAULT_STATS=Object.fromEntries(Object.entries(CHARACTERS).map(([id,c])=>[id,{...c.stats}]));
+export const COMBAT_DEFAULTS={pursuitChance:70,comboChance:65,counterChance:60,recklessness:55,targetSwitchChance:35,dodgeChance:12,blinkChance:8,blinkCooldown:3,critChance:15,critDamage:175,blockChance:18,blockReduction:50,damageReduction:0,aggression:65,preferredRange:170,reactionChance:75};
+for(const stats of Object.values(DEFAULT_STATS)){const characterDefaults={...stats};Object.assign(stats,COMBAT_DEFAULTS,characterDefaults);}
+export const STAT_LIMITS={pursuitChance:[0,100],comboChance:[0,100],counterChance:[0,100],recklessness:[0,100],targetSwitchChance:[0,100],dodgeChance:[0,100],blinkChance:[0,100],blinkCooldown:[1,30],critChance:[0,100],critDamage:[100,400],blockChance:[0,100],blockReduction:[0,100],damageReduction:[0,90],aggression:[0,100],preferredRange:[80,350],reactionChance:[0,100],hp:[100,20000],speed:[50,600],melee:[1,2000],skillPower:[10,500],cooldown:[10,500]};
+export function normalizeStats(input={}){return Object.fromEntries(Object.entries(DEFAULT_STATS).map(([id,defaults])=>[id,Object.fromEntries(Object.entries(defaults).map(([key,fallback])=>{const raw=input?.[id]?.[key],value=raw===undefined||raw===null||raw===''?fallback:Number(raw),[min,max]=STAT_LIMITS[key];return [key,Number.isFinite(value)?Math.round(Math.max(min,Math.min(max,value))):fallback];}))]));}
+
+export function normalizeHpMultiplier(value=1){const n=Number(value);return Number.isFinite(n)?Math.round(Math.max(1,Math.min(100,n))*100)/100:1;}

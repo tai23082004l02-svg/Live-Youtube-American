@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {Duel} from './baseline-fixture.mjs';
+function stage(){const d=new Duel('kurama',false,['naruto','goku']);for(const [i,f] of d.fighters.entries())Object.assign(f,{x:350+i*150,y:270,state:'melee',age:-100});return d;}
+function complete(d){while(d.fighters[0].state==='transform')d.step();}
+let d=stage(),n=d.fighters[0];n.hp=n.max/2;d.step();assert.equal(n.state,'melee');assert.equal(n.kurama,false);n.hp--;d.step();assert.equal(n.state,'transform');assert.equal(n.kurama,false);const melee=n.melee,power=n.skillPower;complete(d);assert(n.kurama);n.hp=n.max;for(let i=0;i<10;i++)d.step();assert(n.kurama);assert.equal(d.events.filter(e=>e.type==='kurama').length,1);assert.equal(d.events.filter(e=>e.type==='transformStart').length,1);assert.equal(n.melee,melee);assert.equal(n.skillPower,power);assert.equal(stage().fighters[0].kurama,false);
+for(const kind of ['melee','shuriken','clone']){d=stage();n=d.fighters[0];n.hp=500;d.step();complete(d);n.state='melee';n.age=-100;const t=d.fighters[1];if(kind==='melee'){n.x=440;n.y=270;t.x=500;t.y=270;d.act(n,'melee',1,0);for(let i=0;i<15;i++)d.step();assert.equal(t.hp,1200-86);}else{d.shots.push({id:'naruto',ownerUid:n.uid,kind,x:t.x-1,y:t.y,vx:60,vy:0,life:1,damage:100});d.step();assert.equal(t.hp,1080);}}
+d=stage();n=d.fighters[0];n.hp=600;d.shots.push({id:'goku',ownerUid:'goku',x:n.x-1,y:n.y,vx:60,vy:0,life:1,damage:50});d.step();assert.equal(n.hp,550);assert.equal(n.state,'transform');assert.equal(n.kurama,false);
+// Every one of the 60 charging ticks is stationary and immune, including completion.
+const x=n.x,y=n.y,hp=n.hp,enemy=d.fighters[1];
+for(let tick=1;tick<=60;tick++){enemy.x=n.x+10;enemy.y=n.y;d.shots.push({id:enemy.id,ownerUid:enemy.uid,x:n.x-1,y:n.y,vx:60,vy:0,life:1,damage:9999});d.step();assert.equal(n.x,x);assert.equal(n.y,y);assert.equal(n.hp,hp);assert.equal(n.kurama,tick===60);if(tick<60)assert.equal(n.state,'transform');}
+assert.equal(n.state,'idle');enemy.x=500;enemy.y=270;d.shots.push({id:enemy.id,ownerUid:enemy.uid,x:n.x-1,y:n.y,vx:60,vy:0,life:1,damage:50});d.step();assert.equal(n.hp,hp-50);
+d=stage();n=d.fighters[0];d.shots.push({id:'goku',ownerUid:'goku',x:n.x-1,y:n.y,vx:60,vy:0,life:1,damage:2000});d.step();assert.equal(n.kurama,false);assert.equal(n.hp,0);assert.equal(n.transformStarted,false);
+d=new Duel('copies',false,['naruto','naruto','goku'],{},['A','A','B']);for(const f of d.fighters)Object.assign(f,{state:'melee',age:-100});d.fighters[0].hp=500;d.step();assert.equal(d.fighters[0].state,'transform');assert.equal(d.fighters[1].state,'melee');while(!d.fighters[0].kurama)d.step();assert.equal(d.fighters[1].kurama,false);
+console.log('Kurama tests passed: strict threshold, exactly60 protected stationary ticks, collision immunity, damage resumes, delayed20% bonus, no revival/stacking and actor isolation.');

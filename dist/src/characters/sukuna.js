@@ -1,0 +1,15 @@
+export const SUKUNA_SKILLS={dismantle:{cooldown:7,cast:.4,duration:.8},cleave:{cooldown:9,cast:.48,duration:.95},furnace:{cooldown:14,cast:1,duration:1.45}};
+export const sukuna={name:'Ryomen Sukuna',assets:['sukuna','sukuna_cast','sukuna_vfx','sukuna_intro','sukuna_intro_vfx','sukuna_ultimate_actor','sukuna_ultimate_vfx','sukuna_dialogue'],stats:{hp:1250,speed:210,melee:78,skillPower:100,cooldown:100,dodgeChance:15,blinkChance:10,blockChance:20,preferredRange:160},
+ init(f){f.rage=0;f.rageLockUntil=0;f.rageReadyTick=null;f.personalUses=0;f.reverseUsed=false;f.reverseUntil=0;f.reverseNext=0;f.reverseHealed=0;f.reversePulses=0;for(const [k,v] of Object.entries({dismantle:1,cleave:2,furnace:5})){f[k+'Cd']=v*f.cooldownFactor;f.skillUses[k]=0;}},
+ onAct(f,state,d){if(!SUKUNA_SKILLS[state])return;f[state+'Cd']=SUKUNA_SKILLS[state].cooldown*f.cooldownFactor;f.skillUses[state]++;f.sukunaTarget=d.pickTarget(f)?.uid;},
+ tick(f,dt){for(const k of Object.keys(SUKUNA_SKILLS))f[k+'Cd']=Math.max(0,f[k+'Cd']-dt);},
+ beforeStep(d){for(const f of d.fighters)if(f.id==='sukuna'&&f.hp>0){if(!f.reverseUsed&&f.hp<f.max*.35){f.reverseUsed=true;f.reverseUntil=d.tick+180;f.reverseNext=d.tick+30;d.event('reverseCursed',f,{x:f.x,y:f.y});}if(f.reverseUntil&&d.tick<=f.reverseUntil&&d.tick>=f.reverseNext){f.reverseNext+=30;const portion=Math.round(f.max*.15*(++f.reversePulses)/6)-f.reverseHealed;f.reverseHealed+=portion;const value=Math.min(f.max-f.hp,portion);f.hp+=value;if(value>0)d.event('heal',f,{value,x:f.x,y:f.y});}if(d.tick>=f.reverseUntil)f.reverseUntil=0;}},
+ onDeath(d,f){f.reverseUntil=0;},
+ updateAction(d,f,o,hits,dx,dy,distance,dt){const spec=SUKUNA_SKILLS[f.state];if(!spec)return false;
+  if(f.state==='cleave'&&f.age<spec.cast&&d.tick>=(f.rootUntil||0)){const move=Math.min(280*dt,Math.max(0,distance-65));f.x+=dx/(distance||1)*move;f.y+=dy/(distance||1)*move;d.clampPosition(f);}
+  if(f.age>=spec.cast&&!f.hit){f.hit=true;if(f.state==='cleave'){for(const t of d.fighters)if(t.hp>0&&d.isEnemy(f,t)&&Math.hypot(t.x-f.x,t.y-f.y)<135)hits.push({source:f,target:t,value:190});d.event('sukunaImpact',f,{x:f.x+f.actionX*65,y:f.y+f.actionY*65,skill:'cleave'});}
+   else{const fire=f.state==='furnace';d.shots.push({id:f.id,ownerUid:f.uid,kind:f.state,skill:f.state,damage:fire?230:150,radius:fire?26:23,piercing:!fire,hitUids:[],splash:fire?100:0,splashDamage:70,x:f.x+f.actionX*40,y:f.y+f.actionY*40,vx:f.actionX*(fire?630:760),vy:f.actionY*(fire?630:760),life:1.5,impactEvent:'sukunaImpact'});d.event('fire',f,{skill:f.state});}}
+  if(f.age>=spec.duration){f.state='idle';f.age=0;}return true;},
+ chooseSkill(d,f,o,dx,dy,distance){for(const k of ['cleave','furnace','dismantle'])if(f[k+'Cd']===0&&(k==='cleave'?distance<260:distance<650)){d.act(f,k,dx,dy);return true;}return false;}
+};
+export function sukunaPose(f,hurt=false){const s=hurt?'hurt':f.state;const row=({idle:0,run:1,melee:f.combo%2?2:3,dash:4,guard:5,hurt:6,defeat:7})[s]??0;return {row,frame:['melee','dash','hurt','defeat'].includes(s)?Math.min(5,Math.floor(f.age*(s==='dash'?24:10))):Math.floor(f.age*9)%6};}

@@ -1,0 +1,15 @@
+export const GOGETA_SKILLS={bigbang:{cooldown:12,cast:1.05,duration:1.5},stardust:{cooldown:13,cast:.8,duration:1.2},meteor:{cooldown:11,cast:.8,duration:1.3},stardustfall:{cooldown:10,cast:.55,duration:1.35}};
+export const gogeta={name:'Gogeta',assets:['gogeta','gogeta_vfx'],stats:{hp:1250,speed:200,melee:82,skillPower:100,cooldown:100},
+ init(f){for(const [key,delay] of Object.entries({bigbang:2,stardust:4,meteor:1.2,stardustfall:6})){f[key+'Cd']=delay*f.cooldownFactor;f.skillUses[key]=0;}},
+ onAct(f,state){if(GOGETA_SKILLS[state]){f[state+'Cd']=GOGETA_SKILLS[state].cooldown*f.cooldownFactor;f.skillUses[state]++;if(state==='stardustfall')f.fallEmitted=0;}},
+ tick(f,dt){for(const key of Object.keys(GOGETA_SKILLS))f[key+'Cd']=Math.max(0,f[key+'Cd']-dt);},
+ updateAction(duel,f,o,hits,dx,dy,d,dt){const spec=GOGETA_SKILLS[f.state];if(!spec)return false;
+ if(f.state==='meteor'&&f.age>=.25&&f.age<.75&&!(duel.tick<(f.rootUntil||0))){const travel=Math.min(Math.max(0,d-65),480*dt);f.actionX=dx/d;f.actionY=dy/d;if(Math.abs(dx)>.1)f.face=Math.sign(dx);f.x+=f.actionX*travel;f.y+=f.actionY*travel;duel.clampPosition(f);}
+ if(f.state==='stardustfall')while(f.fallEmitted<5&&f.age>=.55+f.fallEmitted*.11){const angle=Math.atan2(o.y-f.y,o.x-f.x)+(f.fallEmitted-2)*.075;duel.shots.push({id:f.id,ownerUid:f.uid,kind:'stardustfall',damage:55,radius:25,x:f.x+Math.cos(angle)*40,y:f.y+Math.sin(angle)*40,vx:Math.cos(angle)*520,vy:Math.sin(angle)*520,life:1.8,impactEvent:'gogetaImpact',skill:'stardustfall'});f.fallEmitted++;duel.event('fire',f,{skill:'stardustfall'});}
+ if(f.age>=spec.cast&&!f.hit){f.hit=true;
+ if(f.state==='bigbang'||f.state==='stardust'){const big=f.state==='bigbang';duel.shots.push({id:f.id,ownerUid:f.uid,kind:f.state,damage:big?300:240,radius:big?38:32,piercing:big,hitUids:[],...(big?{}:{splash:110,splashDamage:90}),x:f.x+f.actionX*40,y:f.y+f.actionY*40,vx:f.actionX*(big?590:460),vy:f.actionY*(big?590:460),life:1.8,impactEvent:'gogetaImpact',skill:f.state});duel.event('fire',f,{skill:f.state});}
+ else if(f.state==='meteor'){for(const t of duel.fighters)if(t.hp>0&&duel.isEnemy(f,t)&&Math.hypot(t.x-f.x,t.y-f.y)<150)hits.push({target:t,source:f,value:250});duel.event('gogetaImpact',f,{x:f.x,y:f.y,skill:'meteor',face:f.face});}}
+ if(f.age>=spec.duration){f.state='idle';f.age=0;}return true;},
+ chooseSkill(duel,f,o,dx,dy,d){for(const key of ['meteor','bigbang','stardust','stardustfall'])if(f[key+'Cd']===0&&(key==='meteor'?d<260:key==='bigbang'?d>180&&d<620:key==='stardust'?d>120&&d<580:d>130&&d<550)){duel.act(f,key,dx,dy);return true;}return false;}
+};
+export function gogetaPose(f,hurt=false){const state=hurt?'hurt':f.state,spec=GOGETA_SKILLS[state],row=({idle:0,run:1,melee:f.combo%2?2:3,dash:4,guard:5,hurt:6,defeat:7,bigbang:8,stardust:9,meteor:10,stardustfall:11})[state]??0;return {row,frame:state==='defeat'?7:spec?Math.min(7,Math.floor(f.age/spec.duration*8)):['melee','dash','hurt','guard'].includes(state)?Math.min(7,Math.floor(f.age*(state==='dash'?32:14))):Math.floor(f.age*11)%8};}

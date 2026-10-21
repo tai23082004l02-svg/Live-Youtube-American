@@ -1,0 +1,16 @@
+export const SABER_SKILLS={invisibleair:{cooldown:7,cast:.3,duration:.85},manaburst:{cooldown:9,cast:.2,duration:1.1},strikeair:{cooldown:12,cast:.65,duration:1.2},avalon:{cooldown:22,cast:.55,duration:1.1}};
+export const saber={name:'Saber',assets:['saber','saber_vfx','saber_intro','saber_intro_vfx','saber_ultimate_vfx','saber_dialogue'],stats:{hp:1400,blockChance:40,speed:220,melee:78,skillPower:100,cooldown:100},
+ init(f){f.avalonEnd=0;f.rage=0;f.rageLockUntil=0;f.rageReadyTick=null;f.personalUses=0;for(const [k,v] of Object.entries({invisibleair:1,manaburst:3,strikeair:2,avalon:5})){f[k+'Cd']=v*f.cooldownFactor;f.skillUses[k]=0;}},
+ onAct(f,s,d){if(!SABER_SKILLS[s])return;f[s+'Cd']=SABER_SKILLS[s].cooldown*f.cooldownFactor;f.skillUses[s]++;f.manaHits=0;f.saberTarget=d.pickTarget(f)?.uid;},
+ tick(f,dt){for(const k of Object.keys(SABER_SKILLS))f[k+'Cd']=Math.max(0,f[k+'Cd']-dt);},
+ incomingDamageMultiplier(d,f){return d.tick<f.avalonEnd?.55:1;},
+ onDeath(d,f){f.avalonEnd=0;},
+ updateAction(d,f,o,hits,dx,dy,dist,dt){const spec=SABER_SKILLS[f.state];if(!spec)return false;const t=d.fighters.find(t=>t.uid===f.saberTarget&&t.hp>0&&d.isEnemy(f,t))||o;
+  if(f.state==='manaburst'){const tx=t.x-f.x,ty=t.y-f.y,n=Math.hypot(tx,ty)||1;if(f.age<.5&&d.tick>=(f.rootUntil||0)){const move=Math.min(Math.max(0,n-65),500*dt);f.x+=tx/n*move;f.y+=ty/n*move;d.clampPosition(f);}while(f.manaHits<3&&f.age>=[.25,.52,.82][f.manaHits]){const i=f.manaHits++;if(Math.hypot(t.x-f.x,t.y-f.y)<125){hits.push({source:f,target:t,value:[45,55,85][i],knockback:i===2?35:0});d.event('saberSlash',f,{x:t.x,y:t.y,skill:'manaburst'});}}}
+  else if(f.age>=spec.cast&&!f.hit){f.hit=true;if(f.state==='avalon'){f.avalonEnd=d.tick+240;for(const target of d.fighters)if(target.hp>0&&d.isEnemy(f,target)&&Math.hypot(target.x-f.x,target.y-f.y)<130)hits.push({source:f,target,value:30,knockback:65});d.event('avalonOn',f,{x:f.x,y:f.y});}
+   else {const tx=t.x-f.x,ty=t.y-f.y,n=Math.hypot(tx,ty)||1,k=f.state;f.face=Math.sign(tx)||f.face;d.shots.push({id:f.id,ownerUid:f.uid,kind:k,skill:k,damage:k==='strikeair'?210:130,radius:k==='strikeair'?32:28,x:f.x+tx/n*40,y:f.y+ty/n*40,vx:tx/n*(k==='strikeair'?620:600),vy:ty/n*(k==='strikeair'?620:600),life:k==='strikeair'?1.4:.65,piercing:true,hitUids:[],impactEvent:'saberImpact'});d.event('fire',f,{skill:k});}}
+  if(f.age>=spec.duration){f.state='idle';f.age=0;}return true;
+ },
+ chooseSkill(d,f,o,dx,dy,dist){for(const k of ['avalon','strikeair','manaburst','invisibleair'])if(f[k+'Cd']===0&&(k==='avalon'?d.tick>=f.avalonEnd&&(dist<200||f.hp/f.max<.5):k==='strikeair'?dist>170&&dist<650:k==='manaburst'?dist<330:dist<380)){d.act(f,k,dx,dy);return true;}return false;}
+};
+export function saberPose(f,hurt=false){if(f.introAge!=null){const a=f.introAge;if(a<1.05)return {row:0,frame:Math.max(0,Math.min(5,Math.floor((a-.35)/.7*6)))};if(a<1.95)return {row:1,frame:Math.min(5,Math.floor((a-1.05)/.9*6))};return {row:2,frame:Math.min(5,Math.floor((a-1.95)/.55*6))};}const s=hurt?'hurt':f.state,spec=SABER_SKILLS[s];return {row:({idle:0,run:1,melee:f.combo%2?2:3,dash:1,guard:4,hurt:5,defeat:6,invisibleair:7,manaburst:8,strikeair:9,avalon:10})[s]??0,frame:spec?Math.min(5,Math.floor(f.age/spec.duration*6)):['defeat','hurt','melee','dash','guard'].includes(s)?Math.min(5,Math.floor(f.age*10)):Math.floor(f.age*9)%6};}

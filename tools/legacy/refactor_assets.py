@@ -1,0 +1,15 @@
+from pathlib import Path
+p=Path('down-arena/dist/app.js');s=p.read_text(encoding='utf-8');s=s.replace("import {BROLY_VFX_META} from './broly-meta.js';", "import {BROLY_VFX_META} from './broly-meta.js';\nimport {AssetLoader,assetsForPair} from './assets.js';")
+s=s.replace("const audio=new ArenaAudio();", "const loader=new AssetLoader();let assetsReady=false,assetError=false,loadGeneration=0,assetTask=Promise.resolve();\nconst audio=new ArenaAudio();")
+a=s.index("for(const id of ['goku','vegeta','broly','broly_vfx'])");b=s.index('\n',a);s=s[:a]+s[b+1:]
+s=s.replace("$('seedLabel').textContent='SEED: '+duel.seed;update();}", "$('seedLabel').textContent='SEED: '+duel.seed;update();return loadPairAssets();}")
+s=s.replace("function toggle(){audio.unlock();if(duel.result)reset();", "async function toggle(){audio.unlock();if(duel.result)await reset();if(!assetsReady){if(assetError)await reset();if(!assetsReady)return;}")
+s=s.replace("btn.onclick=()=>{reset();toggle();};", "btn.onclick=async()=>{await reset();toggle();};")
+s=s.replace("if(im.complete&&im.naturalWidth)", "if(im?.complete&&im.naturalWidth)").replace("if(!im.complete||!im.naturalWidth)","if(!im?.complete||!im.naturalWidth)")
+s=s.replace("reset();requestAnimationFrame(loop);const bootNotice=$('bootNotice');if(bootNotice)bootNotice.style.display='none';", "reset();requestAnimationFrame(loop);")
+s=s.replace("window.arena={get simulation(){return duel},reset,start:toggle};", "window.arena={get simulation(){return duel},get ready(){return assetTask},get loadedAssets(){return Object.keys(images)},reset,start:toggle};")
+pos=s.index('function reset(){')
+s=s[:pos]+'''function loadPairAssets(){const generation=++loadGeneration,pair=duel.fighters.map(f=>f.id);assetsReady=false;assetError=false;images={};$('start').disabled=true;$('heroStart').disabled=true;$('start').textContent='Đang tải…';$('status').textContent='ĐANG TẢI TÀI NGUYÊN';assetTask=loader.loadPair(pair).then(selected=>{if(generation!==loadGeneration)return;images=selected;loader.retain(assetsForPair(pair));assetsReady=true;$('start').disabled=false;$('heroStart').disabled=false;$('start').textContent='▶ Bắt đầu';$('status').textContent='SẴN SÀNG';const notice=$('bootNotice');if(notice)notice.style.display='none';}).catch(error=>{if(generation!==loadGeneration)return;assetError=true;$('start').disabled=false;$('start').textContent='↻ Tải lại tài nguyên';$('status').textContent='LỖI TẢI TÀI NGUYÊN';window.showArenaError?.(error.message);});return assetTask;}
+''' +s[pos:]
+p.write_text(s,encoding='utf-8')
+p=Path('down-arena/dist/index.html');s=p.read_text(encoding='utf-8').replace('PROTOTYPE 05.1','PROTOTYPE 06');s=s.replace('Sprite minh họa; hiệu ứng chưởng được vẽ riêng.','Tài nguyên chỉ được tải cho cặp đấu đang chọn. Sprite minh họa; hiệu ứng chưởng được vẽ riêng.');s=s.replace('Hãy tải tệp HTML về và mở bằng Chrome hoặc Edge.','Bản xem nhanh: tải HTML và mở bằng Chrome hoặc Edge. Bản đầy đủ: chạy Start_Game.cmd rồi mở địa chỉ localhost được hiển thị.');p.write_text(s,encoding='utf-8')

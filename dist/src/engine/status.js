@@ -1,0 +1,2 @@
+export function isPetrified(d,f){return d.tick<(f.petrifyUntil||0);}
+export function applyHitStatus(d,t,h){if(h.value<=0)return;if(h.slowTicks)t.boaSlowUntil=Math.max(t.boaSlowUntil||0,d.tick+Math.min(180,h.slowTicks));if(h.petrifyTicks&&d.tick>=(t.petrifyImmuneUntil||0)){t.petrifyUntil=d.tick+Math.min(60,h.petrifyTicks);t.petrifyImmuneUntil=t.petrifyUntil+Math.max(180,h.petrifyImmunityTicks||180);t.petrifyX=t.x;t.petrifyY=t.y;t.state='idle';t.age=0;t.hit=false;t.moveX=t.moveY=0;d.event('petrified',t,{x:t.x,y:t.y,duration:(t.petrifyUntil-d.tick)/60});}}

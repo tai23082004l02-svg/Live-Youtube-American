@@ -1,0 +1,150 @@
+
+> test
+> node tests/sukuna-tests.mjs && node tests/combat-samples-tests.mjs && node tests/title-assets-tests.mjs && node tests/mode-menu-tests.mjs && node tests/vertical-arena-tests.mjs && node tests/live-arena-tests.mjs && node tests/team-voice-timing-tests.mjs && node tests/victory-tests.mjs && node tests/music-tests.mjs && node tests/ultimate-hit-tests.mjs && node tests/combat-balance-tests.mjs && node tests/boa-hancock-tests.mjs && node tests/tatsumaki-tests.mjs && node tests/saber-tests.mjs && node tests/audio-tests.mjs && node tests/fighting-style-tests.mjs && node tests/goku-ultra-tests.mjs && node tests/passive-rage-tests.mjs && node tests/jinwoo-tests.mjs && node tests/tournament-tests.mjs && node tests/team-dialogue-tests.mjs && node tests/ichigo-tests.mjs && node tests/projectile-energy-tests.mjs && node tests/team-ultimate-tests.mjs && node tests/beerus-render-tests.mjs && node tests/beerus-tests.mjs && node tests/goku-blue-tests.mjs && node tests/hp-multiplier-tests.mjs && node tests/arena-tests.mjs && node tests/tests.mjs && node tests/skill-tests.mjs && node tests/broly-tests.mjs && node tests/muzzle-tests.mjs && node tests/ffa-tests.mjs && node tests/piccolo-tests.mjs && node tests/pvp-tests.mjs && node tests/team-tests.mjs && node tests/combat-tests.mjs && node tests/naruto-tests.mjs && node tests/kurama-tests.mjs && node tests/yugi-tests.mjs && node tests/gaara-tests.mjs && node tests/frieza-tests.mjs && node tests/luffy-tests.mjs && node tests/gogeta-tests.mjs && node tests/sasuke-tests.mjs && node tests/gojo-v2-tests.mjs && node tests/asset-tests.mjs && node --experimental-vm-modules tests/ui-active-roster.mjs
+
+Sukuna passed: skills/miss/root/splash/team safety, one-use15% healing/no resurrection,245-step freeze,840 domain/escape/auto-dodge/death, native complete frames,8 assets and deterministic duel/portrait5v5.
+Combat samples passed:21 assets, single cached preload, weapon/fist/energy/block routing,3 variations, offline fallback.
+Title assets passed: all8 files, proportional full-image fitting, centered bounds, unknown label fallback and balanced canvas.
+Mode menu passed: initial screen, Live aspect submenu/back, all mode routes, isolated mode families, stop on return, inert/focus controls.
+Vertical passed: all formats/scales/bounds, deterministic unique teams,60s spectator rotation/cache,5 exhibitionsâ†’8-person cupâ†’repeat, pause and black25% in every phase.
+Spectator entrances passed: native character/effect atlases for all8 supported intros, finite full-cell rendering and completion.
+Gallery projectiles passed: cross former floor boundary, survive above terrace, clean outside scene at1/2/4x.
+Vertical idle preview passed: stale match layer excluded before Start Live.
+Six-fighter roster passed: all formats including unique5-person teams, active-only8-slot cups and seeded repeats.
+Live Arena passed: 8 unique entrants, timings/pause, draw replay, 7-match championship, repeat cup, loading/retry, clean view, speed restoration and finite render.
+Team voice timing passed: six leader durations, frozen combat and release after speech.
+Victory passed: duel/FFA identity, duplicate team IDs, draw, timing, reduced effects, finite rendering and unchanged simulation.
+Music passed: lazy start, loop, independent volume, pause/resume/reset/result/off, Ultimate ducking, autoplay rejection and immutable simulation.
+Playlist passed: Godbreaker, random consecutive tracks, no immediate repeat, volume, pause and stale-event protection.
+Ultimate hits passed: piercing/nonpiercing hits ignore automatic evasion/iframe/passive counter, leaving path by movement/blink escapes, block/armor and ordinary dodges preserved.
+Combat balance passed: saved/default/custom migration, Saber HP/block, 3s farther blink, two-second freeze and immediate rage refill without Ultimate feedback.
+Boa passed: heart scaling/fan/kick/slow/root, petrify cap/immunity/defenses/cancel/ultimate eligibility, friendly slots, Judgment queue/freeze/420/no rage, native staging and deterministic FFA/mirrored5v5/tournament.
+Tatsumaki passed: ranged basics/scaling/spacing, barrage, fixed crush, repulsion/root, storm cadence/expiry, owner/ally safety, circular Ultimate/freeze/queue/dodge/escape/no rage, native staging and deterministic FFA/mirrored5v5/tournament.
+Saber passed: four skills, Avalon expiry/root/defenses, friendly slots, Excalibur freeze/queue/dodge/no rage/cancel, sword-before-body staging, native cells and deterministic FFA/mirrored5v5/tournament.
+Audio passed: layered/spatial hits, duplicate throttling, 48-voice priority cap, charge progression, bounded flight loops, cinematic ducking, victory/pause/mute/reset cleanup and scene immutability. Listening QA remains manual.
+Ultra recorded voice passed: cached local asset, one source, hero bus, cinematic offset, pause/resume/mute/reset/end cleanup.
+Fighting styles passed: defaults/migration/limits, 0/100 decisions, opportunity expiry, cooldown/root safety, low HP, stable enemy-slot targets and85 controls.
+Goku Ultra passed: skills, counter/roots/defenses, Focus expiry, rage/Ultimate freeze/shared queue/death, native frames, deterministic FFA and mirrored 5v5.
+Passive rage passed:2/s, exactly50 combat seconds, team-size independent, intro/cinematic freeze, death/lockout/off, additive real damage, no Ultimate feedback and replay.
+Jinwoo passed: four skills/root, Igris attacks/expiry/replacement/death/ownership, Domain, ARISE freeze/three waves/defenses/no rage, shared queue, mirrors/tournament and deterministic5v5.
+Jinwoo intro passed: portal first, hidden hero before0.65s, staged walk/draw/power, correct back layer and no simulation mutation.
+Tournament passed: 8 entrants/7 matches, seeded draw/manual order, bracket propagation, ties/rematch, snapshot isolation, real solo/team replay, mirrors, fresh HP/rage/buffs and5v5.
+Team dialogue passed: all15 leaders/six themes, full crops, English names/lines, speaker portrait only, reduced effects, separate launch title, no simulation mutation.
+Ichigo passed: four skills, root, Hollow expiry, safe atlas metadata, personal rage/freeze/queue/lockout, Ultimate no feedback, cancellation, duel/FFA/ten-Ichigo replay.
+Projectile energy passed:14 palettes, beam/orb/disc/card/sand/wind, animation/pause determinism, no RNG/shot mutation, reduced effects, zero/reversed velocities and Ultimate sizes.
+Team Ultimate passed:60-step full freeze, team-size-normalized rage, leader choice, warning/travel/pulses/dodge, no friendly fire/feedback, queue/cancel/replay/5v5 and mode isolation.
+Team Ultimate toggle passed: cancel, no restart, no rage while off, clean re-enable, personal Ultimate preserved.
+Beerus renderer passed:90 native crops, preserved per-frame size/pivot, high-quality one-pass scaling and compatible asset keys.
+Beerus passed: intro, four skills, splash, on-hit knockback/dodge, Naruto protection, buff/expiry, replay, FFA, ten-Beerus 5v5 and UI options.
+Goku Blue passed: intro freeze, all skills, buff cost/expiry, root, replay, FFA, ten Blue 5v5 and friendly immunity.
+Global HP passed: all nine fighters, customized base, team duplicates, separate arena scale, x1 reset, clamp and Naruto threshold.
+Arena scale passed: clamp/limits, enlarged spawns, camera mapping, unchanged stats, projectile and teleport outside old bounds, replay, 4x 5v5 and default compatibility.
+{
+  "matches": 100,
+  "wins": {
+    "goku": 30,
+    "vegeta": 69,
+    "draw": 1
+  },
+  "meanSeconds": 16.060333333333332,
+  "beams": 541,
+  "dashes": 546,
+  "determinism": "passed",
+  "simultaneousDamage": "passed",
+  "singleHit": "passed",
+  "doubleKO": "passed"
+}
+Skill tests passed { teleport: 177, kaioken: 116, volley: 204, final: 33 }
+[
+  {
+    "pair": [
+      "goku",
+      "broly"
+    ],
+    "wins": {
+      "broly": 79,
+      "goku": 21
+    },
+    "meanSeconds": 16.07,
+    "skills": {
+      "rush": 163,
+      "wave": 130,
+      "roar": 25
+    }
+  },
+  {
+    "pair": [
+      "broly",
+      "goku"
+    ],
+    "wins": {
+      "broly": 73,
+      "goku": 26,
+      "draw": 1
+    },
+    "meanSeconds": 17.06,
+    "skills": {
+      "rush": 218,
+      "wave": 151,
+      "roar": 35
+    }
+  },
+  {
+    "pair": [
+      "vegeta",
+      "broly"
+    ],
+    "wins": {
+      "broly": 29,
+      "vegeta": 70,
+      "draw": 1
+    },
+    "meanSeconds": 15.05,
+    "skills": {
+      "rush": 207,
+      "wave": 121,
+      "roar": 60
+    }
+  },
+  {
+    "pair": [
+      "broly",
+      "vegeta"
+    ],
+    "wins": {
+      "broly": 46,
+      "vegeta": 53,
+      "draw": 1
+    },
+    "meanSeconds": 15.68,
+    "skills": {
+      "rush": 220,
+      "wave": 131,
+      "roar": 39
+    }
+  }
+]
+Broly skills, single-hit wave/rush, no time limit and seed replay passed.
+Muzzle tests passed: frame sockets, mirrored hands, exact launch origin and blend to collision path.
+Stats and FFA tests passed {"matches":200,"wins":{"broly":20,"goku":175,"vegeta":5},"eliminated":400}
+Piccolo tests passed: 180 duels, 60 FFA, replay, emissions, splash, damage/cooldown scaling and mirrored shot sockets. { special: 170, hellzone: 178, light: 180 }
+PVP tests passed: 100 four-player games, spawn separation, invariants, replay and no time limit.
+Team tests passed: 90 matches (3v1/2v2/5v5), duplicates, replay, friendly projectile/AoE immunity, damage attribution, win and no time limit.
+Combat tests passed: exact 0/100% outcomes, crit/block/armor stacking, blink cooldown, migration, 80 default matches and deterministic replay. { crits: 342, blocks: 408, evades: 315, blinks: 182 }
+Unlimited matches verified beyond 120 seconds for solo and team modes.
+Naruto tests passed: 80 default duels/5-FFA, 15 duplicate-team matches, skills, splash, clone expiry/death, owner attribution and replay. { rasengan: 307, shuriken: 115, clones: 146 }
+Kurama tests passed: strict threshold, exactly60 protected stationary ticks, collision immunity, damage resumes, delayed20% bonus, no revival/stacking and actor isolation.
+Yugi passed: summon attacks/expiry, command, Kuriboh absorb, skull AoE, death cleanup, duplicate owners, attribution, replay, FFA and ten-Yugi 5v5.
+Yugi defaults:900HP/0%dodge/0%blink passed.
+Gaara passed: homing, coffin root/crush, shield depletion, slow/field death cleanup, friendly immunity, replay, expanded arena and 5v5.
+Frieza passed: skills, homing discs, piercing, golden duration/bonus/expiry, replay, expanded arena, friendly immunity and 5v5.
+Luffy passed: three attacks, five Gatling hits, friendly immunity, Gear2 6s/speed/damage/expiry, cooldown scale, replay, FFA and 5v5.
+Gogeta passed: four skills, piercing, friendly immunity, five-shot volley, cooldown scale, 8-frame poses, atlas sizes, replay, FFA and 5v5.
+Sasuke passed: four skills, friendly immunity, field death cleanup, shield, cooldown scale, replay, FFA, 5v5 and lazy assets.
+Chidori lock-on, moving target and guaranteed single hit passed.
+Susanoo 5s/25% lifesteal/cap/overkill/expiry/no-revive passed.
+Gojo v2 passed:3 skills, team safety, Infinity reduction/cooldown, Void freeze/pulses840/escape/rage, native intro/dialogue/shot rendering and finite poses.
+Asset tests passed: pair-only loads, concurrent dedupe, cache eviction, failed load retry.
+Active roster UI passed: eight selections/animations, old saved picks sanitized, retired stats hidden,5FFA/5v5, both Live formats,5 exhibitions to8-slot cup and cleanup.
+(node:36448) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

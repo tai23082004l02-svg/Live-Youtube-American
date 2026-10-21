@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {Duel} from '../dist/src/engine/sim.js';
+import {goku_blue,gokuBluePose} from '../dist/src/characters/goku_blue.js';
+import {assetsForPair} from '../dist/src/engine/assets.js';
+const stats=Object.fromEntries(['goku_blue','goku'].map(id=>[id,{hp:20000,dodgeChance:0,blinkChance:0,blockChance:0,critChance:0,reactionChance:0}]));
+function setup(){const d=new Duel('BLUE',false,['goku_blue','goku','goku_blue'],stats,['A','B','A']);const initial=JSON.stringify(d.fighters.map(f=>[f.x,f.y,f.hp,f.instantblueCd]));for(let i=0;i<150;i++)d.step();assert.equal(d.tick,0);assert.equal(JSON.stringify(d.fighters.map(f=>[f.x,f.y,f.hp,f.instantblueCd])),initial);assert(d.fighters.filter(f=>f.id==='goku_blue').every(f=>f.introAge===null));d.fighters.forEach((f,i)=>{f.x=300+i*100;f.y=270;f.think=999;});return d;}
+for(const [skill,damage] of [['instantblue',250],['bluerush',200],['godbind',60]]){const d=setup(),[f,t,a]=d.fighters;d.act(f,skill,1,0);for(let i=0;i<100;i++)d.step();assert.equal(t.max-t.hp,damage,skill);assert.equal(a.hp,a.max);if(skill==='godbind')assert(t.rootUntil>0);}
+{const d=setup(),f=d.fighters[0];d.act(f,'bluekaioken',1,0);for(let i=0;i<75;i++)d.step();assert.equal(f.hp,18400);assert.equal(goku_blue.outgoingDamageMultiplier(d,f),1.2);assert.equal(goku_blue.movementSpeedMultiplier(d,f),1.25);while(d.tick<f.blueKaiokenEnd)d.step();assert.equal(goku_blue.outgoingDamageMultiplier(d,f),1);}
+{const d=setup(),[f,t]=d.fighters;f.rootUntil=200;f.rootX=f.x;f.rootY=f.y;d.act(f,'instantblue',1,0);for(let i=0;i<80;i++)d.step();assert.equal(f.x,f.rootX);assert.equal(f.y,f.rootY);}
+for(const pair of [['goku_blue','naruto'],['goku_blue','gojo','yugi','gaara','frieza']]){const a=new Duel('BLUE-REPLAY',false,pair,{},null,2),b=new Duel('BLUE-REPLAY',false,pair,{},null,2);for(let i=0;i<25000&&!a.result;i++){a.step();b.step();}assert(a.result);assert.deepEqual(a,b);}
+{const pair=Array(10).fill('goku_blue'),teams=['A','A','A','A','A','B','B','B','B','B'],d=new Duel('BLUE-TEAM',false,pair,{},teams,2);for(let i=0;i<25000&&!d.result;i++)d.step();assert(d.result);for(const e of d.events.filter(e=>e.type==='hit'))assert.notEqual(d.fighters.find(f=>f.uid===e.uid).team,d.fighters.find(f=>f.uid===e.sourceUid).team);}
+assert.equal(assetsForPair(['goku_blue']).length,4);for(const state of ['idle','run','melee','dash','defeat','instantblue','bluerush','godbind','bluekaioken'])for(const age of [0,.5,2,10]){const p=gokuBluePose({state,age,combo:1});assert(p.frame<6&&p.row<14);}
+console.log('Goku Blue passed: intro freeze, all skills, buff cost/expiry, root, replay, FFA, ten Blue 5v5 and friendly immunity.');

@@ -1,0 +1,165 @@
+UI smoke passed: render, match, result, reset, swap, pause. Browser visual/audio QA unverified.
+Current UI mock passed: selected stats/limits, charge immunity indicator, six-frame render, completion/reset, VFX toggle, clones, 5-FFA, 5v5 and mode cleanup.
+Gojo UI mock passed: two atlases, stats, casting, domain reset.
+Sasuke UI mock passed: selection, both atlases, stats, casts, shield/field and reset.
+Gogeta UI mock passed: selection, lazy atlases, editable stats, eighth frame, casts and reset.
+Luffy UI mock passed: selection, two atlases, stats, casting, Gear2 aura and reset.
+Arena UI passed: apply/validate/store/reset, real world bounds and full-scene zoom.
+Global HP UI passed: x10 preset, all actors, no stacking/base mutation, custom factor, validation and reset.
+Team random UI passed: full/per-team picks, unique members, preserved counts and reset.
+Frieza UI passed: selection, three atlases, stats, golden rendering, casts and reset.
+Gaara UI passed: selection, both atlases, stats, shield, coffin, quicksand and reset.
+Yugi UI passed: seven lazy atlases, selected stats, all summon rendering, command and reset.
+Goku Blue UI passed: four atlases, intro, stats, all cast rendering and reset.
+Beerus UI passed: selection, four atlases, intro with Goku Blue, stats, all cast/VFX rendering and reset.
+Team Ultimate UI passed: team-only atlas/HUD, real-time1s cut-in at4x, pause,4 VFX styles, reduced effects, reset and mode cleanup.
+Ichigo UI passed: six full-frame atlases, intro, stats, four casts, personal cinematic/pause at4x, launch, reset and asset cleanup.
+Ultimate filter UI passed:15 pickers, supported roster metadata, shared buttons,20/20 count, option visibility/labels and no match restart.
+UI toggle/storage/reset and English battle labels passed.
+Tournament UI passed: setup/manual/draw, 7 matches, VS/pause, champion, team5v5, automatic fresh match and mode cleanup.
+Jinwoo UI passed: seven full-frame assets, stats, intro, all skills/Igris, ARISE1s/pause at4x, custom team chat, tournament mirrors and cleanup.
+Goku Ultra UI passed: six complete native atlases, stats, intro, all casts, Supreme cinematic at4x/pause, team dialogue, tournament mirrors and cleanup.
+Fighting-style UI passed: five values applied/saved, zero retained, per-character isolation, invalid input rejected and defaults restored.
+Saber UI passed: six native atlases, stats, staged intro, casts/Avalon, Excalibur1s/pause at4x, custom team chat, tournament mirrors and cleanup.
+Tatsumaki UI passed: six native atlases, stats, rocks-first intro, ranged casts/zones, Cataclysm1s/pause at4x with zone freeze, custom team chat, tournament mirrors and cleanup.
+BOA_DEBUG 388 [
+  {
+    x: 397.58518277856524,
+    y: 291.84335372771477,
+    state: 'idle',
+    age: 0.11666666666666665,
+    petrifyUntil: undefined,
+    immune: undefined,
+    damageReduction: 0,
+    skillUses: {
+      teleport: 0,
+      kaioken: 0,
+      volley: 0,
+      final: 0,
+      rush: 0,
+      wave: 0,
+      roar: 0,
+      rasengan: 0,
+      shuriken: 0,
+      clones: 0,
+      special: 0,
+      hellzone: 0,
+      light: 0,
+      heartshot: 1,
+      pistolkiss: 1,
+      slavearrow: 1,
+      perfumefemur: 1,
+      meromellow: 1
+    }
+  },
+  {
+    x: 836.1,
+    y: 390,
+    state: 'run',
+    age: 6.466666666666649,
+    petrifyUntil: undefined,
+    immune: undefined,
+    damageReduction: 0,
+    skillUses: {
+      teleport: 0,
+      kaioken: 0,
+      volley: 0,
+      final: 0,
+      rush: 0,
+      wave: 0,
+      roar: 0,
+      rasengan: 0,
+      shuriken: 0,
+      clones: 0,
+      special: 0,
+      hellzone: 0,
+      light: 0,
+      invisibleair: 0,
+      manaburst: 0,
+      strikeair: 0,
+      avalon: 0
+    }
+  }
+] [
+  {
+    tick: 160,
+    type: 'slavearrow',
+    id: 'boa_hancock',
+    uid: 'boa_hancock'
+  },
+  {
+    tick: 196,
+    type: 'fire',
+    id: 'boa_hancock',
+    uid: 'boa_hancock',
+    skill: 'slavearrow'
+  },
+  {
+    tick: 236,
+    type: 'perfumefemur',
+    id: 'boa_hancock',
+    uid: 'boa_hancock'
+  },
+  {
+    tick: 242,
+    type: 'boaImpact',
+    id: 'boa_hancock',
+    uid: 'boa_hancock',
+    x: 836.1,
+    y: 390,
+    skill: 'slavearrow'
+  },
+  {
+    tick: 242,
+    type: 'hit',
+    id: 'saber',
+    uid: 'saber',
+    value: 45,
+    source: 'boa_hancock',
+    sourceUid: 'boa_hancock',
+    critical: false,
+    blocked: false,
+    x: 836.1,
+    y: 390
+  },
+  {
+    tick: 257,
+    type: 'boaKick',
+    id: 'boa_hancock',
+    uid: 'boa_hancock',
+    x: 482.58518277856524,
+    y: 291.84335372771477
+  },
+  {
+    tick: 312,
+    type: 'meromellow',
+    id: 'boa_hancock',
+    uid: 'boa_hancock'
+  },
+  {
+    tick: 351,
+    type: 'boaWave',
+    id: 'boa_hancock',
+    uid: 'boa_hancock',
+    x: 482.58518277856524,
+    y: 291.84335372771477
+  }
+]
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(bd.fighters[1].petrifyUntil>bd.tick)
+
+    at file:///C:/Users/ntt23/Documents/Codex/2026-10-19/new-chat-2/down-arena/tests/ui-smoke.mjs:155:428 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v26.1.0

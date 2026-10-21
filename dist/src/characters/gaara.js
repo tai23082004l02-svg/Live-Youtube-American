@@ -1,0 +1,18 @@
+export const GAARA_SKILLS={sandstream:{cooldown:7,cast:.65,duration:1.1},coffin:{cooldown:12,cast:.6,duration:1.8},sandshield:{cooldown:15,cast:.55,duration:.95},quicksand:{cooldown:16,cast:.8,duration:1.2}};
+export const gaara={name:'Gaara',assets:['gaara','gaara_vfx'],stats:{hp:1250,speed:175,melee:65,skillPower:100,cooldown:100},
+ init(f){for(const [key,delay] of Object.entries({sandstream:1,coffin:3,sandshield:2,quicksand:6})){f[key+'Cd']=delay*f.cooldownFactor;f.skillUses[key]=0;}},
+ onAct(f,state,duel){if(GAARA_SKILLS[state]){f[state+'Cd']=GAARA_SKILLS[state].cooldown*f.cooldownFactor;f.skillUses[state]++;if(state==='coffin'){f.coffinTarget=duel.pickTarget(f)?.uid;f.coffinCrushed=false;}}},
+ tick(f,dt){for(const key of Object.keys(GAARA_SKILLS))f[key+'Cd']=Math.max(0,f[key+'Cd']-dt);},
+ absorbDamage(duel,f,damage){if(!(duel.tick<f.sandshieldEnd)||!(f.sandshieldHP>0))return damage;const absorbed=Math.min(damage,f.sandshieldHP);f.sandshieldHP-=absorbed;if(absorbed)duel.event('sandAbsorb',f,{x:f.x,y:f.y,value:absorbed});return damage-absorbed;},
+ updateShot(duel,s){if(s.kind!=='sandstream')return;const owner=duel.shotOwner(s);if(!owner||owner.hp<=0)return;const t=duel.pickTarget(owner);if(!t)return;const dx=t.x-s.x,dy=t.y-s.y,d=Math.hypot(dx,dy)||1;s.vx=s.vx*.9+dx/d*360*.1;s.vy=s.vy*.9+dy/d*360*.1;},
+ beforeStep(duel,hits){for(const f of duel.fighters){if(f.id!=='gaara'||f.hp<=0||!(duel.tick<f.quicksandEnd))continue;const pulse=duel.tick>=f.quicksandPulse;for(const t of duel.fighters)if(t.hp>0&&duel.isEnemy(f,t)&&Math.hypot(t.x-f.quicksandX,t.y-f.quicksandY)<145){if(!duel.isTransformProtected(t))t.sandSlowUntil=duel.tick+2;if(pulse)hits.push({target:t,source:f,value:24});}if(pulse)f.quicksandPulse=duel.tick+30;}},
+ updateAction(duel,f,o,hits){const spec=GAARA_SKILLS[f.state];if(!spec)return false;
+ if(f.state==='coffin'&&f.age>=1.55&&!f.coffinCrushed){f.coffinCrushed=true;const t=duel.fighters.find(t=>t.uid===f.coffinTarget&&t.hp>0&&duel.isEnemy(f,t));if(t){hits.push({target:t,source:f,value:160});duel.event('gaaraImpact',f,{x:t.x,y:t.y,skill:'coffin'});}}
+ if(f.age>=spec.cast&&!f.hit){f.hit=true;if(f.state==='sandstream'){duel.shots.push({id:f.id,ownerUid:f.uid,kind:'sandstream',damage:145,radius:30,x:f.x+f.actionX*40,y:f.y+f.actionY*40,vx:f.actionX*360,vy:f.actionY*360,life:2.5,impactEvent:'gaaraImpact',skill:'sandstream'});duel.event('fire',f,{skill:'sandstream'});}
+ else if(f.state==='coffin'){const t=duel.fighters.find(t=>t.uid===f.coffinTarget&&t.hp>0&&duel.isEnemy(f,t));if(t){hits.push({target:t,source:f,value:70,rootTicks:90});duel.event('sandCoffin',f,{x:t.x,y:t.y,targetUid:t.uid});}}
+ else if(f.state==='sandshield'){f.sandshieldHP=Math.round(300*f.skillPower/100);f.sandshieldEnd=duel.tick+300;duel.event('shieldOn',f,{x:f.x,y:f.y});}
+ else if(f.state==='quicksand'){f.quicksandX=o.x;f.quicksandY=o.y;f.quicksandEnd=duel.tick+300;f.quicksandPulse=duel.tick+1;duel.event('quicksandOn',f,{x:o.x,y:o.y});}}
+ if(f.age>=spec.duration){f.state='idle';f.age=0;}return true;},
+ chooseSkill(duel,f,o,dx,dy,d){for(const key of ['sandshield','quicksand','coffin','sandstream'])if(f[key+'Cd']===0&&(key==='sandshield'?d<300:key==='quicksand'?d<400:key==='coffin'?d<300:d>80&&d<600)){duel.act(f,key,dx,dy);return true;}return false;}
+};
+export function gaaraPose(f,hurt=false){const state=hurt?'hurt':f.state,spec=GAARA_SKILLS[state],row=({idle:0,run:1,melee:f.combo%2?2:4,dash:3,guard:5,hurt:6,defeat:7,sandstream:8,coffin:9,sandshield:10,quicksand:11})[state]??0;return {row,frame:state==='defeat'?5:spec?Math.min(5,Math.floor(f.age/spec.duration*6)):['melee','dash','hurt','guard'].includes(state)?Math.min(5,Math.floor(f.age*(state==='dash'?24:10))):Math.floor(f.age*9)%6};}

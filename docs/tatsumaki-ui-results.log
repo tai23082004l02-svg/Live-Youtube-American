@@ -1,0 +1,26 @@
+UI smoke passed: render, match, result, reset, swap, pause. Browser visual/audio QA unverified.
+Current UI mock passed: selected stats/limits, charge immunity indicator, six-frame render, completion/reset, VFX toggle, clones, 5-FFA, 5v5 and mode cleanup.
+Gojo UI mock passed: two atlases, stats, casting, domain reset.
+Sasuke UI mock passed: selection, both atlases, stats, casts, shield/field and reset.
+Gogeta UI mock passed: selection, lazy atlases, editable stats, eighth frame, casts and reset.
+Luffy UI mock passed: selection, two atlases, stats, casting, Gear2 aura and reset.
+Arena UI passed: apply/validate/store/reset, real world bounds and full-scene zoom.
+Global HP UI passed: x10 preset, all actors, no stacking/base mutation, custom factor, validation and reset.
+Team random UI passed: full/per-team picks, unique members, preserved counts and reset.
+Frieza UI passed: selection, three atlases, stats, golden rendering, casts and reset.
+Gaara UI passed: selection, both atlases, stats, shield, coffin, quicksand and reset.
+Yugi UI passed: seven lazy atlases, selected stats, all summon rendering, command and reset.
+Goku Blue UI passed: four atlases, intro, stats, all cast rendering and reset.
+Beerus UI passed: selection, four atlases, intro with Goku Blue, stats, all cast/VFX rendering and reset.
+Team Ultimate UI passed: team-only atlas/HUD, real-time1s cut-in at4x, pause,4 VFX styles, reduced effects, reset and mode cleanup.
+Ichigo UI passed: six full-frame atlases, intro, stats, four casts, personal cinematic/pause at4x, launch, reset and asset cleanup.
+Ultimate filter UI passed:15 pickers, supported roster metadata, shared buttons,19/19 count, option visibility/labels and no match restart.
+UI toggle/storage/reset and English battle labels passed.
+Tournament UI passed: setup/manual/draw, 7 matches, VS/pause, champion, team5v5, automatic fresh match and mode cleanup.
+Jinwoo UI passed: seven full-frame assets, stats, intro, all skills/Igris, ARISE1s/pause at4x, custom team chat, tournament mirrors and cleanup.
+Goku Ultra UI passed: six complete native atlases, stats, intro, all casts, Supreme cinematic at4x/pause, team dialogue, tournament mirrors and cleanup.
+Fighting-style UI passed: five values applied/saved, zero retained, per-character isolation, invalid input rejected and defaults restored.
+Saber UI passed: six native atlases, stats, staged intro, casts/Avalon, Excalibur1s/pause at4x, custom team chat, tournament mirrors and cleanup.
+Tatsumaki UI passed: six native atlases, stats, rocks-first intro, ranged casts/zones, Cataclysm1s/pause at4x with zone freeze, custom team chat, tournament mirrors and cleanup.
+(node:25172) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
