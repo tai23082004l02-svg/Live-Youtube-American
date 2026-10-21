@@ -1,0 +1,2 @@
+export const RENGOKU_VOICE_STEPS=279;
+export const RENGOKU_VOICE_SECONDS=4.64;
