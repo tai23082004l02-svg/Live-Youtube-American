@@ -1,0 +1,50 @@
+name: Test R2 image upload
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/test-r2-upload.yml, tools/r2-check/test-image.png]
+
+permissions:
+  contents: read
+
+jobs:
+  upload-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: 'true'
+      AWS_PAGER: ''
+      R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+      R2_BUCKET: ${{ vars.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Upload image and verify downloaded bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY R2_ENDPOINT R2_BUCKET; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::Missing configuration: $name"
+              exit 1
+            fi
+          done
+          if [[ "$R2_ENDPOINT" != 'https://fdd00e4aaaf0b0220e5d4ee517661254.r2.cloudflarestorage.com' || "$R2_BUCKET" != 'down-arena-assets' ]]; then
+            echo '::error::Unexpected R2 destination.'
+            exit 1
+          fi
+          key="connection-tests/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/test-image.png"
+          aws s3api put-object --endpoint-url "$R2_ENDPOINT" --bucket "$R2_BUCKET" --key "$key" --body tools/r2-check/test-image.png --content-type image/png > "$RUNNER_TEMP/r2-upload.json"
+          aws s3api get-object --endpoint-url "$R2_ENDPOINT" --bucket "$R2_BUCKET" --key "$key" "$RUNNER_TEMP/r2-test-image.png" > "$RUNNER_TEMP/r2-download.json"
+          cmp tools/r2-check/test-image.png "$RUNNER_TEMP/r2-test-image.png"
+          {
+            echo '### R2 image upload verified'
+            echo 'Uploaded a 64x64 PNG and downloaded it with identical bytes.'
+            echo "Object retained in private bucket: \`$R2_BUCKET/$key\`"
+            echo 'SHA-256:'
+            sha256sum "$RUNNER_TEMP/r2-test-image.png" | cut -d ' ' -f 1
+          } >> "$GITHUB_STEP_SUMMARY"
