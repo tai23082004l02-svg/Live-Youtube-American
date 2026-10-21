@@ -1,0 +1,144 @@
+{
+  "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d",
+  "bucket": "down-arena-assets",
+  "verifiedObjects": [
+    {
+      "path": "art/drafts/rengoku/rengoku_actions.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_actions.png",
+      "bytes": 2408217,
+      "sha256": "ac3cb840201b105d2acc6c45d341b9e052abc698b5d4deff6e4d87f059f1d4fa"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_dialogue.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_dialogue.png",
+      "bytes": 1855999,
+      "sha256": "948c61825ae31462a5035fa973baa12e33bbe679be9832a48b6ab5af0e1a2c2c"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_intro.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_intro.png",
+      "bytes": 2426658,
+      "sha256": "ec8da2ec4e5dbc7251d16193be0140a872568c5c3375bac17d6a68e44754181e"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_skills.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_skills.png",
+      "bytes": 2382519,
+      "sha256": "b6ddd48e22d571b4d8f89c7fb26a8d5a39126035c12b28decb6465d917523ff0"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_ultimate.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_ultimate.png",
+      "bytes": 2574713,
+      "sha256": "134561b469f76b4eef78f51f1961b53ec77bf2ad2bfac5a3082adca7533e0703"
+    },
+    {
+      "path": "art/frames/rengoku/extraction_report.json",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/extraction_report.json",
+      "bytes": 35294,
+      "sha256": "9c4e063aab5db60fb9f644eef82eab845c8da5a2ba874bfb972b781a9a2baba7"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_cast_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_cast_contact.png",
+      "bytes": 68244,
+      "sha256": "401102230c489bd317b8cb4c1977ee4ea9e6eb1c2ce955e8c5cb5924de5f9d0f"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_contact.png",
+      "bytes": 408476,
+      "sha256": "a8683c87768637ac2be07e6b503549ebf9106c32a91eb5843d4c88e500a271ba"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_dialogue_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_dialogue_contact.png",
+      "bytes": 84174,
+      "sha256": "5a5a81951d8d097d45e5475c89e58b568ed5193b661a3da934fac44060dbc64a"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_intro_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_intro_contact.png",
+      "bytes": 150126,
+      "sha256": "161240850a860a83bcf140e8702e5c955100886e41dc11ff03f8db2d6e65a573"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_intro_vfx_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_intro_vfx_contact.png",
+      "bytes": 124763,
+      "sha256": "d402727b624091a8ae443bd78da33265e2ce502e264c6da7f3c1b8288536da03"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_ultimate_actor_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_ultimate_actor_contact.png",
+      "bytes": 173357,
+      "sha256": "4e70253172f989eaa4562ca6a02eb772ccff2372d439f057c7f630977e7f1de8"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_ultimate_vfx_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_ultimate_vfx_contact.png",
+      "bytes": 177338,
+      "sha256": "d17d320553df88c38e97e188126f01d7474e519fd26b3f6e415c2f5c5a3ea021"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_vfx_contact.png",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_vfx_contact.png",
+      "bytes": 214777,
+      "sha256": "78551ba417335b24987e5f4d654a90cc16503fc5488b5da8123eee173897a2bd"
+    },
+    {
+      "path": "dist/assets/audio/voices/rengoku_ultimate_ja.mp3",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/audio/voices/rengoku_ultimate_ja.mp3",
+      "bytes": 75275,
+      "sha256": "02885a85d72f6536993bd023d7940c19166f2ab8a98b32da6b71a9133f583c66"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku.webp",
+      "bytes": 1600904,
+      "sha256": "2548344a9f3001fc4cce1d640adc5223d9ce534e4350e81e666c89b298b89071"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku_cast.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku_cast.webp",
+      "bytes": 237620,
+      "sha256": "fad6c3265a4861145cfd677ea796b70037ed835d84fff46d152baf81969bc1f3"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku_dialogue.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku_dialogue.webp",
+      "bytes": 1395318,
+      "sha256": "b78a631190aa5c7acda094990934240f36d31f7e32b5f8f520bff8ccbf82cc06"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku_intro.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku_intro.webp",
+      "bytes": 450796,
+      "sha256": "4eb6b569ae7163af20c044909af7b58f2b7bd3e1a37f61d9e101c549d79a6486"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku_intro_vfx.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku_intro_vfx.webp",
+      "bytes": 660248,
+      "sha256": "8500b06392eafd9fe99e6d1c78639d42bf674564ce3d36e3371b40b6302c0f9a"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku_ultimate_actor.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku_ultimate_actor.webp",
+      "bytes": 585484,
+      "sha256": "3a764512bba18584fb620622c9b8e6f3bb0dd154993da88c22dbc074cbcc50c3"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku_ultimate_vfx.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku_ultimate_vfx.webp",
+      "bytes": 830392,
+      "sha256": "4a3253d8c54eca7fdefd86990950dd93b9b62ffbd08eabde7a04f9d6a33d49ff"
+    },
+    {
+      "path": "dist/assets/characters/rengoku/rengoku_vfx.webp",
+      "key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/dist/assets/characters/rengoku/rengoku_vfx.webp",
+      "bytes": 1044826,
+      "sha256": "ebe47c3e1bccd09b573769919ccec76f55ca1d613955db546c8476bc4407370a"
+    }
+  ]
+}
