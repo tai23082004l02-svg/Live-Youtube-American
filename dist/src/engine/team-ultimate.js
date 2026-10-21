@@ -1,6 +1,7 @@
 import {TEAM_VOICE_STEPS,cinematicSteps,ULTIMATE_CINEMATIC_STEPS,ULTIMATE_DAMAGE_MULTIPLIER} from './ultimate-rules.js';
 export const ULTIMATE_RULES=Object.freeze({rageMax:100,cinematicSteps:ULTIMATE_CINEMATIC_STEPS,warningTicks:36,travelTicks:42,recoveryTicks:0,radius:160});
 export const ULTIMATE_STYLES={
+ rengoku:{row:2,name:'United Purgatory',line:'Flame Breathing: Purgatory!',color:'#ff8a2b',cast:0},
  sukuna:{row:3,name:'United Malevolent Shrine',line:'Domain Expansion: Malevolent Shrine.',color:'#ff3655',cast:0},
  boa_hancock:{row:3,name:'United Empress Judgment',line:'Know your place before your empress.',color:'#ff83bc',cast:11},
  tatsumaki:{row:4,name:'United Psychic Cataclysm',line:'Know your place.',color:'#61ffad',cast:11},

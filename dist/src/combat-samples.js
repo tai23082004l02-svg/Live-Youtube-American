@@ -1,5 +1,5 @@
-const WEAPONS=new Set(['ichigo','saber','sung_jinwoo','sasuke']);
-const ENERGY=new Set(['fire','beam','special','instantblue','bigbang','light','purple','red','fireball','deathbeam','darkmagic','destruction','stardust','stardustfall','hellzone','hellzoneFire']);
+const WEAPONS=new Set(['rengoku','ichigo','saber','sung_jinwoo','sasuke']);
+const ENERGY=new Set(['flametiger','fire','beam','special','instantblue','bigbang','light','purple','red','fireball','deathbeam','darkmagic','destruction','stardust','stardustfall','hellzone','hellzoneFire']);
 const GROUPS=['sword_swing','sword_hit','punch','heavy_hit','energy_launch','energy_hit','sword_block'];
 export class CombatSamples{
  constructor(){this.buffers=new Map();this.cursor=new Map();this.loading=null;}

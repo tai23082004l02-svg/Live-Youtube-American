@@ -69,6 +69,6 @@ const previewCtx=new Proxy({save(){},restore(){},drawImage(...args){sceneDraws.p
 u.present(previewCtx,staleScene,null,false);assert(!sceneDraws.some(a=>a[0]===staleScene));
 console.log('Vertical idle preview passed: stale match layer excluded before Start Live.');
 
-const activeNames=Object.fromEntries(Object.entries(ACTIVE_CHARACTERS).map(([id,c])=>[id,c.name]));assert.equal(Object.keys(activeNames).length,8);
+const activeNames=Object.fromEntries(Object.entries(ACTIVE_CHARACTERS).map(([id,c])=>[id,c.name]));assert.equal(Object.keys(activeNames).length,9);
 for(let seed=0;seed<100;seed++){const r=exhibitionRoster(activeNames,'SIX-'+seed);assert.equal(r.players.length,r.size*2);for(const team of [r.players.slice(0,r.size),r.players.slice(r.size)])assert.equal(new Set(team).size,r.size);assert(r.players.every(id=>id in activeNames));const cup=liveCupEntrants(activeNames,'SIX-'+seed);assert.equal(cup.length,8);assert.equal(new Set(cup.map(e=>e.players[0])).size,8);}
-console.log('Six-fighter roster passed: all formats including unique5-person teams, active-only8-slot cups and seeded repeats.');
+console.log('Nine-fighter roster passed: all formats including unique5-person teams, active-only8-slot cups and seeded repeats.');

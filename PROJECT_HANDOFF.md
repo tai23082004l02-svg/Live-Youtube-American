@@ -1,3 +1,13 @@
+## Rengoku integrated — 2026-10-21 (latest)
+
+Active roster is now nine: existing eight plus `rengoku`. Runtime code is in `dist/src`; do not rebuild the game. See `docs/RENGOKU.md` for source locations, exact regeneration commands, native-frame verification, mechanics, voice and validation. Current badge: RENGOKU / 9 CHARACTERS.
+
+- Added 3 skills, low-HP Burning Heart, swept-path Purgatory Ultimate, personal/team recorded Japanese voice, entrances, spectator/native metadata, portraits, all 16 selectors and stat fields.
+- The original actions sheet contains 46 frames (rows 4/7 have five). Five source sheets total 122 native frames. All positive-alpha source RGBA samples independently reconstructed once; no alpha threshold discarded glow. Runtime atlases use 32px padding, full-cell rendering, per-group scale and pivots.
+- ElevenLabs Brian/eleven_v3, Japanese call 炎の呼吸、奥義！玖ノ型、煉獄！. One generation was requested through Actions; original MP3 committed byte-for-byte, duration 4.64s /279 steps. Do not generate again merely for setup. Subjective listening still requires user feedback.
+- 42/50 npm-script suites pass individually; eight legacy suites still fail on absent original art reference files. Details: `docs/rengoku-test-results.json`. Browser Chromium QA exercises real assets, real MP3 decode/playback/pause/resume, battle, Ultimate and vertical Live without page errors or failed asset requests; fixtures force Ultimate readiness. `docs/rengoku-qa/results.json` records evidence.
+- `archive-rengoku.yml` uploads versioned original sheets/runtime atlases/contact sheets/report/voice to private R2, downloads and compares every file, then commits `docs/rengoku-r2-archive.json` as receipt. Do not claim archive completion until receipt is present. Source drafts remain until verified archive and an explicit cleanup task.
+
 ## Sukuna presentation impact revision — 2026-10-21 (latest)
 
 User feedback: Sukuna lacked visual force compared with Gojo. Compared Gojo native VFX and measured strong-alpha actor heights: original Sukuna~110px versus Gojo~125px. Increased Sukuna actor presentation scale from.86 to.98 (~125px); adjusted spectator entrance compensation to avoid a size pop. Source art, extraction and all combat/audio parameters remain unchanged.

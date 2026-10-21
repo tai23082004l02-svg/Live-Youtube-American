@@ -1,0 +1,11 @@
+# Local credentials, dependencies and generated native frames.
+.secrets/
+.env
+.env.local
+.voice-worker/
+.voice-worker-test-cache/
+node_modules/
+__pycache__/
+*.pyc
+art/frames/rengoku/*.png
+!art/frames/rengoku/*_contact.png

@@ -16,7 +16,7 @@ const snapshot=d=>JSON.stringify({tick:d.tick,rng:d.rng,fighters:d.fighters,shot
 {const d=setup(1);d.teamUltimate.teams.A.rage=d.teamUltimate.teams.B.rage=100;for(let i=0;i<400;i++)d.step();const starts=d.events.filter(e=>e.type==='ultimateStart');assert.deepEqual(starts.map(e=>e.team),['A','B']);assert.equal(d.teamUltimate.teams.A.uses,1);assert.equal(d.teamUltimate.teams.B.uses,1);}
 {const d=setup(1);d.teamUltimate.teams.A.rage=100;for(let i=0;i<120;i++)d.step();d.fighters[0].hp=0;d.step();assert.equal(d.teamUltimate.attack,null);assert(d.events.some(e=>e.type==='ultimateCancel'));}
 for(const n of [1,5]){const a=setup(n),b=setup(n);for(const d of [a,b]){d.teamUltimate.teams.A.rage=d.teamUltimate.teams.B.rage=100;d.fighters.forEach(f=>f.think=0);}for(let i=0;i<18000&&!a.result;i++){a.step();b.step();}assert(a.result);assert.deepEqual(a,b);}
-assert.equal(new Duel().teamUltimate,null);assert.equal(new Duel('FFA',false,['goku','vegeta','piccolo']).teamUltimate,null);assert.equal(Object.keys(ULTIMATE_STYLES).length,21);
+assert.equal(new Duel().teamUltimate,null);assert.equal(new Duel('FFA',false,['goku','vegeta','piccolo']).teamUltimate,null);assert.equal(Object.keys(ULTIMATE_STYLES).length,22);
 console.log('Team Ultimate passed:60-step full freeze, team-size-normalized rage, leader choice, warning/travel/pulses/dodge, no friendly fire/feedback, queue/cancel/replay/5v5 and mode isolation.');
 
 // Disable cancels pending team attacks and rage, without restarting combat.

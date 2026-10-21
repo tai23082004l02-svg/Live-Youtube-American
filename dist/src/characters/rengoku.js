@@ -1,0 +1,15 @@
+export const RENGOKU_SKILLS={flamedash:{cooldown:7,cast:.18,duration:.85},risingsun:{cooldown:9,cast:.38,duration:.95},flametiger:{cooldown:12,cast:.62,duration:1.15}};
+export const rengoku={name:'Kyojuro Rengoku',assets:['rengoku','rengoku_cast','rengoku_vfx','rengoku_intro','rengoku_intro_vfx','rengoku_ultimate_actor','rengoku_ultimate_vfx','rengoku_dialogue'],stats:{hp:1300,speed:220,melee:78,skillPower:100,cooldown:100,blockChance:25,blinkChance:0,preferredRange:100},
+ init(f){f.rage=0;f.rageLockUntil=0;f.rageReadyTick=null;f.personalUses=0;for(const [k,v] of Object.entries(RENGOKU_SKILLS)){f[k+'Cd']=({flamedash:1,risingsun:2,flametiger:4})[k]*f.cooldownFactor;f.skillUses[k]=0;}},
+ onAct(f,state,d){if(!RENGOKU_SKILLS[state])return;f[state+'Cd']=RENGOKU_SKILLS[state].cooldown*f.cooldownFactor;f.skillUses[state]++;f.flameTarget=d.pickTarget(f)?.uid;},
+ tick(f,dt){for(const k of Object.keys(RENGOKU_SKILLS))f[k+'Cd']=Math.max(0,f[k+'Cd']-dt);if(f.hp/f.max<=.35)f.cd=Math.max(0,f.cd-dt*.25);},
+ outgoingDamageMultiplier(d,f){return f.hp/f.max<=.35?1.1:1;},
+ updateAction(d,f,o,hits,dx,dy,distance,dt){const spec=RENGOKU_SKILLS[f.state];if(!spec)return false;const t=d.fighters.find(t=>t.uid===f.flameTarget&&t.hp>0&&d.isEnemy(f,t))||o;
+  if(f.state==='flamedash'&&f.age<.48&&d.tick>=(f.rootUntil||0)){const move=Math.min(Math.max(0,Math.hypot(t.x-f.x,t.y-f.y)-65),520*dt);f.x+=f.actionX*move;f.y+=f.actionY*move;d.clampPosition(f);}
+  if(f.age>=spec.cast&&!f.hit&&(f.state!=='flamedash'||Math.hypot(t.x-f.x,t.y-f.y)<115||f.age>=.48)){f.hit=true;
+   if(f.state==='flametiger'){const tx=t.x-f.x,ty=t.y-f.y,n=Math.hypot(tx,ty)||1;d.shots.push({id:f.id,ownerUid:f.uid,kind:'flametiger',skill:'flametiger',damage:195,radius:35,splash:80,splashDamage:75,requiresOwnerAlive:true,x:f.x+tx/n*40,y:f.y+ty/n*40,vx:tx/n*560,vy:ty/n*560,life:1.4,impactEvent:'rengokuImpact'});d.event('fire',f,{skill:'flametiger'});}
+   else{for(const enemy of d.fighters){const tx=enemy.x-f.x,ty=enemy.y-f.y,n=Math.hypot(tx,ty);if(enemy.hp>0&&d.isEnemy(f,enemy)&&n<(f.state==='risingsun'?130:115)&&(tx*f.actionX+ty*f.actionY)/(n||1)>-.15)hits.push({source:f,target:enemy,value:f.state==='risingsun'?150:135,knockback:f.state==='risingsun'?30:15,rootTicks:f.state==='risingsun'?12:0});}d.event('rengokuSlash',f,{x:f.x+f.actionX*60,y:f.y+f.actionY*60,skill:f.state});}}
+  if(f.age>=spec.duration){f.state='idle';f.age=0;}return true;},
+ chooseSkill(d,f,o,dx,dy,distance){for(const k of ['risingsun','flamedash','flametiger'])if(f[k+'Cd']===0&&(k==='risingsun'?distance<140:k==='flamedash'?distance>110&&distance<340:distance>180&&distance<650)){d.act(f,k,dx,dy);return true;}return false;}
+};
+export function rengokuPose(f,hurt=false){const state=hurt?'hurt':f.state,spec=RENGOKU_SKILLS[state];if(spec)return {key:'rengoku_cast',row:0,frame:Math.min(5,Math.floor(f.age/spec.duration*6))};const row=({idle:0,run:1,melee:f.combo%2?2:3,dash:4,guard:5,hurt:6,defeat:7})[state]??0;return {key:'rengoku',row,frame:['melee','dash','hurt','defeat'].includes(state)?Math.min(5,Math.floor(f.age*12)):Math.floor(f.age*9)%6};}

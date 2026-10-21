@@ -1,0 +1,256 @@
+{
+  "passed": 42,
+  "failed": 8,
+  "suites": [
+    {
+      "command": "node tests/rengoku-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/sukuna-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open 'art/audio/elevenlabs/sukuna_malevolent_shrine_japanese_raw.mp3'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/sukuna-tests.mjs:32:82\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: 'art/audio/elevenlabs/sukuna_malevolent_shrine_japanese_raw.mp3'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/combat-samples-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/title-assets-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/mode-menu-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/vertical-arena-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/live-arena-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/team-voice-timing-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/victory-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/music-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/ultimate-hit-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/combat-balance-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/boa-hancock-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/boa_hancock/boa_hancock.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/boa-hancock-tests.mjs:32:74\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/boa_hancock/boa_hancock.json'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/tatsumaki-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/tatsumaki/tatsumaki.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/tatsumaki-tests.mjs:34:80\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/tatsumaki/tatsumaki.json'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/saber-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/saber/saber.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/saber-tests.mjs:26:76\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/saber/saber.json'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/audio-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/fighting-style-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/goku-ultra-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/goku_ultra/goku_ultra.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/goku-ultra-tests.mjs:36:76\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/goku_ultra/goku_ultra.json'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/passive-rage-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/jinwoo-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/sung_jinwoo/sung_jinwoo.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/jinwoo-tests.mjs:12:77\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/sung_jinwoo/sung_jinwoo.json'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/tournament-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/team-dialogue-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/ichigo-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/ichigo/ichigo.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/ichigo-tests.mjs:10:63\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/ichigo/ichigo.json'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/projectile-energy-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/team-ultimate-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/beerus-render-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/beerus-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/goku-blue-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/hp-multiplier-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/arena-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/skill-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/broly-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/muzzle-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/ffa-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/piccolo-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/pvp-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/team-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/combat-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/naruto-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/kurama-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/yugi-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/gaara-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/frieza-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/luffy-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/gogeta-tests.mjs",
+      "exitCode": 1,
+      "error": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open 'art/atlases/gogeta.png'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/gogeta-tests.mjs:18:91\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: 'art/atlases/gogeta.png'\n}\n\nNode.js v24.19.0\n"
+    },
+    {
+      "command": "node tests/sasuke-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/gojo-v2-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node tests/asset-tests.mjs",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "command": "node --experimental-vm-modules tests/ui-active-roster.mjs",
+      "exitCode": 0,
+      "error": ""
+    }
+  ]
+}

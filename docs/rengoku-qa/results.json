@@ -1,0 +1,26 @@
+{
+  "browser": "Chromium headless",
+  "checks": [
+    "real asset loading",
+    "Rengoku selection and stats",
+    "battle",
+    "Ultimate cinematic",
+    "real MP3 decode and playback scheduling",
+    "pause/resume",
+    "Ultimate dash",
+    "vertical Live startup and stop"
+  ],
+  "pageErrors": [],
+  "failedResponses": [],
+  "speechStarts": [
+    {
+      "offset": 0.016666666666666666,
+      "duration": 4.64
+    },
+    {
+      "offset": 2.1,
+      "duration": 4.64
+    }
+  ],
+  "subjectiveListening": false
+}

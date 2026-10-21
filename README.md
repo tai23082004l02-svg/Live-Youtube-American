@@ -10,6 +10,14 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
+## Rengoku — 9 nhân vật
+
+Chọn **Kyojuro Rengoku** trong đấu đơn, FFA, đội, giải đấu hoặc Live Arena. Có 3 kỹ năng kiếm lửa, nội tại Burning Heart khi HP ≤35%, Ultimate Purgatory và lời tung chiêu tiếng Nhật 4,64 giây. Nếu còn bản cũ, tải lại trang bằng Ctrl+F5; góc màn hình phải hiện **RENGOKU / 9 CHARACTERS**.
+
+- 5 sheet nguồn được tách thành 122 frame; atlas có padding 32 px và metadata riêng cho hàng 5/6 frame.
+- Kiểm tra: Rengoku, UI, âm thanh, Live và trình duyệt Chromium thực tế đã qua. Kết quả tổng: 42/50 bộ qua; 8 bộ cũ vẫn thiếu tài nguyên đối chiếu trong `art`, giống trước thay đổi này.
+- Xem [hướng dẫn Rengoku](docs/RENGOKU.md) và [ảnh kiểm tra trong game](docs/rengoku-qa/cinematic.png).
+
 ## Sukuna presentation impact revision — 2026-10-21 (latest)
 
 User feedback: Sukuna lacked visual force compared with Gojo. Compared Gojo native VFX and measured strong-alpha actor heights: original Sukuna~110px versus Gojo~125px. Increased Sukuna actor presentation scale from.86 to.98 (~125px); adjusted spectator entrance compensation to avoid a size pop. Source art, extraction and all combat/audio parameters remain unchanged.

@@ -1,3 +1,4 @@
+import {drawRengokuActor,drawRengokuBack,drawRengokuWorld} from './rengoku.js';
 import {drawSukunaActor,drawSukunaBack,drawSukunaWorld} from './sukuna.js';
 import {drawGojoActor,drawGojoBack,drawGojoWorld} from './gojo-v2.js';
 import {SPECTATOR_META} from './spectator-meta.js';
@@ -10,7 +11,7 @@ import {drawIchigoActor,drawIchigoEffects} from './ichigo.js';
 import {drawBeerusFrame} from './beerus.js';
 import {beerusPose} from '../characters/beerus.js';
 import {gokuBluePose} from '../characters/goku_blue.js';
-const renderers={sukuna:[drawSukunaBack,drawSukunaActor,drawSukunaWorld],gojo:[drawGojoBack,drawGojoActor,drawGojoWorld],saber:[drawSaberBack,drawSaberActor,drawSaberWorld],tatsumaki:[drawTatsuBack,drawTatsuActor,drawTatsuWorld],boa_hancock:[drawBoaBack,drawBoaActor,drawBoaWorld],goku_ultra:[drawUltraBack,drawUltraActor,drawUltraWorld],sung_jinwoo:[drawJinwooIntroBack,drawJinwooActor,drawJinwooEffects],ichigo:[null,drawIchigoActor,drawIchigoEffects]};
+const renderers={rengoku:[drawRengokuBack,drawRengokuActor,drawRengokuWorld],sukuna:[drawSukunaBack,drawSukunaActor,drawSukunaWorld],gojo:[drawGojoBack,drawGojoActor,drawGojoWorld],saber:[drawSaberBack,drawSaberActor,drawSaberWorld],tatsumaki:[drawTatsuBack,drawTatsuActor,drawTatsuWorld],boa_hancock:[drawBoaBack,drawBoaActor,drawBoaWorld],goku_ultra:[drawUltraBack,drawUltraActor,drawUltraWorld],sung_jinwoo:[drawJinwooIntroBack,drawJinwooActor,drawJinwooEffects],ichigo:[null,drawIchigoActor,drawIchigoEffects]};
 export function spectatorIntroAssets(id){if(id==='gojo')return ['gojo_v2','gojo_v2_intro','gojo_v2_intro_vfx'];return renderers[id]||id==='beerus'?[id,id+'_intro',id+'_intro_vfx']:id==='goku_blue'?[id,'goku_blue_transform','goku_blue_intro_vfx']:[id];}
 function effect(ctx,images,id,row,col,y,scale){const im=images[id+'_intro_vfx'];if(!im?.complete||!im.naturalWidth)return;ctx.save();ctx.translate(0,y);ctx.scale(scale,scale);ctx.drawImage(im,Math.min(5,col)*512,row*384,512,384,-256,-192,512,384);ctx.restore();}
 // A presentation-only fighter reuses the battle entrance renderers and their timing.
