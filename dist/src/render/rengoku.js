@@ -5,8 +5,8 @@ import {cinematicSteps} from '../engine/ultimate-rules.js';
 export function rengokuSprite(ctx,images,key,row,col,x,y,scale=1,angle=0,face=1){const m=META[key],im=images[key];if(!m||!im?.complete||!im.naturalWidth)return;row=Math.max(0,Math.min(m.rows-1,row));col=Math.max(0,Math.min(m.rowCounts[row]-1,col));const [w,h]=m.frameSize,[px,py]=m.pivot;ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.scale(scale*(face<0?-1:1),scale);ctx.drawImage(im,col*w,row*h,w,h,-px,-py,w,h);ctx.restore();}
 export function drawRengokuActor(ctx,images,d,f,hurt=false,override=null){let p=override?{...override,key:'rengoku_ultimate_actor',row:0}:rengokuPose(f,hurt);const c=personalCaster(d,f),a=d.personalUltimate?.attack;
  if(f.introAge!=null){if(f.introAge<.7)return;const n=Math.min(11,Math.floor(f.introAge/2.5*12));p={key:'rengoku_intro',row:Math.floor(n/6),frame:n%6};}
- else if(c?.kind==='purgatory'&&a?.phase!=='travel')p={key:'rengoku_ultimate_actor',row:0,frame:Math.min(5,Math.floor((d.personalUltimate.cinematic?.elapsed/cinematicSteps(d.personalUltimate.cinematic)||0)*6))};
- else if(a?.kind==='purgatory'&&a.ownerUid===f.uid&&a.phase==='travel')p={key:'rengoku_ultimate_actor',row:1,frame:Math.min(5,Math.floor((d.tick-a.launch)/7))};
+ else if(c?.kind==='purgatory'&&a?.phase!=='travel')p={key:'rengoku_ultimate_actor',row:0,frame:d.personalUltimate.cinematic?Math.min(5,Math.floor(d.personalUltimate.cinematic.elapsed/cinematicSteps(d.personalUltimate.cinematic)*6)):5};
+ else if(a?.kind==='purgatory'&&a.ownerUid===f.uid&&a.phase==='travel'&&d.tick<a.launch+36)p={key:'rengoku_ultimate_actor',row:1,frame:Math.min(5,Math.floor((d.tick-a.launch)/7))};
  if(f.state==='defeat')p={key:'rengoku',row:7,frame:Math.min(4,Math.floor((d.tick-(f.deathTick??d.tick))/7))};
  rengokuSprite(ctx,images,p.key,p.row,p.frame,f.x,f.y,.86,0,f.face);
 }
