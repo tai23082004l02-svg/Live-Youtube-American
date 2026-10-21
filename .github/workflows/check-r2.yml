@@ -1,0 +1,39 @@
+name: Check R2 connection
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-r2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: 'true'
+      AWS_PAGER: ''
+      R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+      R2_BUCKET: ${{ vars.R2_BUCKET }}
+    steps:
+      - name: Validate configuration and read bucket
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY R2_ENDPOINT R2_BUCKET; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::Missing configuration: $name"
+              exit 1
+            fi
+          done
+          if [[ "$R2_ENDPOINT" != 'https://fdd00e4aaaf0b0220e5d4ee517661254.r2.cloudflarestorage.com' || "$R2_BUCKET" != 'down-arena-assets' ]]; then
+            echo '::error::Endpoint or bucket does not match the intended R2 storage.'
+            exit 1
+          fi
+          aws --version
+          aws s3api list-objects-v2 --endpoint-url "$R2_ENDPOINT" --bucket "$R2_BUCKET" --max-keys 1 --query 'KeyCount' --output text > "$RUNNER_TEMP/r2-key-count.txt"
+          echo 'R2 authentication and bucket listing succeeded. No objects were modified.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Write access has not been tested.' >> "$GITHUB_STEP_SUMMARY"
