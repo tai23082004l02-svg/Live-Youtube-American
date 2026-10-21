@@ -1,0 +1,97 @@
+name: Generate Rengoku voice and archive source sheets
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/rengoku-voice.yml]
+permissions:
+  contents: write
+concurrency:
+  group: rengoku-voice
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_PAGER: ''
+      AWS_EC2_METADATA_DISABLED: 'true'
+      R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+      R2_BUCKET: ${{ vars.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - name: Generate one short Japanese Ultimate call (no paid retries)
+        shell: python
+        run: |
+          import json, os, pathlib, urllib.request, urllib.error, sys
+          output = pathlib.Path('dist/assets/audio/voices/rengoku_ultimate_ja.mp3')
+          if output.exists():
+              print('Existing voice retained. No generation request.')
+              sys.exit(0)
+          key = os.environ.get('ELEVENLABS_API_KEY', '')
+          if not key:
+              sys.exit('Missing ELEVENLABS_API_KEY')
+          text = '[shouting] 炎の呼吸、奥義！玖ノ型、煉獄！'
+          assert len(text) < 200
+          request = urllib.request.Request('https://api.elevenlabs.io/v1/text-to-speech/nPczCjzI2devNBz1zQrb?output_format=mp3_44100_128', data=json.dumps({'text':text,'model_id':'eleven_v3','language_code':'ja'}, ensure_ascii=False).encode(), headers={'xi-api-key':key,'Content-Type':'application/json','Accept':'audio/mpeg'}, method='POST')
+          try:
+              with urllib.request.urlopen(request, timeout=120) as response:
+                  audio = response.read()
+                  content_type = response.headers.get('Content-Type', '')
+          except urllib.error.HTTPError as error:
+              sys.exit(f'ElevenLabs HTTP {error.code}. No automatic retry. Check generation history before rerunning.')
+          except (urllib.error.URLError, TimeoutError):
+              sys.exit('Generation response unavailable. No retry: check ElevenLabs history before rerunning; credits may have been used.')
+          if len(audio)<1000 or 'audio' not in content_type:
+              sys.exit('Unexpected audio response. No retry; inspect ElevenLabs history.')
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_bytes(audio)
+      - name: Validate MP3 and persist exact cinematic timing
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -v error -i dist/assets/audio/voices/rengoku_ultimate_ja.mp3 -f null -
+          python - <<'PYCODE'
+          import subprocess, math, pathlib, json
+          path='dist/assets/audio/voices/rengoku_ultimate_ja.mp3'
+          duration=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',path],text=True))
+          assert 0<duration<20
+          steps=math.ceil(duration*60)
+          pathlib.Path('dist/src/engine/rengoku-voice.js').write_text(f'export const RENGOKU_VOICE_STEPS={steps};\nexport const RENGOKU_VOICE_SECONDS={duration};\n')
+          pathlib.Path('dist/assets/audio/voices/rengoku-voice.json').write_text(json.dumps({'voice':'Brian','voice_id':'nPczCjzI2devNBz1zQrb','model':'eleven_v3','language':'ja','text':'炎の呼吸、奥義！玖ノ型、煉獄！','duration':duration,'steps':steps},ensure_ascii=False,indent=2)+'\n')
+          PYCODE
+      - name: Commit recorded voice without exposing secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dist/assets/audio/voices/rengoku_ultimate_ja.mp3 dist/assets/audio/voices/rengoku-voice.json dist/src/engine/rengoku-voice.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add recorded Japanese Rengoku Ultimate voice and measured timing'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Archive original draft sheets and clean recorded voice in R2
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$R2_ENDPOINT" == 'https://fdd00e4aaaf0b0220e5d4ee517661254.r2.cloudflarestorage.com' ]]
+          [[ "$R2_BUCKET" == 'down-arena-assets' ]]
+          prefix="characters/rengoku/source-revisions/${GITHUB_SHA}"
+          for source in art/drafts/rengoku/*.png; do
+            key="$prefix/$(basename "$source")"
+            aws s3 cp "$source" "s3://$R2_BUCKET/$key" --endpoint-url "$R2_ENDPOINT" --only-show-errors
+            aws s3 cp "s3://$R2_BUCKET/$key" "$RUNNER_TEMP/verify.png" --endpoint-url "$R2_ENDPOINT" --only-show-errors
+            cmp "$source" "$RUNNER_TEMP/verify.png"
+          done
+          aws s3 cp dist/assets/audio/voices/rengoku_ultimate_ja.mp3 "s3://$R2_BUCKET/characters/rengoku/audio/rengoku_ultimate_ja.mp3" --endpoint-url "$R2_ENDPOINT" --only-show-errors
+          echo 'Recorded voice decoded, measured, and committed. Original draft sheets archived in R2 and verified byte-for-byte. Subjective listening remains required.' >> "$GITHUB_STEP_SUMMARY"
