@@ -1,0 +1,53 @@
+name: Check ElevenLabs connection
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/check-elevenlabs.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  check-voices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+    steps:
+      - name: Read available voices without generating speech
+        shell: python
+        run: |
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.request
+
+          key = os.environ.get('ELEVENLABS_API_KEY', '')
+          if not key:
+              print('::error::Missing repository secret ELEVENLABS_API_KEY.')
+              sys.exit(1)
+          request = urllib.request.Request(
+              'https://api.elevenlabs.io/v1/voices',
+              headers={'xi-api-key': key, 'Accept': 'application/json'},
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  data = json.load(response)
+          except urllib.error.HTTPError as error:
+              print(f'::error::ElevenLabs returned HTTP {error.code}. Check key validity and Voices read permission. Response body omitted to protect credentials.')
+              sys.exit(1)
+          except (urllib.error.URLError, TimeoutError, ValueError):
+              print('::error::Could not retrieve a valid voice catalog. No speech request was sent.')
+              sys.exit(1)
+          voices = data.get('voices') if isinstance(data, dict) else None
+          if not isinstance(voices, list):
+              print('::error::Unexpected ElevenLabs voice catalog format.')
+              sys.exit(1)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+              summary.write('### ElevenLabs connection verified\n\n')
+              summary.write(f'Voice catalog returned {len(voices)} voices.\n\n')
+              summary.write('No text-to-speech request was sent. Speech generation permission and audio quality remain untested.\n')
+          print(f'Voice catalog read successfully: {len(voices)} voices. No audio generated.')
