@@ -1,3 +1,4 @@
+import {drawBrandLogo} from './brand-logo.js';
 import {LIVE_TIMINGS} from '../live-arena.js';
 export const VOTE_LAYOUT=Object.freeze({width:540,height:960,hudY:252,hudHeight:64,arenaY:328,arenaHeight:540*9/16});
 function text(ctx,value,x,y,size,color='#e9eef5',align='left',width=490){ctx.fillStyle=color;ctx.font=`600 ${size}px Segoe UI,Arial`;ctx.textAlign=align;ctx.fillText(value,x,y,width);}
@@ -27,7 +28,7 @@ export function drawVoteMatchHUD(ctx,u){ctx.save();const fighters=u.h.duel().fig
   meter(ctx,x,72,300,7,rage/100,rage>=100?'#fff0a6':'#e7bf68',right);
   text(ctx,`ULT  ${Math.floor(rage)}%`,anchor,99,12,rage>=100?'#fff0a6':'#e7bf68',align,300);
  }
- ctx.strokeStyle='#8e7346';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(405,50);ctx.lineTo(438,50);ctx.moveTo(522,50);ctx.lineTo(555,50);ctx.stroke();text(ctx,'VS',480,60,30,'#edce88','center',85);
+ if(!drawBrandLogo(ctx,u.h.images?.()?.brand_logo))text(ctx,'DOWN ARENA',480,60,22,'#edce88','center',260);
  if(u.phase==='intro')text(ctx,`STARTS IN ${Math.max(1,Math.ceil(LIVE_TIMINGS.intro-u.age))}`,480,88,12,'#a8b6c5','center',190);
  ctx.restore();}
 export function drawVoteMatchOverlay(ctx,u){if(!u.paused)return;ctx.save();ctx.fillStyle='#07101cbb';ctx.fillRect(0,0,960,540);text(ctx,'PAUSED',480,280,38,'#ffe0a0','center');ctx.restore();}

@@ -1,0 +1,62 @@
+name: Archive Down Arena brand assets to R2
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dist/assets/brand/**'
+      - '.github/workflows/archive-down-arena-brand.yml'
+permissions:
+  contents: write
+concurrency:
+  group: down-arena-brand-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: 'true'
+      AWS_PAGER: ''
+      R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+      R2_BUCKET: ${{ vars.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - name: Archive and verify all files without deleting existing objects
+        shell: python
+        run: |
+          import pathlib, subprocess, os, hashlib, json
+          endpoint=os.environ['R2_ENDPOINT'];bucket=os.environ['R2_BUCKET']
+          assert endpoint=='https://fdd00e4aaaf0b0220e5d4ee517661254.r2.cloudflarestorage.com'
+          assert bucket=='down-arena-assets'
+          paths=[pathlib.Path(p) for p in ['art/drafts/down-arena-brand/down-arena-brand-sheet.png','art/drafts/down-arena-brand/down-arena-logo-transparent.png','dist/assets/brand/down-arena-logo.png','dist/assets/brand/down-arena-logo.json']]
+          receipt={'sourceCommit':os.environ['GITHUB_SHA'],'bucket':bucket,'verifiedObjects':[]}
+          for path in paths:
+              assert path.is_file(),str(path)
+              key=f"brand/down-arena/revisions/{os.environ['GITHUB_SHA']}/{path.as_posix()}"
+              url=f's3://{bucket}/{key}'
+              target=pathlib.Path(os.environ['RUNNER_TEMP'])/'r2-verify.bin'
+              subprocess.run(['aws','s3','cp',str(path),url,'--endpoint-url',endpoint,'--only-show-errors'],check=True)
+              subprocess.run(['aws','s3','cp',url,str(target),'--endpoint-url',endpoint,'--only-show-errors'],check=True)
+              assert target.read_bytes()==path.read_bytes(),str(path)
+              receipt['verifiedObjects'].append({'path':str(path),'key':key,'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
+          pathlib.Path('docs/down-arena-brand-r2-archive.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+              out.write(f"Archived {len(paths)} Down Arena brand files; every downloaded object matched its source. No source files or R2 objects were deleted.\n")
+      - name: Save verified archive receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/down-arena-brand-r2-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record verified Down Arena brand R2 archive'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

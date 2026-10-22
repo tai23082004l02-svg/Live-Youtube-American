@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "real transparent logo loaded",
+    "logo drawn in shared HUD",
+    "VS removed",
+    "same cached image retained across next match",
+    "Full HD feed preserved"
+  ],
+  "lastLogoDraw": [
+    350,
+    8.688754083061127,
+    263.51843210452637,
+    87.83947736817545
+  ],
+  "pageErrors": [],
+  "failedResponses": []
+}

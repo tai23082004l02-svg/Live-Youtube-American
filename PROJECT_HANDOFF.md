@@ -1,3 +1,7 @@
+## DOWN ARENA logo in fighter HUD
+
+Approved transparent wordmark replaces center VS in vote feed. Original RGBA PNG retained intact in draft/runtime; alpha>4 bounds only guide proportional positioning, full source is drawn at260native HUD units (~293px in Full HD). Brand asset loads with arena, retains cache across matches; controller exposes current images to HUD. HP/rage,1s countdown,HP×10,comic speech unchanged. `tools/qa_hud_logo.py` verifies real logo draw/no VS/cached identity after next match; capture and results `docs/obs-qa/brand-hud*`.
+
 ## Shared fighter HUD / real Ultimate meter
 
 Vote feed uses one common design for all fighters, names/HP at top with beveled bars, actual personal rage0–100 in thinner gold meter below, gold VS center. Removes VIEWER CHOICE DEMO and AI BATTLE from HUD. HUD y252–316, field y328 leaves12logical px separation, Full HD untouched. Both bars clamp safely; right side mirrors fill direction; full rage is brighter with no flash. Browser QA confirms72/31%,100%,and consumption0 on actual Ultimate; `tools/qa_shared_hud.py`, `docs/obs-qa/shared-hud-results.json`.

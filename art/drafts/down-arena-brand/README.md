@@ -1,7 +1,7 @@
-# DOWN ARENA — bản thiết kế để duyệt
+# DOWN ARENA — nhận diện thương hiệu
 
-Sheet nhận diện đề xuất gồm logo ngang chính, biểu tượng chữ A hình cổng đấu trường, biến thể gọn cho góc Live và bản đơn sắc.
+Sheet `down-arena-brand-sheet.png` gồm logo ngang, biểu tượng A/cổng đấu trường, bản gọn và đơn sắc.
 
-Màu chính: trắng ngà, vàng kim, xanh lam trên nền navy đen. Chữ DOWN ARENA dễ đọc ở kích thước nhỏ, phát sáng nhẹ. Đây là ảnh trình bày để xem trước; chưa thay chữ hoặc logo đang chạy trong game. Sau khi chốt sẽ xuất tài nguyên nền trong suốt riêng, kiểm tra ở kích thước thật trên khung Live1080×1920.
+Đã triển khai bản ngang nền trong suốt **ở giữa HUD đấu sĩ, thay chữ VS**. Bản gốc `down-arena-logo-transparent.png` được giữ nguyên RGBA, runtime dùng `dist/assets/brand/down-arena-logo.png` cùng nội dung. Thông số alpha-bounds chỉ dùng để căn logo đúng tỷ lệ; renderer vẽ toàn bộ ảnh, không cắt sáng viền.
 
-Ảnh sheet: `down-arena-brand-sheet.png`.
+Live Full HD hiển thị logo rộng khoảng293px, không chạm tên/HP/nộ. File ảnh dùng AssetLoader và giữ cache qua các trận. Ảnh trong game: [brand-hud.png](../../../docs/obs-qa/brand-hud.png). Kiểm tra trình duyệt: `tools/qa_hud_logo.py`.

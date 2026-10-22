@@ -1,0 +1,2 @@
+const META={"size":[2172,724],"bounds":[0,132,2143,549],"boundsAlphaThreshold":4};
+export function drawBrandLogo(ctx,image,x=480,y=50,maxWidth=260,maxHeight=64){if(!image?.complete||!image.naturalWidth)return false;const [left,top,right,bottom]=META.bounds,scale=Math.min(maxWidth/(right-left),maxHeight/(bottom-top));ctx.save();ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(image,x-(left+right)/2*scale,y-(top+bottom)/2*scale,META.size[0]*scale,META.size[1]*scale);ctx.restore();return true;}
