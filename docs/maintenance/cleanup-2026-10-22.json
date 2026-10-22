@@ -1,0 +1,1010 @@
+{
+  "beforeCommit": "708271cd5598af585a3fae4f03d5d3bceeb9ef2b",
+  "files": [
+    {
+      "path": "art/drafts/down-arena-brand/down-arena-brand-sheet.png",
+      "bytes": 1612502,
+      "sha256": "cbf8e9b9d68f4e617122bfba7722a367ff8558b1cbc4411ac55a1eb3106fdf05",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "brand/down-arena/revisions/87728337998dafa4a4a99cf7d2082ef74d748845/art/drafts/down-arena-brand/down-arena-brand-sheet.png",
+      "receipt": "docs/down-arena-brand-r2-archive.json",
+      "sourceCommit": "87728337998dafa4a4a99cf7d2082ef74d748845"
+    },
+    {
+      "path": "art/drafts/down-arena-brand/down-arena-logo-transparent.png",
+      "bytes": 1377109,
+      "sha256": "a350a94eda28889034a363f68a47c25987181ef2a820e3825f246ad8c2cf13d6",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "brand/down-arena/revisions/87728337998dafa4a4a99cf7d2082ef74d748845/art/drafts/down-arena-brand/down-arena-logo-transparent.png",
+      "receipt": "docs/down-arena-brand-r2-archive.json",
+      "sourceCommit": "87728337998dafa4a4a99cf7d2082ef74d748845"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_actions.png",
+      "bytes": 1953018,
+      "sha256": "4c4f43e6756f9a750e154c8b2f89c9aadd7055af53584c1c361d3ab1aa399da1",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_actions.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_cast.png",
+      "bytes": 2245907,
+      "sha256": "e64cb27d9f34e79cad75c3b9feac555a65838b24da02226594a5b25f3f8b7243",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_cast.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_dialogue.png",
+      "bytes": 1893820,
+      "sha256": "af325d338a82093b69a7933baeb5730fd8af43dc3787cc589af9e23170bf0c17",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_dialogue.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_intro.png",
+      "bytes": 2193923,
+      "sha256": "e2a8b6054796f3f3a1a789f92d9451c117ad1da983ecc31f54bc85264868b783",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_intro.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_ultimate.png",
+      "bytes": 2250172,
+      "sha256": "b46654b285e07cf4a8cfca265ad29f44b2960f8477de4495818851a192aef4cd",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_ultimate.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_ultimate_ja_original.mp3",
+      "bytes": 33061,
+      "sha256": "0eefb80e945e48f1aad39d24f537cfe4b4f08141f4da77e0067cb90a9c4b6f98",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_ultimate_ja_original.mp3",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_vfx.png",
+      "bytes": 2412248,
+      "sha256": "62747da732eae55e0e7025ea67cda7270319651a009cd9559d25afce8422f471",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_vfx.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_actions.png",
+      "bytes": 2833799,
+      "sha256": "01978c5aad766fd718f36c5da64e82cd2bad262436736fe6483dcee4d6191a59",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_actions.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_cast.png",
+      "bytes": 2849218,
+      "sha256": "15ca6117ae425a6477e76bd06870cf41da3522ff73ff850378b62c0a9301ff5a",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_cast.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_dialogue.png",
+      "bytes": 2485081,
+      "sha256": "46645dd3729dc3c1dc298b5c72ac6bf1f464bbdf647381791bceda195207753d",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_dialogue.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_intro.png",
+      "bytes": 2343200,
+      "sha256": "62110766e62195e8d5a597f9c7296af9b03e8a120d65940ac80ce95124e45d9f",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_intro.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_six_paths_concept.png",
+      "bytes": 2553093,
+      "sha256": "fe3afe6b3e6ad9ccd27710847458d0f4c106b3eaf78e1dfca9a6b82158234b9b",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_six_paths_concept.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_six_paths_intro_storyboard.png",
+      "bytes": 2656571,
+      "sha256": "7e1db42ed3cda44c21be4cbf077c4ffed2b2d01712394a89a79e51a549fe7e2c",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_six_paths_intro_storyboard.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_six_paths_skill_concept.png",
+      "bytes": 3413880,
+      "sha256": "ccf4dc7960b0e052d397f3917f120d88dccf7ecffa23755ed13fe6662b666bcf",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_six_paths_skill_concept.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_ultimate.png",
+      "bytes": 3164391,
+      "sha256": "2593e13b8063a1d079ad56527196986dc7ddfeff9ffe4539c481e2bb9a92d6cd",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_ultimate.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_ultimate_ja_original.mp3",
+      "bytes": 33061,
+      "sha256": "75f8c1eae7a602611426add201349b1cdd56218aeb9e947305c9d36c08c5342a",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_ultimate_ja_original.mp3",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_vfx.png",
+      "bytes": 2845260,
+      "sha256": "7badaf78dc428b8edbf6cb37da1aa6b2372ce2e8d768c1485a1eae97cc66c8ec",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_vfx.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto-three-forms-concept.png",
+      "bytes": 2259236,
+      "sha256": "95072c300100a8d7402e935b5f53731604d59b8b3d2da349801e682ceedbe3cd",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto-three-forms-concept.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_baryon_actions.png",
+      "bytes": 3031225,
+      "sha256": "2a401b4e7b29988661791c6c65d2ed033e0002112bb8a2978161046fe4b03902",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_baryon_actions.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_baryon_skills.png",
+      "bytes": 2749951,
+      "sha256": "6e624c8e1b1be25d0a003a21c565f9f041f7aa7dd9ae5ebc9e10ddd9bbd61f96",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_baryon_skills.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_dialogue.png",
+      "bytes": 2363545,
+      "sha256": "ce09825f3f4d157db682f22840a8edab1464db9a6951cd539433b2a64a558e2c",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_dialogue.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_intro.png",
+      "bytes": 2834965,
+      "sha256": "4e6bc751717941a59e4ed2550e27e54acca6e8a6e664a412f5aff5d7457bdc03",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_intro.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_kcm_actions.png",
+      "bytes": 2861953,
+      "sha256": "877a80dac0a5900eb5798ccc7dc23a167acfc5d8372d4f8e50e6a78c0805c519",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_kcm_actions.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_kcm_skills.png",
+      "bytes": 2645947,
+      "sha256": "7f1defe016e9dbf008f9a054e7fad58af1665161b2b5dc4cbcf54094461e9c12",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_kcm_skills.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_transform.png",
+      "bytes": 2742043,
+      "sha256": "bcd1fcb1e775d9254da0223b5f541777ef0ddc6dedc60e2e71c5cf6ed4dd083d",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_transform.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_ultimate.png",
+      "bytes": 3250741,
+      "sha256": "182fe1109abafbe1523887e4223b7bf0ec081095b876468437ff4385b1aab55f",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_ultimate.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_actions.png",
+      "bytes": 2408217,
+      "sha256": "ac3cb840201b105d2acc6c45d341b9e052abc698b5d4deff6e4d87f059f1d4fa",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_actions.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_dialogue.png",
+      "bytes": 1855999,
+      "sha256": "948c61825ae31462a5035fa973baa12e33bbe679be9832a48b6ab5af0e1a2c2c",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_dialogue.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_intro.png",
+      "bytes": 2426658,
+      "sha256": "ec8da2ec4e5dbc7251d16193be0140a872568c5c3375bac17d6a68e44754181e",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_intro.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_skills.png",
+      "bytes": 2382519,
+      "sha256": "b6ddd48e22d571b4d8f89c7fb26a8d5a39126035c12b28decb6465d917523ff0",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_skills.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/drafts/rengoku/rengoku_ultimate.png",
+      "bytes": 2574713,
+      "sha256": "134561b469f76b4eef78f51f1961b53ec77bf2ad2bfac5a3082adca7533e0703",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/drafts/rengoku/rengoku_ultimate.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_cast_contact.png",
+      "bytes": 129919,
+      "sha256": "4eee7970830754ab62baf83a1e81c1c83de94f07e952d528d18b79c6a72068a6",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_cast_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_contact.png",
+      "bytes": 241679,
+      "sha256": "1be2c978745a0c5a807db64830a5e7ce7a4fd3d016e85e50b993626d9643f058",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_dialogue_contact.png",
+      "bytes": 89410,
+      "sha256": "24be429b203d57b0f60ef94a977495e8f8b6e7ba3b4312f4642c31ce6924d336",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_dialogue_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_intro_contact.png",
+      "bytes": 67518,
+      "sha256": "f7c50071f2ed90e6214a9fc609cd97b50a5b6f0b80e5dc4fecb4a5c6efa08381",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_intro_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_intro_vfx_contact.png",
+      "bytes": 51240,
+      "sha256": "4dd5ec9163ceb52de4c50d5664dc6349a7ece2aba89ee659d64e056d4878d1b8",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_intro_vfx_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_ultimate_actor_contact.png",
+      "bytes": 45393,
+      "sha256": "40bd62deb0f0c2fc840e5f5d29428b974a0fa012d9069748eb53be0758348020",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_ultimate_actor_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_ultimate_vfx_contact.png",
+      "bytes": 136962,
+      "sha256": "6fc269c496ef135b8944a23eaadd94ac0788b1de07f172ac6006b7355e624f4e",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_ultimate_vfx_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_vfx_contact.png",
+      "bytes": 177919,
+      "sha256": "d97146b80a0c58a468ff9bc1203f0eaa26d9551511a78535982fb0997076d567",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_vfx_contact.png",
+      "receipt": "docs/gogeta-blue-r2-archive.json",
+      "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f"
+    },
+    {
+      "path": "art/frames/madara/madara_cast_contact.png",
+      "bytes": 222462,
+      "sha256": "7ae848d6000513182b0454b3d61b7f3471622b8695b56924f7bb5d10c83040a8",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_cast_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/madara/madara_contact.png",
+      "bytes": 417340,
+      "sha256": "45ce27595c481cf070032cf6ea8154811a4bbc08ffd75f116a89d66687623e86",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/madara/madara_dialogue_contact.png",
+      "bytes": 75185,
+      "sha256": "1ded71a0a0940ca7625ed2846ce7d4d2b9a6327f42156bd19b5d830dc21efc68",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_dialogue_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/madara/madara_intro_contact.png",
+      "bytes": 129059,
+      "sha256": "5fbf7c3c68f6d25f68466b67d01656edfd853ee8260ac4e97e3e5b50570baadb",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_intro_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/madara/madara_intro_vfx_contact.png",
+      "bytes": 59504,
+      "sha256": "8e732bf99bdacff8590747656399b782c3f6411a249a415eb320c6745b149797",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_intro_vfx_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/madara/madara_ultimate_actor_contact.png",
+      "bytes": 79034,
+      "sha256": "9bcbd0ee5725f810c4295a40fe8c468993049ec007d7ff9d6f7f5a7aca963e72",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_ultimate_actor_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/madara/madara_ultimate_vfx_contact.png",
+      "bytes": 203621,
+      "sha256": "f78d5b2177245128e74dd2feb1150e02a732c83cf12726dbf89286f8c23e324b",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_ultimate_vfx_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/madara/madara_vfx_contact.png",
+      "bytes": 234213,
+      "sha256": "0a3951d3cb2a70c5ab1bc681e8a34f9dcafb25d2bbcd176fe5c14283e24b15da",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_vfx_contact.png",
+      "receipt": "docs/madara-r2-archive.json",
+      "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_baryon_cast_contact.png",
+      "bytes": 78283,
+      "sha256": "e7fcbc36c1699da73d1cc7be84428133803364d66b59f66b099e4deae5ead305",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_baryon_cast_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_baryon_contact.png",
+      "bytes": 378298,
+      "sha256": "e60d41c29362431fa7074eb3ede6bd94ab3af5d952344d9397a6c0f9708c814f",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_baryon_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_baryon_vfx_contact.png",
+      "bytes": 222139,
+      "sha256": "6ef5e0bed4e978c6c83ebde7be6e330e1de0998414379e089f4c4c0560aa7c57",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_baryon_vfx_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_cast_contact.png",
+      "bytes": 77688,
+      "sha256": "50d80afc40e1acf7ae4952ff67330a6dbb2169a2b849ea581ecf987e3f040acf",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_cast_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_contact.png",
+      "bytes": 497664,
+      "sha256": "3b19dffbd6d2b397a06d1d33b3f60cd5ba00dc9bb57993b3390de4dd18ff3d43",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_dialogue_contact.png",
+      "bytes": 90286,
+      "sha256": "3eccd6c5242b77e644dea4a0fdbf99723590ca19c991e7d3a2282d2bfbd6a78c",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_dialogue_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_intro_contact.png",
+      "bytes": 136501,
+      "sha256": "c1e251ce41f42bc682934b8f047232fc5847f88267931074e135fd7f0329592c",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_intro_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_intro_vfx_contact.png",
+      "bytes": 153563,
+      "sha256": "60c7f1f9945bf18304a92e7f7d54f7b97e519b80536c3438d12514da626ebca0",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_intro_vfx_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_transform_contact.png",
+      "bytes": 150235,
+      "sha256": "42721d3a8a60338b7745d8cc1ee2cd9d7f37f117fd6f3fc554034bc009f752d7",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_transform_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_transform_vfx_contact.png",
+      "bytes": 87429,
+      "sha256": "c936f1d74131f791169ca561074d8b922ebd3bfe7d0d0083a8e8482fa1438ab4",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_transform_vfx_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_ultimate_actor_contact.png",
+      "bytes": 162724,
+      "sha256": "f4f36c4f06a5d68db3aca42e2d5fb626271f9c6cdca116c860d8d29b676f3d4e",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_ultimate_actor_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_ultimate_vfx_contact.png",
+      "bytes": 182325,
+      "sha256": "6b5d6f5b3443532ef3d34c6a70ae5e543e269dd4f166ced8ca529a505e4240ff",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_ultimate_vfx_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_vfx_contact.png",
+      "bytes": 203255,
+      "sha256": "17f65c3b4d0db8f50b83c0b6e4636c6d343008dc16a9c3bba6a51895ec1cda68",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_vfx_contact.png",
+      "receipt": "docs/naruto-v2-r2-archive.json",
+      "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_cast_contact.png",
+      "bytes": 68244,
+      "sha256": "401102230c489bd317b8cb4c1977ee4ea9e6eb1c2ce955e8c5cb5924de5f9d0f",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_cast_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_contact.png",
+      "bytes": 408476,
+      "sha256": "a8683c87768637ac2be07e6b503549ebf9106c32a91eb5843d4c88e500a271ba",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_dialogue_contact.png",
+      "bytes": 84174,
+      "sha256": "5a5a81951d8d097d45e5475c89e58b568ed5193b661a3da934fac44060dbc64a",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_dialogue_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_intro_contact.png",
+      "bytes": 150126,
+      "sha256": "161240850a860a83bcf140e8702e5c955100886e41dc11ff03f8db2d6e65a573",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_intro_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_intro_vfx_contact.png",
+      "bytes": 124763,
+      "sha256": "d402727b624091a8ae443bd78da33265e2ce502e264c6da7f3c1b8288536da03",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_intro_vfx_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_ultimate_actor_contact.png",
+      "bytes": 173357,
+      "sha256": "4e70253172f989eaa4562ca6a02eb772ccff2372d439f057c7f630977e7f1de8",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_ultimate_actor_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_ultimate_vfx_contact.png",
+      "bytes": 177338,
+      "sha256": "d17d320553df88c38e97e188126f01d7474e519fd26b3f6e415c2f5c5a3ea021",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_ultimate_vfx_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "art/frames/rengoku/rengoku_vfx_contact.png",
+      "bytes": 214777,
+      "sha256": "78551ba417335b24987e5f4d654a90cc16503fc5488b5da8123eee173897a2bd",
+      "reason": "authoring art archived and byte-verified in R2",
+      "r2Key": "characters/rengoku/revisions/e52e77fa868736de697b1f92272b1bddec33a48d/art/frames/rengoku/rengoku_vfx_contact.png",
+      "receipt": "docs/rengoku-r2-archive.json",
+      "sourceCommit": "e52e77fa868736de697b1f92272b1bddec33a48d"
+    },
+    {
+      "path": "docs/bottom-dialogue-layout-proof.png",
+      "bytes": 168537,
+      "sha256": "51ee0424efe039e4c3e61f7d584f6a5a70c60ea6544e9e8dbb09a32c59211a3a",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/comic-qa/ichigo.png",
+      "bytes": 1187171,
+      "sha256": "e688df98de9045daaa7f1661d3df46b8070d495dc76e00bfb711a788f670f694",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/comic-qa/team-sukuna.png",
+      "bytes": 1219733,
+      "sha256": "a44ebb7ffeb01a7290b88d5a2720880894c3d30f876fc734da346335b8f4eb42",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/comic-qa/vertical.png",
+      "bytes": 2348706,
+      "sha256": "0c7ccc2856d01b0a0bff0399c54a5e12b371d0b27267a8adac700ff3bffcc2da",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/comic-qa/vote.png",
+      "bytes": 1034178,
+      "sha256": "a1f0f8bc9afbfcb69f2249f05408169880528126a918c46eb6d5ecd64302cb45",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/battle.png",
+      "bytes": 1396856,
+      "sha256": "792aa6fda781cf5b48732ecbb3285ba1efdf11d92d6d0decc7dc9a052f0e161a",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/cinematic.png",
+      "bytes": 1409442,
+      "sha256": "fe572e7d5a3d686ad92437567229fe9d488f7632f963d1efec5425ec5fc5f669",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/godpunisher.png",
+      "bytes": 1406093,
+      "sha256": "4d12932465fff82fafed58f3f9e1de69abdb731fdae5e66220ef6b02878c9415",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/impact.png",
+      "bytes": 1401826,
+      "sha256": "02a925d75864cfcb0a3f47269e15ce31d7fed3da6c088c0db42d3eeddef35e16",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/intro.png",
+      "bytes": 1417312,
+      "sha256": "ce4ef2fa8d63bc3e9e6b1dc1db35e2c1828040ed4c4c1b10922a75dbb9d6544f",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/kamehameha.png",
+      "bytes": 1396486,
+      "sha256": "ccbaa69957a42bb4a646ff721e7aa7549d92f3d0d0c71d0755db3be1a0538847",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/live-vote.png",
+      "bytes": 368656,
+      "sha256": "1a3a6898dd4813f1983b8ff52db9f7083d06fbaabd586a3ba12470c3e9fc2f2c",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/meteorassault.png",
+      "bytes": 1405472,
+      "sha256": "67c4329569e09dd96996cb3bbef5264dfefbb35f5b351cea5a92662d95452571",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/stardustbreaker.png",
+      "bytes": 1401378,
+      "sha256": "282d7ccb34d11bc7c619afe4da7524fa3a5e52c9be0891848f15ff2f611f3dee",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/team-cinematic.png",
+      "bytes": 1447952,
+      "sha256": "1b3348050085e829a27b9e50105f4f5ebde9186665cd6b9fe043232d9a74b61a",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/team-kamehameha.png",
+      "bytes": 1371343,
+      "sha256": "1c9368721f2628cc3ecd79e879f8eef8b953f206ef4d529837bcafb159f768e3",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/gogeta_blue-qa/warning.png",
+      "bytes": 1389952,
+      "sha256": "ce69a5bda126af2474aae184b8d6ff38125eea30725902c43e01741397e6740a",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/battle.png",
+      "bytes": 1399282,
+      "sha256": "fc8bb669042388198bea202ce0d02e1a8657aa65653c165823b55ec0af6282c0",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/cinematic.png",
+      "bytes": 1432630,
+      "sha256": "52b50984c466a3c8d29abf2e0d24e4b85e5373c64cac24e8fa5f27b0d2ae8fb7",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/impact.png",
+      "bytes": 1446992,
+      "sha256": "e8bb7747b728280c3126f314a744d9805f29958e7870a41113c7c009f1742277",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/intro-black.png",
+      "bytes": 25578,
+      "sha256": "68a6145e128b7dd1cd5ef84421e3b9f6f36db22167f109f5d3869b36a0939b5b",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/intro-ready.png",
+      "bytes": 1416100,
+      "sha256": "5608353d51921e9af9c9ea8cd2425df538241eefc72c44e20d0e3806febe55ca",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/intro-reveal.png",
+      "bytes": 1333118,
+      "sha256": "16ed3d52c3e2ba4a672ad27c06d01955ebfa64acc1b0275faf3369f92b1618da",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/intro-rising.png",
+      "bytes": 892615,
+      "sha256": "21b6267fa5ed5fa8f0cffc1b3fed72fc3410d2f73f7ca58cce3eb0d914b82f9e",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/intro.png",
+      "bytes": 1425168,
+      "sha256": "99ef48225b5cf920f56abab6415cc516e9f7ed1534d297cf6e2b10583a3ab0a8",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/lightfang.png",
+      "bytes": 1413784,
+      "sha256": "31c406d2dfeb6c74dc8135ee1d6401dcb31dcb5e344c86358693a892ec1b3199",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/limbo.png",
+      "bytes": 1414376,
+      "sha256": "f5154d9cf9a86c8e8df61cba300b65aa1f4d7a164e7bce99197a8b5969301fcc",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/live-vote.png",
+      "bytes": 371640,
+      "sha256": "9103d32c62bd7cc6eba3c482370b2890413d7886eae4031ee7d9737ce9eaaca6",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/meteor.png",
+      "bytes": 1450916,
+      "sha256": "7fb4a5b2d1b1f762bf8ddbf28f2102a108dbf146e3b35f9581ea2048a0dd74f5",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/ranged-ai.png",
+      "bytes": 1422645,
+      "sha256": "22497c289d7d9e8b08420849286fdcdae3954fad8cc6c8fc75280483ea5357c9",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/team-cinematic.png",
+      "bytes": 1454423,
+      "sha256": "7908a8c8c821e38dab3b2b7f664dfb01129e942fc01e8b3b1374518bd8150405",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/team-meteor.png",
+      "bytes": 1384551,
+      "sha256": "2b9ab5cbf1f4c502e2433f9ac01f87fedfb8199a8950022adc66e421188538d1",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/truthorbs.png",
+      "bytes": 1420996,
+      "sha256": "2ed576ad6ac07738b63aa8b32b0d983c6926936ec64b1603440167f0a7a2cea5",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/madara-qa/warning.png",
+      "bytes": 1414853,
+      "sha256": "7d7692953241840f31a47c96887ff5fee3eb8916bd221c527d2d865488191b17",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/baryon-retreat.png",
+      "bytes": 1437859,
+      "sha256": "7d773ae209c09dde6429a4fa2c82b3f2a39f9f0f26f72d9a9f036a83b6844e45",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/baryon-ultimate.png",
+      "bytes": 1438130,
+      "sha256": "0057293942fbb4c3bd1b8df7328d515dd3eccf5cf36b8257e7df2499c6461cd0",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/baryon.png",
+      "bytes": 1406149,
+      "sha256": "86797ece928c2a0ddd812c4f9721ce062926b008ae54e3611fe811ff347659a0",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/clones.png",
+      "bytes": 1415045,
+      "sha256": "62c747b3671c858e6db76bce2a7bcbaeecf0247132ee3f75688e8e2f8d49d3a1",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/final-impact.png",
+      "bytes": 1416251,
+      "sha256": "891934cfc18e90f846e66621965b9bcb389bc49f5f5b2a5812960a09e9a86cde",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/kcm-ultimate.png",
+      "bytes": 1430410,
+      "sha256": "1d0bd82cd6e7a4819015b6b879fab2080c127b05fdc53ce527670def57f6534d",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/kcm.png",
+      "bytes": 1401205,
+      "sha256": "e45f950afe75a8c7eb66cfec1fcd29398f17ad31ee2abe3816883f443324af13",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/live-vote.png",
+      "bytes": 368665,
+      "sha256": "ff5c7ce2eee3ecde81e64eae366ca92e71d94334d564d21028375d23cdc7b105",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/sage-to-kcm.png",
+      "bytes": 1419502,
+      "sha256": "f71c5ba7ce5a84f46d0086492832cc464de7d1484c6c5a2b27e074519a0fe82b",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/naruto-v2-qa/transform.png",
+      "bytes": 1447031,
+      "sha256": "16be00011f741342fa7614503ef1d15938dc8aeac132981a81092bfd00c7bebc",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/obs-qa/brand-hud.png",
+      "bytes": 847140,
+      "sha256": "234f489757588aaec1de4b9c1c6989ab1f24568f645028df2efb70a923a8866d",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/obs-qa/shared-hud-ready.png",
+      "bytes": 817950,
+      "sha256": "da394db240ed7e44edc49ef28a2cdb45184d12a7337c4ca85df228ddf5299e3d",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/obs-qa/shared-hud.png",
+      "bytes": 817807,
+      "sha256": "6962b672c54ce3f98ba8b1175bb8081547f1d2df0f087666e0f77a54d439abae",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/obs-qa/vertical.png",
+      "bytes": 2576287,
+      "sha256": "8a07a41a3f16fd0a6bd740a7dc3ec830c02d3fed9ce517f268809811f7df3921",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/obs-qa/vote-paused.png",
+      "bytes": 823561,
+      "sha256": "a632d4a6b44bf010271dbb5c5b55d13b8e4e0b587e21ad7e3e0458f78c371956",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/obs-qa/vote.png",
+      "bytes": 1255219,
+      "sha256": "98b6459a9d99eedc4e0bcedb3516e5c6c3797f27c35cfddb334d73e93bf1998d",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/rengoku-qa/battle.png",
+      "bytes": 1408307,
+      "sha256": "f1ee180bfd82ab3b952ee2518091ceaeb4cbdb4a6a5ed8ce84ff72bea4d5f5e6",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/rengoku-qa/cinematic.png",
+      "bytes": 1407346,
+      "sha256": "8d0f57622ae2be75143a3e744d976b194b09aa0e8fda271394dda4c59304ce6a",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/rengoku-qa/ultimate.png",
+      "bytes": 1437299,
+      "sha256": "e6477f31daec8fe89caad681f850d330445494a9face8dd1ee465e25dc258b17",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/rengoku-qa/vertical.png",
+      "bytes": 769452,
+      "sha256": "96c3c56b1bf4921dec3824b1b21e6a3557d117452e6882c61a95414269454512",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/viewer-vote-qa/broadcast.png",
+      "bytes": 997805,
+      "sha256": "be01f4aba4400728661cac4a31ecab46132530d3172f28b11c9a35d933e89415",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/viewer-vote-qa/phone-touch.png",
+      "bytes": 203121,
+      "sha256": "aaa8a0f4d8ce8c88f19b4051af9885527cf337da9cc5148ecb82eecbc64a7a8a",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "docs/viewer-vote-qa/phone.png",
+      "bytes": 201138,
+      "sha256": "cc1f8f97e9e0577e541369163938ab5cda7f50b6e9ef18c07e7d0bea71eec036",
+      "reason": "generated QA screenshot; recoverable from Git history"
+    },
+    {
+      "path": "tools/__pycache__/prepare_ichigo.cpython-312.pyc",
+      "bytes": 24309,
+      "sha256": "a7a124b8fcd874a73f867806e351523fe1c8d508bc598c0e0521279a59978980",
+      "reason": "generated Python bytecode"
+    },
+    {
+      "path": "tools/__pycache__/prepare_team_dialogue.cpython-312.pyc",
+      "bytes": 8515,
+      "sha256": "9a82f87b4c999f0be3a664a1dde39167d0f440d5721239e297e8d449e9b3d7cd",
+      "reason": "generated Python bytecode"
+    },
+    {
+      "path": "tools/__pycache__/serve_game.cpython-312.pyc",
+      "bytes": 6721,
+      "sha256": "b6cfe93fba581d964d4cd3349b971f5bb7a41df27db8b1d1f6dd7038a691169d",
+      "reason": "generated Python bytecode"
+    },
+    {
+      "path": "tools/__pycache__/voice_worker.cpython-312.pyc",
+      "bytes": 19817,
+      "sha256": "f2c74cd6d9cdc84ba74fbcf586fa30d252b12788fc63c65c1557ee726b3566ff",
+      "reason": "generated Python bytecode"
+    }
+  ],
+  "trackedBytesRemoved": 153411930,
+  "ignoredNativeFramesRemoved": 434,
+  "untrackedVerifiedDuplicatesRemoved": [
+    "art/sources/rengoku/rengoku_actions.png",
+    "art/sources/rengoku/rengoku_ultimate.png",
+    "art/sources/rengoku/rengoku_dialogue.png",
+    "art/sources/rengoku/rengoku_skills.png",
+    "art/sources/rengoku/rengoku_intro.png"
+  ]
+}

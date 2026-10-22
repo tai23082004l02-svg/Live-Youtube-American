@@ -1,6 +1,6 @@
 # Bàn giao Down Arena — trạng thái ngày 22/10/2026
 
-Đọc file này trước khi tiếp tục. Đây là trạng thái hiện hành; các ghi chú cũ trong `PROJECT_HANDOFF.md`, README và tài liệu nhân vật có thể mô tả những mốc roster 9/10/11, bảng 6 lựa chọn hoặc chưa kết nối chat. Không khôi phục các trạng thái cũ đó.
+Đọc file này trước khi tiếp tục. **Đã dọn nguồn/ảnh QA khỏi main: [hướng dẫn khôi phục](maintenance/CLEANUP.md).** Đây là trạng thái hiện hành; các ghi chú cũ trong `PROJECT_HANDOFF.md`, README và tài liệu nhân vật có thể mô tả những mốc roster 9/10/11, bảng 6 lựa chọn hoặc chưa kết nối chat. Không khôi phục các trạng thái cũ đó.
 
 ## Dự án và triển khai
 
@@ -119,7 +119,7 @@ Chi tiết các nhân vật mới nằm trong `docs/GOGETA_BLUE.md`, `MADARA.md`
 - ElevenLabs secret `ELEVENLABS_API_KEY`; các workflow `*-voice.yml` đã có. Không yêu cầu người dùng dán key vào chat. Tên voices/settings cần xem workflow thực tế trước khi gọi.
 - R2 đã được người dùng xác nhận upload/download ảnh thành công. Receipt brand/Gogeta/Madara và các archive khác trong `docs/*r2-archive.json`; chỉ khẳng định file cụ thể đã backup khi receipt/hash xác nhận.
 - R2 là nơi archive; không mặc định mọi tài nguyên đã chuyển sang public CDN. `dist/assets` vẫn cần cho game online.
-- Không xóa nguồn, runtime, voice hoặc thư mục lớn để “dọn” khi chưa kiểm tra phụ thuộc và bản sao khôi phục. `art/sources/` là thư mục untracked có sẵn tại phiên bàn giao; chưa stage/xóa, cần kiểm tra riêng nếu còn ở workspace.
+- Không xóa nguồn, runtime, voice hoặc thư mục lớn để “dọn” khi chưa kiểm tra phụ thuộc và bản sao khôi phục. `art/sources/rengoku` gồm năm bản trùng đã đối chiếu hash với R2 và dọn trong đợt cleanup; xem manifest. Nguồn đã archive trong `art/drafts`/contact sheets được khôi phục theo nhu cầu qua `tools/restore_source_art.py`. PNG nguồn KO chưa archive vẫn được giữ.
 - Native frame extraction có padding/metadata; tham khảo Gojo v2 tại `dist/assets/characters/gojo_v2`. Tránh cắt sheet theo grid tùy tiện, giữ kích thước và ownership frame chuẩn. Logo/draft nguồn đã có trong `art/drafts/down-arena-brand`.
 
 ## Kiểm tra trước khi đẩy
@@ -153,3 +153,7 @@ HP hiện ×5, migration key `down-arena-hp-x5-enabled-v1`. Vì người dùng v
 ## Màn kết thúc KO
 
 Thay chữ VICTORY ở màn kết thúc bằng ảnh KO vàng kim/đỏ cam nền trong suốt: `dist/assets/ui/titles/ko.webp`, nguồn PNG `art/drafts/down-arena-brand/ko-title.png`. `render/titles.js` thêm key KO, `render/victory.js` dùng KO cho thắng và giữ DRAW khi hòa. Tên người thắng bên dưới dùng Times New Roman. Không đổi thời gian freeze/reveal/chuyển trận hoặc âm thanh. Kiểm tra `tests/victory-tests.mjs`, `tests/title-assets-tests.mjs` và `tools/qa_online_chat.py` (draw ảnh KO thực tế). Bản mới đã push không đồng nghĩa Pages triển khai xong: người dùng đang thấy nhiều lượt Pages Queued; phải chờ dấu xanh trước khi refresh OBS.
+
+## Dọn repository
+
+131 file tracked (~146MiB) được gỡ: nguồn có R2 receipt/hash, ảnh QA tái tạo được, bytecode. Runtime `dist` giữ nguyên. Trước khi sửa/tách lại sheet, chạy `python3 tools/restore_source_art.py --source git`; helper khôi phục70 nguồn từ lịch sử và kiểm tra hash. Xem `docs/maintenance/CLEANUP.md` và manifest để biết đường dẫn/R2 keys. Không chạy prepare/verify nguồn khi chưa restore; các test gameplay không cần restore. GitHub Actions đang có sự cố theo GitHub Status người dùng đã gửi; không tiếp tục đoán lỗi OBS/cache khi deploy vẫn chờ.

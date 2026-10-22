@@ -2,6 +2,8 @@
 
 **[Bàn giao cho phiên chat tiếp theo — trạng thái mới nhất](docs/NEXT_CHAT_HANDOFF.md)**
 
+Nguồn sheet và ảnh QA cũ đã được dọn khỏi nhánh hiện tại; game vẫn giữ đủ tài nguyên chạy. [Khôi phục nguồn từ Git/R2 khi cần chỉnh nhân vật](docs/maintenance/CLEANUP.md).
+
 ## 🎮 Chơi online
 
 ### [▶ Mở Down Arena online](https://tai23082004l02-svg.github.io/Live-Youtube-American/dist/)
@@ -24,13 +26,13 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 Chọn **Đấu thường → Gogeta Blue**. Nhân vật mới có combo ba đòn, Meteor Assault lao áp sát, Stardust Breaker cầu vồng, God Punisher năm cầu năng lượng và **Full Force Kamehameha** lớn. Màn xuất hiện chuyển tóc đen sang Blue; câu hô tiếng Nhật2giây. Có trong đấu đơn, FFA, đội, giải đấu và Live.
 
-[Xem sheet nguồn](art/drafts/gogeta-blue) · [Ảnh Kamehameha trong game](docs/gogeta_blue-qa/kamehameha.png) · [Bộ kỹ năng và kiểm tra](docs/GOGETA_BLUE.md). Phiên bản: **GOGETA BLUE / 12 CHARACTERS**.
+[Xem sheet nguồn](art/drafts/gogeta-blue) · [Ảnh Kamehameha trong game](https://github.com/tai23082004l02-svg/Live-Youtube-American/blob/708271cd5598af585a3fae4f03d5d3bceeb9ef2b/docs/gogeta_blue-qa/kamehameha.png) · [Bộ kỹ năng và kiểm tra](docs/GOGETA_BLUE.md). Phiên bản: **GOGETA BLUE / 12 CHARACTERS**.
 
 ## Madara Uchiha — đã có trong game
 
 Chọn **Đấu thường → Madara Uchiha** để chơi. Bộ11 nhân vật hiện có Madara thiên về kỹ năng tầm xa: ba Cầu Đạo Ngọc lớn, Quang Nha xuyên mục tiêu, bóng Luân Mộ và Ultimate thiên thạch. AI giữ cự ly300–450px, lùi khi bị áp sát, dùng Limbo yểm trợ và dịch chuyển thoát góc (hồi8s). HP dưới40% kích hoạt tăng20% tốc độ hồi kỹ năng đến hết trận. Màn xuất hiện2,5 giây: đấu trường tối đen, bóng Madara bay từ dưới lên rồi hiện rõ; câu hô Ultimate tiếng Nhật khoảng1,42 giây.
 
-[Xem sheet và tạo hình](art/drafts/madara-six-paths) · [Xem trong trận](docs/madara-qa/battle.png) · [Kỹ năng và kiểm tra](docs/MADARA.md). Phiên bản: **MADARA RANGED AI**.
+[Xem sheet và tạo hình](art/drafts/madara-six-paths) · [Xem trong trận](https://github.com/tai23082004l02-svg/Live-Youtube-American/blob/708271cd5598af585a3fae4f03d5d3bceeb9ef2b/docs/madara-qa/battle.png) · [Kỹ năng và kiểm tra](docs/MADARA.md). Phiên bản: **MADARA RANGED AI**.
 
 ## Naruto Uzumaki — KCM → Baryon
 
@@ -41,7 +43,7 @@ Chọn **Đấu thường → Madara Uchiha** để chơi. Bộ11 nhân vật hi
 - KCM: Rasengan Rush biến mất rồi dịch chuyển sát mục tiêu, đánh trúng gây choáng0,5 giây, hai ảnh phân thân tồn tại8 giây và Rasenshuriken. Baryon: Crimson Rush, Tail Counter và Baryon Rasengan.
 - Hai Ultimate riêng, ba câu thoại tiếng Nhật; hoạt cảnh dừng thời gian chiến đấu và khớp thời lượng âm thanh.
 
-[Xem toàn bộ sheet gốc](art/drafts/naruto-v2) · [Xem frame đã tách](art/frames/naruto_v2) · [Ảnh trong game](docs/naruto-v2-qa/kcm.png) · [Chi tiết và kiểm tra](docs/NARUTO_V2.md)
+[Xem toàn bộ sheet gốc](art/drafts/naruto-v2) · [Xem frame đã tách](art/frames/naruto_v2) · [Ảnh trong game](https://github.com/tai23082004l02-svg/Live-Youtube-American/blob/708271cd5598af585a3fae4f03d5d3bceeb9ef2b/docs/naruto-v2-qa/kcm.png) · [Chi tiết và kiểm tra](docs/NARUTO_V2.md)
 
 ## Bình chọn YouTube Live — đang hoạt động
 
@@ -63,7 +65,7 @@ Chọn **Kyojuro Rengoku** trong đấu đơn, FFA, đội, giải đấu hoặc
 
 - 5 sheet nguồn được tách thành 122 frame; atlas có padding 32 px và metadata riêng cho hàng 5/6 frame.
 - Kiểm tra: Rengoku, UI, âm thanh, Live và trình duyệt Chromium thực tế đã qua. Kết quả tổng: 42/50 bộ qua; 8 bộ cũ vẫn thiếu tài nguyên đối chiếu trong `art`, giống trước thay đổi này.
-- Xem [hướng dẫn Rengoku](docs/RENGOKU.md) và [ảnh kiểm tra trong game](docs/rengoku-qa/cinematic.png).
+- Xem [hướng dẫn Rengoku](docs/RENGOKU.md) và [ảnh kiểm tra trong game](https://github.com/tai23082004l02-svg/Live-Youtube-American/blob/708271cd5598af585a3fae4f03d5d3bceeb9ef2b/docs/rengoku-qa/cinematic.png).
 
 ## Sukuna presentation impact revision — 2026-10-21 (latest)
 

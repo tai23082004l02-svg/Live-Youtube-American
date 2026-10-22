@@ -52,12 +52,12 @@ MP3, thông tin sinh và thời lượng nằm ở `dist/assets/audio/voices/nar
 ## Kiểm tra
 
 - `node tests/naruto-v2-tests.mjs`: frame/atlas, thời lượng, ngưỡng50%, đóng băng mô phỏng, không hồi máu/cộng buff lặp, hàng đợi biến hình,6 kỹ năng, phân thân, phản đòn, hai Ultimate cá nhân/đội, né vùng, root, seeded replay, portrait5v5 và giới hạn renderer.
-- Chromium thật: tải tài nguyên không lỗi, chọn và chỉnh chỉ số, Hiền Nhân/KCM/Baryon, cả hai Ultimate, thoại đã decode/phát theo lịch, tạm dừng/tiếp tục, thời gian hoạt cảnh ở tốc độ4×, đạn, phân thân và Live bình chọn. [Kết quả](naruto-v2-qa/results.json), [KCM](naruto-v2-qa/kcm.png), [Baryon](naruto-v2-qa/baryon.png).
+- Chromium thật: tải tài nguyên không lỗi, chọn và chỉnh chỉ số, Hiền Nhân/KCM/Baryon, cả hai Ultimate, thoại đã decode/phát theo lịch, tạm dừng/tiếp tục, thời gian hoạt cảnh ở tốc độ4×, đạn, phân thân và Live bình chọn. [Kết quả](naruto-v2-qa/results.json), [KCM](https://github.com/tai23082004l02-svg/Live-Youtube-American/blob/708271cd5598af585a3fae4f03d5d3bceeb9ef2b/docs/naruto-v2-qa/kcm.png), [Baryon](https://github.com/tai23082004l02-svg/Live-Youtube-American/blob/708271cd5598af585a3fae4f03d5d3bceeb9ef2b/docs/naruto-v2-qa/baryon.png).
 -44/52 suite qua khi chạy riêng.8 suite cũ dừng vì thiếu file tham chiếu trong `art/`, không bị vô hiệu hóa hoặc giả lập để qua. [Danh sách](naruto-v2-tests.json).
 - Chưa đánh giá giọng bằng tai hoặc kiểm tra trực tiếp trên điện thoại thật. GitHub Pages công khai không truy cập được từ môi trường kiểm tra này.
 
 Kiểm tra cập nhật: `python tools/qa_rasengan_stun.py` (máy chủ dist tại cổng8767), [biên nhận trình duyệt](naruto-v2-qa/rasengan-stun.json).
 
-Trước khi bật Baryon, Naruto chọn điểm trống trong sàn để tránh che cụm giao tranh; xét cả đồng đội lẫn đối thủ, giữ nguyên HP và chỉ dịch chuyển một lần. Nếu đang bị trói chân, đợi hết trói mới dịch chuyển/biến hình. Điểm chọn xác định theo vị trí, không dùng RNG, hỗ trợ sàn ngang/dọc và tỉ lệ1–4. [Ảnh kiểm tra](naruto-v2-qa/baryon-retreat.png) · [Biên nhận Chromium](naruto-v2-qa/baryon-retreat.json).
+Trước khi bật Baryon, Naruto chọn điểm trống trong sàn để tránh che cụm giao tranh; xét cả đồng đội lẫn đối thủ, giữ nguyên HP và chỉ dịch chuyển một lần. Nếu đang bị trói chân, đợi hết trói mới dịch chuyển/biến hình. Điểm chọn xác định theo vị trí, không dùng RNG, hỗ trợ sàn ngang/dọc và tỉ lệ1–4. [Ảnh kiểm tra](https://github.com/tai23082004l02-svg/Live-Youtube-American/blob/708271cd5598af585a3fae4f03d5d3bceeb9ef2b/docs/naruto-v2-qa/baryon-retreat.png) · [Biên nhận Chromium](naruto-v2-qa/baryon-retreat.json).
 
 Đạn Baryon Rasengan hiển thị lớn gấp1.75 lần (scale0.56 thay vì0.32); điều chỉnh này chỉ ảnh hưởng hình ảnh.
