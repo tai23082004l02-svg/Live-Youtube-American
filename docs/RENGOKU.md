@@ -9,7 +9,7 @@ Playable Kyojuro Rengoku uses the existing 2D simulation and all game modes.
 - Rising Scorching Sun: forward130-unit sword sweep (150 damage, brief12-tick root, knockback), cooldown9s.
 - Flame Tiger: projectile195 damage with80-unit splash for75 damage, cooldown12s. Team-safe; disappears if owner dies.
 - Burning Heart: below/equal35% HP, +10% outgoing damage and25% faster normal melee cooldown recovery. No invulnerability.
-- Purgatory: measured279-step cinematic,36-tick warning, then a36-tick dash along a fixed corridor; one hit per enemy,420× existing Ultimate multiplier2 before shared modifiers. Enemies can leave the corridor. Root prevents movement; death/petrification cancels. Queue and team Ultimate use existing systems.
+- Purgatory: measured87-step cinematic,36-tick warning, then a36-tick dash along a fixed corridor; one hit per enemy,420× existing Ultimate multiplier2 before shared modifiers. Enemies can leave the corridor. Root prevents movement; death/petrification cancels. Queue and team Ultimate use existing systems.
 
 ## Source and extraction
 
@@ -27,14 +27,16 @@ The actions sheet has row counts `[6,6,6,6,5,6,6,5]`; each other character/effec
 
 ## Recorded speech
 
-`dist/assets/audio/voices/rengoku_ultimate_ja.mp3` is the clean generated Brian/eleven_v3 Japanese recording: 炎の呼吸、奥義！玖ノ型、煉獄！ (Flame Breathing, secret technique! Ninth Form: Purgatory!). It is4.64s; `engine/rengoku-voice.js` supplies279 steps to both personal and team cinematics. Existing audio cache, mute, pause/resume, reset and music ducking apply. Generation metadata is alongside the MP3. Generation uses credit; setup and testing never require a new request.
+`dist/assets/audio/voices/rengoku_ultimate_short_ja.mp3` is the clean generated Brian/eleven_v3 Japanese recording: 煉獄！ (Purgatory!). It is1.44s; `engine/rengoku-voice.js` supplies87 steps to both personal and team cinematics. Existing audio cache, mute, pause/resume, reset and music ducking apply. Generation metadata is alongside the MP3. Generation uses credit; setup and testing never require a new request.
 
 ## Validation
 
 Run `node tests/rengoku-tests.mjs`, `node tests/audio-tests.mjs`, `node --experimental-vm-modules tests/ui-active-roster.mjs`, and the extraction verifier. The full `npm test` remains blocked by eight legacy reference-art dependencies; individually executed50 suites yielded42 pass and8 missing-art failures, recorded in `rengoku-test-results.json`. Assertions were not disabled.
 
-For real browser QA, start `python tools/serve_game.py`, install Playwright and Chromium if necessary, and run `python tools/qa_rengoku.py`. Optional `CHROMIUM_PATH` selects a system browser. The browser fixture forces Ultimate readiness to inspect its lifecycle and records screenshots/results under `docs/rengoku-qa`. It decodes and schedules the real4.64s MP3 and tests pause/resume. This is not a subjective listening review.
+For real browser QA, start `python tools/serve_game.py`, install Playwright and Chromium if necessary, and run `python tools/qa_rengoku.py`. Optional `CHROMIUM_PATH` selects a system browser. The browser fixture forces Ultimate readiness to inspect its lifecycle and records screenshots/results under `docs/rengoku-qa`. It decodes and schedules the real1.44s MP3 and tests pause/resume. This is not a subjective listening review.
 
 ## R2 archive
 
 `Archive Rengoku assets to R2` uses existing GitHub Secrets. It stores versioned sheets, runtime assets, contact images, extraction report and clean voice, verifies downloaded bytes, and commits a receipt at `docs/rengoku-r2-archive.json`. Existing bucket objects and repository sources are not removed. No credential belongs in source or frontend. The game continues loading its runtime assets from GitHub Pages, so it needs no R2 public access or CORS change.
+
+Short-call update: the previous4.64s recording and metadata remain available as source history, while the game plays the new1.44s file. Warning/travel durations are unchanged. No accelerated or abruptly truncated audio is used.

@@ -29,7 +29,7 @@ Chọn **Live → Bình chọn đối thủ → Bắt đầu Live Arena** để 
 
 ## Rengoku — 9 nhân vật
 
-Chọn **Kyojuro Rengoku** trong đấu đơn, FFA, đội, giải đấu hoặc Live Arena. Có 3 kỹ năng kiếm lửa, nội tại Burning Heart khi HP ≤35%, Ultimate Purgatory và lời tung chiêu tiếng Nhật 4,64 giây. Nếu còn bản cũ, tải lại trang bằng Ctrl+F5; góc màn hình phải hiện **RENGOKU / 9 CHARACTERS**.
+Chọn **Kyojuro Rengoku** trong đấu đơn, FFA, đội, giải đấu hoặc Live Arena. Có 3 kỹ năng kiếm lửa, nội tại Burning Heart khi HP ≤35%, Ultimate Purgatory và câu hô ngắn “煉獄！” dài1,44 giây. Nếu còn bản cũ, tải lại trang bằng Ctrl+F5; góc màn hình phải hiện **RENGOKU SHORT VOICE / 1.44s**.
 
 - 5 sheet nguồn được tách thành 122 frame; atlas có padding 32 px và metadata riêng cho hàng 5/6 frame.
 - Kiểm tra: Rengoku, UI, âm thanh, Live và trình duyệt Chromium thực tế đã qua. Kết quả tổng: 42/50 bộ qua; 8 bộ cũ vẫn thiếu tài nguyên đối chiếu trong `art`, giống trước thay đổi này.

@@ -8,14 +8,15 @@ OUTPUT=ROOT/'docs'/'rengoku-qa'
 OUTPUT.mkdir(parents=True,exist_ok=True)
 from playwright.sync_api import sync_playwright
 import json
+VOICE_SECONDS=json.loads((ROOT/'dist/assets/audio/voices/rengoku_ultimate_short_ja.json').read_text())['duration']
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path=os.environ.get('CHROMIUM_PATH') or shutil.which('chromium'),headless=True,args=['--no-sandbox','--autoplay-policy=no-user-gesture-required'])
  page=b.new_page(viewport={'width':1600,'height':1000})
- page.add_init_script('''window.__rengokuSpeechStarts=[];const original=AudioBufferSourceNode.prototype.start;AudioBufferSourceNode.prototype.start=function(...args){if(this.buffer?.duration>4.5&&this.buffer.duration<4.7)window.__rengokuSpeechStarts.push({offset:args[1]||0,duration:this.buffer.duration});return original.apply(this,args);};''')
+ page.add_init_script('window.__rengokuVoiceDuration='+str(VOICE_SECONDS)+';'+'''window.__rengokuSpeechStarts=[];const original=AudioBufferSourceNode.prototype.start;AudioBufferSourceNode.prototype.start=function(...args){if(Math.abs((this.buffer?.duration||0)-window.__rengokuVoiceDuration)<.01)window.__rengokuSpeechStarts.push({offset:args[1]||0,duration:this.buffer.duration});return original.apply(this,args);};''')
  errors=[];failed=[]
  page.on('pageerror',lambda e:errors.append(str(e)))
  page.on('response',lambda r:failed.append([r.status,r.url]) if r.status>=400 else None)
- page.goto('http://127.0.0.1:8766/',wait_until='networkidle')
+ page.goto('http://127.0.0.1:8767/',wait_until='networkidle')
  page.evaluate('async()=>await window.arena.ready')
  print('Loaded',errors,flush=True)
  page.click('#chooseBattle')
@@ -30,7 +31,7 @@ with sync_playwright() as p:
  page.locator('#game').screenshot(path=str(OUTPUT/'battle.png'))
  page.evaluate("()=>{const d=window.arena.simulation;d.fighters.forEach(f=>{f.rage=0;f.think=999;f.state='idle'});d.fighters[0].rage=100;}")
  page.wait_for_function("window.arena.simulation.personalUltimate.cinematic?.kind==='purgatory'")
- page.wait_for_timeout(1800)
+ page.wait_for_timeout(250)
  page.locator('#game').screenshot(path=str(OUTPUT/'cinematic.png'))
  page.click('#start')
  elapsed=page.evaluate('window.arena.simulation.personalUltimate.cinematic.elapsed')
@@ -40,7 +41,7 @@ with sync_playwright() as p:
  page.wait_for_function("window.arena.simulation.personalUltimate.attack?.phase==='travel'",timeout=10000)
  page.locator('#game').screenshot(path=str(OUTPUT/'ultimate.png'))
  speech=page.evaluate('window.__rengokuSpeechStarts')
- assert len(speech)>=2 and speech[-1]['offset']>1,speech
+ assert len(speech)>=2 and speech[-1]['offset']>.1,speech
  print('Real MP3 decoded / playback / pause / resume',speech,flush=True)
  print('Battle / cinematic / ultimate verified',flush=True)
  page.click('#openModeMenu')

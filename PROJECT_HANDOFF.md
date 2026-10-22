@@ -1,3 +1,7 @@
+## Rengoku short Ultimate voice — 2026-10-22 (latest)
+
+Replaced active speech with a newly generated Brian/eleven_v3 Japanese call, 煉獄！, in rengoku_ultimate_short_ja.mp3. Measured1.44s,87 ticks, replacing the active4.64s/279-tick charge. The common timing module controls both personal and team Ultimate cinematics. Warning/dash/damage unchanged. Previous full voice and metadata retained for history. New short metadata is beside its MP3. No paid retries. Tests verify personal/team release at87 ticks, frozen combat and audio lifecycle. Browser QA rerun with the real shorter recording.
+
 ## Baryon retreats before transforming — 2026-10-22 (latest)
 
 Before the low-HP Baryon cinematic, Naruto samples in-bounds points with a32×arena-scale inset and selects the largest clearance from all other living fighters, including teammates. Ties favor shorter travel; an already clearer current position is retained. Teleport occurs before v2TransformStart and uses the departure/arrival smoke and label. Root delays transformation until movement is allowed. HP, rage buffs, voice duration and whole-simulation cinematic freeze are unchanged. Only one teleport per transformation. No RNG consumed. Tested horizontal/portrait arenas at scales1,2,4, bounds, frame ordering, no repeat and root delay; real browser screenshot/report in docs/naruto-v2-qa/baryon-retreat.*.

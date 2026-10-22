@@ -15,11 +15,19 @@
   "speechStarts": [
     {
       "offset": 0.016666666666666666,
-      "duration": 4.64
+      "duration": 1.44
     },
     {
-      "offset": 2.1,
-      "duration": 4.64
+      "offset": 0.5333333333333333,
+      "duration": 1.44
+    },
+    {
+      "offset": 0.6,
+      "duration": 1.44
+    },
+    {
+      "offset": 1.4333333333333333,
+      "duration": 1.44
     }
   ],
   "subjectiveListening": false

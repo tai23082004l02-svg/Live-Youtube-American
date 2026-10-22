@@ -1,2 +1,2 @@
-export const RENGOKU_VOICE_STEPS=279;
-export const RENGOKU_VOICE_SECONDS=4.64;
+export const RENGOKU_VOICE_STEPS=87;
+export const RENGOKU_VOICE_SECONDS=1.44;
