@@ -1,3 +1,7 @@
+## HP×10 enabled
+
+App starts with global HP multiplier10. One-time localStorage migration `down-arena-hp-x10-enabled-v1` updates existing saved multiplier to10 so already-used OBS Browser Sources also switch after refresh; subsequent explicit UI changes still persist. Engine/base character stats unchanged. All new matches and OBS feeds inherit multiplier10.
+
 ## Live match countdown1s
 
 LIVE_TIMINGS.intro reduced5→1 across horizontal Live, vertical Live and viewer-vote feed. Vote HUD now reads the shared constant instead of hardcoded5. Character entrance animations and victory/intermission durations unchanged.
