@@ -15,7 +15,7 @@ export function drawVoteBroadcast(ctx,u,scene){ctx.save();ctx.fillStyle='#000';c
   text(ctx,String(row.count),506,y+17,14,color,'right',55);
  }
  if(scene&&u.active){ctx.save();ctx.translate(0,VOTE_LAYOUT.hudY);ctx.scale(540/960,VOTE_LAYOUT.hudHeight/112);drawVoteMatchHUD(ctx,u);ctx.restore();ctx.drawImage(scene,0,VOTE_LAYOUT.arenaY,540,VOTE_LAYOUT.arenaHeight);}else text(ctx,'START LIVE ARENA',270,490,23,'#8faac0','center');
- text(ctx,`MATCH ${u.matchNumber||1} · ${u.phase==='waiting'?'WAITING FOR NEXT MATCH':u.phase.toUpperCase()}`,270,659,11,'#7c91a5','center',492);
+ text(ctx,'For the best experience, set video quality to the highest available.',270,659,11,'#c8d7e6','center',492);
  // Keep the remaining lower area black for the operator's OBS layout.
  ctx.restore();}
 function meter(ctx,x,y,width,height,value,color,reverse=false){const ratio=Math.max(0,Math.min(1,Number(value)||0));ctx.save();ctx.beginPath();ctx.moveTo(x+5,y);ctx.lineTo(x+width,y);ctx.lineTo(x+width-5,y+height);ctx.lineTo(x,y+height);ctx.closePath();ctx.fillStyle='#1b2632';ctx.fill();ctx.clip();ctx.fillStyle=color;ctx.fillRect(reverse?x+width*(1-ratio):x,y,width*ratio,height);ctx.restore();ctx.strokeStyle='#637181';ctx.lineWidth=.8;ctx.stroke();}
