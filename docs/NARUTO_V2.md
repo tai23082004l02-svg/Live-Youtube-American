@@ -1,6 +1,6 @@
 # Naruto Uzumaki — Kurama's Last Flame
 
-Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)**. Nhân vật cũng tham gia đấu đội, giải đấu và Live bình chọn. Nếu trang còn bản cũ, tải lại sau khi GitHub Pages triển khai xong; dấu phiên bản là **NARUTO KCM / BARYON · 10 CHARACTERS**.
+Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)**. Nhân vật cũng tham gia đấu đội, giải đấu và Live bình chọn. Nếu trang còn bản cũ, tải lại sau khi GitHub Pages triển khai xong; dấu phiên bản là **NARUTO TELEPORT / CLONES 8s · 10 CHARACTERS**.
 
 ## Hình và hoạt ảnh
 
@@ -25,9 +25,11 @@ HP1400, tốc độ210, cận chiến75 theo mặc định, chỉnh được tro
 | Giai đoạn | Hành vi |
 |---|---|
 | Xuất hiện2.5 giây | Hiền Nhân chuyển sang KCM2 |
-| KCM2 | Rasengan Rush175 sát thương, hai phân thân35 sát thương/đòn tồn tại4 giây, Rasenshuriken210 và sát thương lan85 |
+| KCM2 | Rasengan Rush dịch chuyển tức thời tới cách mục tiêu65px rồi đánh175 sát thương, hai phân thân35 sát thương/đòn tồn tại8 giây, Rasenshuriken210 và sát thương lan85 |
 | HP dưới50% | Hoạt cảnh Baryon2.4 giây; toàn trận tạm dừng, không hồi máu và không cộng chỉ số lặp |
 | Baryon | Tốc độ và cận chiến ×1.15; Crimson Rush3 đòn45/55/95, Tail Counter đỡ một đòn từ phía trước và phản85 khi trong tầm, Baryon Rasengan250/lan65 |
+
+Rasengan Rush được AI dùng khi mục tiêu trong650px. Root ngăn dịch chuyển; vị trí đến luôn được giữ trong sàn. Đối thủ vẫn có thể né đòn trong thời gian ra chiêu0.3 giây.
 
 Tail Counter không chặn Ultimate. Phân thân không đỡ đạn, không tính là đấu sĩ, không đánh đồng đội và được dọn khi Naruto biến hình hoặc bị hạ. Các kỹ năng vẫn chịu hệ số công/phòng thủ và chí mạng của engine.
 

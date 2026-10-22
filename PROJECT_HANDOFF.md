@@ -1,3 +1,7 @@
+## Naruto teleport and longer clones — 2026-10-22 (latest)
+
+`v2rasengan` now teleports once on activation to65px from the live enemy target, clamps to the arena, emits the existing teleport VFX/audio event and retains the0.3s strike wind-up. Root prevents teleportation. AI activation range increased from330 to650px. Crimson Rush retains its movement. Naruto v2 clones now live8 combat seconds instead of4; existing transformation/death cleanup remains. Targeted tests cover instant displacement, one-time teleport, root, portrait bounds and survival beyond4 seconds followed by expiry at8 seconds.
+
 ## Naruto v2 integrated — 2026-10-22 (latest)
 
 New active ID `naruto_v2`, separate from the retained retired `naruto`. Active roster is10. See [Naruto implementation](docs/NARUTO_V2.md), [browser QA](docs/naruto-v2-qa/results.json) and [suite results](docs/naruto-v2-tests.json).
