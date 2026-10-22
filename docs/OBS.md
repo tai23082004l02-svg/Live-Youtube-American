@@ -1,3 +1,5 @@
+> Trạng thái mới nhất (22/10/2026): [bàn giao kỹ thuật](NEXT_CHAT_HANDOFF.md) và [hướng dẫn chat YouTube](YOUTUBE_CHAT.md). Live hiện là1vs1, chat thật,10 ứng viên/2 trang, game từ GitHub qua `/online/`. Các phần dưới có thể giữ ghi chú của phiên bản demo trước đó.
+
 # Nguồn OBS Full HD
 
 Mở **OBS → Sources → + → Browser** và dùng:

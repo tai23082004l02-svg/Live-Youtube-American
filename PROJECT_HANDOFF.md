@@ -1,3 +1,13 @@
+# Bàn giao dự án
+
+**Trạng thái hiện hành: [docs/NEXT_CHAT_HANDOFF.md](docs/NEXT_CHAT_HANDOFF.md). Đọc file đó trước khi triển khai.**
+
+Cập nhật đến 22/10/2026: game từ GitHub qua `/online/`, chat YouTube thật đã được người dùng thử thành công, Live 1vs1, 10 ứng viên chia hai trang 5 người/5 giây, Times New Roman, hướng dẫn Subscribe.
+
+## Nhật ký lịch sử bên dưới
+
+Các đoạn sau ghi từng mốc phát triển, không phải cấu hình hiện hành. Mốc mới trong tài liệu bàn giao ở trên được ưu tiên khi có khác biệt (roster, demo/chat thật, số lựa chọn, HUD).
+
 ## DOWN ARENA logo in fighter HUD
 
 Approved transparent wordmark replaces center VS in vote feed. Original RGBA PNG retained intact in draft/runtime; alpha>4 bounds only guide proportional positioning, full source is drawn at260native HUD units (~293px in Full HD). Brand asset loads with arena, retains cache across matches; controller exposes current images to HUD. HP/rage,1s countdown,HP×10,comic speech unchanged. `tools/qa_hud_logo.py` verifies real logo draw/no VS/cached identity after next match; capture and results `docs/obs-qa/brand-hud*`.

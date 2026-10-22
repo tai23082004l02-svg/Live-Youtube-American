@@ -29,7 +29,7 @@ YouTube Data API dùng quota, đọc chat liên tục sẽ tiêu hao quota; chư
 
 OAuth External ở chế độ Testing có thể yêu cầu cấp quyền lại sau khoảng 7 ngày. Nếu lỗi đăng nhập, xác nhận tài khoản nằm trong Test users, YouTube Data API v3 bật đúng dự án và scope `youtube.readonly` đã lưu. Muốn xóa đăng nhập đã lưu: đóng công cụ rồi xóa `.secrets/youtube-chat-token.json`.
 
-Đã kiểm tra tự động parser/khóa lượt/đổi phiếu và tích hợp game bằng dữ liệu giả lập. Đăng nhập Google và nhận chat thật cần thử trên máy sở hữu tài khoản; môi trường phát triển không có JSON/token của bạn.
+Đã kiểm tra tự động parser/khóa lượt/đổi phiếu và tích hợp game bằng dữ liệu giả lập. Ngày22/10/2026 người dùng đã xác nhận OAuth và nhận phiếu chat thật thành công trên máy OBS Windows. Môi trường phát triển không giữ JSON/token và chưa tự thử đăng nhập tài khoản của người dùng.
 
 ## Game trên GitHub, công cụ chat trên máy
 

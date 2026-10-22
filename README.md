@@ -1,5 +1,7 @@
 # Down Arena
 
+**[Bàn giao cho phiên chat tiếp theo — trạng thái mới nhất](docs/NEXT_CHAT_HANDOFF.md)**
+
 ## 🎮 Chơi online
 
 ### [▶ Mở Down Arena online](https://tai23082004l02-svg.github.io/Live-Youtube-American/dist/)
@@ -24,9 +26,9 @@ Chọn **Đấu thường → Gogeta Blue**. Nhân vật mới có combo ba đò
 
 [Xem sheet nguồn](art/drafts/gogeta-blue) · [Ảnh Kamehameha trong game](docs/gogeta_blue-qa/kamehameha.png) · [Bộ kỹ năng và kiểm tra](docs/GOGETA_BLUE.md). Phiên bản: **GOGETA BLUE / 12 CHARACTERS**.
 
-## Madara Lục Đạo — đã có trong game
+## Madara Uchiha — đã có trong game
 
-Chọn **Đấu thường → Madara Lục Đạo** để chơi. Bộ11 nhân vật hiện có Madara thiên về kỹ năng tầm xa: ba Cầu Đạo Ngọc lớn, Quang Nha xuyên mục tiêu, bóng Luân Mộ và Ultimate thiên thạch. AI giữ cự ly300–450px, lùi khi bị áp sát, dùng Limbo yểm trợ và dịch chuyển thoát góc (hồi8s). HP dưới40% kích hoạt tăng20% tốc độ hồi kỹ năng đến hết trận. Màn xuất hiện2,5 giây: đấu trường tối đen, bóng Madara bay từ dưới lên rồi hiện rõ; câu hô Ultimate tiếng Nhật khoảng1,42 giây.
+Chọn **Đấu thường → Madara Uchiha** để chơi. Bộ11 nhân vật hiện có Madara thiên về kỹ năng tầm xa: ba Cầu Đạo Ngọc lớn, Quang Nha xuyên mục tiêu, bóng Luân Mộ và Ultimate thiên thạch. AI giữ cự ly300–450px, lùi khi bị áp sát, dùng Limbo yểm trợ và dịch chuyển thoát góc (hồi8s). HP dưới40% kích hoạt tăng20% tốc độ hồi kỹ năng đến hết trận. Màn xuất hiện2,5 giây: đấu trường tối đen, bóng Madara bay từ dưới lên rồi hiện rõ; câu hô Ultimate tiếng Nhật khoảng1,42 giây.
 
 [Xem sheet và tạo hình](art/drafts/madara-six-paths) · [Xem trong trận](docs/madara-qa/battle.png) · [Kỹ năng và kiểm tra](docs/MADARA.md). Phiên bản: **MADARA RANGED AI**.
 
@@ -41,11 +43,19 @@ Chọn **Đấu thường → Madara Lục Đạo** để chơi. Bộ11 nhân v�
 
 [Xem toàn bộ sheet gốc](art/drafts/naruto-v2) · [Xem frame đã tách](art/frames/naruto_v2) · [Ảnh trong game](docs/naruto-v2-qa/kcm.png) · [Chi tiết và kiểm tra](docs/NARUTO_V2.md)
 
-## Bình chọn đối thủ — bản mô phỏng
+## Bình chọn YouTube Live — đang hoạt động
 
-Chọn **Live → Bình chọn đối thủ → Bắt đầu Live Arena** để mở khung dọc9:16: bảng6 tên phía trên, trận ngang16:9 ở giữa, phần dưới đen. Bình chọn mở đến khi trận hiện tại kết thúc, rồi chốt top2 cho trận tiếp theo; không có chân dung. **Chưa kết nối chat YouTube: số phiếu hiện là mô phỏng.** Có thể tắt mô phỏng và thử đổi phiếu trong bảng điều khiển.
+Live **1vs1**, roster **12 nhân vật**. Hai người đang đấu bị loại khỏi bảng; 10 người còn lại đánh số **1–10**, hiện5 người mỗi trang và đổi trang mỗi5 giây. Mỗi tài khoản một phiếu, gửi số khác để đổi. Bình chọn chốt khi trận kết thúc; top2 đấu trận sau.
 
-[Xem hướng dẫn OBS và bình chọn](docs/VIEWER_VOTE.md) · [Xem bố cục](docs/viewer-vote-qa/broadcast.png)
+Chạy công cụ YouTube trên máy OBS rồi dùng Browser Source1080×1920:
+
+```text
+http://127.0.0.1:8765/online/?obs=vote&chat=1
+```
+
+Game và tài nguyên tải từ GitHub Pages; cập nhật nhân vật/giao diện chỉ cần làm mới nguồn OBS, không tải lại ZIP. JSON OAuth/token giữ trên máy. Bật chỉ người đăng ký được chat trong YouTube Studio. Không có `chat=1` thì chế độ bình chọn vẫn là mô phỏng.
+
+[Hướng dẫn YouTube Chat](docs/YOUTUBE_CHAT.md) · [Bàn giao kỹ thuật](docs/NEXT_CHAT_HANDOFF.md)
 
 ## Rengoku — 9 nhân vật
 
