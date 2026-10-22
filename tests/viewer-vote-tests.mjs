@@ -24,3 +24,20 @@ function controller(result=null){const u=Object.create(VotingArenaUI.prototype);
 {const {u,d}=controller();u.frame(46);assert(!u.ballot.locked,'long battles keep voting open');assert(u.ballot.cast('viewer',1));u.paused=true;const age=u.age;u.frame(10);assert.equal(u.age,age);u.paused=false;d.result='teamA';u.frame(.01);assert(u.ballot.locked,'locks immediately on result');assert.equal(u.phase,'battle','does not wait for victory animation to lock');assert(!u.ballot.cast('late',2));const expected=[...u.ballot.winners];u.h.resultAge=()=>5;u.frame(.01);assert.equal(u.phase,'waiting');u.prepareMatch=pair=>u.nextPair=pair;u.frame(5);assert.deepEqual(u.nextPair,expected);}
 {const {u,d}=controller();u.ballot.cast('viewer',2);const ids=[...u.ballot.ids];d.result='draw';u.h.resultAge=()=>5;u.frame(.01);assert(u.ballot.locked);u.next=()=>u.rematched=true;u.frame(5);assert(u.rematched);assert(!u.ballot.locked);assert.equal(u.ballot.votes.size,1);assert.deepEqual(u.ballot.ids,ids);}
 console.log('Battle-end voting PASS: no 45s cutoff, immediate result lock, late rejection, victory/intermission transition, pause and draw-rematch reopening.');
+
+// Live voting selects four unique fighters for two persistent two-person teams.
+{
+ const ballot=new ViewerVote(names,{seed:'TEAMS',winnerCount:4});
+ for(let n=1;n<=4;n++)for(let j=0;j<5-n;j++)ballot.cast(`v${n}-${j}`,n);
+ const winners=ballot.lock();assert.equal(winners.length,4);assert.equal(new Set(winners).size,4);
+ const match=new ViewerMatch(names,winners,'2V2',{hpMultiplier:10});const cfg=match.battleConfig();
+ assert.deepEqual(cfg.teams,['A','A','B','B']);assert.equal(match.size,2);assert.deepEqual(cfg.pair,winners);
+ const duel=new Duel(cfg.seed,false,cfg.pair,{},cfg.teams,1,10);
+ assert.equal(duel.fighters.length,4);assert(!duel.isEnemy(duel.fighters[0],duel.fighters[1]));assert(duel.isEnemy(duel.fighters[0],duel.fighters[2]));
+ const rendered=[];const ctx=new Proxy({fillText:(...args)=>rendered.push(args)},{get:(o,k)=>o[k]||(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
+ drawVoteBroadcast(ctx,{active:true,ballot,h:{names,duel:()=>duel},phase:'battle',matchNumber:1},{});
+ for(const id of winners)assert(rendered.some(args=>args[0]===names[id]));
+ assert.equal(rendered.filter(args=>String(args[0]).startsWith('HP  ')).length,4);
+ assert.equal(rendered.filter(args=>String(args[0]).startsWith('ULT  ')).length,4);
+ console.log('2vs2 voting PASS: top four, distinct teams, ally targeting protection, four HP/rage HUD entries.');
+}
