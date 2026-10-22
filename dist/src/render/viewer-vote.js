@@ -7,9 +7,9 @@ export function drawVoteBroadcast(ctx,u,scene){ctx.save();ctx.fillStyle='#000';c
  text(ctx,v?.locked?'LOCKED':'VOTING',516,54,17,'#7ddcfd','right',95);
  text(ctx,u.chat?.enabled?`COMMENT 1–${v?.ids.length||6} TO VOTE · ONE VOTE PER VIEWER`:'SIMULATED VOTES · ONE VOTE PER VIEWER · CHANGE WITH A NEW NUMBER',24,75,9,'#aab8c8');
  if(u.chat?.enabled){
-  text(ctx,`COMMENT 1–${v?.ids.length||6} TO CHOOSE`,270,704,26,'#ffe0a0','center',492);
-  text(ctx,'THE NEXT FIGHTERS',270,736,26,'#ffe0a0','center',492);
-  text(ctx,'One vote per viewer · Send another number to change',270,765,13,'#e9eef5','center',492);
+  text(ctx,`COMMENT 1–${v?.ids.length||6} IN CHAT`,270,704,29,'#ffe0a0','center',492);
+  text(ctx,'TO PICK THE NEXT FIGHTERS',270,740,23,'#ffe0a0','center',492);
+  text(ctx,'ONE VOTE EACH · COMMENT AGAIN TO CHANGE',270,772,14,'#e9eef5','center',492);
  }
  const rows=v?.rows||[],total=v?.votes.size||0;
  for(const [i,row] of rows.entries()){
