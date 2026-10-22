@@ -1,0 +1,8 @@
+{
+  "voice": "Daniel",
+  "model": "eleven_v3",
+  "language": "ja",
+  "text": "天碍震星！",
+  "duration": 2.0,
+  "steps": 120
+}

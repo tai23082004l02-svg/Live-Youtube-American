@@ -1,0 +1,2 @@
+export const MADARA_VOICE_STEPS=120;
+export const MADARA_VOICE_SECONDS=2.0;
