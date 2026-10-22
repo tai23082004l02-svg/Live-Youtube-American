@@ -10,6 +10,10 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
+## Madara Lục Đạo — thiết kế nhân vật mới
+
+[Xem tạo hình, kỹ năng lớn và màn xuất hiện](art/drafts/madara-six-paths). Đây là bộ thiết kế hình ảnh để phát triển nhân vật.
+
 ## Naruto Uzumaki — KCM → Baryon
 
 Đã thêm Naruto vào danh sách **10 nhân vật**. Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)** để thử.

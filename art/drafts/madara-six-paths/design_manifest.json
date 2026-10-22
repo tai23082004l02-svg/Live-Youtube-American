@@ -1,0 +1,37 @@
+{
+  "character": "Madara Uchiha – Six Paths",
+  "stage": "visual concepts and entrance storyboard; not runtime animation atlases",
+  "styleReference": "dist/assets/characters/gojo_v2/gojo_v2.webp",
+  "files": [
+    {
+      "file": "madara_six_paths_concept.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 2553093,
+      "sha256": "fe3afe6b3e6ad9ccd27710847458d0f4c106b3eaf78e1dfca9a6b82158234b9b"
+    },
+    {
+      "file": "madara_six_paths_intro_storyboard.png",
+      "size": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "bytes": 2656571,
+      "sha256": "7e1db42ed3cda44c21be4cbf077c4ffed2b2d01712394a89a79e51a549fe7e2c"
+    },
+    {
+      "file": "madara_six_paths_skill_concept.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 3413880,
+      "sha256": "ccf4dc7960b0e052d397f3917f120d88dccf7ecffa23755ed13fe6662b666bcf"
+    }
+  ]
+}
