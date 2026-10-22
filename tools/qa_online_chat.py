@@ -47,8 +47,9 @@ try:
   for origin,code in [(m.GAME_ORIGIN,204),('https://evil.example',403)]:
    assert page.request.fetch(m.BASE+'/api/votes',method='OPTIONS',headers={'Origin':origin,'Access-Control-Request-Method':'POST'}).status==code
   assert page.request.post(m.BASE+'/api/connect',headers={'Origin':m.GAME_ORIGIN},data='{}').status==403
-  page.evaluate("window.arena.simulation.fighters[1].hp=0;window.arena.simulation.result='teamA'")
+  page.evaluate("window.previousMatch=window.arena.simulation;window.arena.simulation.fighters[1].hp=0;window.arena.simulation.result='teamA'")
   page.wait_for_function('window.titleDraws.length>0',timeout=10000)
+  page.wait_for_function('window.arena.simulation!==window.previousMatch',timeout=3500)
   print(json.dumps({'remote_assets':len(remote),'live_ballot':True,'vote_delivered':True,'errors':errors,'cors_and_credential_isolation':'PASS'}))
   browser.close()
 finally:

@@ -1,5 +1,5 @@
 import {liveCupEntrants} from './engine/live-exhibition.js';
-import {LiveArenaUI,LIVE_TIMINGS} from './live-arena.js';
+import {LiveArenaUI,LIVE_TIMINGS} from './live-arena.js?v=20261022-ko-voice-fast-next';
 import {Tournament,drawEntrants} from './engine/tournament.js';
 import {LiveExhibition} from './engine/live-exhibition.js';
 import {Grandstand} from './render/grandstand.js';

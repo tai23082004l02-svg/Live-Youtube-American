@@ -9,9 +9,9 @@
 ## Chu kỳ tự động
 
 - Chọn 8 nhân vật khác nhau từ toàn bộ danh sách, bốc cặp đấu.
-- Giới thiệu cặp đấu 5 giây → giao đấu không giới hạn thời gian → VICTORY 5 giây.
-- Hiện nhánh đấu và trận tiếp theo, đếm ngược 5 giây.
-- Hoàn tất 7 trận, trao nhà vô địch 8 giây rồi tự bốc giải mới.
+- Giới thiệu cặp đấu 1 giây → giao đấu không giới hạn thời gian → KO và âm báo ngắn, giữ kết quả 1,2 giây.
+- Chuyển sang trận tiếp theo ngay sau nhịp KO, không có đếm ngược nghỉ thêm 5 giây.
+- Hoàn tất 7 trận, ghi nhận nhà vô địch rồi tự bốc giải mới, không nghỉ thêm 8 giây.
 - Hòa sẽ đấu lại đúng cặp đó. HP và năng lượng được khởi tạo lại mỗi trận.
 - Hiện số giải, vòng/trận, thanh máu, trận tiếp theo, nhà vô địch gần nhất và số danh hiệu trong phiên.
 

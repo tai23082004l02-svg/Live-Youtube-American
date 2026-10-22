@@ -9,7 +9,7 @@ import {drawGojoActor,drawGojoBack,drawGojoWorld,drawGojoShot,drawGojoEffect as 
 import {ACTIVE_CHARACTERS} from './characters/index.js';
 import {PORTRAIT_SCENE_OFFSET,PORTRAIT_SCENE_HEIGHT} from './engine/arena.js';
 import {setupModeMenu} from './mode-menu.js';
-import {VictoryScene,FINISH_FREEZE_SECONDS,VICTORY_CONTROLS_SECONDS,applyVictoryCamera,drawVictoryAura,drawVictoryScreen} from './render/victory.js?v=20261022-ko-r1';
+import {VictoryScene,FINISH_FREEZE_SECONDS,VICTORY_CONTROLS_SECONDS,applyVictoryCamera,drawVictoryAura,drawVictoryScreen} from './render/victory.js?v=20261022-ko-voice-fast-next';
 import {ArenaMusic} from './music.js';
 import {drawFighterBars} from './render/fighter-bars.js';
 import {drawBoaActor,drawBoaBack,drawBoaWorld,drawBoaShot,boaSprite} from './render/boa.js';
@@ -18,7 +18,7 @@ import {drawSaberActor,drawSaberBack,drawSaberWorld,drawSaberShot,saberSprite} f
 import {drawUltraActor,drawUltraBack,drawUltraWorld,drawUltraShot,ultraSprite} from './render/ultra.js';
 import {drawBeerusFrame} from './render/beerus.js';
 import {drawJinwooActor,drawJinwooIntroBack,drawJinwooEffects,drawAriseWorld,jinwooSprite} from './render/jinwoo.js';
-import {VotingArenaUI} from './voting-arena.js?v=20261022-ko-r1';
+import {VotingArenaUI} from './voting-arena.js?v=20261022-ko-voice-fast-next';
 import {drawIchigoActor,drawIchigoEffects,drawIchigoUltimateWorld,drawIchigoShot,ichigoSprite} from './render/ichigo.js';
 import {drawProjectileEnergy} from './render/projectile-energy.js';
 import {ULTIMATE_STYLES,setTeamUltimateEnabled} from './engine/team-ultimate.js';
@@ -36,7 +36,7 @@ import {sasukePose} from './characters/sasuke.js';
 import {gojoPose} from './characters/gojo.js';
 import {Duel,DT} from './engine/sim.js';
 import {DEFAULT_STATS,STAT_LIMITS,normalizeStats,normalizeHpMultiplier} from './engine/config.js';
-import {ArenaAudio} from './audio.js';
+import {ArenaAudio} from './audio.js?v=20261022-ko-voice-fast-next';
 import {BROLY_VFX_META} from './render/broly-meta.js';
 import {AssetLoader,assetsForPair} from './engine/assets.js';
 import {BROLY_SPRITE,brolyCastFrame,brolyMuzzle,shotSocket,shotScreenPosition,piccoloPose,piccoloShotSocket,narutoPose,narutoShotSocket} from './render/presentation.js';
@@ -159,7 +159,7 @@ function loop(t){const elapsed=Math.min((t-last)/1000||0,.1);last=t;
  for(const p of particles){p.x+=p.vx*visualDt;p.y+=p.vy*visualDt;p.life-=visualDt;}particles=particles.filter(p=>p.life>0);
  if(running){acc+=elapsed*((duel.narutoV2Transform||duel.teamUltimate?.cinematic||duel.personalUltimate?.cinematic)?1:Number($('speed').value));while(acc>=DT){const tickBefore=duel.tick,wasCinematic=!!(duel.narutoV2Transform||duel.teamUltimate?.cinematic||duel.personalUltimate?.cinematic);duel.step();const cinematicChanged=wasCinematic!==!!(duel.narutoV2Transform||duel.teamUltimate?.cinematic||duel.personalUltimate?.cinematic);for(const shot of duel.shots)if(['broly','piccolo','naruto'].includes(shot.id)&&!shotSockets.has(shot)){const source=duel.shotOwner(shot),target=duel.fighters.find(f=>f.uid===source.targetId&&f.hp>0)||duel.pickTarget(source)||source;shotSockets.set(shot,shot.id==='naruto'?narutoShotSocket(shot,source,target):shot.id==='piccolo'?piccoloShotSocket(shot,source,target):shotSocket(shot,source,target));}if(duel.tick!==tickBefore&&duel.tick%3===0&&$('vfx').checked)for(const f of duel.fighters)if(['dash','rush'].includes(f.state))ghosts.push({id:f.id,baryon:f.baryon,kurama:f.id==='naruto'&&f.kurama,golden:f.id==='frieza'&&duel.tick<f.goldenEnd,x:f.x,y:f.y,face:f.face,row:f.id==='beerus'?4:f.id==='goku_blue'?4:f.id==='yugi'?5:f.id==='frieza'?1:f.id==='gogeta'?4:3,frame:Math.min(['gogeta','frieza'].includes(f.id)?7:5,Math.floor(f.age*(['gogeta','frieza'].includes(f.id)?32:24))),life:.24});if(ghosts.length>24)ghosts.splice(0,ghosts.length-24);acc-=DT;if(cinematicChanged){acc=0;break;}if(duel.result){acc=0;break;}}events();}
  else if(duel.result){if(!tournament.live||!tournament.paused)resultAge+=elapsed;events();}
- tournament.frame(elapsed);audio.update(duel,running);if(tournament.live&&tournament.paused)audio.stopAnnouncement();else if(duel.result&&resultAge>=.95)audio.announceVictory(duel);music.update(tournament.live&&tournament.active?Object.assign(Object.create(duel),{result:null}):duel,(running||(tournament.live&&tournament.active&&!tournament.paused&&!['loading','error'].includes(tournament.phase)))&&!document.hidden);update();render();tournament.draw(ctx,visualClock);if(tournament.portrait)tournament.present(portraitCtx,canvas,dialogueCanvas,$('ultimateReduce').checked);else if(tournament.voteMode)tournament.presentVotes(portraitCtx,canvas);requestAnimationFrame(loop);}reset();requestAnimationFrame(loop);
+ tournament.frame(elapsed);audio.update(duel,running);if(tournament.live&&tournament.paused)audio.stopAnnouncement();else if(duel.result&&resultAge>=.12)audio.announceVictory(duel);music.update(tournament.live&&tournament.active?Object.assign(Object.create(duel),{result:null}):duel,(running||(tournament.live&&tournament.active&&!tournament.paused&&!['loading','error'].includes(tournament.phase)))&&!document.hidden);update();render();tournament.draw(ctx,visualClock);if(tournament.portrait)tournament.present(portraitCtx,canvas,dialogueCanvas,$('ultimateReduce').checked);else if(tournament.voteMode)tournament.presentVotes(portraitCtx,canvas);requestAnimationFrame(loop);}reset();requestAnimationFrame(loop);
 
 window.arena={get tournament(){return tournament},get simulation(){return duel},get ready(){return assetTask},get loadedAssets(){return Object.keys(images)},get stats(){return normalizeStats(appliedStats)},reset,start:toggle};
 

@@ -8,7 +8,7 @@ for(const result of ['goku','teamA','draw']){
  assert.equal(scene.winners.length,result==='draw'?0:result==='teamA'?2:1);
  assert.equal(scene.uids.has(b.uid),false);
  assert.equal(scene.frame(0).camera.zoom,1);
- assert.equal(scene.frame(.8).reveal,0);
+ assert.equal(scene.frame(.1).reveal,0);
  assert.equal(scene.frame(2).reveal,1);
  assert.equal(scene.frame(2,true).camera.zoom,1);
  assert.equal(Math.abs(scene.frame(2,true).shake.x)+Math.abs(scene.frame(2,true).shake.y),0);

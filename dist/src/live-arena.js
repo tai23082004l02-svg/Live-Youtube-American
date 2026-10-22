@@ -3,7 +3,7 @@ import {drawTitle} from './render/titles.js';
 import {TournamentUI} from './tournament-ui.js';
 import {Tournament,drawEntrants,ROUND_NAMES} from './engine/tournament.js';
 
-export const LIVE_TIMINGS=Object.freeze({intro:1,victory:5,waiting:5,champion:8});
+export const LIVE_TIMINGS=Object.freeze({intro:1,victory:1.2,waiting:0,champion:0});
 
 // Reuse bracket rules, loading guards and battle configuration from TournamentUI.
 export class LiveArenaUI extends TournamentUI{
@@ -35,14 +35,14 @@ export class LiveArenaUI extends TournamentUI{
  }
  frame(dt){if(!this.live)return super.frame(dt);if(!this.active||this.paused)return;this.age+=dt;
   if(this.phase==='intro'&&this.age>=LIVE_TIMINGS.intro){this.phase='battle';this.age=0;this.h.toggleBattle();this.update();}
-  if(this.phase==='battle'&&this.h.duel().result&&this.h.resultAge()>=LIVE_TIMINGS.victory){
+  else if(this.phase==='battle'&&this.h.duel().result&&this.h.resultAge()>=LIVE_TIMINGS.victory){
    const d=this.h.duel(),m=this.model.current,won=this.model.record(d.result,d.fighters);this.totalMatches++;this.lastDraw=!won;this.age=0;
    this.phase=this.model.champion===null?'waiting':'complete';
    if(this.phase==='complete'){this.completedCups++;const e=this.model.entries[this.model.champion],id=e.players[0];this.champions.set(id,(this.champions.get(id)||0)+1);this.lastChampion=e.name;}
    this.$('overlay').style.display='none';this.update();
   }
-  if(this.phase==='waiting'&&this.age>=LIVE_TIMINGS.waiting)this.next();
-  if(this.phase==='complete'&&this.age>=LIVE_TIMINGS.champion)this.create();
+  else if(this.phase==='waiting'&&this.age>=LIVE_TIMINGS.waiting)this.next();
+  else if(this.phase==='complete'&&this.age>=LIVE_TIMINGS.champion)this.create();
  }
  leave(){this.setView(false);if(this.previousSpeed!==undefined){this.$('speed').value=this.previousSpeed;this.previousSpeed=undefined;}this.$('speed').disabled=false;super.leave();}
   update(){super.update();const $=this.$,live=this.live;$('livePanel').hidden=!live;if(!live)return;

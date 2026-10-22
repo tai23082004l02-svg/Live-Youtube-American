@@ -1,7 +1,7 @@
-import {drawTitle} from './titles.js?v=20261022-ko-r1';
+import {drawTitle} from './titles.js?v=20261022-ko-voice-fast-next';
 import {ULTIMATE_STYLES} from '../engine/team-ultimate.js';
 export const FINISH_FREEZE_SECONDS=.18;
-export const VICTORY_REVEAL_SECONDS=.95;
+export const VICTORY_REVEAL_SECONDS=.12;
 export const VICTORY_CONTROLS_SECONDS=2.3;
 const clamp=v=>Math.max(0,Math.min(1,v));
 const smooth=v=>{const p=clamp(v);return p*p*(3-2*p);};

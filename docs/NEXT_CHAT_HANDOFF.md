@@ -157,3 +157,7 @@ Thay chữ VICTORY ở màn kết thúc bằng ảnh KO vàng kim/đỏ cam nề
 ## Dọn repository
 
 131 file tracked (~146MiB) được gỡ: nguồn có R2 receipt/hash, ảnh QA tái tạo được, bytecode. Runtime `dist` giữ nguyên. Trước khi sửa/tách lại sheet, chạy `python3 tools/restore_source_art.py --source git`; helper khôi phục70 nguồn từ lịch sử và kiểm tra hash. Xem `docs/maintenance/CLEANUP.md` và manifest để biết đường dẫn/R2 keys. Không chạy prepare/verify nguồn khi chưa restore; các test gameplay không cần restore. GitHub Actions đang có sự cố theo GitHub Status người dùng đã gửi; không tiếp tục đoán lỗi OBS/cache khi deploy vẫn chờ.
+
+## KO audio và chuyển trận nhanh
+
+Âm báo kết thúc dùng `ko_en.mp3` (Flite RMS, khoảng0,862s, không phải ElevenLabs), bỏ route phát `victory_en.mp3`. Màn/tiếng KO bắt đầu sau0,12s. LIVE_TIMINGS hiện `{intro:1,victory:1.2,waiting:0,champion:0}`; sau1,2s chuyển sang trận mới, không còn hai khoảng nghỉ5s. Giữ load guard, intro1s và entrance nhân vật riêng. Không để test scheduler hardcode4,9/5s. Xem `docs/maintenance/KO_AUDIO.md`.

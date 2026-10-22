@@ -16,7 +16,7 @@ In OBS use a1080×1920 canvas and a Browser Source viewport1080×1920. Open the 
 - Candidate numbers remain fixed for the whole round. The catalog rotates across rounds, keeping large rosters bounded.
 - One vote per stable viewer ID. Another valid number from that ID replaces the old choice. Invalid and late votes are ignored.
 - The top two distinct candidates form the next match. Ties, including no-vote rounds, use a seeded random tiebreak.
-- Voting locks immediately when the battle has a result, before the victory animation. The top two enter the next match after the normal victory/intermission screens. Draws rematch the current pair and reopen the same candidate list and accumulated votes at rematch startup.
+- Voting locks immediately when the battle has a result, before the victory animation. The top two enter the next match after a1.2-second KO reveal/call, with no additional intermission delay. Draws rematch the current pair and reopen the same candidate list and accumulated votes at rematch startup.
 - Pause freezes battle and voting. Asset load failures preserve the ballot for Retry. Stop clears the ballot; mode changes remove the broadcast styling.
 
 ## Explicit demo status

@@ -11,10 +11,10 @@ const first=u.model,firstSeed=first.settings.seed;assert.equal(first.settings.hp
 u.frame(.2);u.toggle();const age=u.age;u.frame(9);assert.equal(u.age,age);u.toggle();
 u.frame(LIVE_TIMINGS.intro);assert.equal(u.phase,'battle');assert.equal(toggles,1);
 // A draw replays this bracket slot, including the automatic loading guard.
-d.result='draw';resultAge=5;u.frame(.01);assert.equal(u.phase,'waiting');assert.equal(u.model.current.replays,1);u.frame(5);await Promise.resolve();await Promise.resolve();assert.equal(u.phase,'intro');
+d.result='draw';resultAge=LIVE_TIMINGS.victory;u.frame(.01);assert.equal(u.phase,'waiting');assert.equal(u.model.current.replays,1);u.frame(0);await Promise.resolve();await Promise.resolve();assert.equal(u.phase,'intro');
 for(let n=0;n<7;n++){
- u.frame(5);assert.equal(u.phase,'battle');d.fighters[1].hp=0;d.result='teamA';resultAge=4.9;u.frame(.01);assert.equal(u.phase,'battle');resultAge=5;u.frame(.01);assert.equal(u.phase,n===6?'complete':'waiting');
- if(n<6){u.frame(5);await Promise.resolve();await Promise.resolve();assert.equal(u.phase,'intro');}
+ u.frame(5);assert.equal(u.phase,'battle');d.fighters[1].hp=0;d.result='teamA';resultAge=LIVE_TIMINGS.victory-.01;u.frame(.01);assert.equal(u.phase,'battle');resultAge=LIVE_TIMINGS.victory;u.frame(.01);assert.equal(u.phase,n===6?'complete':'waiting');
+ if(n<6){u.frame(0);await Promise.resolve();await Promise.resolve();assert.equal(u.phase,'intro');}
 }
 assert.equal(u.completedCups,1);assert.equal(u.totalMatches,8);assert.equal(u.champions.size,1);
 u.toggle();u.frame(20);assert.equal(u.model,first);u.toggle();u.frame(8);await Promise.resolve();await Promise.resolve();assert.notEqual(u.model,first);assert.equal(u.cupNumber,2);assert.notEqual(u.model.settings.seed,firstSeed);assert.equal(u.phase,'intro');

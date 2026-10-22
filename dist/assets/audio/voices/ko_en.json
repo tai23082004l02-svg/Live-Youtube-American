@@ -1,0 +1,11 @@
+{
+  "text": "K.O.",
+  "pronunciation": "Kay! Oh!",
+  "language": "en-US",
+  "engine": "Flite / FFmpeg",
+  "voice": "cmu_us_rms",
+  "duration": 0.862041,
+  "sampleRate": 44100,
+  "licenseNotice": "See docs/maintenance/KO_AUDIO.md",
+  "releaseHoldSeconds": 1.2
+}
