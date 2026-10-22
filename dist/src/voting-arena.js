@@ -16,11 +16,11 @@ export class VotingArenaUI extends VerticalArenaUI{
  setView(value){super.setView(value);this.h.setVoteView?.(!!value&&this.voteMode);if(this.voteMode)this.$('liveView').textContent=value?'Hiện bảng điều khiển (Esc)':'Mở bình chọn 9:16 / sàn ngang';}
  create(){if(!this.voteMode)return super.create();if(this.model)return;
   this.sessionSeed=Date.now().toString(36);this.previousSpeed=this.$('speed').value;this.$('speed').value='1';this.h.unlock?.();this.matchNumber=0;this.voteRound=0;this.totalMatches=0;
-  const pair=drawEntrants(Object.keys(this.h.names),this.sessionSeed).slice(0,4);return this.prepareMatch(pair);
+  const pair=drawEntrants(Object.keys(this.h.names),this.sessionSeed).slice(0,2);return this.prepareMatch(pair);
  }
  prepareMatch(pair){this.matchNumber++;const seed=this.h.settings().seed+'-VIEWER-'+this.sessionSeed+'-'+this.matchNumber;
   this.model=new ViewerMatch(this.h.names,pair,seed,this.h.settings());
-  this.ballot=new ViewerVote(this.h.names,{seed:this.sessionSeed,round:++this.voteRound,exclude:pair,winnerCount:4});this.demoAge=0;this.demoSerial=0;
+  this.ballot=new ViewerVote(this.h.names,{seed:this.sessionSeed,round:++this.voteRound,exclude:pair,winnerCount:2});this.demoAge=0;this.demoSerial=0;
   this.$('voteTestNumber').innerHTML=this.ballot.rows.map(r=>`<option value="${r.number}">${r.number} · ${r.name}</option>`).join('');this.$('voteTestNumber').value='1';this.$('voteTestStatus').textContent='';
   this.phase='ready';this.age=0;this.paused=false;this.setView(true);this.update();return this.next();
  }
@@ -36,7 +36,7 @@ export class VotingArenaUI extends VerticalArenaUI{
   else if(this.phase==='waiting'&&this.age>=LIVE_TIMINGS.waiting){if(this.lastDraw){this.ballot.reopen();this.next();}else if(this.ballot.locked)this.prepareMatch(this.ballot.winners);}
  }
  update(){super.update();this.$('voteControls').hidden=!this.voteMode;if(!this.voteMode)return;
-  this.$('liveAspect').textContent='9:16 / sàn 16:9';this.$('liveDescription').textContent='Bảng tên 1–6 phía trên, trận ngang ở giữa, phần dưới đen. Phiếu mô phỏng; chưa kết nối chat YouTube. Bình chọn đến khi trận hiện tại kết thúc, bốn người nhiều phiếu nhất chia hai đội đấu 2vs2 tiếp; hòa chọn ngẫu nhiên theo seed.';
+  this.$('liveAspect').textContent='9:16 / sàn 16:9';this.$('liveDescription').textContent='Bảng tên 1–6 phía trên, trận ngang ở giữa, phần dưới đen. Phiếu mô phỏng; chưa kết nối chat YouTube. Bình chọn đến khi trận hiện tại kết thúc, hai người nhiều phiếu nhất đấu 1vs1 tiếp; hòa chọn ngẫu nhiên theo seed.';
   this.$('liveNotice').textContent=this.active?`Trận ${this.matchNumber||1} · ${this.totalMatches||0} trận xong · PHIẾU MÔ PHỎNG`:'Chọn Bắt đầu Live Arena để mở bảng bình chọn thử.';
  }
  draw(ctx,clock){if(!this.voteMode)return super.draw(ctx,clock);if(this.active)drawVoteMatchOverlay(ctx,this);}
