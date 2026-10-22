@@ -36,10 +36,32 @@
       }
     ],
     "diagnostics": [
-      "Missing ELEVENLABS_API_KEY",
-      "No response; no retry",
-      "No supported voice found",
-      "Unexpected audio response"
+      "No supported voice found; no paid request sent"
+    ]
+  },
+  {
+    "catalogNames": [
+      "Roger - Laid-Back, Casual, Resonant",
+      "Sarah - Mature, Reassuring, Confident",
+      "Laura - Enthusiast, Quirky Attitude",
+      "Charlie - Deep, Confident, Energetic",
+      "George - Warm, Captivating Storyteller",
+      "Callum - Husky Trickster",
+      "River - Relaxed, Neutral, Informative",
+      "Harry - Fierce Warrior",
+      "Liam - Energetic, Social Media Creator",
+      "Alice - Clear, Engaging Educator",
+      "Matilda - Knowledgable, Professional",
+      "Will - Relaxed Optimist",
+      "Jessica - Playful, Bright, Warm",
+      "Eric - Smooth, Trustworthy",
+      "Bella - Professional, Bright, Warm",
+      "Chris - Charming, Down-to-Earth",
+      "Brian - Deep, Resonant and Comforting",
+      "Daniel - Steady Broadcaster",
+      "Lily - Velvety Actress",
+      "Adam - Dominant, Firm",
+      "Bill - Wise, Mature, Balanced"
     ]
   }
 ]
