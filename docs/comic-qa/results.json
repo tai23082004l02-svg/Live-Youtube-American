@@ -1,0 +1,36 @@
+{
+  "checks": [
+    "Ichigo personal comic speech",
+    "Sukuna team comic speech",
+    "native isolated actor, no banner draw calls",
+    "Times New Roman font requests and wrapped text",
+    "original voice decoded, pause/resume offset",
+    "unchanged cinematic ticks while paused",
+    "Full HD vote and vertical presentations"
+  ],
+  "voiceSources": [
+    {
+      "duration": 1.9,
+      "offset": 0
+    },
+    {
+      "duration": 1.9,
+      "offset": 0
+    },
+    {
+      "duration": 1.9,
+      "offset": 0
+    },
+    {
+      "duration": 3.04,
+      "offset": 0.016666666666666666
+    },
+    {
+      "duration": 3.04,
+      "offset": 0.7833333333333333
+    }
+  ],
+  "pageErrors": [],
+  "failedResponses": [],
+  "subjectiveListening": false
+}

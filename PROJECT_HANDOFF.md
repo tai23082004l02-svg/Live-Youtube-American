@@ -1,3 +1,7 @@
+## Comic speech dialogue
+
+Central `render/comic-dialogue.js` replaces all app personal/team/transform banner routes with isolated native full-cell speaker + white black-outlined speech bubble. Font Times New Roman; wraps words/long tokens, bounds-based actor sizing, correct Gojo v2/Baryon atlases, no simulation writes. Original speech strings/audio/cinematic ticks unchanged; no paid generation. App no longer invokes character banner/cinematic title renderers. Team cinematic export also delegates centrally.12-speaker/reduced/layout tests and real browser/audio pause-resume QA in `docs/comic-qa`; details `docs/COMIC_DIALOGUE.md`.
+
 ## Clean voting board / detached HP
 
 Removed both explanatory lines beneath vote candidates in all ballot states. Names/HP now occupy y252–296 directly on black, with32logical px gap before arena y328; no rectangular HUD background. Demo/chat-disconnected indicators remain above candidates. Native Full HD composition retained.

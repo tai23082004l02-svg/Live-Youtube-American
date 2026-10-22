@@ -1,27 +1,28 @@
+import {drawComicDialogue} from './render/comic-dialogue.js';
 import {configurePortraitOutput,obsMode,startOBSOutput} from './obs-output.js';
-import {drawGogetaBlueActor,drawGogetaBlueBack,drawGogetaBlueWorld,drawGogetaBlueCinematic,drawGogetaBlueShot,drawGogetaBlueBurst,gogetaBlueSprite} from './render/gogeta-blue.js';
-import {drawMadaraEntrance,drawMadaraActor,drawMadaraBack,drawMadaraWorld,drawMadaraCinematic,drawMadaraShot,drawMadaraBurst,madaraSprite} from './render/madara.js';
-import {drawNarutoV2Actor,drawNarutoV2Back,drawNarutoV2World,drawNarutoV2Cinematic,drawNarutoV2Shot,drawNarutoV2Burst,narutoV2Sprite} from './render/naruto-v2.js';
-import {drawRengokuActor,drawRengokuBack,drawRengokuWorld,drawRengokuCinematic,drawRengokuShot,drawRengokuBurst,rengokuSprite} from './render/rengoku.js';
-import {drawSukunaActor,drawSukunaBack,drawSukunaWorld,drawSukunaCinematic,drawSukunaShot,drawSukunaBurst,sukunaSprite} from './render/sukuna.js';
-import {drawGojoActor,drawGojoBack,drawGojoWorld,drawGojoCinematic,drawGojoShot,drawGojoEffect as gojoV2Effect} from './render/gojo-v2.js';
+import {drawGogetaBlueActor,drawGogetaBlueBack,drawGogetaBlueWorld,drawGogetaBlueShot,drawGogetaBlueBurst,gogetaBlueSprite} from './render/gogeta-blue.js';
+import {drawMadaraEntrance,drawMadaraActor,drawMadaraBack,drawMadaraWorld,drawMadaraShot,drawMadaraBurst,madaraSprite} from './render/madara.js';
+import {drawNarutoV2Actor,drawNarutoV2Back,drawNarutoV2World,drawNarutoV2Shot,drawNarutoV2Burst,narutoV2Sprite} from './render/naruto-v2.js';
+import {drawRengokuActor,drawRengokuBack,drawRengokuWorld,drawRengokuShot,drawRengokuBurst,rengokuSprite} from './render/rengoku.js';
+import {drawSukunaActor,drawSukunaBack,drawSukunaWorld,drawSukunaShot,drawSukunaBurst,sukunaSprite} from './render/sukuna.js';
+import {drawGojoActor,drawGojoBack,drawGojoWorld,drawGojoShot,drawGojoEffect as gojoV2Effect} from './render/gojo-v2.js';
 import {ACTIVE_CHARACTERS} from './characters/index.js';
 import {PORTRAIT_SCENE_OFFSET,PORTRAIT_SCENE_HEIGHT} from './engine/arena.js';
 import {setupModeMenu} from './mode-menu.js';
 import {VictoryScene,FINISH_FREEZE_SECONDS,VICTORY_CONTROLS_SECONDS,applyVictoryCamera,drawVictoryAura,drawVictoryScreen} from './render/victory.js';
 import {ArenaMusic} from './music.js';
 import {drawFighterBars} from './render/fighter-bars.js';
-import {drawBoaActor,drawBoaBack,drawBoaWorld,drawBoaCinematic,drawBoaShot,boaSprite} from './render/boa.js';
-import {drawTatsuActor,drawTatsuBack,drawTatsuWorld,drawTatsuCinematic,drawTatsuShot,tatsuSprite} from './render/tatsumaki.js';
-import {drawSaberActor,drawSaberBack,drawSaberWorld,drawSaberCinematic,drawSaberShot,saberSprite} from './render/saber.js';
-import {drawUltraActor,drawUltraBack,drawUltraWorld,drawUltraCinematic,drawUltraShot,ultraSprite} from './render/ultra.js';
+import {drawBoaActor,drawBoaBack,drawBoaWorld,drawBoaShot,boaSprite} from './render/boa.js';
+import {drawTatsuActor,drawTatsuBack,drawTatsuWorld,drawTatsuShot,tatsuSprite} from './render/tatsumaki.js';
+import {drawSaberActor,drawSaberBack,drawSaberWorld,drawSaberShot,saberSprite} from './render/saber.js';
+import {drawUltraActor,drawUltraBack,drawUltraWorld,drawUltraShot,ultraSprite} from './render/ultra.js';
 import {drawBeerusFrame} from './render/beerus.js';
-import {drawJinwooActor,drawJinwooIntroBack,drawJinwooEffects,drawAriseWorld,drawJinwooCinematic,jinwooSprite} from './render/jinwoo.js';
+import {drawJinwooActor,drawJinwooIntroBack,drawJinwooEffects,drawAriseWorld,jinwooSprite} from './render/jinwoo.js';
 import {VotingArenaUI} from './voting-arena.js';
-import {drawIchigoActor,drawIchigoEffects,drawIchigoUltimateWorld,drawIchigoShot,drawIchigoCinematic,ichigoSprite} from './render/ichigo.js';
+import {drawIchigoActor,drawIchigoEffects,drawIchigoUltimateWorld,drawIchigoShot,ichigoSprite} from './render/ichigo.js';
 import {drawProjectileEnergy} from './render/projectile-energy.js';
 import {ULTIMATE_STYLES,setTeamUltimateEnabled} from './engine/team-ultimate.js';
-import {drawTeamUltimateWorld,drawTeamUltimateCinematic,teamUltimatePose} from './render/team-ultimate.js';
+import {drawTeamUltimateWorld,teamUltimatePose} from './render/team-ultimate.js';
 import {beerusPose} from './characters/beerus.js';
 import {gokuBluePose} from './characters/goku_blue.js';
 import {yugiPose} from './characters/yugi.js';
@@ -147,7 +148,7 @@ function render(){if(tournament.portrait)dialogueCtx.clearRect(0,0,960,540);cons
  if(!scene||resultAge<.32)for(const shot of duel.shots)drawShot(shot,$('vfx').checked);
  if($('vfx').checked)for(const burst of bursts)drawBurst(burst);
 
- for(const e of fx){ctx.globalAlpha=Math.max(0,e.life/.65);ctx.font='bold 21px Segoe UI';ctx.textAlign='center';ctx.fillStyle=e.healing?'#7dff9c':e.critical?'#ffe36b':e.blocked?'#83dfff':'#fff1d8';ctx.fillText(e.label?e.value:(e.critical?'CRIT −':e.blocked?'BLOCK −':'−')+e.value,e.x,e.y-85-(.65-e.life)*45);circle(e.x,e.y-25,12+(.65-e.life)*50,'#ffdfa0',2);}ctx.globalAlpha=1;for(const p of particles){ctx.globalAlpha=p.life/p.max;ctx.fillStyle=p.color;ctx.fillRect(p.x-2,p.y-2,4,4);}ctx.globalAlpha=1;if(!tournament.voteMode&&(!scene||resultAge<FINISH_FREEZE_SECONDS))drawFighterBars(ctx,duel);ctx.restore();if(!scene){drawMadaraEntrance(ctx,images,renderDuel,{width:960,height:canvas.height,offsetY:tournament.portrait?PORTRAIT_SCENE_OFFSET:0});drawNarutoV2Cinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawGogetaBlueCinematic(screenCtx,images,renderDuel);drawMadaraCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawRengokuCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawSukunaCinematic(screenCtx,images,renderDuel);drawGojoCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawBoaCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawTatsuCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawSaberCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawUltraCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawJinwooCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawIchigoCinematic(screenCtx,images,renderDuel,$('ultimateReduce').checked);drawTeamUltimateCinematic(screenCtx,images,renderDuel,names,$('ultimateReduce').checked);}if(scene&&!tournament.portrait)drawVictoryScreen(ctx,scene,victory,names);}
+ for(const e of fx){ctx.globalAlpha=Math.max(0,e.life/.65);ctx.font='bold 21px Segoe UI';ctx.textAlign='center';ctx.fillStyle=e.healing?'#7dff9c':e.critical?'#ffe36b':e.blocked?'#83dfff':'#fff1d8';ctx.fillText(e.label?e.value:(e.critical?'CRIT −':e.blocked?'BLOCK −':'−')+e.value,e.x,e.y-85-(.65-e.life)*45);circle(e.x,e.y-25,12+(.65-e.life)*50,'#ffdfa0',2);}ctx.globalAlpha=1;for(const p of particles){ctx.globalAlpha=p.life/p.max;ctx.fillStyle=p.color;ctx.fillRect(p.x-2,p.y-2,4,4);}ctx.globalAlpha=1;if(!tournament.voteMode&&(!scene||resultAge<FINISH_FREEZE_SECONDS))drawFighterBars(ctx,duel);ctx.restore();if(!scene){drawMadaraEntrance(ctx,images,renderDuel,{width:960,height:canvas.height,offsetY:tournament.portrait?PORTRAIT_SCENE_OFFSET:0});drawComicDialogue(screenCtx,images,renderDuel,names,$('ultimateReduce').checked);}if(scene&&!tournament.portrait)drawVictoryScreen(ctx,scene,victory,names);}
 const tournament=new VotingArenaUI({$,names,unlock:()=>{audio.unlock();music.unlock();},setLiveView:active=>document.body.classList.toggle('live-view',active),setPortraitView:active=>document.body.classList.toggle('portrait-view',active),setVoteView:active=>{document.body.classList.toggle('vote-view',active);document.body.classList.toggle('portrait-view',active||!!(tournament.clean&&tournament.portrait));},settings:()=>({stats:normalizeStats(appliedStats),seed:$('seed').value||'DOWN-001',arenaScale,hpMultiplier,teamUltimateEnabled}),reset,toggleBattle,duel:()=>duel,resultAge:()=>resultAge,ready:()=>assetsReady,stop:()=>{audio.stop();music.pause();running=false;acc=0;},portraitURL:id=>'assets/ui/portraits/'+id+'.webp'});
 function loop(t){const elapsed=Math.min((t-last)/1000||0,.1);last=t;
  const visualDt=(running?elapsed*Number($('speed').value):duel.result?(tournament.live&&tournament.paused?0:resultAge<FINISH_FREEZE_SECONDS?0:elapsed*.65):0);visualClock+=visualDt;for(const ghost of ghosts)ghost.life-=visualDt;ghosts=ghosts.filter(g=>g.life>0);for(const burst of bursts)burst.life-=visualDt;bursts=bursts.filter(b=>b.life>0);

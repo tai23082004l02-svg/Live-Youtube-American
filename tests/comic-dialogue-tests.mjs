@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {ACTIVE_CHARACTERS} from '../dist/src/characters/index.js';
+import {SPECTATOR_META} from '../dist/src/render/spectator-meta.js';
+import {COMIC_FONT,COMIC_LINES,comicLines,drawComicDialogue} from '../dist/src/render/comic-dialogue.js';
+import {ULTIMATE_STYLES} from '../dist/src/engine/team-ultimate.js';
+const names=Object.fromEntries(Object.entries(ACTIVE_CHARACTERS).map(([id,c])=>[id,c.name]));
+const images=Object.fromEntries(['gojo_v2','naruto_v2_baryon',...Object.keys(ACTIVE_CHARACTERS)].map(k=>[k,{key:k,complete:true,naturalWidth:10000}]));
+function canvas(){const draws=[],texts=[],paths=[],stack=[];const ctx=new Proxy({font:'',globalAlpha:1,save(){stack.push({font:this.font,globalAlpha:this.globalAlpha});},restore(){assert(stack.length);Object.assign(this,stack.pop());},drawImage(im,...a){draws.push([im.key,...a]);assert(a.every(Number.isFinite));},fillText(t,x,y,max){texts.push({text:t,font:this.font,x,y,max});},measureText(t){return {width:t.length*15};},closePath(){paths.push('closed');}},{get:(o,k)=>o[k]??(()=>{})});return {ctx,draws,texts,paths,stack};}
+const c=canvas();assert.deepEqual(comicLines(c.ctx,'Domain Expansion: Unlimited Void.',260),['Domain Expansion:','Unlimited Void.']);assert.equal(comicLines(c.ctx,'ABCDEFGHIJKLMNOPQRSTUVWXYZ',90).join(''),'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+for(const id of Object.keys(ACTIVE_CHARACTERS))for(const team of [false,true])for(const reduced of [false,true]){
+ const {ctx,draws,texts,paths,stack}=canvas(),f={id,uid:'speaker',baryon:false},scene={elapsed:30,durationSteps:120,...(team?{leaderUid:f.uid,style:ULTIMATE_STYLES[id]}:{ownerUid:f.uid,kind:Object.keys(COMIC_LINES)[Object.keys(ACTIVE_CHARACTERS).indexOf(id)%Object.keys(COMIC_LINES).length]})},d={fighters:[f],personalUltimate:team?null:{cinematic:scene},teamUltimate:team?{cinematic:scene}:null};const before=JSON.stringify(d);
+ assert(drawComicDialogue(ctx,images,d,names,reduced));assert.equal(JSON.stringify(d),before);assert.equal(stack.length,0);assert.equal(ctx.globalAlpha,1);assert.equal(draws.length,1);assert(!draws.some(a=>a[0].includes('dialogue')));assert(paths.length);assert(texts.some(t=>t.text===names[id]));assert(texts.every(t=>t.font.includes(COMIC_FONT)));assert(texts.every(t=>t.x>=0&&t.x<=960&&t.y>=0&&t.y<=540));const key=id==='gojo'?'gojo_v2':id;assert.equal(draws[0][0],key);assert.equal(draws[0][3],SPECTATOR_META[id].frameSize[0]);assert.equal(draws[0][4],SPECTATOR_META[id].frameSize[1]);
+}
+{const {ctx,draws,texts}=canvas(),d={fighters:[{id:'naruto_v2',uid:'n',baryon:true}],narutoV2Transform:{ownerUid:'n',kind:'narutotransform',elapsed:40,durationSteps:120}};drawComicDialogue(ctx,images,d,names);assert.equal(draws[0][0],'naruto_v2_baryon');assert(texts.some(t=>t.text==='Baryon Mode!'));}
+{const {ctx,draws}=canvas();assert(!drawComicDialogue(ctx,images,{fighters:[],personalUltimate:{attack:{kind:'shrine',phase:'travel'}}}));assert.equal(draws.length,0);assert(!drawComicDialogue(ctx,images,{fighters:[],personalUltimate:{cinematic:{ownerUid:'gone',elapsed:30}}}));}
+console.log('Comic dialogue PASS:12 speakers personal/team/reduced,isolated full native cells,no banner textures,Times New Roman,word wrapping,Baryon form,no scene mutation or post-speech overlay.');

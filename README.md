@@ -10,6 +10,10 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
+## Thoại truyện tranh
+
+Đã thay banner Ultimate bằng **nhân vật riêng và bong bóng thoại**, chữ **Times New Roman**, giữ giọng nói và thời gian câu hô. Có cho12 nhân vật, Ultimate cá nhân/đội và chuyển Baryon. [Chi tiết và ảnh kiểm tra](docs/COMIC_DIALOGUE.md). Phiên bản **COMIC SPEECH / TIMES NEW ROMAN**.
+
 ## Nguồn OBS Full HD
 
 Để hình Live rõ hơn, dùng **Browser Source1080×1920** với URL [Live bình chọn cho OBS](https://tai23082004l02-svg.github.io/Live-Youtube-American/dist/?obs=vote). Game tự mở chế độ Live; chữ được vẽ trực tiếp ở Full HD. [Hướng dẫn OBS](docs/OBS.md).
