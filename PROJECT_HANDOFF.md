@@ -1,3 +1,7 @@
+## Shared fighter HUD / real Ultimate meter
+
+Vote feed uses one common design for all fighters, names/HP at top with beveled bars, actual personal rage0–100 in thinner gold meter below, gold VS center. Removes VIEWER CHOICE DEMO and AI BATTLE from HUD. HUD y252–316, field y328 leaves12logical px separation, Full HD untouched. Both bars clamp safely; right side mirrors fill direction; full rage is brighter with no flash. Browser QA confirms72/31%,100%,and consumption0 on actual Ultimate; `tools/qa_shared_hud.py`, `docs/obs-qa/shared-hud-results.json`.
+
 ## HP×10 enabled
 
 App starts with global HP multiplier10. One-time localStorage migration `down-arena-hp-x10-enabled-v1` updates existing saved multiplier to10 so already-used OBS Browser Sources also switch after refresh; subsequent explicit UI changes still persist. Engine/base character stats unchanged. All new matches and OBS feeds inherit multiplier10.

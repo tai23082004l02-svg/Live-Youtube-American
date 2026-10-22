@@ -4,7 +4,7 @@ Open the game, choose **Live → Bình chọn đối thủ → Bắt đầu Live
 
 ## Layout and OBS
 
-The output canvas is1080×1920 (9:16), using540×960 logical units at2×. Six text-only candidate rows sit higher at y88–240. The two explanatory lines below candidates are removed. Fighter names/HP sit directly on the black area at y252–296, with32logical pixels of black separation before the arena. The original960×540 horizontal battle is fitted to540×303.75 at y328, with no match HUD or foot-health bars painted over the field. The remaining lower area stays black. There are no candidate portraits.
+The output canvas is1080×1920 (9:16), using540×960 logical units at2×. Six text-only candidate rows sit higher at y88–240. The two explanatory lines below candidates are removed. A shared fighter HUD occupies y252–316 on black: names, beveled HP meters, current/max HP, thinner gold Ultimate meters and real rage percentages. Center is gold VS; old VIEWER CHOICE / AI BATTLE labels are removed. There are12logical pixels of separation before the arena. The original960×540 horizontal battle is fitted to540×303.75 at y328, with no match HUD or foot-health bars painted over the field. The remaining lower area stays black. There are no candidate portraits.
 
 In OBS use a1080×1920 canvas and a Browser Source viewport1080×1920. Open the same game URL, select this mode and start Live. The browser output fits the portrait canvas directly. Desktop Esc opens operator controls; on a touchscreen, tap **Điều khiển**. That touch-only button is hidden on desktop capture.
 

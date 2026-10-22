@@ -1,0 +1,22 @@
+{
+  "rageAfterCast": 0,
+  "casting": true,
+  "buffer": [
+    1080,
+    1920
+  ],
+  "checks": [
+    "shared HUD for both fighters",
+    "HP and names above field",
+    "rage72/31 and full100 from real state",
+    "Ultimate consumes rage to0",
+    "removed center demo/battle labels",
+    "Full HD preserved"
+  ],
+  "healthStripLogicalY": [
+    252,
+    316
+  ],
+  "arenaLogicalY": 328,
+  "pageErrors": []
+}

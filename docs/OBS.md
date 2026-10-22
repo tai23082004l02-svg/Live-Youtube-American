@@ -12,3 +12,5 @@ Canvas xuất trực tiếp1080×1920 với hệ tọa độ bố cục540×960 
 Nguồn Chrome nhỏ được Window Capture rồi phóng lớn trong OBS vẫn có thể mất nét; dùng Browser Source với đúng kích thước thay cho cách đó. Bitrate không khắc phục được chữ đã mờ ngay tại nguồn. Hiện bảng bình chọn vẫn dùng phiếu mô phỏng, chưa lấy bình luận YouTube.
 
 Kiểm tra: `node tests/obs-output-tests.mjs`, các bộ UI/Live/vote hiện có và `python tools/qa_obs_output.py` với server ở port8768. Chromium xác nhận buffer và kích thước hiển thị đều1080×1920, transform2×, hai chế độ tự chạy và không tạm dừng. Ảnh/kết quả trong `docs/obs-qa`.
+
+HUD Live bình chọn dùng cùng một mẫu cho mọi nhân vật: bên trái xanh lam, bên phải đỏ hồng, thanh HP và thanh nộ Ultimate vàng bên dưới. Giữa hai bên là VS. Thanh nộ dùng giá trị0–100 thật của đấu sĩ, đổi màu sáng khi đầy và tiêu hao về0 khi tung Ultimate. Có ảnh kiểm tra tại `docs/obs-qa/shared-hud.png` và `shared-hud-ready.png`.
