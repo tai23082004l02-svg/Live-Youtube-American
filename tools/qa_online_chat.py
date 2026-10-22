@@ -28,6 +28,7 @@ try:
    remote.append(rel)
    route.fulfill(status=200 if file.is_file() else 404,body=file.read_bytes() if file.is_file() else b'',content_type=mimetypes.guess_type(file)[0] or 'application/octet-stream',headers={'Access-Control-Allow-Origin':'*'})
   page.route(m.GAME_ORIGIN+'/Live-Youtube-American/dist/**',asset)
+  page.add_init_script("window.voteText=[];const fill=CanvasRenderingContext2D.prototype.fillText;CanvasRenderingContext2D.prototype.fillText=function(t,...args){if(String(t).startsWith('SUBSCRIBE'))window.voteText.push({text:t,font:this.font,y:args[1]});return fill.call(this,t,...args)};")
   page.goto(m.BASE+'/online/?obs=vote&chat=1')
   page.wait_for_function('window.arena?.simulation?.fighters.length===2',timeout=60000)
   page.wait_for_timeout(2500)
@@ -38,6 +39,7 @@ try:
   assert any(any(v['viewer']=='remote-qa' for v in r.get('votes',[])) for r in responses)
   assert 'src/app.js' in remote and any(x.startswith('assets/') for x in remote)
   assert page.evaluate('document.baseURI')==m.GAME_ORIGIN+'/Live-Youtube-American/dist/'
+  assert page.evaluate("window.voteText.some(x=>x.text==='SUBSCRIBE TO THE CHANNEL TO CHAT & VOTE' && x.font.includes('Times New Roman') && x.y===801)"), 'Subscriber instruction not rendered'
   assert not errors,errors
   for origin,code in [(m.GAME_ORIGIN,204),('https://evil.example',403)]:
    assert page.request.fetch(m.BASE+'/api/votes',method='OPTIONS',headers={'Origin':origin,'Access-Control-Request-Method':'POST'}).status==code
