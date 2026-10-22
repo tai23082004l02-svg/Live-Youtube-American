@@ -1,4 +1,4 @@
-import {drawTitle} from './titles.js?v=20261022-ko-voice-fast-next';
+import {drawTitle} from './titles.js?v=20261022-ko-power2';
 import {ULTIMATE_STYLES} from '../engine/team-ultimate.js';
 export const FINISH_FREEZE_SECONDS=.18;
 export const VICTORY_REVEAL_SECONDS=.12;

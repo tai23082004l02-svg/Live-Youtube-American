@@ -4,8 +4,20 @@
   "language": "en-US",
   "engine": "Flite / FFmpeg",
   "voice": "cmu_us_rms",
-  "duration": 0.862041,
+  "duration": 0.914286,
   "sampleRate": 44100,
   "licenseNotice": "See docs/maintenance/KO_AUDIO.md",
-  "releaseHoldSeconds": 1.2
+  "releaseHoldSeconds": 1.2,
+  "revision": "power2",
+  "processing": {
+    "pitchRatio": 0.88,
+    "preserveSpeechTempo": true,
+    "bassBoostDb": 3,
+    "presenceBoostDb": 2,
+    "compressorRatio": 4,
+    "slapDelayMs": 34,
+    "slapDecay": 0.1,
+    "targetLUFS": -14,
+    "measuredTruePeakDbTP": -2.45
+  }
 }

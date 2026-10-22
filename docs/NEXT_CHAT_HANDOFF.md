@@ -160,4 +160,4 @@ Thay chữ VICTORY ở màn kết thúc bằng ảnh KO vàng kim/đỏ cam nề
 
 ## KO audio và chuyển trận nhanh
 
-Âm báo kết thúc dùng `ko_en.mp3` (Flite RMS, khoảng0,862s, không phải ElevenLabs), bỏ route phát `victory_en.mp3`. Màn/tiếng KO bắt đầu sau0,12s. LIVE_TIMINGS hiện `{intro:1,victory:1.2,waiting:0,champion:0}`; sau1,2s chuyển sang trận mới, không còn hai khoảng nghỉ5s. Giữ load guard, intro1s và entrance nhân vật riêng. Không để test scheduler hardcode4,9/5s. Xem `docs/maintenance/KO_AUDIO.md`.
+Âm báo kết thúc dùng `ko_en.mp3` (Flite RMS, khoảng0,914s (power2: trầm12%, EQ/compression/slap ngắn), không phải ElevenLabs), bỏ route phát `victory_en.mp3`. Màn/tiếng KO bắt đầu sau0,12s. LIVE_TIMINGS hiện `{intro:1,victory:1.2,waiting:0,champion:0}`; sau1,2s chuyển sang trận mới, không còn hai khoảng nghỉ5s. Giữ load guard, intro1s và entrance nhân vật riêng. Không để test scheduler hardcode4,9/5s. Xem `docs/maintenance/KO_AUDIO.md`.
