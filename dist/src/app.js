@@ -18,7 +18,7 @@ import {drawSaberActor,drawSaberBack,drawSaberWorld,drawSaberShot,saberSprite} f
 import {drawUltraActor,drawUltraBack,drawUltraWorld,drawUltraShot,ultraSprite} from './render/ultra.js';
 import {drawBeerusFrame} from './render/beerus.js';
 import {drawJinwooActor,drawJinwooIntroBack,drawJinwooEffects,drawAriseWorld,jinwooSprite} from './render/jinwoo.js';
-import {VotingArenaUI} from './voting-arena.js';
+import {VotingArenaUI} from './voting-arena.js?v=20261022-live-hp5-subscribe-r2';
 import {drawIchigoActor,drawIchigoEffects,drawIchigoUltimateWorld,drawIchigoShot,ichigoSprite} from './render/ichigo.js';
 import {drawProjectileEnergy} from './render/projectile-energy.js';
 import {ULTIMATE_STYLES,setTeamUltimateEnabled} from './engine/team-ultimate.js';

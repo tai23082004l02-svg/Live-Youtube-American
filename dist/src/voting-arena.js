@@ -4,7 +4,7 @@ import {TournamentUI} from './tournament-ui.js';
 import {ViewerVote,ViewerMatch} from './engine/viewer-vote.js';
 import {drawEntrants} from './engine/tournament.js';
 import {LIVE_TIMINGS} from './live-arena.js';
-import {drawVoteBroadcast,drawVoteMatchOverlay} from './render/viewer-vote.js';
+import {drawVoteBroadcast,drawVoteMatchOverlay} from './render/viewer-vote.js?v=20261022-live-hp5-subscribe-r2';
 
 export class VotingArenaUI extends VerticalArenaUI{
  constructor(h){super(h);this.matchNumber=0;this.voteRound=0;this.demoAge=0;this.demoSerial=0;this.ballot=null;this.chat=new YouTubeChatBridge(this);

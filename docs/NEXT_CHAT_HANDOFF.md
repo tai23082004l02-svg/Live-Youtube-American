@@ -145,3 +145,7 @@ Các test 2vs2 còn tồn tại để bảo vệ engine hỗ trợ nhiều ngư�
 - Người dùng không muốn tải ZIP hoặc thay file sau mỗi lần sửa game. Với game online chỉ hướng dẫn refresh OBS; phân biệt cập nhật helper Python thực sự cần file local.
 - Giữ lời hứa đúng khả năng: không nói đã deploy/đã test OAuth/streamList nếu mới kiểm tra giả lập hoặc chỉ push code.
 - Hiện không có yêu cầu chức năng mới nào đang chờ ngoài việc bàn giao này. Khi nhận yêu cầu mới, đọc trạng thái hiện tại trước, không triển khai lại setup đã xong.
+
+## Bổ sung phát hành sau bàn giao
+
+HP hiện ×5, migration key `down-arena-hp-x5-enabled-v1`. Vì người dùng vẫn thấy ×10 và mất dòng Subscribe trên OBS, các URL trong chuỗi `dist/index.html` → `dist/app.js` → `dist/src/app.js` → `dist/src/voting-arena.js` → renderer được thêm query phiên bản trực tiếp (không dựa vào import map). Khi sửa critical runtime cần giữ cơ chế bust cache này và kiểm tra entry mới. Kiểm tra browser đã xác nhận ×5 và dòng Subscribe có Times New Roman; public Pages chưa được xác minh từ môi trường dev do truy cập mạng bị chặn.
