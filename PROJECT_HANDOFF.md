@@ -1,3 +1,13 @@
+## Naruto v2 integrated — 2026-10-22 (latest)
+
+New active ID `naruto_v2`, separate from the retained retired `naruto`. Active roster is10. See [Naruto implementation](docs/NARUTO_V2.md), [browser QA](docs/naruto-v2-qa/results.json) and [suite results](docs/naruto-v2-tests.json).
+
+Eight generated transparent source sheets contain144 native frames. Extraction preserves every positive-alpha RGBA sample exactly once;13 padded runtime atlases use metadata-driven full cells and four-column animation. All native PNGs can be regenerated; source sheets/contact previews/report remain in GitHub, with a revisioned R2 archive workflow.
+
+Entry Sage → KCM; below50%HP, a single measured2.4s transformation freezes all simulation, keeps HP and grants permanent1.15 speed/melee. Six form-specific skills, two clones, single-use frontal counter, KCM radial Ultimate and Baryon swept dash Ultimate. Personal/team voices are measured2.88s/1.68s, transform2.4s. Actual MP3s generated with Charlie via ElevenLabs, not a clone of an actor. Browser decoded and scheduled voices, pause/resume and4x cinematic timing checked; subjective listening remains manual.
+
+Validation:44 of52 suites passed independently;8 legacy suites fail due to absent original reference files (ENOENT), same baseline. New Naruto, full app-loop active roster, audio, team dialogue, legacy Naruto and Kurama all pass. Actual Chromium loaded all assets with no page errors or failed responses; tested stats, introduction, both forms/Ultimates, transform, projectile, clones and Live voting. Public GitHub Pages was not reachable from this execution environment; inspect the deployment on GitHub.
+
 ## Voting closes with battle result — 2026-10-22 (latest)
 
 `live_vote` no longer has a45-second voting deadline or countdown. The ballot remains open for the battle duration and locks immediately when `duel.result` appears, before the victory animation and intermission. Top2 then form the next match. On a draw, the same pair rematches and voting reopens with the same candidate numbers and accumulated votes. Demo labeling and all other Live modes are unchanged. Tests cover battles longer than45s, immediate lock/late rejection and rematch reopening; see `tests/viewer-vote-tests.mjs` and updated browser evidence.

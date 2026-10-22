@@ -6,7 +6,7 @@ export class ArenaMusic{
  setTrack(value){const track=value==='random'||MUSIC_TRACKS[value]?value:'off';if(track===this.track)return;this.reset();if(this.audio){this.audio.removeAttribute?.('src');this.audio.load?.();}this.audio=null;this.track=track;this.blocked=false;}
  pause(){this.want=false;if(this.audio&&!this.audio.paused)this.audio.pause();}
  reset(){this.pause();this.epoch++;this.pending=false;this.blocked=false;if(this.audio)try{this.audio.currentTime=0;}catch{}}
- update(d,running){this.lastDuel=d;this.want=!!running&&!d.result&&this.track!=='off';this.ducked=!!(d.personalUltimate?.cinematic||d.teamUltimate?.cinematic);if(!this.want){this.pause();return;}if(this.blocked)return;
+ update(d,running){this.lastDuel=d;this.want=!!running&&!d.result&&this.track!=='off';this.ducked=!!(d.narutoV2Transform||d.personalUltimate?.cinematic||d.teamUltimate?.cinematic);if(!this.want){this.pause();return;}if(this.blocked)return;
   if(!this.audio){const pool=Object.keys(MUSIC_TRACKS).filter(id=>id!==this.currentTrack);this.currentTrack=this.track==='random'?pool[Math.floor(Math.random()*pool.length)]:this.track;this.audio=this.factory(MUSIC_TRACKS[this.currentTrack].url);if(!this.audio){this.blocked=true;return;}this.audio.loop=this.track!=='random';this.audio.preload='auto';const playing=this.audio;this.audio.onended=()=>{if(this.audio!==playing||this.track!=='random')return;const resume=this.want;this.epoch++;this.pending=false;playing.onended=null;this.audio=null;this.update(this.lastDuel,resume);};}
   const target=this.volume*(this.ducked?.3:1);this.audio.volume=Math.max(0,Math.min(1,target));
   if(this.pending||!this.audio.paused)return;const audio=this.audio,epoch=this.epoch;this.pending=true;

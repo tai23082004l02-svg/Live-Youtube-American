@@ -10,6 +10,17 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
+## Naruto Uzumaki — KCM → Baryon
+
+Đã thêm Naruto vào danh sách **10 nhân vật**. Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)** để thử.
+
+- Xuất hiện: Hiền Nhân → KCM2.
+- HP dưới 50%: biến hình Baryon một lần, giữ nguyên HP; tốc độ và cận chiến tăng 15% đến hết trận.
+- KCM: Rasengan Rush, hai ảnh phân thân và Rasenshuriken. Baryon: Crimson Rush, Tail Counter và Baryon Rasengan.
+- Hai Ultimate riêng, ba câu thoại tiếng Nhật; hoạt cảnh dừng thời gian chiến đấu và khớp thời lượng âm thanh.
+
+[Xem toàn bộ sheet gốc](art/drafts/naruto-v2) · [Xem frame đã tách](art/frames/naruto_v2) · [Ảnh trong game](docs/naruto-v2-qa/kcm.png) · [Chi tiết và kiểm tra](docs/NARUTO_V2.md)
+
 ## Bình chọn đối thủ — bản mô phỏng
 
 Chọn **Live → Bình chọn đối thủ → Bắt đầu Live Arena** để mở khung dọc9:16: bảng6 tên phía trên, trận ngang16:9 ở giữa, phần dưới đen. Bình chọn mở đến khi trận hiện tại kết thúc, rồi chốt top2 cho trận tiếp theo; không có chân dung. **Chưa kết nối chat YouTube: số phiếu hiện là mô phỏng.** Có thể tắt mô phỏng và thử đổi phiếu trong bảng điều khiển.

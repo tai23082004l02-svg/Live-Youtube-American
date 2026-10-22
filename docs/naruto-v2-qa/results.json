@@ -1,0 +1,63 @@
+{
+  "checks": [
+    "real asset loading",
+    "stats panel",
+    "Sage to KCM intro",
+    "KCM Ultimate",
+    "Baryon threshold and unchanged HP",
+    "transformation wall-clock timing at4x",
+    "pause/resume",
+    "Baryon Ultimate",
+    "projectile and clones renderer",
+    "Live voting startup"
+  ],
+  "pageErrors": [],
+  "failedResponses": [],
+  "voiceSources": [
+    {
+      "duration": 1.8,
+      "offset": 0
+    },
+    {
+      "duration": 1.9,
+      "offset": 0
+    },
+    {
+      "duration": 1.9,
+      "offset": 0
+    },
+    {
+      "duration": 2.88,
+      "offset": 0.016666666666666666
+    },
+    {
+      "duration": 2.88,
+      "offset": 2.75
+    },
+    {
+      "duration": 1.9,
+      "offset": 0
+    },
+    {
+      "duration": 2.4,
+      "offset": 0.016666666666666666
+    },
+    {
+      "duration": 2.4,
+      "offset": 0.5833333333333334
+    },
+    {
+      "duration": 1.9,
+      "offset": 0
+    },
+    {
+      "duration": 1.68,
+      "offset": 0.016666666666666666
+    },
+    {
+      "duration": 1.68,
+      "offset": 1.0666666666666667
+    }
+  ],
+  "subjectiveListening": false
+}

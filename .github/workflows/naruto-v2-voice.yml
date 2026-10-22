@@ -1,9 +1,6 @@
 name: Generate Naruto v2 Japanese voices
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: [.github/workflows/naruto-v2-voice.yml]
 permissions:
   contents: write
 concurrency:

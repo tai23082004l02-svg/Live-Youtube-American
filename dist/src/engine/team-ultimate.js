@@ -1,6 +1,7 @@
-import {TEAM_VOICE_STEPS,cinematicSteps,ULTIMATE_CINEMATIC_STEPS,ULTIMATE_DAMAGE_MULTIPLIER} from './ultimate-rules.js';
+import {NARUTO_V2_BARYON_STEPS,TEAM_VOICE_STEPS,cinematicSteps,ULTIMATE_CINEMATIC_STEPS,ULTIMATE_DAMAGE_MULTIPLIER} from './ultimate-rules.js';
 export const ULTIMATE_RULES=Object.freeze({rageMax:100,cinematicSteps:ULTIMATE_CINEMATIC_STEPS,warningTicks:36,travelTicks:42,recoveryTicks:0,radius:160});
 export const ULTIMATE_STYLES={
+ naruto_v2:{row:1,name:'United Kurama Rasengan',line:'Kurama! Giant Rasengan!',color:'#ffc34b',cast:0},
  rengoku:{row:2,name:'United Purgatory',line:'Flame Breathing: Purgatory!',color:'#ff8a2b',cast:0},
  sukuna:{row:3,name:'United Malevolent Shrine',line:'Domain Expansion: Malevolent Shrine.',color:'#ff3655',cast:0},
  boa_hancock:{row:3,name:'United Empress Judgment',line:'Know your place before your empress.',color:'#ff83bc',cast:11},
@@ -43,7 +44,7 @@ export function stepTeamUltimate(d){
  if(!u.cinematic&&!u.attack&&!d.personalUltimate?.cinematic&&!d.personalUltimate?.attack){
   const eligible=['A','B'].filter(team=>u.teams[team].rage>=100&&d.tick>=u.teams[team].lockUntil&&selectLeader(d,team));
   eligible.sort((a,b)=>(u.teams[a].readyTick??d.tick)-(u.teams[b].readyTick??d.tick)||(a===u.lastTeam?1:-1));
-  if(eligible.length){const team=eligible[0],leader=selectLeader(d,team),center=selectCenter(d,leader);if(center){const members=d.fighters.filter(f=>f.team===team&&f.hp>0);u.cinematic={durationSteps:TEAM_VOICE_STEPS[leader.id]??ULTIMATE_CINEMATIC_STEPS,serial:++u.serial,team,leaderUid:leader.uid,members:members.map(f=>f.uid),style:ULTIMATE_STYLES[leader.id],elapsed:0,x:leader.x,y:leader.y,targetX:center.x,targetY:center.y};u.teams[team].rage=0;u.teams[team].readyTick=null;u.teams[team].uses++;u.teams[team].lockUntil=d.tick+ULTIMATE_RULES.recoveryTicks;u.lastTeam=team;d.event('ultimateStart',leader,{team,style:u.cinematic.style.name});}}
+  if(eligible.length){const team=eligible[0],leader=selectLeader(d,team),center=selectCenter(d,leader);if(center){const members=d.fighters.filter(f=>f.team===team&&f.hp>0);u.cinematic={durationSteps:leader.id==='naruto_v2'&&leader.baryon?NARUTO_V2_BARYON_STEPS:TEAM_VOICE_STEPS[leader.id]??ULTIMATE_CINEMATIC_STEPS,serial:++u.serial,team,leaderUid:leader.uid,members:members.map(f=>f.uid),style:leader.id==='naruto_v2'&&leader.baryon?{...ULTIMATE_STYLES.naruto_v2,name:'United Final Impact',line:'This is the end!',color:'#ff543c'}:ULTIMATE_STYLES[leader.id],elapsed:0,x:leader.x,y:leader.y,targetX:center.x,targetY:center.y};u.teams[team].rage=0;u.teams[team].readyTick=null;u.teams[team].uses++;u.teams[team].lockUntil=d.tick+ULTIMATE_RULES.recoveryTicks;u.lastTeam=team;d.event('ultimateStart',leader,{team,style:u.cinematic.style.name});}}
  }
  if(!u.cinematic)return false;
  u.cinematic.elapsed++;

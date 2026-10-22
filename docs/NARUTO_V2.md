@@ -1,0 +1,53 @@
+# Naruto Uzumaki — Kurama's Last Flame
+
+Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)**. Nhân vật cũng tham gia đấu đội, giải đấu và Live bình chọn. Nếu trang còn bản cũ, tải lại sau khi GitHub Pages triển khai xong; dấu phiên bản là **NARUTO KCM / BARYON · 10 CHARACTERS**.
+
+## Hình và hoạt ảnh
+
+8 sheet gốc trong [art/drafts/naruto-v2](../art/drafts/naruto-v2) gồm:32 frame hành động KCM,32 Baryon,16 kỹ năng KCM,16 kỹ năng Baryon,16 xuất hiện,12 biến hình,16 Ultimate và4 khung hội thoại. Tổng144 frame. Tạo hình dựa trên concept ba dạng và phong cách chibi của Gojo v2; sprite được căn chân và vẽ nguyên ô bằng metadata, không dùng kích thước320×224 của Naruto cũ.
+
+13 atlas WebP chạy game nằm ở `dist/assets/characters/naruto_v2/`. Sheet gốc không bị cắt sửa. Bộ tách dùng đường phân cách theo alpha, lưu frame RGBA gốc, rồi đóng atlas có khoảng đệm32px. File kiểm tra độc lập dựng lại mọi pixel có alpha dương đúng một lần. Điều này kiểm tra việc bảo toàn dữ liệu; chất lượng chuyển động còn cần đánh giá bằng mắt.
+
+Tái tạo:
+
+```bash
+python tools/prepare_naruto_v2.py
+python tools/verify_naruto_v2.py
+python tools/prepare_spectator_meta.py
+```
+
+Cần Pillow, numpy, scipy. Các frame PNG rời được bỏ qua bởi Git; contact sheet và `extraction_report.json` được giữ để xem nhanh. R2 lưu bản theo commit qua workflow **Archive Naruto v2 assets to R2**, tải ngược và so sánh byte trước khi ghi biên nhận `docs/naruto-v2-r2-archive.json`. Game vẫn tải atlas/MP3 từ GitHub Pages; bản sao R2 là kho lưu trữ riêng, chưa phải CDN công khai.
+
+## Hai dạng chiến đấu
+
+HP1400, tốc độ210, cận chiến75 theo mặc định, chỉnh được trong bảng chỉ số.
+
+| Giai đoạn | Hành vi |
+|---|---|
+| Xuất hiện2.5 giây | Hiền Nhân chuyển sang KCM2 |
+| KCM2 | Rasengan Rush175 sát thương, hai phân thân35 sát thương/đòn tồn tại4 giây, Rasenshuriken210 và sát thương lan85 |
+| HP dưới50% | Hoạt cảnh Baryon2.4 giây; toàn trận tạm dừng, không hồi máu và không cộng chỉ số lặp |
+| Baryon | Tốc độ và cận chiến ×1.15; Crimson Rush3 đòn45/55/95, Tail Counter đỡ một đòn từ phía trước và phản85 khi trong tầm, Baryon Rasengan250/lan65 |
+
+Tail Counter không chặn Ultimate. Phân thân không đỡ đạn, không tính là đấu sĩ, không đánh đồng đội và được dọn khi Naruto biến hình hoặc bị hạ. Các kỹ năng vẫn chịu hệ số công/phòng thủ và chí mạng của engine.
+
+Ultimate KCM **Kurama Rasengan** cảnh báo vị trí rồi đánh vùng; Baryon **Final Impact** cảnh báo hướng rồi lướt theo đường, mỗi đối thủ chỉ trúng một lần. Cả hai có sát thương cơ sở420 × hệ số Ultimate2 trước các hệ số phòng thủ; có thể tránh vùng/đường cảnh báo. Root ngăn lướt. Đấu đội dùng hệ thống hợp kích chung, chọn màu, sprite, lời thoại và thời lượng theo dạng của người dẫn.
+
+## Giọng nói
+
+3 MP3 tiếng Nhật dùng giọng Charlie có sẵn trong tài khoản ElevenLabs, model `eleven_v3`; không mô phỏng giọng diễn viên gốc.
+
+| Câu | Thời lượng đo | Tick hoạt cảnh |
+|---|---:|---:|
+| KCM: 九喇嘛！大玉螺旋丸！ |2.88s|173|
+| Baryon: これで終わりだ！ |1.68s|101|
+| Biến hình: これが、バリオンモードだ！ |2.40s|144|
+
+MP3, thông tin sinh và thời lượng nằm ở `dist/assets/audio/voices/naruto_v2_*`. Nhạc/âm chiến đấu giảm khi thoại; tạm dừng, tiếp tục, tắt tiếng và reset giữ quy tắc chung. Workflow sinh giọng chỉ chạy thủ công, bỏ qua file đã có và không tự thử lại yêu cầu trả phí.
+
+## Kiểm tra
+
+- `node tests/naruto-v2-tests.mjs`: frame/atlas, thời lượng, ngưỡng50%, đóng băng mô phỏng, không hồi máu/cộng buff lặp, hàng đợi biến hình,6 kỹ năng, phân thân, phản đòn, hai Ultimate cá nhân/đội, né vùng, root, seeded replay, portrait5v5 và giới hạn renderer.
+- Chromium thật: tải tài nguyên không lỗi, chọn và chỉnh chỉ số, Hiền Nhân/KCM/Baryon, cả hai Ultimate, thoại đã decode/phát theo lịch, tạm dừng/tiếp tục, thời gian hoạt cảnh ở tốc độ4×, đạn, phân thân và Live bình chọn. [Kết quả](naruto-v2-qa/results.json), [KCM](naruto-v2-qa/kcm.png), [Baryon](naruto-v2-qa/baryon.png).
+-44/52 suite qua khi chạy riêng.8 suite cũ dừng vì thiếu file tham chiếu trong `art/`, không bị vô hiệu hóa hoặc giả lập để qua. [Danh sách](naruto-v2-tests.json).
+- Chưa đánh giá giọng bằng tai hoặc kiểm tra trực tiếp trên điện thoại thật. GitHub Pages công khai không truy cập được từ môi trường kiểm tra này.

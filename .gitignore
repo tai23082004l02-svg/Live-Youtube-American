@@ -9,3 +9,5 @@ __pycache__/
 *.pyc
 art/frames/rengoku/*.png
 !art/frames/rengoku/*_contact.png
+art/frames/naruto_v2/*.png
+!art/frames/naruto_v2/*_contact.png
