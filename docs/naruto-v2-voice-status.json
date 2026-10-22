@@ -1,0 +1,45 @@
+[
+  {
+    "status": "completed",
+    "conclusion": "failure",
+    "url": "https://github.com/tai23082004l02-svg/Live-Youtube-American/actions/runs/39723165348",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Install trusted MP3 probe",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Generate and commit each missing call once",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      {
+        "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "diagnostics": [
+      "Missing ELEVENLABS_API_KEY",
+      "No response; no retry",
+      "No supported voice found",
+      "Unexpected audio response"
+    ]
+  }
+]
