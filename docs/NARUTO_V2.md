@@ -1,6 +1,6 @@
 # Naruto Uzumaki — Kurama's Last Flame
 
-Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)**. Nhân vật cũng tham gia đấu đội, giải đấu và Live bình chọn. Nếu trang còn bản cũ, tải lại sau khi GitHub Pages triển khai xong; dấu phiên bản là **RASENGAN TELEPORT + STUN 0.5s**.
+Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)**. Nhân vật cũng tham gia đấu đội, giải đấu và Live bình chọn. Nếu trang còn bản cũ, tải lại sau khi GitHub Pages triển khai xong; dấu phiên bản là **BARYON RETREAT / TELEPORT**.
 
 ## Hình và hoạt ảnh
 
@@ -26,7 +26,7 @@ HP1400, tốc độ210, cận chiến75 theo mặc định, chỉnh được tro
 |---|---|
 | Xuất hiện2.5 giây | Hiền Nhân chuyển sang KCM2 |
 | KCM2 | Rasengan Rush dịch chuyển tức thời tới cách mục tiêu65px rồi đánh175 sát thương và gây choáng0.5 giây, hai phân thân35 sát thương/đòn tồn tại8 giây, Rasenshuriken210 và sát thương lan85 |
-| HP dưới50% | Hoạt cảnh Baryon2.4 giây; toàn trận tạm dừng, không hồi máu và không cộng chỉ số lặp |
+| HP dưới50% | Dịch chuyển ra vùng trống cách xa các đấu sĩ rồi bật hoạt cảnh Baryon2.4 giây; toàn trận tạm dừng, không hồi máu và không cộng chỉ số lặp |
 | Baryon | Tốc độ và cận chiến ×1.15, tích nộ cá nhân ×1.30; Crimson Rush3 đòn45/55/95, Tail Counter đỡ một đòn từ phía trước và phản85 khi trong tầm, Baryon Rasengan250/lan65 |
 
 Rasengan Rush được AI dùng khi mục tiêu trong650px. Root ngăn dịch chuyển; vị trí đến luôn được giữ trong sàn. Sprite biến mất0.1 giây lúc dịch chuyển, có khói ở điểm đi/đến và nhãn TELEPORT. Đối thủ vẫn có thể né đòn trong thời gian ra chiêu0.3 giây. Đòn gây sát thương thành công làm choáng30 tick (0.5 giây): ngắt động tác, giữ vị trí, không di chuyển/ra đòn/dịch chuyển né/kích hoạt Ultimate. Đòn bị né hoặc sát thương bằng0 không gây choáng.
@@ -57,3 +57,5 @@ MP3, thông tin sinh và thời lượng nằm ở `dist/assets/audio/voices/nar
 - Chưa đánh giá giọng bằng tai hoặc kiểm tra trực tiếp trên điện thoại thật. GitHub Pages công khai không truy cập được từ môi trường kiểm tra này.
 
 Kiểm tra cập nhật: `python tools/qa_rasengan_stun.py` (máy chủ dist tại cổng8767), [biên nhận trình duyệt](naruto-v2-qa/rasengan-stun.json).
+
+Trước khi bật Baryon, Naruto chọn điểm trống trong sàn để tránh che cụm giao tranh; xét cả đồng đội lẫn đối thủ, giữ nguyên HP và chỉ dịch chuyển một lần. Nếu đang bị trói chân, đợi hết trói mới dịch chuyển/biến hình. Điểm chọn xác định theo vị trí, không dùng RNG, hỗ trợ sàn ngang/dọc và tỉ lệ1–4. [Ảnh kiểm tra](naruto-v2-qa/baryon-retreat.png) · [Biên nhận Chromium](naruto-v2-qa/baryon-retreat.json).

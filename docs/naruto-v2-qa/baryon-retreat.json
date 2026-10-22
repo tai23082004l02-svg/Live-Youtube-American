@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "from": [
+      460,
+      270
+    ],
+    "to": [
+      162.94,
+      358
+    ],
+    "enemy": [
+      510,
+      270
+    ],
+    "clearance": 358.0427957660927,
+    "transform": "narutotransform",
+    "tick": 0,
+    "hp": 600,
+    "teleports": 1
+  },
+  "pageErrors": [],
+  "browser": "Chromium"
+}

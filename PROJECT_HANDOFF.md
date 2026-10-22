@@ -1,3 +1,7 @@
+## Baryon retreats before transforming — 2026-10-22 (latest)
+
+Before the low-HP Baryon cinematic, Naruto samples in-bounds points with a32×arena-scale inset and selects the largest clearance from all other living fighters, including teammates. Ties favor shorter travel; an already clearer current position is retained. Teleport occurs before v2TransformStart and uses the departure/arrival smoke and label. Root delays transformation until movement is allowed. HP, rage buffs, voice duration and whole-simulation cinematic freeze are unchanged. Only one teleport per transformation. No RNG consumed. Tested horizontal/portrait arenas at scales1,2,4, bounds, frame ordering, no repeat and root delay; real browser screenshot/report in docs/naruto-v2-qa/baryon-retreat.*.
+
 ## Rasengan visible teleport and real0.5s stun — 2026-10-22 (latest)
 
 Rasengan already moved instantly on activation. Added an explicit0.1s sprite disappearance only after a successful teleport, departure/arrival smoke and TELEPORT label so the movement is readable. Landed damage now applies30-tick stun via separate `stunUntil`, not root/petrification. It interrupts ordinary casts, fixes position and blocks movement, evasion, actions and new personal/team Ultimate/transform activation. Warning-stage Ultimates cancel when incapacitated. Zero damage/evaded hits do not stun. No guaranteed hit or invulnerability added. Version marker: RASENGAN TELEPORT + STUN0.5s.

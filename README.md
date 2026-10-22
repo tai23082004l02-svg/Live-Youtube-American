@@ -15,7 +15,7 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 Đã thêm Naruto vào danh sách **10 nhân vật**. Chọn **Đấu thường → Naruto Uzumaki (KCM → Baryon)** để thử.
 
 - Xuất hiện: Hiền Nhân → KCM2.
-- HP dưới 50%: biến hình Baryon một lần, giữ nguyên HP; tốc độ và cận chiến tăng 15%, tốc độ tích nộ tăng30% đến hết trận.
+- HP dưới 50%: dịch chuyển ra vùng trống cách xa giao tranh rồi biến hình Baryon một lần, giữ nguyên HP; tốc độ và cận chiến tăng 15%, tốc độ tích nộ tăng30% đến hết trận.
 - KCM: Rasengan Rush biến mất rồi dịch chuyển sát mục tiêu, đánh trúng gây choáng0,5 giây, hai ảnh phân thân tồn tại8 giây và Rasenshuriken. Baryon: Crimson Rush, Tail Counter và Baryon Rasengan.
 - Hai Ultimate riêng, ba câu thoại tiếng Nhật; hoạt cảnh dừng thời gian chiến đấu và khớp thời lượng âm thanh.
 
