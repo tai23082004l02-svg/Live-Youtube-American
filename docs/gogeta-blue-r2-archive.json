@@ -1,0 +1,168 @@
+{
+  "sourceCommit": "55abc275da484fb7c01d2ed09e91398d4594169f",
+  "bucket": "down-arena-assets",
+  "verifiedObjects": [
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_actions.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_actions.png",
+      "bytes": 1953018,
+      "sha256": "4c4f43e6756f9a750e154c8b2f89c9aadd7055af53584c1c361d3ab1aa399da1"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_cast.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_cast.png",
+      "bytes": 2245907,
+      "sha256": "e64cb27d9f34e79cad75c3b9feac555a65838b24da02226594a5b25f3f8b7243"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_dialogue.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_dialogue.png",
+      "bytes": 1893820,
+      "sha256": "af325d338a82093b69a7933baeb5730fd8af43dc3787cc589af9e23170bf0c17"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_intro.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_intro.png",
+      "bytes": 2193923,
+      "sha256": "e2a8b6054796f3f3a1a789f92d9451c117ad1da983ecc31f54bc85264868b783"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_ultimate.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_ultimate.png",
+      "bytes": 2250172,
+      "sha256": "b46654b285e07cf4a8cfca265ad29f44b2960f8477de4495818851a192aef4cd"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_ultimate_ja_original.mp3",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_ultimate_ja_original.mp3",
+      "bytes": 33061,
+      "sha256": "0eefb80e945e48f1aad39d24f537cfe4b4f08141f4da77e0067cb90a9c4b6f98"
+    },
+    {
+      "path": "art/drafts/gogeta-blue/gogeta_blue_vfx.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/drafts/gogeta-blue/gogeta_blue_vfx.png",
+      "bytes": 2412248,
+      "sha256": "62747da732eae55e0e7025ea67cda7270319651a009cd9559d25afce8422f471"
+    },
+    {
+      "path": "art/frames/gogeta_blue/extraction_report.json",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/extraction_report.json",
+      "bytes": 26253,
+      "sha256": "35572152146e58bfddccc7dfebed60712d8355546717be9c321ec3d3afb023dc"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_cast_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_cast_contact.png",
+      "bytes": 129919,
+      "sha256": "4eee7970830754ab62baf83a1e81c1c83de94f07e952d528d18b79c6a72068a6"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_contact.png",
+      "bytes": 241679,
+      "sha256": "1be2c978745a0c5a807db64830a5e7ce7a4fd3d016e85e50b993626d9643f058"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_dialogue_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_dialogue_contact.png",
+      "bytes": 89410,
+      "sha256": "24be429b203d57b0f60ef94a977495e8f8b6e7ba3b4312f4642c31ce6924d336"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_intro_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_intro_contact.png",
+      "bytes": 67518,
+      "sha256": "f7c50071f2ed90e6214a9fc609cd97b50a5b6f0b80e5dc4fecb4a5c6efa08381"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_intro_vfx_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_intro_vfx_contact.png",
+      "bytes": 51240,
+      "sha256": "4dd5ec9163ceb52de4c50d5664dc6349a7ece2aba89ee659d64e056d4878d1b8"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_ultimate_actor_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_ultimate_actor_contact.png",
+      "bytes": 45393,
+      "sha256": "40bd62deb0f0c2fc840e5f5d29428b974a0fa012d9069748eb53be0758348020"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_ultimate_vfx_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_ultimate_vfx_contact.png",
+      "bytes": 136962,
+      "sha256": "6fc269c496ef135b8944a23eaadd94ac0788b1de07f172ac6006b7355e624f4e"
+    },
+    {
+      "path": "art/frames/gogeta_blue/gogeta_blue_vfx_contact.png",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/art/frames/gogeta_blue/gogeta_blue_vfx_contact.png",
+      "bytes": 177919,
+      "sha256": "d97146b80a0c58a468ff9bc1203f0eaa26d9551511a78535982fb0997076d567"
+    },
+    {
+      "path": "dist/assets/audio/voices/gogeta_blue_ultimate_ja.json",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/audio/voices/gogeta_blue_ultimate_ja.json",
+      "bytes": 136,
+      "sha256": "57f76649acea5b3129a85db3ca6405c80f6bce525d4c31b5e49fa9941fef5f9f"
+    },
+    {
+      "path": "dist/assets/audio/voices/gogeta_blue_ultimate_ja.mp3",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/audio/voices/gogeta_blue_ultimate_ja.mp3",
+      "bytes": 33061,
+      "sha256": "0eefb80e945e48f1aad39d24f537cfe4b4f08141f4da77e0067cb90a9c4b6f98"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue.webp",
+      "bytes": 793978,
+      "sha256": "c2a2de3ca94137a2c2ba0e1021d4b9c7d62e42c17573aa7dac41490d52dd81d6"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue_cast.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue_cast.webp",
+      "bytes": 360754,
+      "sha256": "c87ab64ee3f9677c0183b8ba9470cf620cd5683aab58bfb64e2c66878e11c842"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue_dialogue.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue_dialogue.webp",
+      "bytes": 1443584,
+      "sha256": "be7ee48dd406c7979c9c753293853640a365ee7e90d493414c34a0e80659825a"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue_intro.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue_intro.webp",
+      "bytes": 181470,
+      "sha256": "4d673178389b1191cb0b86565a6d50f8d0bffedb18de1291cc75c592746ce246"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue_intro_vfx.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue_intro_vfx.webp",
+      "bytes": 349076,
+      "sha256": "278eb23173dd013d3638dcb45c4811c966272bc421097de304442ee4b3a5232f"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue_ultimate_actor.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue_ultimate_actor.webp",
+      "bytes": 115342,
+      "sha256": "a4b49b2f54e1f23d5e7c63e5acc361e41baf773db463975d43389911e738f927"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue_ultimate_vfx.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue_ultimate_vfx.webp",
+      "bytes": 969572,
+      "sha256": "9009dd36189eba532075adc64aec0033d3ecff64b0b26f724d5670495f5a4bcc"
+    },
+    {
+      "path": "dist/assets/characters/gogeta_blue/gogeta_blue_vfx.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/characters/gogeta_blue/gogeta_blue_vfx.webp",
+      "bytes": 1272512,
+      "sha256": "cea172ed2c1de824296d17f5d51f09cc55d365f11623c919e0355aac3723b64d"
+    },
+    {
+      "path": "dist/assets/ui/portraits/gogeta_blue.webp",
+      "key": "characters/gogeta_blue/revisions/55abc275da484fb7c01d2ed09e91398d4594169f/dist/assets/ui/portraits/gogeta_blue.webp",
+      "bytes": 9680,
+      "sha256": "a82d370d6c8577cc2cdc4eebec1bfa0f984d9d1acdb7da691ecba0318671de0d"
+    }
+  ]
+}
