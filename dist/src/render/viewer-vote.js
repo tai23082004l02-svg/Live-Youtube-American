@@ -3,7 +3,6 @@ import {LIVE_TIMINGS} from '../live-arena.js';
 export const VOTE_LAYOUT=Object.freeze({width:540,height:960,hudY:252,hudHeight:64,arenaY:328,arenaHeight:540*9/16});
 function text(ctx,value,x,y,size,color='#e9eef5',align='left',width=490){ctx.fillStyle=color;ctx.font=`600 ${size}px Segoe UI,Arial`;ctx.textAlign=align;ctx.fillText(value,x,y,width);}
 export function drawVoteBroadcast(ctx,u,scene){ctx.save();ctx.fillStyle='#000';ctx.fillRect(0,0,540,960);const v=u.ballot;
- text(ctx,'DOWN ARENA',24,22,15,'#efc984');text(ctx,'DEMO · YOUTUBE CHAT NOT CONNECTED',516,22,10,'#f4bd66','right',360);
  text(ctx,v?.locked?'NEXT MATCH LOCKED':'CHOOSE THE NEXT FIGHTERS',24,54,22,'#fff0d3');
  text(ctx,v?.locked?'LOCKED':'VOTING',516,54,17,'#7ddcfd','right',95);
  text(ctx,'SIMULATED VOTES · ONE VOTE PER VIEWER · CHANGE WITH A NEW NUMBER',24,75,9,'#aab8c8');
