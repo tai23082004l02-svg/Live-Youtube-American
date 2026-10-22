@@ -26,8 +26,7 @@ export class VotingArenaUI extends VerticalArenaUI{
   this.phase='ready';this.age=0;this.paused=false;this.setView(true);this.update();return this.next();
  }
  async next(){if(!this.voteMode)return super.next();try{await TournamentUI.prototype.next.call(this);if(this.active&&this.voteMode&&this.phase==='ready')this.phase='error';}catch{if(this.active&&this.voteMode)this.phase='error';}this.update();}
- frame(dt){if(!this.voteMode)return super.frame(dt);if(!this.active||this.paused||['loading','error'].includes(this.phase))return;
-  if(this.chat?.enabled)this.chat.tick(dt);
+ frame(dt){if(!this.voteMode)return super.frame(dt);if(this.chat?.enabled)this.chat.tick(dt);if(!this.active||this.paused||['loading','error'].includes(this.phase))return;
   this.age+=dt;
   if(this.h.duel().result){this.lastDraw=this.h.duel().result==='draw';this.ballot.lock();}
   if(!this.ballot.locked){
