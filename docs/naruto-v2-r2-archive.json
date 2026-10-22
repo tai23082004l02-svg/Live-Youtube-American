@@ -1,0 +1,258 @@
+{
+  "sourceCommit": "63c9c71f0641561349fc99f296a7d244b4c6286c",
+  "bucket": "down-arena-assets",
+  "verifiedObjects": [
+    {
+      "path": "art/drafts/naruto-v2/naruto-three-forms-concept.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto-three-forms-concept.png",
+      "bytes": 2259236,
+      "sha256": "95072c300100a8d7402e935b5f53731604d59b8b3d2da349801e682ceedbe3cd"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_baryon_actions.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_baryon_actions.png",
+      "bytes": 3031225,
+      "sha256": "2a401b4e7b29988661791c6c65d2ed033e0002112bb8a2978161046fe4b03902"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_baryon_skills.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_baryon_skills.png",
+      "bytes": 2749951,
+      "sha256": "6e624c8e1b1be25d0a003a21c565f9f041f7aa7dd9ae5ebc9e10ddd9bbd61f96"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_dialogue.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_dialogue.png",
+      "bytes": 2363545,
+      "sha256": "ce09825f3f4d157db682f22840a8edab1464db9a6951cd539433b2a64a558e2c"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_intro.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_intro.png",
+      "bytes": 2834965,
+      "sha256": "4e6bc751717941a59e4ed2550e27e54acca6e8a6e664a412f5aff5d7457bdc03"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_kcm_actions.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_kcm_actions.png",
+      "bytes": 2861953,
+      "sha256": "877a80dac0a5900eb5798ccc7dc23a167acfc5d8372d4f8e50e6a78c0805c519"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_kcm_skills.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_kcm_skills.png",
+      "bytes": 2645947,
+      "sha256": "7f1defe016e9dbf008f9a054e7fad58af1665161b2b5dc4cbcf54094461e9c12"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_transform.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_transform.png",
+      "bytes": 2742043,
+      "sha256": "bcd1fcb1e775d9254da0223b5f541777ef0ddc6dedc60e2e71c5cf6ed4dd083d"
+    },
+    {
+      "path": "art/drafts/naruto-v2/naruto_v2_ultimate.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/drafts/naruto-v2/naruto_v2_ultimate.png",
+      "bytes": 3250741,
+      "sha256": "182fe1109abafbe1523887e4223b7bf0ec081095b876468437ff4385b1aab55f"
+    },
+    {
+      "path": "art/frames/naruto_v2/extraction_report.json",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/extraction_report.json",
+      "bytes": 43783,
+      "sha256": "554d29db2e1a3f1cf99a5c6703523a2a897aed15f119700a85322ac987631ad9"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_baryon_cast_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_baryon_cast_contact.png",
+      "bytes": 78283,
+      "sha256": "e7fcbc36c1699da73d1cc7be84428133803364d66b59f66b099e4deae5ead305"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_baryon_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_baryon_contact.png",
+      "bytes": 378298,
+      "sha256": "e60d41c29362431fa7074eb3ede6bd94ab3af5d952344d9397a6c0f9708c814f"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_baryon_vfx_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_baryon_vfx_contact.png",
+      "bytes": 222139,
+      "sha256": "6ef5e0bed4e978c6c83ebde7be6e330e1de0998414379e089f4c4c0560aa7c57"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_cast_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_cast_contact.png",
+      "bytes": 77688,
+      "sha256": "50d80afc40e1acf7ae4952ff67330a6dbb2169a2b849ea581ecf987e3f040acf"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_contact.png",
+      "bytes": 497664,
+      "sha256": "3b19dffbd6d2b397a06d1d33b3f60cd5ba00dc9bb57993b3390de4dd18ff3d43"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_dialogue_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_dialogue_contact.png",
+      "bytes": 90286,
+      "sha256": "3eccd6c5242b77e644dea4a0fdbf99723590ca19c991e7d3a2282d2bfbd6a78c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_intro_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_intro_contact.png",
+      "bytes": 136501,
+      "sha256": "c1e251ce41f42bc682934b8f047232fc5847f88267931074e135fd7f0329592c"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_intro_vfx_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_intro_vfx_contact.png",
+      "bytes": 153563,
+      "sha256": "60c7f1f9945bf18304a92e7f7d54f7b97e519b80536c3438d12514da626ebca0"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_transform_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_transform_contact.png",
+      "bytes": 150235,
+      "sha256": "42721d3a8a60338b7745d8cc1ee2cd9d7f37f117fd6f3fc554034bc009f752d7"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_transform_vfx_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_transform_vfx_contact.png",
+      "bytes": 87429,
+      "sha256": "c936f1d74131f791169ca561074d8b922ebd3bfe7d0d0083a8e8482fa1438ab4"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_ultimate_actor_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_ultimate_actor_contact.png",
+      "bytes": 162724,
+      "sha256": "f4f36c4f06a5d68db3aca42e2d5fb626271f9c6cdca116c860d8d29b676f3d4e"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_ultimate_vfx_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_ultimate_vfx_contact.png",
+      "bytes": 182325,
+      "sha256": "6b5d6f5b3443532ef3d34c6a70ae5e543e269dd4f166ced8ca529a505e4240ff"
+    },
+    {
+      "path": "art/frames/naruto_v2/naruto_v2_vfx_contact.png",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/art/frames/naruto_v2/naruto_v2_vfx_contact.png",
+      "bytes": 203255,
+      "sha256": "17f65c3b4d0db8f50b83c0b6e4636c6d343008dc16a9c3bba6a51895ec1cda68"
+    },
+    {
+      "path": "dist/assets/audio/voices/naruto_v2_baryon_ja.json",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/audio/voices/naruto_v2_baryon_ja.json",
+      "bytes": 220,
+      "sha256": "660f3cdeb3dd9689627b36d3026acb465624241462a69b4c6a2195cec02c9224"
+    },
+    {
+      "path": "dist/assets/audio/voices/naruto_v2_baryon_ja.mp3",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/audio/voices/naruto_v2_baryon_ja.mp3",
+      "bytes": 28046,
+      "sha256": "7779b86bfcd40c75e57d69c69775ef798d3b0fbd2a5ad81528e153ca59617539"
+    },
+    {
+      "path": "dist/assets/audio/voices/naruto_v2_kcm_ja.json",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/audio/voices/naruto_v2_kcm_ja.json",
+      "bytes": 226,
+      "sha256": "5b25b800cab6333efe05e3a7c329589741760d77434265d091228be2b1057eae"
+    },
+    {
+      "path": "dist/assets/audio/voices/naruto_v2_kcm_ja.mp3",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/audio/voices/naruto_v2_kcm_ja.mp3",
+      "bytes": 47272,
+      "sha256": "108f6483593cbc4c0d215b80b655690567b5ab8605e294419a97cb318173ded7"
+    },
+    {
+      "path": "dist/assets/audio/voices/naruto_v2_transform_ja.json",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/audio/voices/naruto_v2_transform_ja.json",
+      "bytes": 233,
+      "sha256": "f5024c32c7a21d83324511d9b5df5d8416f2a7578b1f171c868b4876f51c7653"
+    },
+    {
+      "path": "dist/assets/audio/voices/naruto_v2_transform_ja.mp3",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/audio/voices/naruto_v2_transform_ja.mp3",
+      "bytes": 39331,
+      "sha256": "b758dc6c5268d0c1482a870ff73c022833d779893eb8b1319dbda2a67fd17536"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2.webp",
+      "bytes": 1433726,
+      "sha256": "3fba3e8610a7f7ca8614be8badec99434e3bde6617afa595051c764f92912ace"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_baryon.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_baryon.webp",
+      "bytes": 1460422,
+      "sha256": "e8d14a251bc0cba2412db936daa2a7a289302206e80321a40457a578c9d253fa"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_baryon_cast.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_baryon_cast.webp",
+      "bytes": 150544,
+      "sha256": "07dfcd5ffadd5bfa779ac7d92cb3e0f821567fd882a7cb9fe4fd87d0af1ebef6"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_baryon_vfx.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_baryon_vfx.webp",
+      "bytes": 1404176,
+      "sha256": "ec1e19b603a3a0085d56dd91f5bbb088499b0d094324e5f32e54fb388c9395b2"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_cast.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_cast.webp",
+      "bytes": 178772,
+      "sha256": "97e09f0728d111b9b99b97cb7c670902202c903589ab858913d9681c5b5ba153"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_dialogue.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_dialogue.webp",
+      "bytes": 1828556,
+      "sha256": "778c653dbdf841522edde92c9a5815ba637fb5c4266647470e41decb9eed07f8"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_intro.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_intro.webp",
+      "bytes": 318918,
+      "sha256": "e569fc9d0505eeabf1a863ab571ee09f92ecc40604d3df4dc2088d789f21be3b"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_intro_vfx.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_intro_vfx.webp",
+      "bytes": 903290,
+      "sha256": "620bdc3788c01e102098511bb513f9bbe6dfde6c4b477a8e4dad5757f93e274c"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_transform.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_transform.webp",
+      "bytes": 306778,
+      "sha256": "f5153c8001482a460c0403d2509933e3558047f9ab84e780bf83f09406d5132f"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_transform_vfx.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_transform_vfx.webp",
+      "bytes": 562026,
+      "sha256": "b68115fdb8641b389d6d407fe1dd5b813daa0090bb8d8d6814ea89b7b50cef6d"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_ultimate_actor.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_ultimate_actor.webp",
+      "bytes": 441084,
+      "sha256": "f7f4e4dfeaf2fb97c79c5dd1e3fbd72ea6ae42738970a9bc59279e40eecf2c23"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_ultimate_vfx.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_ultimate_vfx.webp",
+      "bytes": 1107252,
+      "sha256": "7ff990b7f830d30f6d9db6eb28ca6ba21c3ec3f273f89939e5f1fe8559867601"
+    },
+    {
+      "path": "dist/assets/characters/naruto_v2/naruto_v2_vfx.webp",
+      "key": "characters/naruto_v2/revisions/63c9c71f0641561349fc99f296a7d244b4c6286c/dist/assets/characters/naruto_v2/naruto_v2_vfx.webp",
+      "bytes": 1360368,
+      "sha256": "26390773b758458b8b2d067e8f1593ac1df0b100441ace1aa3a5ad1a234646b6"
+    }
+  ]
+}
