@@ -10,11 +10,14 @@ from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
+from urllib.request import Request as URLRequest, urlopen
 
 ROOT = Path(__file__).resolve().parents[2]
 SCOPES = ['https://www.googleapis.com/auth/youtube.readonly']
 PORT = 8765
 BASE = f'http://127.0.0.1:{PORT}'
+GAME_ORIGIN = 'https://tai23082004l02-svg.github.io'
+GAME_URL = GAME_ORIGIN + '/Live-Youtube-American/dist/?obs=vote&chat=1'
 
 
 def video_id(value):
@@ -187,6 +190,12 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Length', str(len(body)))
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
+        if self.path == '/api/votes' and self.headers.get('Origin') in (BASE, GAME_ORIGIN):
+            self.send_header('Access-Control-Allow-Origin', self.headers['Origin'])
+            self.send_header('Vary', 'Origin')
+            self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+            self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+            self.send_header('Access-Control-Allow-Private-Network', 'true')
         self.end_headers()
         self.wfile.write(body)
 
@@ -197,6 +206,17 @@ class Handler(BaseHTTPRequestHandler):
         if not self.valid_host():
             return self.send(403, {})
         path = urlparse(self.path).path
+        if path in ('/online', '/online/'):
+            try:
+                request = URLRequest(GAME_ORIGIN + '/Live-Youtube-American/dist/?v=' + str(time.time_ns()), headers={'Cache-Control': 'no-cache'})
+                with urlopen(request, timeout=20) as response:
+                    html = response.read().decode('utf-8')
+                # Source and every game asset load from Pages, never the local dist copy.
+                base = '<base href="' + GAME_ORIGIN + '/Live-Youtube-American/dist/">'
+                html = html.replace('<head>', '<head>' + base, 1)
+                return self.send(200, html, 'text/html; charset=utf-8')
+            except Exception:
+                return self.send(502, 'Cannot load game from GitHub Pages. Check internet and retry.', 'text/plain; charset=utf-8')
         if path in ('/', '/control'):
             return self.send(200, (Path(__file__).parent / 'control.html').read_bytes(), 'text/html; charset=utf-8')
         if path == '/api/status':
@@ -211,8 +231,14 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send(200, target.read_bytes(), mimetypes.guess_type(target)[0] or 'application/octet-stream')
         self.send(404, {})
 
+    def do_OPTIONS(self):
+        if not self.valid_host() or self.path != '/api/votes' or self.headers.get('Origin') not in (BASE, GAME_ORIGIN):
+            return self.send(403, {})
+        self.send(204, b'')
+
     def do_POST(self):
-        if not self.valid_host() or self.headers.get('Origin') != BASE:
+        allowed = (BASE, GAME_ORIGIN) if self.path == '/api/votes' else (BASE,)
+        if not self.valid_host() or self.headers.get('Origin') not in allowed:
             return self.send(403, {})
         try:
             length = int(self.headers.get('Content-Length', '0'))
@@ -232,7 +258,7 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     server = ThreadingHTTPServer(('127.0.0.1', PORT), Handler)
     print('Down Arena Chat: ' + BASE + '/control')
-    print('OBS Browser Source: ' + BASE + '/dist/?obs=vote&chat=1')
+    print('OBS Browser Source (game from GitHub): ' + BASE + '/online/?obs=vote&chat=1')
     webbrowser.open(BASE + '/control')
     try:
         server.serve_forever()
