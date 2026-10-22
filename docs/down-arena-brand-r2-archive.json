@@ -1,0 +1,30 @@
+{
+  "sourceCommit": "87728337998dafa4a4a99cf7d2082ef74d748845",
+  "bucket": "down-arena-assets",
+  "verifiedObjects": [
+    {
+      "path": "art/drafts/down-arena-brand/down-arena-brand-sheet.png",
+      "key": "brand/down-arena/revisions/87728337998dafa4a4a99cf7d2082ef74d748845/art/drafts/down-arena-brand/down-arena-brand-sheet.png",
+      "bytes": 1612502,
+      "sha256": "cbf8e9b9d68f4e617122bfba7722a367ff8558b1cbc4411ac55a1eb3106fdf05"
+    },
+    {
+      "path": "art/drafts/down-arena-brand/down-arena-logo-transparent.png",
+      "key": "brand/down-arena/revisions/87728337998dafa4a4a99cf7d2082ef74d748845/art/drafts/down-arena-brand/down-arena-logo-transparent.png",
+      "bytes": 1377109,
+      "sha256": "a350a94eda28889034a363f68a47c25987181ef2a820e3825f246ad8c2cf13d6"
+    },
+    {
+      "path": "dist/assets/brand/down-arena-logo.png",
+      "key": "brand/down-arena/revisions/87728337998dafa4a4a99cf7d2082ef74d748845/dist/assets/brand/down-arena-logo.png",
+      "bytes": 1377109,
+      "sha256": "a350a94eda28889034a363f68a47c25987181ef2a820e3825f246ad8c2cf13d6"
+    },
+    {
+      "path": "dist/assets/brand/down-arena-logo.json",
+      "key": "brand/down-arena/revisions/87728337998dafa4a4a99cf7d2082ef74d748845/dist/assets/brand/down-arena-logo.json",
+      "bytes": 120,
+      "sha256": "0a58ec1efd6eb72d4590370b432383770e8ed6a7bab9268f9a980e1d6901df6f"
+    }
+  ]
+}
