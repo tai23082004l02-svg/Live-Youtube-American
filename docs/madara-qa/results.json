@@ -1,0 +1,32 @@
+{
+  "checks": [
+    "real assets",
+    "stats panel",
+    "2.5s entrance",
+    "orb barrage",
+    "Light Fang beam",
+    "Limbo phantom",
+    "personal meteor cinematic/warning/fall/impact",
+    "real MP3 decode and scheduling",
+    "pause/resume",
+    "team cinematic/meteor",
+    "Live voting startup"
+  ],
+  "voiceSources": [
+    {
+      "duration": 1.4183219954648527,
+      "offset": 0.016666666666666666
+    },
+    {
+      "duration": 1.4183219954648527,
+      "offset": 0.5166666666666667
+    },
+    {
+      "duration": 1.4183219954648527,
+      "offset": 0.5666666666666667
+    }
+  ],
+  "pageErrors": [],
+  "failedResponses": [],
+  "subjectiveListening": false
+}

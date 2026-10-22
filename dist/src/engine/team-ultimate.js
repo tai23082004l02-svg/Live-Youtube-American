@@ -2,6 +2,7 @@ import {isIncapacitated} from './status.js';
 import {NARUTO_V2_BARYON_STEPS,TEAM_VOICE_STEPS,cinematicSteps,ULTIMATE_CINEMATIC_STEPS,ULTIMATE_DAMAGE_MULTIPLIER} from './ultimate-rules.js';
 export const ULTIMATE_RULES=Object.freeze({rageMax:100,cinematicSteps:ULTIMATE_CINEMATIC_STEPS,warningTicks:36,travelTicks:42,recoveryTicks:0,radius:160});
 export const ULTIMATE_STYLES={
+ madara:{row:4,name:'United Tengai Shinsei',line:'Tengai Shinsei!',color:'#c181ff',cast:0},
  naruto_v2:{row:1,name:'United Kurama Rasengan',line:'Kurama! Giant Rasengan!',color:'#ffc34b',cast:0},
  rengoku:{row:2,name:'United Purgatory',line:'Flame Breathing: Purgatory!',color:'#ff8a2b',cast:0},
  sukuna:{row:3,name:'United Malevolent Shrine',line:'Domain Expansion: Malevolent Shrine.',color:'#ff3655',cast:0},

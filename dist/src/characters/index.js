@@ -1,3 +1,4 @@
+import {madara} from './madara.js';
 import {naruto_v2} from './naruto_v2.js';
 import {rengoku} from './rengoku.js';
 import {sukuna} from './sukuna.js';
@@ -21,7 +22,7 @@ import {piccolo} from './piccolo.js';
 import {goku} from './goku.js';
 import {vegeta} from './vegeta.js';
 import {broly} from './broly.js';
-export const CHARACTERS={naruto_v2,rengoku,goku_blue,naruto,piccolo,goku,vegeta,broly,gojo,sasuke,gogeta,luffy,frieza,gaara,yugi,beerus,ichigo,sung_jinwoo,goku_ultra,saber,tatsumaki,boa_hancock,sukuna};
+export const CHARACTERS={madara,naruto_v2,rengoku,goku_blue,naruto,piccolo,goku,vegeta,broly,gojo,sasuke,gogeta,luffy,frieza,gaara,yugi,beerus,ichigo,sung_jinwoo,goku_ultra,saber,tatsumaki,boa_hancock,sukuna};
 
 // Legacy definitions remain for redesign; only the active fighters are offered by the game.
-export const ACTIVE_CHARACTERS={goku_ultra,ichigo,sung_jinwoo,saber,tatsumaki,boa_hancock,gojo,sukuna,rengoku,naruto_v2};
+export const ACTIVE_CHARACTERS={goku_ultra,ichigo,sung_jinwoo,saber,tatsumaki,boa_hancock,gojo,sukuna,rengoku,naruto_v2,madara};

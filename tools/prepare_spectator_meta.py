@@ -8,13 +8,13 @@ def meta(name):
  text=(render/name).read_text(encoding='utf-8')
  return json.loads(text.split('=',1)[1].strip().rstrip(';'))
 special={}
-for name in ['naruto-v2-meta.js','rengoku-meta.js','beerus-meta.js','boa-meta.js','tatsumaki-meta.js','saber-meta.js','ultra-meta.js','jinwoo-meta.js','ichigo-meta.js','gojo-v2-meta.js','sukuna-meta.js']:
+for name in ['madara-meta.js','naruto-v2-meta.js','rengoku-meta.js','beerus-meta.js','boa-meta.js','tatsumaki-meta.js','saber-meta.js','ultra-meta.js','jinwoo-meta.js','ichigo-meta.js','gojo-v2-meta.js','sukuna-meta.js']:
  special.update(meta(name))
 special['gojo']=special['gojo_v2']
 manifest=(root/'dist/src/engine/assets.js').read_text(encoding='utf-8')
 mapping=dict(re.findall(r"(?:^|[,\{])([a-z0-9_]+):'([^']+)'",manifest))
 mapping['gojo']=mapping['gojo_v2']
-ids=['naruto_v2','rengoku','sukuna','goku','vegeta','broly','piccolo','naruto','gojo','sasuke','gogeta','luffy','frieza','gaara','yugi','goku_blue','beerus','ichigo','sung_jinwoo','goku_ultra','saber','tatsumaki','boa_hancock']
+ids=['madara','naruto_v2','rengoku','sukuna','goku','vegeta','broly','piccolo','naruto','gojo','sasuke','gogeta','luffy','frieza','gaara','yugi','goku_blue','beerus','ichigo','sung_jinwoo','goku_ultra','saber','tatsumaki','boa_hancock']
 out={}
 for id in ids:
  cols=special.get(id,{}).get('columns',8 if id in ['gogeta','frieza'] else 6)

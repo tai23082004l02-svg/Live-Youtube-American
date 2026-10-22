@@ -1,9 +1,6 @@
 name: Generate Madara Japanese Ultimate call
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: [.github/workflows/madara-voice.yml]
 permissions:
   contents: write
 concurrency:
@@ -45,7 +42,7 @@ jobs:
               if len(audio)<1000 or 'audio' not in mime:sys.exit('Unexpected response; no retry.')
               path.write_bytes(audio)
           subprocess.run(['ffmpeg','-v','error','-i',str(path),'-f','null','-'],check=True)
-          seconds=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)],text=True))
+          decoded=subprocess.check_output(['ffmpeg','-v','error','-i',str(path),'-ac','1','-ar','44100','-f','s16le','-']);seconds=len(decoded)/(44100*2)
           assert 0<seconds<10
           steps=math.ceil(seconds*60)
           meta=path.with_suffix('.json');meta.write_text(json.dumps({'voice':'Daniel','model':'eleven_v3','language':'ja','text':'天碍震星！','duration':seconds,'steps':steps},ensure_ascii=False,indent=2)+'\n')

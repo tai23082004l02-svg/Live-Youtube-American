@@ -2,7 +2,7 @@
 
 Tạo hình theo phong cách chibi chi tiết và góc nhìn hơi từ trên xuống của Gojo v2: tóc trắng dài, mắt Rinnegan tím, áo choàng Lục Đạo trắng với dấu magatama đen, tích trượng đen và Cầu Đạo Ngọc sau lưng.
 
-Các ảnh trong thư mục này là bản tham khảo tạo hình, kỹ năng và storyboard xuất hiện; chưa phải atlas hoạt ảnh đã tách frame và chưa được gắn vào game.
+Madara đã được triển khai vào game. Ba ảnh concept/storyboard là tham khảo thiết kế; sáu sheet hành động, cast, intro, VFX, Ultimate và dialogue đã được tách thành84 frame gốc và8 atlas WebP chạy game. Xem [chi tiết triển khai](../../../docs/MADARA.md).
 
 ## Tạo hình
 

@@ -1,3 +1,11 @@
+## Six Paths Madara integrated — 2026-10-22 (latest)
+
+New active ID `madara`, active roster11, distinct existing characters preserved.84 native frames from6 generated sheets,8 metadata-driven padded atlases. `prepare_madara.py` / `verify_madara.py` preserve and independently reconstruct every positive-alpha source sample. Sources/contact previews/report retained in GitHub, revisioned R2 archive workflow verifies downloads before committing a receipt.
+
+Kit: ranged basic orb62, Truth-Seeking Orb barrage3×85 (splash30), piercing Light Fang220, autonomous5s Limbo phantom65/.9s. Strict below40%HP latches1.2× skill recharge, survives healing, never stacks. Phantom avoids allies and expires/clears on death. Huge meteor personal Ultimate warns36 ticks, falls42 ticks, applies420×2 radial damage within200px, once per enemy. Team Ultimate uses shared160px/3-pulse rules with Madara meteor visuals. Both use the measured short Japanese recording,1.418322s decoded /86 ticks. Daniel/eleven_v3 stock voice, original2s retained, tempo1.4 with pitch preserved.
+
+11-way selectors/stats, spectator entrance, grandstand, portraits, both Live layouts, voting roster and audio integrated. Tests:45/53 suites passed independently,8 unchanged legacy ENOENT reference failures. Actual Chromium checks assets/stats/intro/three skills/personal and team meteor/audio scheduling and pause-resume/Live voting, no errors or failed assets. Subjective listening and physical-phone QA remain unverified. Public Pages not reachable from this execution environment. See docs/MADARA.md and docs/madara-qa/results.json.
+
 ## Rengoku short Ultimate voice — 2026-10-22 (latest)
 
 Replaced active speech with a newly generated Brian/eleven_v3 Japanese call, 煉獄！, in rengoku_ultimate_short_ja.mp3. Measured1.44s,87 ticks, replacing the active4.64s/279-tick charge. The common timing module controls both personal and team Ultimate cinematics. Warning/dash/damage unchanged. Previous full voice and metadata retained for history. New short metadata is beside its MP3. No paid retries. Tests verify personal/team release at87 ticks, frozen combat and audio lifecycle. Browser QA rerun with the real shorter recording.

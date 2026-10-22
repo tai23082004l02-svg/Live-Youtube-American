@@ -1,0 +1,227 @@
+{
+  "suites": [
+    {
+      "command": "node tests/madara-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/naruto-v2-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/viewer-vote-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/rengoku-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/sukuna-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/combat-samples-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/title-assets-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/mode-menu-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/vertical-arena-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/live-arena-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/team-voice-timing-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/victory-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/music-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/ultimate-hit-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/combat-balance-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/boa-hancock-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/tatsumaki-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/saber-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/audio-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/fighting-style-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/goku-ultra-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/passive-rage-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/jinwoo-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/tournament-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/team-dialogue-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/ichigo-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/projectile-energy-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/team-ultimate-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/beerus-render-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/beerus-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/goku-blue-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/hp-multiplier-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/arena-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/skill-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/broly-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/muzzle-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/ffa-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/piccolo-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/pvp-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/team-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/combat-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/naruto-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/kurama-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/yugi-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/gaara-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/frieza-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/luffy-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/gogeta-tests.mjs",
+      "passed": false,
+      "reason": "Missing pre-existing reference art/audio (ENOENT)"
+    },
+    {
+      "command": "node tests/sasuke-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/gojo-v2-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node tests/asset-tests.mjs",
+      "passed": true
+    },
+    {
+      "command": "node --experimental-vm-modules tests/ui-active-roster.mjs",
+      "passed": true
+    }
+  ],
+  "passed": 45,
+  "total": 53,
+  "note": "Executed independently; eight legacy suites still require absent original reference art/audio."
+}

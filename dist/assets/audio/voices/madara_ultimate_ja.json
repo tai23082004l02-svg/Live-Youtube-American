@@ -3,6 +3,10 @@
   "model": "eleven_v3",
   "language": "ja",
   "text": "天碍震星！",
-  "duration": 2.0,
-  "steps": 120
+  "duration": 1.4183219954648527,
+  "steps": 86,
+  "sourceDuration": 2.0,
+  "processing": "ffmpeg atempo=1.4, pitch preserved",
+  "original": "art/drafts/madara-six-paths/madara_ultimate_ja_original.mp3",
+  "fileDuration": 1.462857
 }

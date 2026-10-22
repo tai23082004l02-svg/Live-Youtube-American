@@ -10,9 +10,11 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
-## Madara Lục Đạo — thiết kế nhân vật mới
+## Madara Lục Đạo — đã có trong game
 
-[Xem tạo hình, kỹ năng lớn và màn xuất hiện](art/drafts/madara-six-paths). Đây là bộ thiết kế hình ảnh để phát triển nhân vật.
+Chọn **Đấu thường → Madara Lục Đạo** để chơi. Bộ11 nhân vật hiện có Madara thiên về kỹ năng tầm xa: ba Cầu Đạo Ngọc lớn, Quang Nha xuyên mục tiêu, bóng Luân Mộ và Ultimate thiên thạch. HP dưới40% kích hoạt tăng20% tốc độ hồi kỹ năng đến hết trận. Màn xuất hiện2,5 giây, câu hô Ultimate tiếng Nhật khoảng1,42 giây.
+
+[Xem sheet và tạo hình](art/drafts/madara-six-paths) · [Xem trong trận](docs/madara-qa/battle.png) · [Kỹ năng và kiểm tra](docs/MADARA.md). Phiên bản: **MADARA SIX PATHS / 11 CHARACTERS**.
 
 ## Naruto Uzumaki — KCM → Baryon
 
