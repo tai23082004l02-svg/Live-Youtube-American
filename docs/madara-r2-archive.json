@@ -1,0 +1,180 @@
+{
+  "sourceCommit": "de186d6a14f6b874c3352d9472f2491b8394533b",
+  "bucket": "down-arena-assets",
+  "verifiedObjects": [
+    {
+      "path": "art/drafts/madara-six-paths/madara_actions.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_actions.png",
+      "bytes": 2833799,
+      "sha256": "01978c5aad766fd718f36c5da64e82cd2bad262436736fe6483dcee4d6191a59"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_cast.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_cast.png",
+      "bytes": 2849218,
+      "sha256": "15ca6117ae425a6477e76bd06870cf41da3522ff73ff850378b62c0a9301ff5a"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_dialogue.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_dialogue.png",
+      "bytes": 2485081,
+      "sha256": "46645dd3729dc3c1dc298b5c72ac6bf1f464bbdf647381791bceda195207753d"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_intro.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_intro.png",
+      "bytes": 2343200,
+      "sha256": "62110766e62195e8d5a597f9c7296af9b03e8a120d65940ac80ce95124e45d9f"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_six_paths_concept.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_six_paths_concept.png",
+      "bytes": 2553093,
+      "sha256": "fe3afe6b3e6ad9ccd27710847458d0f4c106b3eaf78e1dfca9a6b82158234b9b"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_six_paths_intro_storyboard.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_six_paths_intro_storyboard.png",
+      "bytes": 2656571,
+      "sha256": "7e1db42ed3cda44c21be4cbf077c4ffed2b2d01712394a89a79e51a549fe7e2c"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_six_paths_skill_concept.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_six_paths_skill_concept.png",
+      "bytes": 3413880,
+      "sha256": "ccf4dc7960b0e052d397f3917f120d88dccf7ecffa23755ed13fe6662b666bcf"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_ultimate.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_ultimate.png",
+      "bytes": 3164391,
+      "sha256": "2593e13b8063a1d079ad56527196986dc7ddfeff9ffe4539c481e2bb9a92d6cd"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_ultimate_ja_original.mp3",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_ultimate_ja_original.mp3",
+      "bytes": 33061,
+      "sha256": "75f8c1eae7a602611426add201349b1cdd56218aeb9e947305c9d36c08c5342a"
+    },
+    {
+      "path": "art/drafts/madara-six-paths/madara_vfx.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/drafts/madara-six-paths/madara_vfx.png",
+      "bytes": 2845260,
+      "sha256": "7badaf78dc428b8edbf6cb37da1aa6b2372ce2e8d768c1485a1eae97cc66c8ec"
+    },
+    {
+      "path": "art/frames/madara/extraction_report.json",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/extraction_report.json",
+      "bytes": 26186,
+      "sha256": "4d9a986e114df8ccaf0326cdf97d2413a764acbe5e65c1068d3fa26f92cb65c1"
+    },
+    {
+      "path": "art/frames/madara/madara_cast_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_cast_contact.png",
+      "bytes": 222462,
+      "sha256": "7ae848d6000513182b0454b3d61b7f3471622b8695b56924f7bb5d10c83040a8"
+    },
+    {
+      "path": "art/frames/madara/madara_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_contact.png",
+      "bytes": 417340,
+      "sha256": "45ce27595c481cf070032cf6ea8154811a4bbc08ffd75f116a89d66687623e86"
+    },
+    {
+      "path": "art/frames/madara/madara_dialogue_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_dialogue_contact.png",
+      "bytes": 75185,
+      "sha256": "1ded71a0a0940ca7625ed2846ce7d4d2b9a6327f42156bd19b5d830dc21efc68"
+    },
+    {
+      "path": "art/frames/madara/madara_intro_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_intro_contact.png",
+      "bytes": 129059,
+      "sha256": "5fbf7c3c68f6d25f68466b67d01656edfd853ee8260ac4e97e3e5b50570baadb"
+    },
+    {
+      "path": "art/frames/madara/madara_intro_vfx_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_intro_vfx_contact.png",
+      "bytes": 59504,
+      "sha256": "8e732bf99bdacff8590747656399b782c3f6411a249a415eb320c6745b149797"
+    },
+    {
+      "path": "art/frames/madara/madara_ultimate_actor_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_ultimate_actor_contact.png",
+      "bytes": 79034,
+      "sha256": "9bcbd0ee5725f810c4295a40fe8c468993049ec007d7ff9d6f7f5a7aca963e72"
+    },
+    {
+      "path": "art/frames/madara/madara_ultimate_vfx_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_ultimate_vfx_contact.png",
+      "bytes": 203621,
+      "sha256": "f78d5b2177245128e74dd2feb1150e02a732c83cf12726dbf89286f8c23e324b"
+    },
+    {
+      "path": "art/frames/madara/madara_vfx_contact.png",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/art/frames/madara/madara_vfx_contact.png",
+      "bytes": 234213,
+      "sha256": "0a3951d3cb2a70c5ab1bc681e8a34f9dcafb25d2bbcd176fe5c14283e24b15da"
+    },
+    {
+      "path": "dist/assets/audio/voices/madara_ultimate_ja.json",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/audio/voices/madara_ultimate_ja.json",
+      "bytes": 330,
+      "sha256": "60b5a7742d3fe0d13adb2a3060d7d732384ee406cc7ed0d96ec9649386517fae"
+    },
+    {
+      "path": "dist/assets/audio/voices/madara_ultimate_ja.mp3",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/audio/voices/madara_ultimate_ja.mp3",
+      "bytes": 23866,
+      "sha256": "bfe8773d98744d36e5e4d1048e5c39bf07a627795e92490aa528e0e16438a65d"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara.webp",
+      "bytes": 1109608,
+      "sha256": "3451f663f5a2a8ba1785063fd21046faa353ccdce7223d6ac38bf829c4c87eb2"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara_cast.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara_cast.webp",
+      "bytes": 397366,
+      "sha256": "de72d558525732dda1aad29214cba59be92f808ae3630095dd86309cb9253479"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara_dialogue.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara_dialogue.webp",
+      "bytes": 1655564,
+      "sha256": "11ba02c3e77e2710d5dcf634a3acada7257831cad5480e267491aee6e9ac5d1f"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara_intro.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara_intro.webp",
+      "bytes": 269570,
+      "sha256": "14833bbf0bb3c65c1ac3facae77f0622b1d0782f49ada13cb0a023013617e6fe"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara_intro_vfx.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara_intro_vfx.webp",
+      "bytes": 405440,
+      "sha256": "cf32b151cffb5c8ee734b031931dbe38a4f00af6c4178522188e97c51dee68a7"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara_ultimate_actor.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara_ultimate_actor.webp",
+      "bytes": 156254,
+      "sha256": "65b90c1abed424673d5878c0569e68db7ec2454b853cdf8cb62c80aab912a0b3"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara_ultimate_vfx.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara_ultimate_vfx.webp",
+      "bytes": 1510720,
+      "sha256": "bcce2de434173dff221c10f85e513aa26dd3d9e1e49aaab2860ce84163d9bf65"
+    },
+    {
+      "path": "dist/assets/characters/madara/madara_vfx.webp",
+      "key": "characters/madara/revisions/de186d6a14f6b874c3352d9472f2491b8394533b/dist/assets/characters/madara/madara_vfx.webp",
+      "bytes": 1744894,
+      "sha256": "e46e53bb9ef3ca023657ef53aad6eaeb2f62b50dca68e6add8d19ddf43dd8855"
+    }
+  ]
+}
