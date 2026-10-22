@@ -35,7 +35,7 @@ jobs:
           req=urllib.request.Request('https://api.elevenlabs.io/v1/voices',headers={'xi-api-key':key})
           with urllib.request.urlopen(req,timeout=30) as response:voices=json.load(response)['voices']
           priority=['charlie','george','brian']
-          selected=next((v for name in priority for v in voices if v.get('name','').lower()==name),None)
+          selected=next((v for name in priority for v in voices if v.get('name','').lower().split(' - ',1)[0]==name),None)
           if not selected:sys.exit('No supported voice found; no paid request sent')
           for kind,text in [('kcm','[shouting] 九喇嘛！大玉螺旋丸！'),('baryon','[shouting] これで終わりだ！'),('transform','[serious] これが、バリオンモードだ！')]:
               output=pathlib.Path(f'dist/assets/audio/voices/naruto_v2_{kind}_ja.mp3')
