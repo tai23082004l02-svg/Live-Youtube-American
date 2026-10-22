@@ -1,0 +1,62 @@
+name: Archive Gogeta Blue assets to R2
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dist/assets/characters/gogeta_blue/**'
+      - '.github/workflows/archive-gogeta-blue.yml'
+permissions:
+  contents: write
+concurrency:
+  group: gogeta_blue-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_EC2_METADATA_DISABLED: 'true'
+      AWS_PAGER: ''
+      R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+      R2_BUCKET: ${{ vars.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - name: Archive and verify all files without deleting existing objects
+        shell: python
+        run: |
+          import pathlib, subprocess, os, hashlib, json
+          endpoint=os.environ['R2_ENDPOINT'];bucket=os.environ['R2_BUCKET']
+          assert endpoint=='https://fdd00e4aaaf0b0220e5d4ee517661254.r2.cloudflarestorage.com'
+          assert bucket=='down-arena-assets'
+          paths=sorted(set(list(pathlib.Path('art/drafts/gogeta-blue').glob('*.png'))+list(pathlib.Path('dist/assets/characters/gogeta_blue').glob('*.webp'))+list(pathlib.Path('art/frames/gogeta_blue').glob('*_contact.png'))+[pathlib.Path('dist/assets/ui/portraits/gogeta_blue.webp'),pathlib.Path('art/frames/gogeta_blue/extraction_report.json'),pathlib.Path('dist/assets/audio/voices/gogeta_blue_ultimate_ja.mp3'),pathlib.Path('dist/assets/audio/voices/gogeta_blue_ultimate_ja.json'),pathlib.Path('art/drafts/gogeta-blue/gogeta_blue_ultimate_ja_original.mp3')]))
+          receipt={'sourceCommit':os.environ['GITHUB_SHA'],'bucket':bucket,'verifiedObjects':[]}
+          for path in paths:
+              assert path.is_file(),str(path)
+              key=f"characters/gogeta_blue/revisions/{os.environ['GITHUB_SHA']}/{path.as_posix()}"
+              url=f's3://{bucket}/{key}'
+              target=pathlib.Path(os.environ['RUNNER_TEMP'])/'r2-verify.bin'
+              subprocess.run(['aws','s3','cp',str(path),url,'--endpoint-url',endpoint,'--only-show-errors'],check=True)
+              subprocess.run(['aws','s3','cp',url,str(target),'--endpoint-url',endpoint,'--only-show-errors'],check=True)
+              assert target.read_bytes()==path.read_bytes(),str(path)
+              receipt['verifiedObjects'].append({'path':str(path),'key':key,'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
+          pathlib.Path('docs/gogeta-blue-r2-archive.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+              out.write(f"Archived {len(paths)} Gogeta Blue files; every downloaded object matched its source. No source files or R2 objects were deleted.\n")
+      - name: Save verified archive receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/gogeta-blue-r2-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record verified Gogeta Blue R2 archive'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

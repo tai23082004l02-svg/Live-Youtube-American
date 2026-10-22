@@ -1,0 +1,36 @@
+{
+  "checks": [
+    "real assets",
+    "stats panel",
+    "2.5s entrance",
+    "Meteor Assault",
+    "Stardust Breaker",
+    "God Punisher",
+    "personal Kamehameha cinematic/warning/beam/impact",
+    "real MP3 decode and scheduling",
+    "pause/resume",
+    "team cinematic/Kamehameha",
+    "Live voting startup"
+  ],
+  "voiceSources": [
+    {
+      "duration": 2,
+      "offset": 0.016666666666666666
+    },
+    {
+      "duration": 2,
+      "offset": 0.5166666666666667
+    },
+    {
+      "duration": 2,
+      "offset": 0.5833333333333334
+    },
+    {
+      "duration": 2,
+      "offset": 1.9833333333333334
+    }
+  ],
+  "pageErrors": [],
+  "failedResponses": [],
+  "subjectiveListening": false
+}

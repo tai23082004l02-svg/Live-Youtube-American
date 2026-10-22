@@ -1,0 +1,282 @@
+{
+  "passed": 47,
+  "total": 55,
+  "suites": [
+    {
+      "command": "node tests/gogeta-blue-tests.mjs",
+      "passed": true,
+      "output": "Gogeta Blue PASS:84 frames,2s recorded voice,combo/rush travel/miss/root,projectiles/splash/team safety,AI,retreat cinematic,840 beam warning/escape/death,full-cell rendering and deterministic completed battles."
+    },
+    {
+      "command": "node tests/madara-ai-tests.mjs",
+      "passed": true,
+      "output": "Madara AI PASS: retreat, strafe, Limbo, corner escape8s/root, cluster meteor, deterministic real duels/teams/layouts."
+    },
+    {
+      "command": "node tests/madara-tests.mjs",
+      "passed": true,
+      "output": "Madara PASS:84 frames/padding, measured short voice, ranged skills and basic, phantom lifetime/death/team safety, passive haste, personal/team meteor timing/escape/cancel, replay, scaled5v5 and full-cell rendering."
+    },
+    {
+      "command": "node tests/naruto-v2-tests.mjs",
+      "passed": true,
+      "output": "Naruto v2 PASS: 144 frames, audio timing, threshold/freeze/no heal/once/queue, 6 skills, clones, counter, 2 personal and team Ultimates, dodge/root, replay, portrait 5v5 and renderer bounds."
+    },
+    {
+      "command": "node tests/viewer-vote-tests.mjs",
+      "passed": true,
+      "output": "Viewer vote PASS: bounded rotating roster, stable numbers, replacement/dedup, invalid/late vote rejection, deterministic tie/no-vote fallback, top-two selection, rematch and battle config, portrait composition/demo label.\nBattle-end voting PASS: no 45s cutoff, immediate result lock, late rejection, victory/intermission transition, pause and draw-rematch reopening."
+    },
+    {
+      "command": "node tests/rengoku-tests.mjs",
+      "passed": true,
+      "output": "Rengoku PASS: assets/padding/row counts, voice timing, 3 skills, team safety, Ultimate freeze/path/escape/root, seeded replay, portrait5v5, renderer bounds and immutability."
+    },
+    {
+      "command": "node tests/sukuna-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open 'art/audio/elevenlabs/sukuna_malevolent_shrine_japanese_raw.mp3'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/sukuna-tests.mjs:32:82\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: 'art/audio/elevenlabs/sukuna_malevolent_shrine_japanese_raw.mp3'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/combat-samples-tests.mjs",
+      "passed": true,
+      "output": "Combat samples passed:21 assets, single cached preload, weapon/fist/energy/block routing,3 variations, offline fallback."
+    },
+    {
+      "command": "node tests/title-assets-tests.mjs",
+      "passed": true,
+      "output": "Title assets passed: all8 files, proportional full-image fitting, centered bounds, unknown label fallback and balanced canvas."
+    },
+    {
+      "command": "node tests/mode-menu-tests.mjs",
+      "passed": true,
+      "output": "Mode menu passed: initial screen, Live aspect submenu/back, all mode routes, isolated mode families, stop on return, inert/focus controls."
+    },
+    {
+      "command": "node tests/vertical-arena-tests.mjs",
+      "passed": true,
+      "output": "Vertical passed: all formats/scales/bounds, deterministic unique teams,60s spectator rotation/cache,5 exhibitions\u21928-person cup\u2192repeat, pause and black25% in every phase.\nSpectator entrances passed: native character/effect atlases for all8 supported intros, finite full-cell rendering and completion.\nGallery projectiles passed: cross former floor boundary, survive above terrace, clean outside scene at1/2/4x.\nVertical idle preview passed: stale match layer excluded before Start Live.\nTwelve-fighter roster passed: all formats including unique5-person teams, active-only8-slot cups and seeded repeats."
+    },
+    {
+      "command": "node tests/live-arena-tests.mjs",
+      "passed": true,
+      "output": "Live Arena passed: 8 unique entrants, timings/pause, draw replay, 7-match championship, repeat cup, loading/retry, clean view, speed restoration and finite render."
+    },
+    {
+      "command": "node tests/team-voice-timing-tests.mjs",
+      "passed": true,
+      "output": "Team voice timing passed: six leader durations, frozen combat and release after speech."
+    },
+    {
+      "command": "node tests/victory-tests.mjs",
+      "passed": true,
+      "output": "Victory passed: duel/FFA identity, duplicate team IDs, draw, timing, reduced effects, finite rendering and unchanged simulation."
+    },
+    {
+      "command": "node tests/music-tests.mjs",
+      "passed": true,
+      "output": "Music passed: lazy start, loop, independent volume, pause/resume/reset/result/off, Ultimate ducking, autoplay rejection and immutable simulation.\nPlaylist passed: Godbreaker, random consecutive tracks, no immediate repeat, volume, pause and stale-event protection."
+    },
+    {
+      "command": "node tests/ultimate-hit-tests.mjs",
+      "passed": true,
+      "output": "Ultimate hits passed: piercing/nonpiercing hits ignore automatic evasion/iframe/passive counter, leaving path by movement/blink escapes, block/armor and ordinary dodges preserved."
+    },
+    {
+      "command": "node tests/combat-balance-tests.mjs",
+      "passed": true,
+      "output": "Combat balance passed: saved/default/custom migration, Saber HP/block, 3s farther blink, two-second freeze and immediate rage refill without Ultimate feedback."
+    },
+    {
+      "command": "node tests/boa-hancock-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/boa_hancock/boa_hancock.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/boa-hancock-tests.mjs:32:74\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/boa_hancock/boa_hancock.json'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/tatsumaki-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/tatsumaki/tatsumaki.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/tatsumaki-tests.mjs:34:80\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/tatsumaki/tatsumaki.json'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/saber-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/saber/saber.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/saber-tests.mjs:26:76\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/saber/saber.json'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/audio-tests.mjs",
+      "passed": true,
+      "output": "Audio passed: layered/spatial hits, duplicate throttling, 48-voice priority cap, charge progression, bounded flight loops, cinematic ducking, victory/pause/mute/reset cleanup and scene immutability. Listening QA remains manual.\nUltra recorded voice passed: cached local asset, one source, hero bus, cinematic offset, pause/resume/mute/reset/end cleanup."
+    },
+    {
+      "command": "node tests/fighting-style-tests.mjs",
+      "passed": true,
+      "output": "Fighting styles passed: defaults/migration/limits, 0/100 decisions, opportunity expiry, cooldown/root safety, low HP, stable enemy-slot targets and85 controls."
+    },
+    {
+      "command": "node tests/goku-ultra-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/goku_ultra/goku_ultra.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/goku-ultra-tests.mjs:36:76\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/goku_ultra/goku_ultra.json'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/passive-rage-tests.mjs",
+      "passed": true,
+      "output": "Passive rage passed:2/s, exactly50 combat seconds, team-size independent, intro/cinematic freeze, death/lockout/off, additive real damage, no Ultimate feedback and replay."
+    },
+    {
+      "command": "node tests/jinwoo-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/sung_jinwoo/sung_jinwoo.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/jinwoo-tests.mjs:12:77\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/sung_jinwoo/sung_jinwoo.json'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/tournament-tests.mjs",
+      "passed": true,
+      "output": "Tournament passed: 8 entrants/7 matches, seeded draw/manual order, bracket propagation, ties/rematch, snapshot isolation, real solo/team replay, mirrors, fresh HP/rage/buffs and5v5."
+    },
+    {
+      "command": "node tests/team-dialogue-tests.mjs",
+      "passed": true,
+      "output": "Team dialogue passed: all15 leaders/six themes, full crops, English names/lines, speaker portrait only, reduced effects, separate launch title, no simulation mutation."
+    },
+    {
+      "command": "node tests/ichigo-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open '/workspace/Live-Youtube-American/art/frames/ichigo/ichigo.json'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/ichigo-tests.mjs:10:63\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/Live-Youtube-American/art/frames/ichigo/ichigo.json'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/projectile-energy-tests.mjs",
+      "passed": true,
+      "output": "Projectile energy passed:14 palettes, beam/orb/disc/card/sand/wind, animation/pause determinism, no RNG/shot mutation, reduced effects, zero/reversed velocities and Ultimate sizes."
+    },
+    {
+      "command": "node tests/team-ultimate-tests.mjs",
+      "passed": true,
+      "output": "Team Ultimate passed:60-step full freeze, team-size-normalized rage, leader choice, warning/travel/pulses/dodge, no friendly fire/feedback, queue/cancel/replay/5v5 and mode isolation.\nTeam Ultimate toggle passed: cancel, no restart, no rage while off, clean re-enable, personal Ultimate preserved."
+    },
+    {
+      "command": "node tests/beerus-render-tests.mjs",
+      "passed": true,
+      "output": "Beerus renderer passed:90 native crops, preserved per-frame size/pivot, high-quality one-pass scaling and compatible asset keys."
+    },
+    {
+      "command": "node tests/beerus-tests.mjs",
+      "passed": true,
+      "output": "Beerus passed: intro, four skills, splash, on-hit knockback/dodge, Naruto protection, buff/expiry, replay, FFA, ten-Beerus 5v5 and UI options."
+    },
+    {
+      "command": "node tests/goku-blue-tests.mjs",
+      "passed": true,
+      "output": "Goku Blue passed: intro freeze, all skills, buff cost/expiry, root, replay, FFA, ten Blue 5v5 and friendly immunity."
+    },
+    {
+      "command": "node tests/hp-multiplier-tests.mjs",
+      "passed": true,
+      "output": "Global HP passed: all nine fighters, customized base, team duplicates, separate arena scale, x1 reset, clamp and Naruto threshold."
+    },
+    {
+      "command": "node tests/arena-tests.mjs",
+      "passed": true,
+      "output": "Arena scale passed: clamp/limits, enlarged spawns, camera mapping, unchanged stats, projectile and teleport outside old bounds, replay, 4x 5v5 and default compatibility."
+    },
+    {
+      "command": "node tests/tests.mjs",
+      "passed": true,
+      "output": "{\n  \"matches\": 100,\n  \"wins\": {\n    \"goku\": 30,\n    \"vegeta\": 69,\n    \"draw\": 1\n  },\n  \"meanSeconds\": 16.060333333333332,\n  \"beams\": 541,\n  \"dashes\": 546,\n  \"determinism\": \"passed\",\n  \"simultaneousDamage\": \"passed\",\n  \"singleHit\": \"passed\",\n  \"doubleKO\": \"passed\"\n}"
+    },
+    {
+      "command": "node tests/skill-tests.mjs",
+      "passed": true,
+      "output": "Skill tests passed { teleport: 177, kaioken: 116, volley: 204, final: 33 }"
+    },
+    {
+      "command": "node tests/broly-tests.mjs",
+      "passed": true,
+      "output": "[\n  {\n    \"pair\": [\n      \"goku\",\n      \"broly\"\n    ],\n    \"wins\": {\n      \"broly\": 79,\n      \"goku\": 21\n    },\n    \"meanSeconds\": 16.07,\n    \"skills\": {\n      \"rush\": 163,\n      \"wave\": 130,\n      \"roar\": 25\n    }\n  },\n  {\n    \"pair\": [\n      \"broly\",\n      \"goku\"\n    ],\n    \"wins\": {\n      \"broly\": 73,\n      \"goku\": 26,\n      \"draw\": 1\n    },\n    \"meanSeconds\": 17.06,\n    \"skills\": {\n      \"rush\": 218,\n      \"wave\": 151,\n      \"roar\": 35\n    }\n  },\n  {\n    \"pair\": [\n      \"vegeta\",\n      \"broly\"\n    ],\n    \"wins\": {\n      \"broly\": 29,\n      \"vegeta\": 70,\n      \"draw\": 1\n    },\n    \"meanSeconds\": 15.05,\n    \"skills\": {\n      \"rush\": 207,\n      \"wave\": 121,\n      \"roar\": 60\n    }\n  },\n  {\n    \"pair\": [\n      \"broly\",\n      \"vegeta\"\n    ],\n    \"wins\": {\n      \"broly\": 46,\n      \"vegeta\": 53,\n      \"draw\": 1\n    },\n    \"meanSeconds\": 15.68,\n    \"skills\": {\n      \"rush\": 220,\n      \"wave\": 131,\n      \"roar\": 39\n    }\n  }\n]\nBroly skills, single-hit wave/rush, no time limit and seed replay passed."
+    },
+    {
+      "command": "node tests/muzzle-tests.mjs",
+      "passed": true,
+      "output": "Muzzle tests passed: frame sockets, mirrored hands, exact launch origin and blend to collision path."
+    },
+    {
+      "command": "node tests/ffa-tests.mjs",
+      "passed": true,
+      "output": "Stats and FFA tests passed {\"matches\":200,\"wins\":{\"broly\":20,\"goku\":175,\"vegeta\":5},\"eliminated\":400}"
+    },
+    {
+      "command": "node tests/piccolo-tests.mjs",
+      "passed": true,
+      "output": "Piccolo tests passed: 180 duels, 60 FFA, replay, emissions, splash, damage/cooldown scaling and mirrored shot sockets. { special: 170, hellzone: 178, light: 180 }"
+    },
+    {
+      "command": "node tests/pvp-tests.mjs",
+      "passed": true,
+      "output": "PVP tests passed: 100 four-player games, spawn separation, invariants, replay and no time limit."
+    },
+    {
+      "command": "node tests/team-tests.mjs",
+      "passed": true,
+      "output": "Team tests passed: 90 matches (3v1/2v2/5v5), duplicates, replay, friendly projectile/AoE immunity, damage attribution, win and no time limit."
+    },
+    {
+      "command": "node tests/combat-tests.mjs",
+      "passed": true,
+      "output": "Combat tests passed: exact 0/100% outcomes, crit/block/armor stacking, blink cooldown, migration, 80 default matches and deterministic replay. { crits: 342, blocks: 408, evades: 315, blinks: 182 }\nUnlimited matches verified beyond 120 seconds for solo and team modes."
+    },
+    {
+      "command": "node tests/naruto-tests.mjs",
+      "passed": true,
+      "output": "Naruto tests passed: 80 default duels/5-FFA, 15 duplicate-team matches, skills, splash, clone expiry/death, owner attribution and replay. { rasengan: 307, shuriken: 115, clones: 146 }"
+    },
+    {
+      "command": "node tests/kurama-tests.mjs",
+      "passed": true,
+      "output": "Kurama tests passed: strict threshold, exactly60 protected stationary ticks, collision immunity, damage resumes, delayed20% bonus, no revival/stacking and actor isolation."
+    },
+    {
+      "command": "node tests/yugi-tests.mjs",
+      "passed": true,
+      "output": "Yugi passed: summon attacks/expiry, command, Kuriboh absorb, skull AoE, death cleanup, duplicate owners, attribution, replay, FFA and ten-Yugi 5v5.\nYugi defaults:900HP/0%dodge/0%blink passed."
+    },
+    {
+      "command": "node tests/gaara-tests.mjs",
+      "passed": true,
+      "output": "Gaara passed: homing, coffin root/crush, shield depletion, slow/field death cleanup, friendly immunity, replay, expanded arena and 5v5."
+    },
+    {
+      "command": "node tests/frieza-tests.mjs",
+      "passed": true,
+      "output": "Frieza passed: skills, homing discs, piercing, golden duration/bonus/expiry, replay, expanded arena, friendly immunity and 5v5."
+    },
+    {
+      "command": "node tests/luffy-tests.mjs",
+      "passed": true,
+      "output": "Luffy passed: three attacks, five Gatling hits, friendly immunity, Gear2 6s/speed/damage/expiry, cooldown scale, replay, FFA and 5v5."
+    },
+    {
+      "command": "node tests/gogeta-tests.mjs",
+      "passed": false,
+      "output": "node:fs:622\n  return binding.open(\n                 ^\n\nError: ENOENT: no such file or directory, open 'art/atlases/gogeta.png'\n    at Object.openSync (node:fs:622:18)\n    at readFileSync (node:fs:488:35)\n    at file:///workspace/Live-Youtube-American/tests/gogeta-tests.mjs:18:91\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: 'art/atlases/gogeta.png'\n}\n\nNode.js v24.19.0"
+    },
+    {
+      "command": "node tests/sasuke-tests.mjs",
+      "passed": true,
+      "output": "Sasuke passed: four skills, friendly immunity, field death cleanup, shield, cooldown scale, replay, FFA, 5v5 and lazy assets.\nChidori lock-on, moving target and guaranteed single hit passed.\nSusanoo 5s/25% lifesteal/cap/overkill/expiry/no-revive passed."
+    },
+    {
+      "command": "node tests/gojo-v2-tests.mjs",
+      "passed": true,
+      "output": "Gojo v2 passed:3 skills, team safety, Infinity reduction/cooldown, Void freeze/pulses840/escape/rage, native intro/dialogue/shot rendering and finite poses."
+    },
+    {
+      "command": "node tests/asset-tests.mjs",
+      "passed": true,
+      "output": "Asset tests passed: pair-only loads, concurrent dedupe, cache eviction, failed load retry."
+    },
+    {
+      "command": "node --experimental-vm-modules tests/ui-active-roster.mjs",
+      "passed": true,
+      "output": "Active roster UI passed: twelve selections/animations, old saved picks sanitized, retired stats hidden,5FFA/5v5, both Live formats,5 exhibitions to8-slot cup and cleanup.\n(node:74223) ExperimentalWarning: VM Modules is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+    }
+  ],
+  "knownLimitations": "Eight legacy suites fail because archived art/audio reference files are absent; runtime assets remain available. All other47 suites pass."
+}

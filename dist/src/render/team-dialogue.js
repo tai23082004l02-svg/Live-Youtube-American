@@ -1,3 +1,4 @@
+import {drawGogetaBlueChat} from './gogeta-blue.js';
 import {drawMadaraChat} from './madara.js';
 import {drawNarutoV2Chat} from './naruto-v2.js';
 import {drawRengokuChat} from './rengoku.js';
@@ -10,12 +11,13 @@ import {drawSaberChat} from './saber.js';
 import {drawUltraChat} from './ultra.js';
 import {drawJinwooChat} from './jinwoo.js';
 import {TEAM_DIALOGUE_META as META} from './team-dialogue-meta.js';
-export const TEAM_DIALOGUE_THEMES={madara:2,naruto_v2:3,rengoku:1,sukuna:5,boa_hancock:5,tatsumaki:2,saber:1,goku_ultra:0,sung_jinwoo:2,goku:0,goku_blue:0,piccolo:0,broly:0,vegeta:1,gogeta:1,beerus:2,frieza:2,gojo:2,sasuke:2,naruto:3,luffy:3,gaara:3,yugi:4,ichigo:5};
+export const TEAM_DIALOGUE_THEMES={gogeta_blue:0,madara:2,naruto_v2:3,rengoku:1,sukuna:5,boa_hancock:5,tatsumaki:2,saber:1,goku_ultra:0,sung_jinwoo:2,goku:0,goku_blue:0,piccolo:0,broly:0,vegeta:1,gogeta:1,beerus:2,frieza:2,gojo:2,sasuke:2,naruto:3,luffy:3,gaara:3,yugi:4,ichigo:5};
 export function dialogueLayout(id){return META.frames[TEAM_DIALOGUE_THEMES[id]??0];}
 export function dialogueLines(ctx,text,width){const lines=[];let line='';for(const word of text.split(' ')){const next=line?line+' '+word:word;if(line&&(ctx.measureText(next)?.width??next.length*12)>width){lines.push(line);line=word;}else line=next;}if(line)lines.push(line);return lines;}
 export function drawTeamDialogue(ctx,images,d,names,portrait,reduced=false){
  const c=d.teamUltimate?.cinematic,a=d.teamUltimate?.attack;
  if(!c){if(a?.phase==='travel'&&d.tick-a.launch<42){const p=(d.tick-a.launch)/42;ctx.save();ctx.globalAlpha=Math.min(1,(1-p)*4);ctx.fillStyle='#070b16d9';ctx.fillRect(100,44,760,58);ctx.fillStyle=a.style.color;ctx.fillRect(100,100,760,2);ctx.textAlign='center';ctx.font='bold 25px Segoe UI';ctx.fillText(a.style.name.toUpperCase(),480,82,710);ctx.restore();}return;}
+ if(d.fighters.find(f=>f.uid===c.leaderUid)?.id==='gogeta_blue'&&images.gogeta_blue_dialogue?.complete){drawGogetaBlueChat(ctx,images,c,c.style.line);return;}
  const mf=d.fighters.find(f=>f.uid===c.leaderUid);if(mf?.id==='madara'&&images.madara_dialogue?.complete){drawMadaraChat(ctx,images,c,c.style.line,reduced);return;}
  const nf=d.fighters.find(f=>f.uid===c.leaderUid);if(nf?.id==='naruto_v2'&&images.naruto_v2_dialogue?.complete){drawNarutoV2Chat(ctx,images,c,c.style.line,reduced,nf.baryon);return;}
  if(d.fighters.find(f=>f.uid===c.leaderUid)?.id==='rengoku'&&images.rengoku_dialogue?.complete){drawRengokuChat(ctx,images,c,c.style.line,reduced);return;}

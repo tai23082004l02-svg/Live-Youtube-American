@@ -10,6 +10,12 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
+## Gogeta Blue — đã có trong game
+
+Chọn **Đấu thường → Gogeta Blue**. Nhân vật mới có combo ba đòn, Meteor Assault lao áp sát, Stardust Breaker cầu vồng, God Punisher năm cầu năng lượng và **Full Force Kamehameha** lớn. Màn xuất hiện chuyển tóc đen sang Blue; câu hô tiếng Nhật2giây. Có trong đấu đơn, FFA, đội, giải đấu và Live.
+
+[Xem sheet nguồn](art/drafts/gogeta-blue) · [Ảnh Kamehameha trong game](docs/gogeta_blue-qa/kamehameha.png) · [Bộ kỹ năng và kiểm tra](docs/GOGETA_BLUE.md). Phiên bản: **GOGETA BLUE / 12 CHARACTERS**.
+
 ## Madara Lục Đạo — đã có trong game
 
 Chọn **Đấu thường → Madara Lục Đạo** để chơi. Bộ11 nhân vật hiện có Madara thiên về kỹ năng tầm xa: ba Cầu Đạo Ngọc lớn, Quang Nha xuyên mục tiêu, bóng Luân Mộ và Ultimate thiên thạch. AI giữ cự ly300–450px, lùi khi bị áp sát, dùng Limbo yểm trợ và dịch chuyển thoát góc (hồi8s). HP dưới40% kích hoạt tăng20% tốc độ hồi kỹ năng đến hết trận. Màn xuất hiện2,5 giây: đấu trường tối đen, bóng Madara bay từ dưới lên rồi hiện rõ; câu hô Ultimate tiếng Nhật khoảng1,42 giây.

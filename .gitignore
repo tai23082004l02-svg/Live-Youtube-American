@@ -13,3 +13,6 @@ art/frames/naruto_v2/*.png
 !art/frames/naruto_v2/*_contact.png
 art/frames/madara/*.png
 !art/frames/madara/*_contact.png
+
+art/frames/gogeta_blue/*.png
+!art/frames/gogeta_blue/*_contact.png
