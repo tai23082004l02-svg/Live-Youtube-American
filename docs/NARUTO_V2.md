@@ -59,3 +59,5 @@ MP3, thông tin sinh và thời lượng nằm ở `dist/assets/audio/voices/nar
 Kiểm tra cập nhật: `python tools/qa_rasengan_stun.py` (máy chủ dist tại cổng8767), [biên nhận trình duyệt](naruto-v2-qa/rasengan-stun.json).
 
 Trước khi bật Baryon, Naruto chọn điểm trống trong sàn để tránh che cụm giao tranh; xét cả đồng đội lẫn đối thủ, giữ nguyên HP và chỉ dịch chuyển một lần. Nếu đang bị trói chân, đợi hết trói mới dịch chuyển/biến hình. Điểm chọn xác định theo vị trí, không dùng RNG, hỗ trợ sàn ngang/dọc và tỉ lệ1–4. [Ảnh kiểm tra](naruto-v2-qa/baryon-retreat.png) · [Biên nhận Chromium](naruto-v2-qa/baryon-retreat.json).
+
+Đạn Baryon Rasengan hiển thị lớn gấp1.75 lần (scale0.56 thay vì0.32); điều chỉnh này chỉ ảnh hưởng hình ảnh.
