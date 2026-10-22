@@ -1,3 +1,7 @@
+## Voting feed — separate health strip
+
+Compact/move voting rows upward to logical y88–240; status at260/278. Draw name/HP HUD directly in final portrait composition at y288, outside battlefield starting y328. Scene canvas now contains only battle/pause overlay; hide duplicate foot health bars only for voteMode. Full HD1080×1920 and original field size preserved. Existing vote scheduler/UI tests pass; browser captures `docs/obs-qa/vote.png`, `vote-paused.png`, `hud-results.json`.
+
 ## OBS Full HD feed
 
 Portrait backing buffer1080×1920,2× transform with unchanged540×960 logical composition. Explicit `?obs=vote` / `?obs=vertical` auto-selects and starts game Live via existing menu/controller after initialization; plain URL unchanged. One pointer gesture unlocks audio if browser policy requires. Browser Source viewport1080×1920 avoids capturing a small CSS-scaled Chrome window. Native-resolution browser QA and existing UI/vote/vertical suites pass. See `docs/OBS.md`, `docs/obs-qa/results.json`.

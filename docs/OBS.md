@@ -7,7 +7,7 @@ Mở **OBS → Sources → + → Browser** và dùng:
 
 Đặt **Width1080**, **Height1920**, rồi **Transform → Fit to Screen** (Ctrl+F). Base/Output của OBS cũng1080×1920. Tắt nguồn Window Capture cũ để không chồng hai bản game. Browser Source tự chọn chế độ và bắt đầu Live Arena; không tự bắt đầu phát YouTube. Nếu âm thanh chưa chạy, nhấp phải nguồn → Interact → bấm một lần vào game để mở âm thanh theo chính sách trình duyệt. Chỉ thu âm game một đường để tránh vọng.
 
-Canvas xuất trực tiếp1080×1920 với hệ tọa độ bố cục540×960 và transform2×. Chữ được raster hóa ở kích thước đầu ra; cảnh trận960×540 được ghép thẳng vào vùng1080px, tránh bước giảm xuống540px rồi phóng lên1080px. CSS vẫn vừa màn hình9:16. Không thay logic trận, vị trí bảng bình chọn hoặc vùng đen.
+Canvas xuất trực tiếp1080×1920 với hệ tọa độ bố cục540×960 và transform2×. Chữ được raster hóa ở kích thước đầu ra; cảnh trận960×540 được ghép thẳng vào vùng1080px, tránh bước giảm xuống540px rồi phóng lên1080px. CSS vẫn vừa màn hình9:16. Bảng bình chọn được kéo lên để chừa dải tên/HP riêng ngay trên sân. Sân không vẽ chồng HUD hoặc thanh HP nhỏ dưới chân trong chế độ bình chọn; logic trận giữ nguyên.
 
 Nguồn Chrome nhỏ được Window Capture rồi phóng lớn trong OBS vẫn có thể mất nét; dùng Browser Source với đúng kích thước thay cho cách đó. Bitrate không khắc phục được chữ đã mờ ngay tại nguồn. Hiện bảng bình chọn vẫn dùng phiếu mô phỏng, chưa lấy bình luận YouTube.
 

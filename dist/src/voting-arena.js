@@ -3,7 +3,7 @@ import {TournamentUI} from './tournament-ui.js';
 import {ViewerVote,ViewerMatch} from './engine/viewer-vote.js';
 import {drawEntrants} from './engine/tournament.js';
 import {LIVE_TIMINGS} from './live-arena.js';
-import {drawVoteBroadcast,drawVoteMatchHUD} from './render/viewer-vote.js';
+import {drawVoteBroadcast,drawVoteMatchOverlay} from './render/viewer-vote.js';
 
 export class VotingArenaUI extends VerticalArenaUI{
  constructor(h){super(h);this.matchNumber=0;this.voteRound=0;this.demoAge=0;this.demoSerial=0;this.ballot=null;
@@ -39,7 +39,7 @@ export class VotingArenaUI extends VerticalArenaUI{
   this.$('liveAspect').textContent='9:16 / sàn 16:9';this.$('liveDescription').textContent='Bảng tên 1–6 phía trên, trận ngang ở giữa, phần dưới đen. Phiếu mô phỏng; chưa kết nối chat YouTube. Bình chọn đến khi trận hiện tại kết thúc, hai người nhiều phiếu nhất đấu tiếp; hòa chọn ngẫu nhiên theo seed.';
   this.$('liveNotice').textContent=this.active?`Trận ${this.matchNumber||1} · ${this.totalMatches||0} trận xong · PHIẾU MÔ PHỎNG`:'Chọn Bắt đầu Live Arena để mở bảng bình chọn thử.';
  }
- draw(ctx,clock){if(!this.voteMode)return super.draw(ctx,clock);if(this.active)drawVoteMatchHUD(ctx,this);}
+ draw(ctx,clock){if(!this.voteMode)return super.draw(ctx,clock);if(this.active)drawVoteMatchOverlay(ctx,this);}
  presentVotes(ctx,scene){drawVoteBroadcast(ctx,this,scene);}
  leave(){super.leave();this.ballot=null;this.matchNumber=0;this.voteRound=0;}
 }
