@@ -1,3 +1,4 @@
+import {tickPassiveRage} from '../dist/src/engine/rage.js';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {Duel} from '../dist/src/engine/sim.js';
@@ -6,7 +7,7 @@ import {ACTIVE_CHARACTERS} from '../dist/src/characters/index.js';
 import {ASSET_MANIFEST} from '../dist/src/engine/assets.js';
 import {NARUTO_V2_META} from '../dist/src/render/naruto-v2-meta.js';
 import {stepNarutoV2Transformation} from '../dist/src/engine/naruto-v2-transform.js';
-import {stepPersonalUltimate,tickPersonalUltimate} from '../dist/src/engine/personal-ultimate.js';
+import {recordPersonalDamage,stepPersonalUltimate,tickPersonalUltimate} from '../dist/src/engine/personal-ultimate.js';
 import {stepTeamUltimate,ULTIMATE_STYLES} from '../dist/src/engine/team-ultimate.js';
 import {VOICE_STEPS as TRANSFORM_STEPS} from '../dist/src/engine/naruto-v2-transform-voice.js';
 import {NARUTO_V2_KCM_STEPS,NARUTO_V2_BARYON_STEPS} from '../dist/src/engine/ultimate-rules.js';
@@ -18,6 +19,8 @@ assert.deepEqual(NARUTO_V2_META.naruto_v2.rowCounts,[4,4,4,4,4,4,4,4]);
 assert.equal(JSON.parse(readFileSync('art/frames/naruto_v2/extraction_report.json')).sources.reduce((s,a)=>s+a.nativeFrames,0),144);
 for(const [kind,steps] of [['kcm',NARUTO_V2_KCM_STEPS],['baryon',NARUTO_V2_BARYON_STEPS],['transform',TRANSFORM_STEPS]]){const m=JSON.parse(readFileSync(`dist/assets/audio/voices/naruto_v2_${kind}_ja.json`));assert.equal(steps,Math.max(kind==='transform'?120:1,Math.ceil(m.seconds*60)));assert(readFileSync(`dist/assets/audio/voices/naruto_v2_${kind}_ja.mp3`).length>1000);}
 function fresh(teams=false){const ids=teams?['naruto_v2','saber','gojo']:['naruto_v2','gojo'];const d=new Duel('NARUTO-V2',false,ids,{},teams?['A','A','B']:null);while(d.introRemaining)d.step();d.fighters.forEach(f=>{f.state='idle';f.think=999;f.rage=0;});return d;}
+// Baryon boosts all personal rage sources by30%, preserving caps and lockouts.
+for(const red of [false,true]){const d=fresh(),[f,t]=d.fighters;f.baryon=red;const multiplier=red?1.3:1,near=(a,b)=>assert(Math.abs(a-b)<1e-8);tickPassiveRage(d,1);near(f.rage,2*multiplier);near(t.rage,2);f.rage=t.rage=0;recordPersonalDamage(d,f,t,100);near(f.rage,150*100/t.max*multiplier);near(t.rage,80*100/t.max);f.rage=t.rage=0;recordPersonalDamage(d,t,f,100);near(f.rage,80*100/f.max*multiplier);f.rage=99;tickPassiveRage(d,1);assert.equal(f.rage,100);assert.equal(f.rageReadyTick,d.tick);f.rage=0;f.rageLockUntil=d.tick+10;tickPassiveRage(d,1);recordPersonalDamage(d,f,t,100);assert.equal(f.rage,0);f.rageLockUntil=0;recordPersonalDamage(d,f,t,100,true);assert.equal(f.rage,0);}
 // Exact threshold, full simulation freeze, no heal, no repeated multiplication.
 {const d=fresh(),f=d.fighters[0];f.hp=f.max/2;assert.equal(stepNarutoV2Transformation(d),false);f.hp--;const hp=f.hp,speed=f.speed,melee=f.melee;d.shots.push({id:'gojo',ownerUid:d.fighters[1].uid,x:600,y:270,vx:40,vy:0,life:2});const before=JSON.stringify({tick:d.tick,rng:d.rng,fighters:d.fighters,shots:d.shots});d.step();assert(d.narutoV2Transform);const frozen=JSON.stringify({tick:d.tick,rng:d.rng,fighters:d.fighters,shots:d.shots});for(let i=1;i<TRANSFORM_STEPS-1;i++){d.step();assert.equal(JSON.stringify({tick:d.tick,rng:d.rng,fighters:d.fighters,shots:d.shots}),frozen);}d.step();assert.equal(d.narutoV2Transform,null);assert(f.baryon&&f.v2Transformed);assert.equal(f.hp,hp);assert.equal(f.speed,speed*1.15);assert.equal(f.melee,melee*1.15);assert.equal(d.tick,0);for(let i=0;i<10;i++)assert.equal(stepNarutoV2Transformation(d),false);assert.equal(f.speed,speed*1.15);assert.notEqual(before,frozen);}
 // A simultaneous Ultimate finishes first; multiple Naruto teammates transform in sequence.

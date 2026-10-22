@@ -1,9 +1,11 @@
+import {CHARACTERS} from '../characters/index.js';
 import {NARUTO_V2_KCM_STEPS,NARUTO_V2_BARYON_STEPS,RENGOKU_ULTIMATE_CINEMATIC_STEPS} from './ultimate-rules.js';
 import {SUKUNA_ULTIMATE_CINEMATIC_STEPS,GOJO_ULTIMATE_CINEMATIC_STEPS,TATSUMAKI_ULTIMATE_CINEMATIC_STEPS,BOA_ULTIMATE_CINEMATIC_STEPS,SABER_ULTIMATE_CINEMATIC_STEPS,ULTIMATE_CINEMATIC_STEPS,ULTIMATE_DAMAGE_MULTIPLIER,ULTRA_ULTIMATE_CINEMATIC_STEPS,ICHIGO_ULTIMATE_CINEMATIC_STEPS,cinematicSteps} from './ultimate-rules.js';
 export const PERSONAL_ULTIMATE_IDS=['naruto_v2','rengoku','sukuna','gojo','ichigo','sung_jinwoo','goku_ultra','saber','tatsumaki','boa_hancock'];
+export function personalRageMultiplier(f){return CHARACTERS[f.id]?.rageGainMultiplier?.(f)??1;}
 export function recordPersonalDamage(d,source,target,amount,ultimate=false){
  if(ultimate||amount<=0||!d.isEnemy(source,target))return;
- for(const [f,gain] of [[source,150*amount/target.max],[target,80*amount/target.max]])if(PERSONAL_ULTIMATE_IDS.includes(f.id)&&d.tick>=f.rageLockUntil){f.rage=Math.min(100,f.rage+gain);if(f.rage>=100&&f.rageReadyTick===null)f.rageReadyTick=d.tick;}
+ for(const [f,gain] of [[source,150*amount/target.max],[target,80*amount/target.max]])if(PERSONAL_ULTIMATE_IDS.includes(f.id)&&d.tick>=f.rageLockUntil){f.rage=Math.min(100,f.rage+gain*personalRageMultiplier(f));if(f.rage>=100&&f.rageReadyTick===null)f.rageReadyTick=d.tick;}
 }
 export function personalCaster(d,f){const u=d.personalUltimate,a=u?.cinematic||u?.attack;return a?.ownerUid===f.uid&&(u.cinematic||a.phase==='warning'||(a.kind==='supreme'&&!a.beamFired)||(a.kind==='judgment'&&d.tick<a.launch+48)||(['purgatory','finalimpact'].includes(a.kind)&&d.tick<a.launch+36))?a:null;}
 export function personalDanger(d,f){const a=d.personalUltimate?.attack;if(!a||a.phase!=='warning')return false;const owner=d.fighters.find(f=>f.uid===a.ownerUid);if(!owner||!d.isEnemy(owner,f))return false;if(['purgatory','finalimpact'].includes(a.kind)){const x=f.x-a.x,y=f.y-a.y,along=x*a.dx+y*a.dy;return along>0&&along<666&&Math.abs(x*a.dy-y*a.dx)<100;}if(a.kind==='shrine')return Math.hypot(f.x-a.x,f.y-a.y)<200;if(a.kind==='void')return Math.hypot(f.x-a.targetX,f.y-a.targetY)<190;if(a.kind==='kuramarasengan')return Math.hypot(f.x-a.targetX,f.y-a.targetY)<175;if(a.kind==='cataclysm')return Math.hypot(f.x-a.targetX,f.y-a.targetY)<185;const dx=f.x-a.x,dy=f.y-a.y;return dx*a.dx+dy*a.dy>0&&Math.abs(dx*a.dy-dy*a.dx)<100;}

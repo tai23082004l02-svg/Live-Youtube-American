@@ -1,3 +1,7 @@
+## Baryon rage gain +30% — 2026-10-22 (latest)
+
+Naruto v2 Baryon multiplies personal rage gains by1.3: passive2.6/s and normal damage dealt/received. KCM remains1.0. Cap100, lockouts, cinematic freeze and no Ultimate feedback are preserved. Team rage uses the existing team rules. UI displays RAGE +30%.
+
 ## Naruto teleport and longer clones — 2026-10-22 (latest)
 
 `v2rasengan` now teleports once on activation to65px from the live enemy target, clamps to the arena, emits the existing teleport VFX/audio event and retains the0.3s strike wind-up. Root prevents teleportation. AI activation range increased from330 to650px. Crimson Rush retains its movement. Naruto v2 clones now live8 combat seconds instead of4; existing transformation/death cleanup remains. Targeted tests cover instant displacement, one-time teleport, root, portrait bounds and survival beyond4 seconds followed by expiry at8 seconds.
