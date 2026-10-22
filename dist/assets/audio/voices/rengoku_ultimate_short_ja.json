@@ -1,0 +1,9 @@
+{
+  "voice": "Brian",
+  "voice_id": "nPczCjzI2devNBz1zQrb",
+  "model": "eleven_v3",
+  "language": "ja",
+  "text": "煉獄！",
+  "duration": 1.44,
+  "steps": 87
+}
