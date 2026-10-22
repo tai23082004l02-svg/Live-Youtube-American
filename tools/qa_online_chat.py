@@ -32,6 +32,7 @@ try:
   page.wait_for_function('window.arena?.simulation?.fighters.length===2',timeout=60000)
   page.wait_for_timeout(2500)
   assert m.BRIDGE.votes.open
+  assert m.BRIDGE.votes.choices==10
   m.BRIDGE.votes.receive({'snippet':{'type':'textMessageEvent','authorChannelId':'remote-qa','publishedAt':datetime.now(timezone.utc).isoformat(),'textMessageDetails':{'messageText':'2'}}})
   page.wait_for_timeout(1800)
   assert any(any(v['viewer']=='remote-qa' for v in r.get('votes',[])) for r in responses)

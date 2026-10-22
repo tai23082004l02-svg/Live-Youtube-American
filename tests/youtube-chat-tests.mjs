@@ -9,3 +9,13 @@ globalThis.fetch=async()=>({ok:true,json:async()=>({status:'CONNECTED',votes:[{r
 await bridge.tick(1);assert.equal(ballot.votes.get('youtube'),ballot.ids[8]);assert(!ballot.votes.has('late'));
 let release;globalThis.fetch=()=>new Promise(resolve=>release=resolve);const pending=bridge.tick(1);ballot.lock();release({ok:true,json:async()=>({status:'CONNECTED',votes:[{round:'test:1',viewer:'after-lock',number:2}]})});await pending;assert(!ballot.votes.has('after-lock'));
 console.log('YouTube renderer bridge PASS: dynamic 1–9, replacement, round isolation, result lock.');
+
+const {visibleVoteRows}=await import('../dist/src/render/viewer-vote.js');
+const pool=new ViewerVote(names,{limit:10,exclude:['fighter0','fighter1']});
+assert.equal(pool.ids.length,10);assert(!pool.ids.includes('fighter0'));assert(!pool.ids.includes('fighter1'));
+assert.deepEqual(visibleVoteRows(pool.rows,0).rows.map(r=>r.number),[1,2,3,4,5]);
+assert.deepEqual(visibleVoteRows(pool.rows,4.99).rows.map(r=>r.number),[1,2,3,4,5]);
+assert.deepEqual(visibleVoteRows(pool.rows,5).rows.map(r=>r.number),[6,7,8,9,10]);
+assert.deepEqual(visibleVoteRows(pool.rows,10).rows.map(r=>r.number),[1,2,3,4,5]);
+assert(pool.cast('hidden-page','10'));assert.equal(pool.votes.get('hidden-page'),pool.ids[9]);assert(!pool.cast('invalid','11'));
+console.log('Ten-choice ballot PASS: excludes active pair, five rows/page, five-second cycle, stable numbering and hidden-page voting.');
