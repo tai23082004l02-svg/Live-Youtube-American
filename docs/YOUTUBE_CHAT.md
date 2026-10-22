@@ -21,7 +21,7 @@ Trong YouTube Studio → Chỉnh sửa buổi live → Tùy chỉnh → chế đ
 - Số phải thuộc danh sách hiện tại; công cụ tự nhận số lượng lựa chọn từ game. Mã hỗ trợ 1–9 và số lớn hơn; giao diện game hiện vẫn hiển thị 6 lựa chọn.
 - Bật `chat=1` sẽ tắt phiếu tự động và nút phiếu thử. Phiếu thật khóa khi trận kết thúc, hai nhân vật đứng đầu đấu 1vs1 tiếp.
 - Chat cũ lúc kết nối bị bỏ qua. Phiếu cũ/đến trễ qua lượt, lúc tạm dừng hoặc ngắt game không được chuyển sang lượt mới.
-- Hiện thăm dò chat ít nhất mỗi 10 giây (hoặc lâu hơn nếu YouTube yêu cầu), vì vậy phiếu có độ trễ. Bình luận sát thời điểm hết trận có thể không kịp tính.
+- Thăm dò theo `pollingIntervalMillis` YouTube trả về, tối thiểu 2 giây (mặc định 5 giây nếu không có chỉ dẫn). Không còn ép chờ 10 giây. Khoảng chờ thực tế vẫn phụ thuộc YouTube; đọc thường xuyên hơn dùng quota nhiều hơn. Bình luận sát thời điểm hết trận có thể không kịp tính.
 
 ## Hạn mức và đăng nhập
 

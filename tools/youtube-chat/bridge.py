@@ -28,6 +28,11 @@ def video_id(value):
     return value
 
 
+def polling_delay(data):
+    # Never poll earlier than YouTube's required interval.
+    return max(2, float(data.get('pollingIntervalMillis', 5000)) / 1000)
+
+
 class VoteQueue:
     def __init__(self):
         self.lock = threading.Lock()
@@ -156,7 +161,7 @@ class Bridge:
                         self.votes.receive(message, request_round)
                 first = False  # Discard chat history received on initial connection.
                 self.votes.status = 'YOUTUBE CHAT CONNECTED'
-                time.sleep(max(10, data.get('pollingIntervalMillis', 10000) / 1000))
+                time.sleep(polling_delay(data))
         except Exception as exc:
             # Never expose OAuth responses, credentials or request URLs.
             safe = str(exc) if isinstance(exc, RuntimeError) else 'Connection failed. Check OAuth test user, API access and internet connection.'
