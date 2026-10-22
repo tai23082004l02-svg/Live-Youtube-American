@@ -1,3 +1,4 @@
+import {YouTubeChatBridge} from './youtube-chat.js';
 import {VerticalArenaUI} from './vertical-arena.js';
 import {TournamentUI} from './tournament-ui.js';
 import {ViewerVote,ViewerMatch} from './engine/viewer-vote.js';
@@ -6,10 +7,10 @@ import {LIVE_TIMINGS} from './live-arena.js';
 import {drawVoteBroadcast,drawVoteMatchOverlay} from './render/viewer-vote.js';
 
 export class VotingArenaUI extends VerticalArenaUI{
- constructor(h){super(h);this.matchNumber=0;this.voteRound=0;this.demoAge=0;this.demoSerial=0;this.ballot=null;
+ constructor(h){super(h);this.matchNumber=0;this.voteRound=0;this.demoAge=0;this.demoSerial=0;this.ballot=null;this.chat=new YouTubeChatBridge(this);
   this.$('voteTouchControls').onclick=()=>this.setView(false);
-  this.$('voteDemoAuto').checked=true;this.$('voteTestViewer').value='operator-preview';
-  this.$('voteTestCast').onclick=()=>{if(this.h.duel().result)this.ballot?.lock();const accepted=!this.paused&&!['loading','error'].includes(this.phase)&&this.ballot?.cast(this.$('voteTestViewer').value,this.$('voteTestNumber').value);this.$('voteTestStatus').textContent=accepted?'Đã ghi phiếu thử; cùng ID sẽ đổi phiếu cũ.':'Chưa mở lượt hoặc lựa chọn không hợp lệ.';};
+  this.$('voteDemoAuto').checked=!this.chat.enabled;this.$('voteTestViewer').value='operator-preview';
+  this.$('voteTestCast').onclick=()=>{if(this.h.duel().result)this.ballot?.lock();const accepted=!this.chat.enabled&&!this.paused&&!['loading','error'].includes(this.phase)&&this.ballot?.cast(this.$('voteTestViewer').value,this.$('voteTestNumber').value);this.$('voteTestStatus').textContent=accepted?'Đã ghi phiếu thử; cùng ID sẽ đổi phiếu cũ.':'Chưa mở lượt hoặc lựa chọn không hợp lệ.';};
  }
  get voteMode(){return this.$('mode').value==='live_vote';}
  get live(){return this.voteMode||super.live;}
@@ -26,10 +27,11 @@ export class VotingArenaUI extends VerticalArenaUI{
  }
  async next(){if(!this.voteMode)return super.next();try{await TournamentUI.prototype.next.call(this);if(this.active&&this.voteMode&&this.phase==='ready')this.phase='error';}catch{if(this.active&&this.voteMode)this.phase='error';}this.update();}
  frame(dt){if(!this.voteMode)return super.frame(dt);if(!this.active||this.paused||['loading','error'].includes(this.phase))return;
+  if(this.chat?.enabled)this.chat.tick(dt);
   this.age+=dt;
   if(this.h.duel().result){this.lastDraw=this.h.duel().result==='draw';this.ballot.lock();}
   if(!this.ballot.locked){
-   if(this.$('voteDemoAuto').checked){this.demoAge+=dt;while(this.demoAge>=.8){this.demoAge-=.8;const n=++this.demoSerial;this.ballot.cast('demo-'+n%23,drawEntrants(this.ballot.rows.map(r=>r.number),this.sessionSeed+'-'+this.voteRound+'-'+n)[0]);}}
+   if(!this.chat?.enabled&&this.$('voteDemoAuto').checked){this.demoAge+=dt;while(this.demoAge>=.8){this.demoAge-=.8;const n=++this.demoSerial;this.ballot.cast('demo-'+n%23,drawEntrants(this.ballot.rows.map(r=>r.number),this.sessionSeed+'-'+this.voteRound+'-'+n)[0]);}}
   }
   if(this.phase==='intro'&&this.age>=LIVE_TIMINGS.intro){this.phase='battle';this.age=0;this.h.toggleBattle();this.update();}
   else if(this.phase==='battle'&&this.h.duel().result&&this.h.resultAge()>=LIVE_TIMINGS.victory){const d=this.h.duel();this.lastDraw=!this.model.record(d.result,d.fighters);this.totalMatches++;this.phase='waiting';this.age=0;this.update();}
@@ -37,7 +39,8 @@ export class VotingArenaUI extends VerticalArenaUI{
  }
  update(){super.update();this.$('voteControls').hidden=!this.voteMode;if(!this.voteMode)return;
   this.$('liveAspect').textContent='9:16 / sàn 16:9';this.$('liveDescription').textContent='Bảng tên 1–6 phía trên, trận ngang ở giữa, phần dưới đen. Phiếu mô phỏng; chưa kết nối chat YouTube. Bình chọn đến khi trận hiện tại kết thúc, hai người nhiều phiếu nhất đấu 1vs1 tiếp; hòa chọn ngẫu nhiên theo seed.';
-  this.$('liveNotice').textContent=this.active?`Trận ${this.matchNumber||1} · ${this.totalMatches||0} trận xong · PHIẾU MÔ PHỎNG`:'Chọn Bắt đầu Live Arena để mở bảng bình chọn thử.';
+  if(this.chat?.enabled){this.$('voteControls').querySelector('h2').textContent='Bình chọn · YouTube Live';this.$('voteControls').querySelector('p').textContent='Nhận bình luận số qua công cụ YouTube Chat chạy tại máy OBS. Chỉ người đăng ký được chat cần bật trong YouTube Studio.';this.$('voteDemoAuto').checked=false;this.$('voteDemoAuto').disabled=true;this.$('voteTestCast').disabled=true;this.$('liveDescription').textContent='Bình chọn bằng chat YouTube: mỗi tài khoản một phiếu, gửi số khác để đổi. Khóa phiếu khi trận kết thúc; hai nhân vật nhiều phiếu nhất đấu 1vs1 tiếp.';}
+  this.$('liveNotice').textContent=this.chat?.enabled?this.chat.status:this.active?`Trận ${this.matchNumber||1} · ${this.totalMatches||0} trận xong · PHIẾU MÔ PHỎNG`:'Chọn Bắt đầu Live Arena để mở bảng bình chọn thử.';
  }
  draw(ctx,clock){if(!this.voteMode)return super.draw(ctx,clock);if(this.active)drawVoteMatchOverlay(ctx,this);}
  presentVotes(ctx,scene){drawVoteBroadcast(ctx,this,scene);}

@@ -5,7 +5,8 @@ function text(ctx,value,x,y,size,color='#e9eef5',align='left',width=490){ctx.fil
 export function drawVoteBroadcast(ctx,u,scene){ctx.save();ctx.fillStyle='#000';ctx.fillRect(0,0,540,960);const v=u.ballot;
  text(ctx,v?.locked?'NEXT MATCH LOCKED':'CHOOSE THE NEXT FIGHTERS',24,54,22,'#fff0d3');
  text(ctx,v?.locked?'LOCKED':'VOTING',516,54,17,'#7ddcfd','right',95);
- text(ctx,'SIMULATED VOTES · ONE VOTE PER VIEWER · CHANGE WITH A NEW NUMBER',24,75,9,'#aab8c8');
+ text(ctx,u.chat?.enabled?`COMMENT 1–${v?.ids.length||6} TO VOTE · ONE VOTE PER VIEWER`:'SIMULATED VOTES · ONE VOTE PER VIEWER · CHANGE WITH A NEW NUMBER',24,75,9,'#aab8c8');
+ if(u.chat?.enabled)text(ctx,u.chat.status,270,680,10,'#c8d7e6','center',492);
  const rows=v?.rows||[],total=v?.votes.size||0;
  for(const [i,row] of rows.entries()){
   const y=88+i*26,win=v?.winners?.includes(row.id),color=win?'#f3cd78':'#7bcee9';

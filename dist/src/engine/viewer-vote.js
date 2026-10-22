@@ -3,7 +3,7 @@ import {LiveExhibition} from './live-exhibition.js';
 
 export class ViewerVote{
  constructor(names,{seed='VOTE',round=1,exclude=[],limit=6,winnerCount=2}={}){
-  limit=Math.max(2,Math.min(6,Math.floor(limit)||6));
+  limit=Math.max(2,Math.min(Object.keys(names).length,Math.floor(limit)||6));
   const all=Object.keys(names);if(all.length<2)throw new Error('Voting requires two fighters');
   const available=all.filter(id=>!exclude.includes(id));
   const pool=available.length>=2?available:all;
@@ -14,7 +14,7 @@ export class ViewerVote{
   this.tiebreak=drawEntrants(this.ids,seed+'-TIE-'+round);
  }
  cast(viewer,number){if(this.locked||typeof viewer!=='string'||!viewer.trim()||viewer.length>128)return false;
-  const text=String(number).trim();if(!/^[1-6]$/.test(text))return false;
+  const text=String(number).trim();if(!/^[1-9][0-9]*$/.test(text))return false;
   const index=Number(text)-1;if(index>=this.ids.length)return false;
   this.votes.set(viewer.trim(),this.ids[index]);return true;
  }

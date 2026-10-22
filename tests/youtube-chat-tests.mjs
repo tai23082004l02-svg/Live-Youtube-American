@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {YouTubeChatBridge} from '../dist/src/youtube-chat.js';
+import {ViewerVote} from '../dist/src/engine/viewer-vote.js';
+const names=Object.fromEntries(Array.from({length:12},(_,i)=>['fighter'+i,'Fighter '+i]));
+const ballot=new ViewerVote(names,{limit:9});assert.equal(ballot.ids.length,9);assert(ballot.cast('viewer','9'));assert(!ballot.cast('viewer','10'));assert(!ballot.cast('viewer','1 hello'));assert(ballot.cast('viewer','1'));assert.equal(ballot.votes.size,1);
+const ui={ballot,sessionSeed:'test',voteRound:1,phase:'battle',paused:false};
+const bridge=new YouTubeChatBridge(ui);bridge.enabled=true;
+globalThis.fetch=async()=>({ok:true,json:async()=>({status:'CONNECTED',votes:[{round:'test:1',viewer:'youtube',number:9},{round:'old',viewer:'late',number:2}]})});
+await bridge.tick(1);assert.equal(ballot.votes.get('youtube'),ballot.ids[8]);assert(!ballot.votes.has('late'));
+let release;globalThis.fetch=()=>new Promise(resolve=>release=resolve);const pending=bridge.tick(1);ballot.lock();release({ok:true,json:async()=>({status:'CONNECTED',votes:[{round:'test:1',viewer:'after-lock',number:2}]})});await pending;assert(!ballot.votes.has('after-lock'));
+console.log('YouTube renderer bridge PASS: dynamic 1–9, replacement, round isolation, result lock.');

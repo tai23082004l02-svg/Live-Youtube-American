@@ -351,3 +351,7 @@ Created21 original synthesized PCM one-shots (7groups x3 variants) via tools/pre
 
 ### Six-character roster
 ACTIVE_CHARACTERS exports the six available fighters; app labels, all16 static character selectors, stats selection, Live gallery and random generation use only these. Saved retired picks sanitize to active defaults; old stats panels stay hidden. CHARACTERS remains the legacy definition catalog to preserve redesign resources/engine regression coverage.5vs5 selects5 distinct fighters per side, allowing cross-side duplicates when fewer than10 are available.8-slot cups fill from a seeded6-character pool, allowing repeated entrants. Current npm UI regression is tests/ui-active-roster.mjs; tests/ui-smoke.mjs is retained as historical20-character coverage and is not the current UI contract.
+
+### Bình chọn bằng chat YouTube
+
+Chạy công cụ trên máy OBS theo [hướng dẫn YouTube Chat](docs/YOUTUBE_CHAT.md). Công cụ đăng nhập OAuth tại máy, đọc số bình chọn và nối vào chế độ Live 1vs1.
