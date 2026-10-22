@@ -1,3 +1,7 @@
+## Clean voting board / detached HP
+
+Removed both explanatory lines beneath vote candidates in all ballot states. Names/HP now occupy y252–296 directly on black, with32logical px gap before arena y328; no rectangular HUD background. Demo/chat-disconnected indicators remain above candidates. Native Full HD composition retained.
+
 ## Voting feed — separate health strip
 
 Compact/move voting rows upward to logical y88–240; status at260/278. Draw name/HP HUD directly in final portrait composition at y288, outside battlefield starting y328. Scene canvas now contains only battle/pause overlay; hide duplicate foot health bars only for voteMode. Full HD1080×1920 and original field size preserved. Existing vote scheduler/UI tests pass; browser captures `docs/obs-qa/vote.png`, `vote-paused.png`, `hud-results.json`.

@@ -7,24 +7,21 @@
     88,
     240
   ],
-  "votingStatusLogicalY": [
-    260,
-    278
-  ],
   "healthStripLogicalY": [
-    288,
-    328
+    252,
+    296
   ],
+  "gapBeforeArena": 32,
   "arenaLogicalY": [
     328,
     631.75
   ],
   "pageErrors": [],
   "checks": [
-    "automatic live startup",
-    "health/name strip above arena",
-    "no scene HUD overlay or duplicate foot health bars",
-    "pause overlay preserved",
-    "Full HD canvas preserved"
+    "two explanatory lines removed",
+    "name/HP directly on black with no panel background",
+    "32logical px separation before battle frame",
+    "pause preserved",
+    "Full HD preserved"
   ]
 }
