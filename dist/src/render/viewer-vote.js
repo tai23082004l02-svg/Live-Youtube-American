@@ -11,6 +11,7 @@ export function drawVoteBroadcast(ctx,u,scene){ctx.save();ctx.fillStyle='#000';c
   text(ctx,`COMMENT 1–${v?.ids.length||10} IN CHAT`,270,704,29,'#ffe0a0','center',492);
   text(ctx,'TO PICK THE NEXT FIGHTERS',270,740,23,'#ffe0a0','center',492);
   text(ctx,'ONE VOTE EACH · COMMENT AGAIN TO CHANGE',270,772,14,'#e9eef5','center',492);
+  text(ctx,'SUBSCRIBE TO THE CHANNEL TO CHAT & VOTE',270,801,17,'#ffe0a0','center',492);
  }
  const allRows=v?.rows||[],total=v?.votes.size||0,{rows,page,pages}=visibleVoteRows(allRows,u.votePageAge||0);
  for(const [i,row] of rows.entries()){
