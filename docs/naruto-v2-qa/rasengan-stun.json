@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "arrival": {
+      "x": 635,
+      "y": 270,
+      "age": 0,
+      "blink": true
+    },
+    "stun": {
+      "tick": 18,
+      "until": 48,
+      "duration": 0.5,
+      "state": "idle"
+    },
+    "point": [
+      745,
+      270
+    ],
+    "held": [
+      745,
+      270
+    ],
+    "remaining": 1,
+    "released": true,
+    "teleports": 1
+  },
+  "pageErrors": [],
+  "browser": "Chromium"
+}

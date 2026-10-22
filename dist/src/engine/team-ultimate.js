@@ -1,3 +1,4 @@
+import {isIncapacitated} from './status.js';
 import {NARUTO_V2_BARYON_STEPS,TEAM_VOICE_STEPS,cinematicSteps,ULTIMATE_CINEMATIC_STEPS,ULTIMATE_DAMAGE_MULTIPLIER} from './ultimate-rules.js';
 export const ULTIMATE_RULES=Object.freeze({rageMax:100,cinematicSteps:ULTIMATE_CINEMATIC_STEPS,warningTicks:36,travelTicks:42,recoveryTicks:0,radius:160});
 export const ULTIMATE_STYLES={
@@ -35,7 +36,7 @@ export function recordTeamDamage(d,source,target,amount,ultimate=false){
   const state=u.teams[team];if(d.tick<state.lockUntil)continue;state.rage=Math.min(100,state.rage+gain);if(state.rage>=100&&state.readyTick===null)state.readyTick=d.tick;
  }
 }
-function selectLeader(d,team){return d.fighters.filter(f=>f.team===team&&f.hp>0&&d.tick>=(f.petrifyUntil||0)&&!d.isTransformProtected(f)).reduce((best,f)=>!best||f.damage>best.damage?f:best,null);}
+function selectLeader(d,team){return d.fighters.filter(f=>f.team===team&&f.hp>0&&!isIncapacitated(d,f)&&!d.isTransformProtected(f)).reduce((best,f)=>!best||f.damage>best.damage?f:best,null);}
 function selectCenter(d,leader){const enemies=d.fighters.filter(f=>f.hp>0&&d.isEnemy(leader,f));return enemies.reduce((best,t)=>{const score=enemies.filter(o=>Math.hypot(o.x-t.x,o.y-t.y)<ULTIMATE_RULES.radius).length;return !best||score>best.score?{x:t.x,y:t.y,score}:best;},null);}
 // This runs before a combat tick. Only cinematic time advances: no RNG, projectiles,
 // cooldowns, summoned creatures, buffs, damage or the match clock can advance here.
@@ -56,7 +57,7 @@ export function ultimateDanger(d,f){const a=d.teamUltimate?.attack;if(!a||a.team
 export function tickTeamUltimate(d,hits){
  const u=d.teamUltimate,a=u?.attack;if(!a)return;
  const leader=d.fighters.find(f=>f.uid===a.leaderUid);
- if(a.phase==='warning'&&(!leader||leader.hp<=0||d.tick<(leader.petrifyUntil||0))){u.attack=null;if(leader)d.event('ultimateCancel',leader,{team:a.team});return;}
+ if(a.phase==='warning'&&(!leader||leader.hp<=0||isIncapacitated(d,leader))){u.attack=null;if(leader)d.event('ultimateCancel',leader,{team:a.team});return;}
  if(a.phase==='warning'&&d.tick>=a.launch){a.phase='travel';d.event('ultimateLaunch',leader,{team:a.team,x:a.x,y:a.y});}
  if(d.tick<a.impact)return;
  a.phase='impact';

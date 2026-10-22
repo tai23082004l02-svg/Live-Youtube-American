@@ -16,7 +16,7 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 - Xuất hiện: Hiền Nhân → KCM2.
 - HP dưới 50%: biến hình Baryon một lần, giữ nguyên HP; tốc độ và cận chiến tăng 15%, tốc độ tích nộ tăng30% đến hết trận.
-- KCM: Rasengan Rush dịch chuyển sát mục tiêu, hai ảnh phân thân tồn tại8 giây và Rasenshuriken. Baryon: Crimson Rush, Tail Counter và Baryon Rasengan.
+- KCM: Rasengan Rush biến mất rồi dịch chuyển sát mục tiêu, đánh trúng gây choáng0,5 giây, hai ảnh phân thân tồn tại8 giây và Rasenshuriken. Baryon: Crimson Rush, Tail Counter và Baryon Rasengan.
 - Hai Ultimate riêng, ba câu thoại tiếng Nhật; hoạt cảnh dừng thời gian chiến đấu và khớp thời lượng âm thanh.
 
 [Xem toàn bộ sheet gốc](art/drafts/naruto-v2) · [Xem frame đã tách](art/frames/naruto_v2) · [Ảnh trong game](docs/naruto-v2-qa/kcm.png) · [Chi tiết và kiểm tra](docs/NARUTO_V2.md)

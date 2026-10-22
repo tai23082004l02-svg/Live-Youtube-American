@@ -3,7 +3,7 @@ import {narutoV2Pose} from '../characters/naruto_v2.js';
 import {personalCaster} from '../engine/personal-ultimate.js';
 import {cinematicSteps} from '../engine/ultimate-rules.js';
 export function narutoV2Sprite(ctx,images,key,row,col,x,y,scale=1,angle=0,face=1){const m=META[key],im=images[key];if(!m||!im?.complete||!im.naturalWidth)return;row=Math.max(0,Math.min(m.rows-1,row));col=Math.max(0,Math.min(m.rowCounts[row]-1,col));const [w,h]=m.frameSize,[px,py]=m.pivot;ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.scale(scale*(face<0?-1:1),scale);ctx.drawImage(im,col*w,row*h,w,h,-px,-py,w,h);ctx.restore();}
-export function drawNarutoV2Actor(ctx,images,d,f,hurt=false,override=null){let p=narutoV2Pose(f,hurt);const trans=d.narutoV2Transform,c=personalCaster(d,f);
+export function drawNarutoV2Actor(ctx,images,d,f,hurt=false,override=null){if(f.state==='v2rasengan'&&f.v2Blink&&f.age<.1&&f.introAge==null&&!d.narutoV2Transform)return;let p=narutoV2Pose(f,hurt);const trans=d.narutoV2Transform,c=personalCaster(d,f);
  if(f.introAge!=null){const n=Math.min(7,Math.floor(f.introAge/2.5*8));p={key:'naruto_v2_intro',row:Math.floor(n/4),frame:n%4};}
  else if(trans?.ownerUid===f.uid){const n=Math.min(7,Math.floor(trans.elapsed/cinematicSteps(trans)*8));p={key:'naruto_v2_transform',row:Math.floor(n/4),frame:n%4};}
  else if(c||override){const u=d.personalUltimate?.cinematic||d.teamUltimate?.cinematic,a=d.personalUltimate?.attack;p={key:'naruto_v2_ultimate_actor',row:f.baryon?1:0,frame:u?Math.min(3,Math.floor(u.elapsed/cinematicSteps(u)*4)):a?.phase==='travel'?2:3};}

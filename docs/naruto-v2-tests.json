@@ -219,5 +219,5 @@
   ],
   "passed": 44,
   "total": 52,
-  "note": "Suites executed independently; npm test still stops at the first legacy missing-source failure. Team dialogue rerun passed after preserving the unloaded-image fallback."
+  "note": "Suites executed independently after Rasengan teleport/stun change; npm test still stops at the first legacy missing-source failure."
 }

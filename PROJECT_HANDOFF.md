@@ -1,3 +1,9 @@
+## Rasengan visible teleport and real0.5s stun — 2026-10-22 (latest)
+
+Rasengan already moved instantly on activation. Added an explicit0.1s sprite disappearance only after a successful teleport, departure/arrival smoke and TELEPORT label so the movement is readable. Landed damage now applies30-tick stun via separate `stunUntil`, not root/petrification. It interrupts ordinary casts, fixes position and blocks movement, evasion, actions and new personal/team Ultimate/transform activation. Warning-stage Ultimates cancel when incapacitated. Zero damage/evaded hits do not stun. No guaranteed hit or invulnerability added. Version marker: RASENGAN TELEPORT + STUN0.5s.
+
+Regression checks cover actual hit processing, exactly30 ticks, interruption and release, Ultimate lock, render disappearance/return, root and bounds. Real Chromium report: docs/naruto-v2-qa/rasengan-stun.json; position jumped250→635 immediately beside target700, no intermediate travel, one teleport, stun ticks18→48. All suite results refreshed in docs/naruto-v2-tests.json.
+
 ## Baryon rage gain +30% — 2026-10-22 (latest)
 
 Naruto v2 Baryon multiplies personal rage gains by1.3: passive2.6/s and normal damage dealt/received. KCM remains1.0. Cap100, lockouts, cinematic freeze and no Ultimate feedback are preserved. Team rage uses the existing team rules. UI displays RAGE +30%.
