@@ -12,9 +12,9 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ## Madara Lục Đạo — đã có trong game
 
-Chọn **Đấu thường → Madara Lục Đạo** để chơi. Bộ11 nhân vật hiện có Madara thiên về kỹ năng tầm xa: ba Cầu Đạo Ngọc lớn, Quang Nha xuyên mục tiêu, bóng Luân Mộ và Ultimate thiên thạch. HP dưới40% kích hoạt tăng20% tốc độ hồi kỹ năng đến hết trận. Màn xuất hiện2,5 giây: đấu trường tối đen, bóng Madara bay từ dưới lên rồi hiện rõ; câu hô Ultimate tiếng Nhật khoảng1,42 giây.
+Chọn **Đấu thường → Madara Lục Đạo** để chơi. Bộ11 nhân vật hiện có Madara thiên về kỹ năng tầm xa: ba Cầu Đạo Ngọc lớn, Quang Nha xuyên mục tiêu, bóng Luân Mộ và Ultimate thiên thạch. AI giữ cự ly300–450px, lùi khi bị áp sát, dùng Limbo yểm trợ và dịch chuyển thoát góc (hồi8s). HP dưới40% kích hoạt tăng20% tốc độ hồi kỹ năng đến hết trận. Màn xuất hiện2,5 giây: đấu trường tối đen, bóng Madara bay từ dưới lên rồi hiện rõ; câu hô Ultimate tiếng Nhật khoảng1,42 giây.
 
-[Xem sheet và tạo hình](art/drafts/madara-six-paths) · [Xem trong trận](docs/madara-qa/battle.png) · [Kỹ năng và kiểm tra](docs/MADARA.md). Phiên bản: **MADARA DARK RISING INTRO**.
+[Xem sheet và tạo hình](art/drafts/madara-six-paths) · [Xem trong trận](docs/madara-qa/battle.png) · [Kỹ năng và kiểm tra](docs/MADARA.md). Phiên bản: **MADARA RANGED AI**.
 
 ## Naruto Uzumaki — KCM → Baryon
 

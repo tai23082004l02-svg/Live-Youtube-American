@@ -52,3 +52,7 @@ Nộ, đạn, cooldown và đồng hồ trận không chạy trong hoạt cảnh
 - Workflow **Archive Madara assets to R2** lưu bản theo commit, tải ngược và so sánh byte. Biên nhận nằm ở `docs/madara-r2-archive.json` sau khi hoàn tất. Game tải tài nguyên từ GitHub Pages; R2 là bản lưu riêng.
 
 Chưa đánh giá giọng bằng tai hoặc trên điện thoại thật. Không truy cập được GitHub Pages công khai từ môi trường thực thi này.
+
+## AI giữ khoảng cách
+
+Madara giữ cự ly300–450px, di chuyển ngang giữa các lần tung Cầu Đạo Ngọc/Quang Nha. Khi bất kỳ kẻ địch nào vào dưới200px, ưu tiên lùi theo hướng có khoảng trống; gọi Limbo nếu sẵn sàng và vừa gọi vừa lùi. Khi không thể lùi đủ xa vì mép sân hoặc bị vây, dịch chuyển tối đa350px đến điểm an toàn hơn, hồi8s; không dịch chuyển khi bị trói/choáng/hóa đá. Không có bất tử bổ sung. Thiên thạch cá nhân ưu tiên cụm địch đông nhất trong bán kính200px. AI dùng tọa độ sân thực tế cho cả sân ngang, dọc và sân mở rộng. Kiểm tra: `node tests/madara-ai-tests.mjs`.

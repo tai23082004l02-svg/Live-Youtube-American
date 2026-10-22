@@ -1,3 +1,7 @@
+## Madara ranged AI update
+
+Dedicated decision logic keeps300–450px and overrides generic approach tactics. Below200px from any enemy, retreats to clamped safe directions and summons Limbo while moving. Corner/encirclement escape searches350px ring, requires80px clearance improvement,8s cooldown, no extra invulnerability, respects root/status and arena bounds. Personal meteor selects densest living enemy cluster. New `tests/madara-ai-tests.mjs` covers decisions, cooldown/status, layouts and deterministic real simulations.
+
 ## Madara black opening and rising silhouette — 2026-10-22 (latest)
 
 Presentation-only entrance update: solid black opening, silhouette begins after0.35s, rises100 world pixels with smooth easing until1.65s while fading in, battlefield black overlay fades out by1.85s, full reveal by2s, total intro remains2.5s. Draw Madara once above the black overlay; full battle camera/portrait offset and arena scale are respected. Spectator slots reuse the rise without blacking the whole stream. No combat or skill changes. Chromium frame captures and sampled pixels in docs/madara-qa/intro-results.json; unit checks cover phase order, upward motion, no duplicate actor, context restoration and absent combat overlay.
