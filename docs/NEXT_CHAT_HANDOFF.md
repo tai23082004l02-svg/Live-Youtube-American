@@ -73,7 +73,7 @@ http://127.0.0.1:8765/online/?obs=vote&chat=1
 - Không hiện YOUTUBE CHAT CONNECTED trong canvas live.
 - Ultimate dùng nhân vật riêng + bong bóng thoại trắng viền đen kiểu truyện tranh, **giữ giọng nói**; không khôi phục banner lớn cũ.
 - Countdown trận mới **1 giây**; hoạt cảnh xuất hiện nhân vật 2,5 giây và thời gian thoại riêng không bị rút về 1 giây.
-- HP mặc định **×10**, có migration localStorage; không nhân thêm vào base stats.
+- HP mặc định **×5**, có migration localStorage `down-arena-hp-x5-enabled-v1` chuyển giá trị đã lưu sang5 một lần; không nhân thêm vào base stats.
 
 ## Roster hiện tại — 12 người
 

@@ -29,9 +29,12 @@ try:
    route.fulfill(status=200 if file.is_file() else 404,body=file.read_bytes() if file.is_file() else b'',content_type=mimetypes.guess_type(file)[0] or 'application/octet-stream',headers={'Access-Control-Allow-Origin':'*'})
   page.route(m.GAME_ORIGIN+'/Live-Youtube-American/dist/**',asset)
   page.add_init_script("window.voteText=[];const fill=CanvasRenderingContext2D.prototype.fillText;CanvasRenderingContext2D.prototype.fillText=function(t,...args){if(String(t).startsWith('SUBSCRIBE'))window.voteText.push({text:t,font:this.font,y:args[1]});return fill.call(this,t,...args)};")
+  page.add_init_script("localStorage.setItem('down-arena-hp-multiplier-v1','10');localStorage.setItem('down-arena-hp-x10-enabled-v1','1');")
   page.goto(m.BASE+'/online/?obs=vote&chat=1')
   page.wait_for_function('window.arena?.simulation?.fighters.length===2',timeout=60000)
   page.wait_for_timeout(2500)
+  assert page.locator('#globalHpMultiplier').input_value()=='5'
+  assert page.evaluate('window.arena.simulation.fighters.every(f=>f.max===window.arena.stats[f.id].hp*5)')
   assert m.BRIDGE.votes.open
   assert m.BRIDGE.votes.choices==10
   m.BRIDGE.votes.receive({'snippet':{'type':'textMessageEvent','authorChannelId':'remote-qa','publishedAt':datetime.now(timezone.utc).isoformat(),'textMessageDetails':{'messageText':'2'}}})
