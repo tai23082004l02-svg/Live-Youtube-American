@@ -1,3 +1,7 @@
+## Madara black opening and rising silhouette — 2026-10-22 (latest)
+
+Presentation-only entrance update: solid black opening, silhouette begins after0.35s, rises100 world pixels with smooth easing until1.65s while fading in, battlefield black overlay fades out by1.85s, full reveal by2s, total intro remains2.5s. Draw Madara once above the black overlay; full battle camera/portrait offset and arena scale are respected. Spectator slots reuse the rise without blacking the whole stream. No combat or skill changes. Chromium frame captures and sampled pixels in docs/madara-qa/intro-results.json; unit checks cover phase order, upward motion, no duplicate actor, context restoration and absent combat overlay.
+
 ## Six Paths Madara integrated — 2026-10-22 (latest)
 
 New active ID `madara`, active roster11, distinct existing characters preserved.84 native frames from6 generated sheets,8 metadata-driven padded atlases. `prepare_madara.py` / `verify_madara.py` preserve and independently reconstruct every positive-alpha source sample. Sources/contact previews/report retained in GitHub, revisioned R2 archive workflow verifies downloads before committing a receipt.

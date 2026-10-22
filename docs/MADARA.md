@@ -1,6 +1,6 @@
 # Madara Lục Đạo
 
-[Mở game](https://tai23082004l02-svg.github.io/Live-Youtube-American/dist/), chọn **Đấu thường → Madara Lục Đạo**. Cũng có trong đấu đội, FFA, giải đấu, Live ngang/dọc và Live bình chọn. Sau khi GitHub Pages cập nhật, dấu phiên bản là **MADARA SIX PATHS / 11 CHARACTERS**.
+[Mở game](https://tai23082004l02-svg.github.io/Live-Youtube-American/dist/), chọn **Đấu thường → Madara Lục Đạo**. Cũng có trong đấu đội, FFA, giải đấu, Live ngang/dọc và Live bình chọn. Sau khi GitHub Pages cập nhật, dấu phiên bản là **MADARA DARK RISING INTRO**.
 
 ## Tạo hình và hoạt ảnh
 
@@ -36,7 +36,7 @@ HP1350, tốc độ205, ưu tiên giữ khoảng cách290px. Có thể chỉnh c
 
 ## Xuất hiện và hiệu ứng
 
-Màn xuất hiện2,5s: bóng tối và đá bay → Madara hạ xuống → Cầu Đạo Ngọc hiện sau lưng → mở mắt/chạm trượng, vào tư thế. Hiệu ứng kỹ năng tách khỏi nhân vật: cầu đen lớn gần bằng người, Quang Nha dày kéo dài từ miệng theo hướng bắn, bóng Luân Mộ lớn hơn thân chính, thiên thạch và sóng va chạm rộng. Chế độ giảm VFX hạn chế bóng sáng/rung mạnh.
+Màn xuất hiện2,5s: màn đen hoàn toàn ở đầu → bóng Madara mờ bay từ dưới lên → nền đấu trường sáng dần và cơ thể hiện rõ → mở mắt/chạm trượng, vào tư thế. Thân nhân vật không còn hạ từ trên xuống. Hàng khán giả dùng cùng chuyển động đi lên trong ô nhân vật. Hiệu ứng kỹ năng tách khỏi nhân vật: cầu đen lớn gần bằng người, Quang Nha dày kéo dài từ miệng theo hướng bắn, bóng Luân Mộ lớn hơn thân chính, thiên thạch và sóng va chạm rộng. Chế độ giảm VFX hạn chế bóng sáng/rung mạnh.
 
 ## Giọng nói và thời gian
 

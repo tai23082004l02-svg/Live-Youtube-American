@@ -1,0 +1,51 @@
+{
+  "checks": [
+    "solid black opening",
+    "translucent rise from below",
+    "arena and body gradually revealed",
+    "combat remains frozen"
+  ],
+  "samples": [
+    {
+      "age": 0.2,
+      "tick": 0,
+      "pixel": [
+        0,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "age": 0.8,
+      "tick": 0,
+      "pixel": [
+        31,
+        35,
+        34,
+        255
+      ]
+    },
+    {
+      "age": 1.55,
+      "tick": 0,
+      "pixel": [
+        96,
+        108,
+        105,
+        255
+      ]
+    },
+    {
+      "age": 2.3,
+      "tick": 0,
+      "pixel": [
+        123,
+        138,
+        134,
+        255
+      ]
+    }
+  ],
+  "pageErrors": []
+}
