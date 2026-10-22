@@ -28,7 +28,7 @@ try:
    remote.append(rel)
    route.fulfill(status=200 if file.is_file() else 404,body=file.read_bytes() if file.is_file() else b'',content_type=mimetypes.guess_type(file)[0] or 'application/octet-stream',headers={'Access-Control-Allow-Origin':'*'})
   page.route(m.GAME_ORIGIN+'/Live-Youtube-American/dist/**',asset)
-  page.add_init_script("window.voteText=[];const fill=CanvasRenderingContext2D.prototype.fillText;CanvasRenderingContext2D.prototype.fillText=function(t,...args){if(String(t).startsWith('SUBSCRIBE'))window.voteText.push({text:t,font:this.font,y:args[1]});return fill.call(this,t,...args)};")
+  page.add_init_script("window.titleDraws=[];const draw=CanvasRenderingContext2D.prototype.drawImage;CanvasRenderingContext2D.prototype.drawImage=function(im,...args){if(im?.src?.includes('/ko.webp'))window.titleDraws.push(im.src);return draw.call(this,im,...args)};window.voteText=[];const fill=CanvasRenderingContext2D.prototype.fillText;CanvasRenderingContext2D.prototype.fillText=function(t,...args){if(String(t).startsWith('SUBSCRIBE'))window.voteText.push({text:t,font:this.font,y:args[1]});return fill.call(this,t,...args)};")
   page.add_init_script("localStorage.setItem('down-arena-hp-multiplier-v1','10');localStorage.setItem('down-arena-hp-x10-enabled-v1','1');")
   page.goto(m.BASE+'/online/?obs=vote&chat=1')
   page.wait_for_function('window.arena?.simulation?.fighters.length===2',timeout=60000)
@@ -47,6 +47,8 @@ try:
   for origin,code in [(m.GAME_ORIGIN,204),('https://evil.example',403)]:
    assert page.request.fetch(m.BASE+'/api/votes',method='OPTIONS',headers={'Origin':origin,'Access-Control-Request-Method':'POST'}).status==code
   assert page.request.post(m.BASE+'/api/connect',headers={'Origin':m.GAME_ORIGIN},data='{}').status==403
+  page.evaluate("window.arena.simulation.fighters[1].hp=0;window.arena.simulation.result='teamA'")
+  page.wait_for_function('window.titleDraws.length>0',timeout=10000)
   print(json.dumps({'remote_assets':len(remote),'live_ballot':True,'vote_delivered':True,'errors':errors,'cors_and_credential_isolation':'PASS'}))
   browser.close()
 finally:

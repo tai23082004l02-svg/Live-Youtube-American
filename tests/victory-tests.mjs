@@ -16,7 +16,7 @@ for(const result of ['goku','teamA','draw']){
  const gradient={addColorStop(){}};
  const ctx=new Proxy({save(){balance++;},restore(){balance--;},fillText(t){text.push(t);},createRadialGradient(){return gradient;},createLinearGradient(){return gradient;}},{get(o,k){return k in o?o[k]:(...args)=>{assert(args.filter(x=>typeof x==='number').every(Number.isFinite));};}});
  for(const age of [0,.18,.4,1,2,12]){const frame=scene.frame(age);applyVictoryCamera(ctx,frame);drawVictoryAura(ctx,scene,frame);drawVictoryScreen(ctx,scene,frame,{goku:'Goku',saber:'Saber'});}
- assert(text.includes(result==='draw'?'DRAW':'VICTORY'));assert.equal(balance,0);
+ assert(text.includes(result==='draw'?'DRAW':'KO'));assert.equal(balance,0);
  assert.equal(JSON.stringify(d),before,'presentation must preserve battle state');
 }
 const large=new VictoryScene({result:'goku',fighters:[a,b],arena:{scale:4}});

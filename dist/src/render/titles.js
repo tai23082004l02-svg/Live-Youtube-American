@@ -1,4 +1,4 @@
-const KEYS={'DOWN ARENA':'down_arena',VICTORY:'victory',CHAMPION:'champion',VS:'vs','NEXT BATTLE':'next_battle','TOURNAMENT DRAW':'tournament_draw',DRAW:'draw',REMATCH:'rematch'};
+const KEYS={'DOWN ARENA':'down_arena',KO:'ko',VICTORY:'victory',CHAMPION:'champion',VS:'vs','NEXT BATTLE':'next_battle','TOURNAMENT DRAW':'tournament_draw',DRAW:'draw',REMATCH:'rematch'};
 const cache=new Map();
 export function drawTitle(ctx,label,x,y,maxWidth,maxHeight){const key=KEYS[label];if(!key||typeof Image==='undefined')return false;
  let im=cache.get(key);if(!im){im=new Image();im.src='assets/ui/titles/'+key+'.webp';cache.set(key,im);}

@@ -149,3 +149,7 @@ Các test 2vs2 còn tồn tại để bảo vệ engine hỗ trợ nhiều ngư�
 ## Bổ sung phát hành sau bàn giao
 
 HP hiện ×5, migration key `down-arena-hp-x5-enabled-v1`. Vì người dùng vẫn thấy ×10 và mất dòng Subscribe trên OBS, các URL trong chuỗi `dist/index.html` → `dist/app.js` → `dist/src/app.js` → `dist/src/voting-arena.js` → renderer được thêm query phiên bản trực tiếp (không dựa vào import map). Khi sửa critical runtime cần giữ cơ chế bust cache này và kiểm tra entry mới. Kiểm tra browser đã xác nhận ×5 và dòng Subscribe có Times New Roman; public Pages chưa được xác minh từ môi trường dev do truy cập mạng bị chặn.
+
+## Màn kết thúc KO
+
+Thay chữ VICTORY ở màn kết thúc bằng ảnh KO vàng kim/đỏ cam nền trong suốt: `dist/assets/ui/titles/ko.webp`, nguồn PNG `art/drafts/down-arena-brand/ko-title.png`. `render/titles.js` thêm key KO, `render/victory.js` dùng KO cho thắng và giữ DRAW khi hòa. Tên người thắng bên dưới dùng Times New Roman. Không đổi thời gian freeze/reveal/chuyển trận hoặc âm thanh. Kiểm tra `tests/victory-tests.mjs`, `tests/title-assets-tests.mjs` và `tools/qa_online_chat.py` (draw ảnh KO thực tế). Bản mới đã push không đồng nghĩa Pages triển khai xong: người dùng đang thấy nhiều lượt Pages Queued; phải chờ dấu xanh trước khi refresh OBS.

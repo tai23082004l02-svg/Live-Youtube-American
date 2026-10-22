@@ -1,4 +1,4 @@
-import {drawTitle} from './titles.js';
+import {drawTitle} from './titles.js?v=20261022-ko-r1';
 import {ULTIMATE_STYLES} from '../engine/team-ultimate.js';
 export const FINISH_FREEZE_SECONDS=.18;
 export const VICTORY_REVEAL_SECONDS=.95;
@@ -57,9 +57,9 @@ export function drawVictoryScreen(ctx,scene,frame,names){
  if(frame.reveal>0){
   ctx.globalAlpha=frame.reveal;ctx.textAlign='center';ctx.textBaseline='alphabetic';
   ctx.save();ctx.translate(480,105);const pop=frame.reduced?1:1+(1-frame.reveal)*.18;ctx.scale(pop,pop);
-  ctx.font='900 100px Segoe UI';ctx.lineJoin='round';ctx.lineWidth=7;ctx.strokeStyle='#07101e';ctx.shadowColor=scene.color;ctx.shadowBlur=22;
-  const title=scene.result==='draw'?'DRAW':'VICTORY';const titleDrawn=drawTitle(ctx,title,0,-40,690,130);if(!titleDrawn){ctx.strokeText(title,0,0,820);const gold=ctx.createLinearGradient(0,-85,0,5);gold.addColorStop(0,'#fffbea');gold.addColorStop(.48,'#ffe7a0');gold.addColorStop(1,'#e2a548');ctx.fillStyle=gold;ctx.fillText(title,0,0,820);}ctx.restore();
-  ctx.shadowBlur=0;ctx.strokeStyle=scene.color;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(315,126);ctx.lineTo(645,126);ctx.stroke();ctx.fillStyle='#f3f6ff';ctx.font='bold 24px Segoe UI';ctx.fillText(scene.label(names),480,163,820);
+  ctx.font='900 100px "Times New Roman",Times,serif';ctx.lineJoin='round';ctx.lineWidth=7;ctx.strokeStyle='#07101e';ctx.shadowColor=scene.color;ctx.shadowBlur=22;
+  const title=scene.result==='draw'?'DRAW':'KO';const titleDrawn=drawTitle(ctx,title,0,-40,690,130);if(!titleDrawn){ctx.strokeText(title,0,0,820);const gold=ctx.createLinearGradient(0,-85,0,5);gold.addColorStop(0,'#fffbea');gold.addColorStop(.48,'#ffe7a0');gold.addColorStop(1,'#e2a548');ctx.fillStyle=gold;ctx.fillText(title,0,0,820);}ctx.restore();
+  ctx.shadowBlur=0;ctx.strokeStyle=scene.color;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(315,126);ctx.lineTo(645,126);ctx.stroke();ctx.fillStyle='#f3f6ff';ctx.font='bold 24px "Times New Roman",Times,serif';ctx.fillText(scene.label(names),480,163,820);
  }
  ctx.restore();
 }

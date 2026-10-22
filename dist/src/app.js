@@ -9,7 +9,7 @@ import {drawGojoActor,drawGojoBack,drawGojoWorld,drawGojoShot,drawGojoEffect as 
 import {ACTIVE_CHARACTERS} from './characters/index.js';
 import {PORTRAIT_SCENE_OFFSET,PORTRAIT_SCENE_HEIGHT} from './engine/arena.js';
 import {setupModeMenu} from './mode-menu.js';
-import {VictoryScene,FINISH_FREEZE_SECONDS,VICTORY_CONTROLS_SECONDS,applyVictoryCamera,drawVictoryAura,drawVictoryScreen} from './render/victory.js';
+import {VictoryScene,FINISH_FREEZE_SECONDS,VICTORY_CONTROLS_SECONDS,applyVictoryCamera,drawVictoryAura,drawVictoryScreen} from './render/victory.js?v=20261022-ko-r1';
 import {ArenaMusic} from './music.js';
 import {drawFighterBars} from './render/fighter-bars.js';
 import {drawBoaActor,drawBoaBack,drawBoaWorld,drawBoaShot,boaSprite} from './render/boa.js';
@@ -18,7 +18,7 @@ import {drawSaberActor,drawSaberBack,drawSaberWorld,drawSaberShot,saberSprite} f
 import {drawUltraActor,drawUltraBack,drawUltraWorld,drawUltraShot,ultraSprite} from './render/ultra.js';
 import {drawBeerusFrame} from './render/beerus.js';
 import {drawJinwooActor,drawJinwooIntroBack,drawJinwooEffects,drawAriseWorld,jinwooSprite} from './render/jinwoo.js';
-import {VotingArenaUI} from './voting-arena.js?v=20261022-live-hp5-subscribe-r2';
+import {VotingArenaUI} from './voting-arena.js?v=20261022-ko-r1';
 import {drawIchigoActor,drawIchigoEffects,drawIchigoUltimateWorld,drawIchigoShot,ichigoSprite} from './render/ichigo.js';
 import {drawProjectileEnergy} from './render/projectile-energy.js';
 import {ULTIMATE_STYLES,setTeamUltimateEnabled} from './engine/team-ultimate.js';
