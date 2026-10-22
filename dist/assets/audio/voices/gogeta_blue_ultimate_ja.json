@@ -1,0 +1,8 @@
+{
+  "voice": "Adam",
+  "model": "eleven_v3",
+  "language": "ja",
+  "text": "かめはめ波ー！",
+  "duration": 2.0,
+  "steps": 120
+}

@@ -1,0 +1,2 @@
+export const GOGETA_BLUE_VOICE_STEPS=120;
+export const GOGETA_BLUE_VOICE_SECONDS=2.0;
