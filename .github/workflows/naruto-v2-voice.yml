@@ -1,0 +1,62 @@
+name: Generate Naruto v2 Japanese voices
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/naruto-v2-voice.yml]
+permissions:
+  contents: write
+concurrency:
+  group: naruto-v2-voice
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - name: Install trusted MP3 probe
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Generate and commit each missing call once
+        shell: python
+        run: |
+          import os,json,pathlib,subprocess,urllib.request,urllib.error,math,sys
+          key=os.environ.get('ELEVENLABS_API_KEY','')
+          if not key:sys.exit('Missing ELEVENLABS_API_KEY')
+          def git(*args):subprocess.run(['git',*args],check=True)
+          git('config','user.name','github-actions[bot]')
+          git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          req=urllib.request.Request('https://api.elevenlabs.io/v1/voices',headers={'xi-api-key':key})
+          with urllib.request.urlopen(req,timeout=30) as response:voices=json.load(response)['voices']
+          priority=['charlie','george','brian']
+          selected=next((v for name in priority for v in voices if v.get('name','').lower()==name),None)
+          if not selected:sys.exit('No supported voice found; no paid request sent')
+          for kind,text in [('kcm','[shouting] 九喇嘛！大玉螺旋丸！'),('baryon','[shouting] これで終わりだ！'),('transform','[serious] これが、バリオンモードだ！')]:
+              output=pathlib.Path(f'dist/assets/audio/voices/naruto_v2_{kind}_ja.mp3')
+              if not output.exists():
+                  payload=json.dumps({'text':text,'model_id':'eleven_v3','language_code':'ja'},ensure_ascii=False).encode()
+                  req=urllib.request.Request('https://api.elevenlabs.io/v1/text-to-speech/'+selected['voice_id']+'?output_format=mp3_44100_128',data=payload,headers={'xi-api-key':key,'Content-Type':'application/json','Accept':'audio/mpeg'},method='POST')
+                  try:
+                      with urllib.request.urlopen(req,timeout=120) as response:
+                          audio=response.read();mime=response.headers.get('Content-Type','')
+                  except urllib.error.HTTPError as error:sys.exit(f'ElevenLabs HTTP {error.code}; no retry. Check history before any manual rerun.')
+                  except (urllib.error.URLError,TimeoutError):sys.exit('No response; no retry. Credits may have been used; check history before rerunning.')
+                  if len(audio)<1000 or 'audio' not in mime:sys.exit('Unexpected audio response; do not retry without checking history.')
+                  output.parent.mkdir(parents=True,exist_ok=True);output.write_bytes(audio)
+              subprocess.run(['ffmpeg','-v','error','-i',str(output),'-f','null','-'],check=True)
+              seconds=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(output)],text=True))
+              assert 0<seconds<15
+              steps=max(120 if kind=='transform' else 1,math.ceil(seconds*60))
+              module=pathlib.Path(f'dist/src/engine/naruto-v2-{kind}-voice.js');module.write_text(f'export const VOICE_STEPS={steps};\nexport const VOICE_SECONDS={seconds};\n')
+              meta=output.with_suffix('.json');meta.write_text(json.dumps({'voice':selected['name'],'voice_id':selected['voice_id'],'model':'eleven_v3','language':'ja','text':text,'seconds':seconds,'steps':steps},ensure_ascii=False,indent=2)+'\n')
+              git('add',str(output),str(module),str(meta))
+              if subprocess.run(['git','diff','--cached','--quiet']).returncode:
+                  git('commit','-m',f'Add recorded Naruto v2 {kind} voice and measured timing')
+                  git('pull','--rebase','origin','main');git('push','origin','HEAD:main')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:out.write('Naruto KCM, Baryon and transformation MP3s decoded, measured and committed separately. No automatic paid retries. Subjective listening remains unverified.\n')
