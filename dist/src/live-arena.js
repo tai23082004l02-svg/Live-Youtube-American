@@ -3,7 +3,7 @@ import {drawTitle} from './render/titles.js';
 import {TournamentUI} from './tournament-ui.js';
 import {Tournament,drawEntrants,ROUND_NAMES} from './engine/tournament.js';
 
-export const LIVE_TIMINGS=Object.freeze({intro:5,victory:5,waiting:5,champion:8});
+export const LIVE_TIMINGS=Object.freeze({intro:1,victory:5,waiting:5,champion:8});
 
 // Reuse bracket rules, loading guards and battle configuration from TournamentUI.
 export class LiveArenaUI extends TournamentUI{

@@ -1,3 +1,4 @@
+import {LIVE_TIMINGS} from '../live-arena.js';
 export const VOTE_LAYOUT=Object.freeze({width:540,height:960,hudY:252,hudHeight:44,arenaY:328,arenaHeight:540*9/16});
 function text(ctx,value,x,y,size,color='#e9eef5',align='left',width=490){ctx.fillStyle=color;ctx.font=`600 ${size}px Segoe UI,Arial`;ctx.textAlign=align;ctx.fillText(value,x,y,width);}
 export function drawVoteBroadcast(ctx,u,scene){ctx.save();ctx.fillStyle='#000';ctx.fillRect(0,0,540,960);const v=u.ballot;
@@ -19,6 +20,6 @@ export function drawVoteBroadcast(ctx,u,scene){ctx.save();ctx.fillStyle='#000';c
  ctx.restore();}
 export function drawVoteMatchHUD(ctx,u){ctx.save();const fighters=u.h.duel().fighters;
  for(const [i,f] of fighters.entries()){text(ctx,u.h.names[f.id],i?936:24,25,17,i?'#ff98af':'#7cddff',i?'right':'left',340);const x=i?636:24;ctx.fillStyle='#ffffff22';ctx.fillRect(x,37,300,8);ctx.fillStyle=i?'#ff98af':'#7cddff';ctx.fillRect(x,37,300*Math.max(0,f.hp/f.max),8);text(ctx,`${Math.max(0,Math.ceil(f.hp))} / ${f.max}`,i?936:24,59,11,'#c8d7e6',i?'right':'left',300);}
- text(ctx,'VIEWER CHOICE · DEMO',480,23,12,'#f4d181','center',280);text(ctx,u.paused?'PAUSED':u.phase==='intro'?`STARTS IN ${Math.max(1,Math.ceil(5-u.age))}`:u.phase==='waiting'?'MATCH COMPLETE':'AI BATTLE',480,48,14,'#e9eef5','center',280);
+ text(ctx,'VIEWER CHOICE · DEMO',480,23,12,'#f4d181','center',280);text(ctx,u.paused?'PAUSED':u.phase==='intro'?`STARTS IN ${Math.max(1,Math.ceil(LIVE_TIMINGS.intro-u.age))}`:u.phase==='waiting'?'MATCH COMPLETE':'AI BATTLE',480,48,14,'#e9eef5','center',280);
  ctx.restore();}
 export function drawVoteMatchOverlay(ctx,u){if(!u.paused)return;ctx.save();ctx.fillStyle='#07101cbb';ctx.fillRect(0,0,960,540);text(ctx,'PAUSED',480,280,38,'#ffe0a0','center');ctx.restore();}

@@ -1,3 +1,7 @@
+## Live match countdown1s
+
+LIVE_TIMINGS.intro reduced5→1 across horizontal Live, vertical Live and viewer-vote feed. Vote HUD now reads the shared constant instead of hardcoded5. Character entrance animations and victory/intermission durations unchanged.
+
 ## Comic speech dialogue
 
 Central `render/comic-dialogue.js` replaces all app personal/team/transform banner routes with isolated native full-cell speaker + white black-outlined speech bubble. Font Times New Roman; wraps words/long tokens, bounds-based actor sizing, correct Gojo v2/Baryon atlases, no simulation writes. Original speech strings/audio/cinematic ticks unchanged; no paid generation. App no longer invokes character banner/cinematic title renderers. Team cinematic export also delegates centrally.12-speaker/reduced/layout tests and real browser/audio pause-resume QA in `docs/comic-qa`; details `docs/COMIC_DIALOGUE.md`.

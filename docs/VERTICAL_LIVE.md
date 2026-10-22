@@ -15,7 +15,7 @@ Chọn **Live dọc · 9:16 · Đấu ngẫu nhiên + giải đấu** và nhấn
 ## Chu kỳ
 
 1. Bốc thể thức1vs1,2vs2 hoặc5vs5 và đội hình khác nhau mỗi trận.
-2. Giới thiệu5s → chiến đấu không giới hạn thời gian → VICTORY5s → chờ5s.
+2. Giới thiệu1s → chiến đấu không giới hạn thời gian → VICTORY5s → chờ5s.
 3. Sau5 trận ngẫu nhiên: bốc8 nhân vật trong8s, từng ô khóa kết quả.
 4. Đánh giải đơn8 suất,7 trận, trao chức vô địch8s.
 5. Quay về đấu ngẫu nhiên và lặp lại.

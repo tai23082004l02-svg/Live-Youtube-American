@@ -8,7 +8,7 @@ const names=Object.fromEntries(Object.keys(CHARACTERS).map(id=>[id,id.toUpperCas
 const h={$,names,settings:()=>({seed:'TEST',arenaScale:1,hpMultiplier:2}),ready:()=>ready,duel:()=>d,resultAge:()=>resultAge,stop(){},toggleBattle(){toggles++;},portraitURL:id=>id,unlock(){unlocks++;},setLiveView:v=>clean=v,async reset(){const c=u.battleConfig();d={result:null,fighters:c.pair.map((id,i)=>({uid:String(i),id,team:c.teams[i],hp:200,max:200,damage:10}))};resultAge=0;}};
 const u=new LiveArenaUI(h);await u.create();assert.equal(u.phase,'intro');assert(clean);assert.equal(unlocks,1);assert.equal($('speed').value,'1');assert.equal(new Set(u.model.entries.map(e=>e.players[0])).size,8);
 const first=u.model,firstSeed=first.settings.seed;assert.equal(first.settings.hpMultiplier,2);
-u.frame(2);u.toggle();const age=u.age;u.frame(9);assert.equal(u.age,age);u.toggle();
+u.frame(.2);u.toggle();const age=u.age;u.frame(9);assert.equal(u.age,age);u.toggle();
 u.frame(LIVE_TIMINGS.intro);assert.equal(u.phase,'battle');assert.equal(toggles,1);
 // A draw replays this bracket slot, including the automatic loading guard.
 d.result='draw';resultAge=5;u.frame(.01);assert.equal(u.phase,'waiting');assert.equal(u.model.current.replays,1);u.frame(5);await Promise.resolve();await Promise.resolve();assert.equal(u.phase,'intro');
