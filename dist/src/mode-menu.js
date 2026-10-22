@@ -14,7 +14,7 @@ export function setupModeMenu({$,body,stop}){
  $('chooseBattle').onclick=()=>choose('duel');$('chooseCup').onclick=()=>choose('tournament');
  $('chooseLive').onclick=()=>{choices.hidden=true;live.hidden=false;focus('chooseVertical');};
  $('modeMenuBack').onclick=()=>{choices.hidden=false;live.hidden=true;focus('chooseLive');};
- $('chooseVertical').onclick=()=>choose('live_vertical');$('chooseHorizontal').onclick=()=>choose('live');
+ $('chooseVertical').onclick=()=>choose('live_vertical');$('chooseHorizontal').onclick=()=>choose('live');$('chooseVote').onclick=()=>choose('live_vote');
  $('openModeMenu').onclick=show;home.hidden=false;choices.hidden=false;live.hidden=true;body.classList.add('mode-home');$('appMain').inert=true;$('appHeader').inert=true;
  return {show,choose};
 }

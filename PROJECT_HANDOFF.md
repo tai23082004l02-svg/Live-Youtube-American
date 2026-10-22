@@ -1,3 +1,12 @@
+## Viewer choice demo broadcast — 2026-10-22 (latest)
+
+New `live_vote` menu route (**Live → Bình chọn đối thủ**) uses a540×960 broadcast with a bounded six-name voting board above a centered horizontal16:9 battle. Existing Live modes are unchanged. Voting is explicitly labeled DEMO; no YouTube chat connection or subscription enforcement exists yet. Read `docs/VIEWER_VOTE.md` before connecting real chat.
+
+- Engine: `engine/viewer-vote.js`, UI scheduler: `voting-arena.js`, renderer: `render/viewer-vote.js`. Numbers stay stable for45s, viewer IDs replace old votes, top2 distinct winners lock until current battle finishes. Seeded tie/no-vote fallback, early match wait, draw rematch, pause/retry/stop handling. Six candidates rotate from the active roster; no portraits on the board.
+- Operator preview fields and optional auto mock voters exist outside clean view. Esc or the touchscreen-only Điều khiển button opens controls. OBS Browser Source1080×1920 fits without adding separate sources.
+- Vote engine, mode menu, existing horizontal/vertical Live and active-roster UI tests pass. Real Chromium browser verified asset loads, vote replacement, pause, next pairing, new round and mode cleanup; touch context393×852 verified layout and control button. Screenshots and results: `docs/viewer-vote-qa`.
+- No paid service or credential configuration was changed. The listener on8766 was left untouched; an isolated static server8767 served local QA.
+
 ## Rengoku integrated — 2026-10-21 (latest)
 
 Active roster is now nine: existing eight plus `rengoku`. Runtime code is in `dist/src`; do not rebuild the game. See `docs/RENGOKU.md` for source locations, exact regeneration commands, native-frame verification, mechanics, voice and validation. Current badge: RENGOKU / 9 CHARACTERS.

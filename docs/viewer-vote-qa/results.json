@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "real assets",
+    "portrait frame/horizontal arena",
+    "operator vote replacement",
+    "pause timer",
+    "lock retains current match",
+    "top-two next match",
+    "new round",
+    "stop and mode cleanup",
+    "mobile 393x852 layout",
+    "touch operator control button"
+  ],
+  "pageErrors": [],
+  "failedResponses": []
+}

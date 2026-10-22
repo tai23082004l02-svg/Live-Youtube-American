@@ -63,3 +63,12 @@ body.mode-home{background:#07121d;overflow:auto}body.mode-home>header,body.mode-
 @media(prefers-reduced-motion:reduce){.mode-card{transition:none}.mode-card:hover{transform:none}}
 
 .arena-wordmark{display:block;width:min(340px,80%);height:auto;max-height:130px;object-fit:contain;margin-bottom:24px}
+
+/* A portrait broadcast containing a horizontal battle and a separate voting board. */
+.arena.vote-format #portraitGame{aspect-ratio:9/16}
+.mode-aspects{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+#voteControls label{display:inline-flex;align-items:center;gap:8px;font-size:13px;margin:8px 0}
+#voteControls .live-actions{align-items:center}
+
+#voteTouchControls{display:none}
+@media(pointer:coarse){body.vote-view #voteTouchControls{display:block;position:absolute;bottom:12px;right:12px;z-index:5;background:#152536;color:#c8dbea;border-color:#34516a}}

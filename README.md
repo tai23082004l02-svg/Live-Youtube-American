@@ -10,6 +10,12 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
+## Bình chọn đối thủ — bản mô phỏng
+
+Chọn **Live → Bình chọn đối thủ → Bắt đầu Live Arena** để mở khung dọc9:16: bảng6 tên phía trên, trận ngang16:9 ở giữa, phần dưới đen. Lượt45 giây chọn top2 cho trận tiếp theo; không có chân dung. **Chưa kết nối chat YouTube: số phiếu hiện là mô phỏng.** Có thể tắt mô phỏng và thử đổi phiếu trong bảng điều khiển.
+
+[Xem hướng dẫn OBS và bình chọn](docs/VIEWER_VOTE.md) · [Xem bố cục](docs/viewer-vote-qa/broadcast.png)
+
 ## Rengoku — 9 nhân vật
 
 Chọn **Kyojuro Rengoku** trong đấu đơn, FFA, đội, giải đấu hoặc Live Arena. Có 3 kỹ năng kiếm lửa, nội tại Burning Heart khi HP ≤35%, Ultimate Purgatory và lời tung chiêu tiếng Nhật 4,64 giây. Nếu còn bản cũ, tải lại trang bằng Ctrl+F5; góc màn hình phải hiện **RENGOKU / 9 CHARACTERS**.
