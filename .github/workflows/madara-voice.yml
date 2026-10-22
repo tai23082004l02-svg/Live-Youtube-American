@@ -1,0 +1,58 @@
+name: Generate Madara Japanese Ultimate call
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/madara-voice.yml]
+permissions:
+  contents: write
+concurrency:
+  group: madara-voice
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Generate one brief call and save measured timing
+        shell: python
+        run: |
+          import os,pathlib,json,urllib.request,urllib.error,subprocess,math,sys
+          path=pathlib.Path('dist/assets/audio/voices/madara_ultimate_ja.mp3')
+          text='[shouting] 天碍震星！'
+          if not path.exists():
+              key=os.environ.get('ELEVENLABS_API_KEY','')
+              if not key:sys.exit('Missing ElevenLabs secret; no request sent')
+              req=urllib.request.Request('https://api.elevenlabs.io/v1/voices',headers={'xi-api-key':key})
+              with urllib.request.urlopen(req,timeout=30) as response:catalog=json.load(response)['voices']
+              selected=next((v for v in catalog if v.get('name','').lower().split(' - ',1)[0]=='daniel'),None)
+              if not selected:sys.exit('Daniel voice unavailable; no paid request sent')
+              voice_id=selected['voice_id']
+              payload=json.dumps({'text':text,'model_id':'eleven_v3','language_code':'ja'},ensure_ascii=False).encode()
+              req=urllib.request.Request('https://api.elevenlabs.io/v1/text-to-speech/'+voice_id+'?output_format=mp3_44100_128',data=payload,headers={'xi-api-key':key,'Content-Type':'application/json','Accept':'audio/mpeg'},method='POST')
+              try:
+                  with urllib.request.urlopen(req,timeout=120) as response:audio=response.read();mime=response.headers.get('Content-Type','')
+              except urllib.error.HTTPError as e:sys.exit(f'ElevenLabs HTTP {e.code}; no retry. Check history before rerunning.')
+              except (urllib.error.URLError,TimeoutError):sys.exit('No response; no retry. Check ElevenLabs history before rerunning.')
+              if len(audio)<1000 or 'audio' not in mime:sys.exit('Unexpected response; no retry.')
+              path.write_bytes(audio)
+          subprocess.run(['ffmpeg','-v','error','-i',str(path),'-f','null','-'],check=True)
+          seconds=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)],text=True))
+          assert 0<seconds<10
+          steps=math.ceil(seconds*60)
+          meta=path.with_suffix('.json');meta.write_text(json.dumps({'voice':'Daniel','model':'eleven_v3','language':'ja','text':'天碍震星！','duration':seconds,'steps':steps},ensure_ascii=False,indent=2)+'\n')
+          def git(*args):subprocess.run(['git',*args],check=True)
+          git('config','user.name','github-actions[bot]');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          module=pathlib.Path('dist/src/engine/madara-voice.js');module.write_text(f'export const MADARA_VOICE_STEPS={steps};\nexport const MADARA_VOICE_SECONDS={seconds};\n')
+          git('add',str(path),str(meta),str(module))
+          if subprocess.run(['git','diff','--cached','--quiet']).returncode:
+              git('commit','-m','Add recorded Madara Ultimate call with measured duration');git('pull','--rebase','origin','main');git('push','origin','HEAD:main')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:out.write(f'Short call saved and decoded: {seconds}s / {steps} ticks. No paid retries.\n')
