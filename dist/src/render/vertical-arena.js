@@ -19,7 +19,7 @@ export function drawVerticalArena(ctx,u,scene,dialogue,reduced=false){ctx.save()
  else if(u.active){if(u.phase==='waiting')waiting(ctx,u);else if(u.phase==='draft')draft(ctx,u);else if(u.phase==='complete')champion(ctx,u);else if(['loading','error'].includes(u.phase))message(ctx,u.phase==='error'?'ASSET LOAD FAILED':'LOADING FIGHTERS',u.phase==='error'?'Esc / Retry loading':'Preparing the next battle');
   else if(u.phase==='battle'&&u.h.duel().result&&u.h.resultAge()>=.95){text(ctx,u.h.duel().result==='draw'?'DRAW':'VICTORY',270,818,42,'#ffe19a');}}
  ctx.restore();ctx.restore();}
-function text(ctx,value,x,y,size=14,color='#edf6ff',width=510){if(drawTitle(ctx,value,x,y-size*.35,Math.min(width,size*12),size*1.7))return;ctx.fillStyle=color;ctx.textAlign='center';ctx.font=`${size>=24?'900':'600'} ${size}px Segoe UI`;ctx.fillText(value,x,y,width);}
+function text(ctx,value,x,y,size=14,color='#edf6ff',width=510){if(drawTitle(ctx,value,x,y-size*.35,Math.min(width,size*12),size*1.7))return;ctx.fillStyle=color;ctx.textAlign='center';ctx.font=`${size>=24?'900':'600'} ${size}px "Times New Roman",Times,serif`;ctx.fillText(value,x,y,width);}
 function draft(ctx,u){text(ctx,'TOURNAMENT DRAW',270,754,26,'#ffe09a');
  const pool=Object.keys(u.h.names);for(const [i,e] of u.model.entries.entries()){const x=60+(i%4)*135,y=779+Math.floor(i/4)*86,locked=u.age>=.6+i*.55,id=locked?e.players[0]:pool[(Math.floor(u.age*12)+i*7)%pool.length],im=u.portraits.get(id);
   ctx.fillStyle=locked?'#213c3d':'#173347';ctx.fillRect(x-30,y,60,64);if(im?.complete&&im.naturalWidth)ctx.drawImage(im,x-28,y+4,56,56);}}
