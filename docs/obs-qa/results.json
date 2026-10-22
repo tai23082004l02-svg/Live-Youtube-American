@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "mode": "vote",
+      "buffer": [
+        1080,
+        1920
+      ],
+      "display": [
+        1080,
+        1920
+      ],
+      "scale": [
+        2,
+        2
+      ],
+      "active": true,
+      "paused": false,
+      "tick": 410,
+      "body": "live-view vote-view portrait-view"
+    },
+    {
+      "mode": "vertical",
+      "buffer": [
+        1080,
+        1920
+      ],
+      "display": [
+        1080,
+        1920
+      ],
+      "scale": [
+        2,
+        2
+      ],
+      "active": true,
+      "paused": false,
+      "tick": 347,
+      "body": "live-view portrait-view"
+    }
+  ],
+  "pageErrors": []
+}

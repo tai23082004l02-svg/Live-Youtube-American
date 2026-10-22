@@ -6,7 +6,7 @@ Chọn **Live dọc · 9:16 · Đấu ngẫu nhiên + giải đấu** và nhấn
 
 ## Bố cục
 
-- Canvas540×960, phóng theo màn hình đúng9:16, có thể đặt OBS xuất1080×1920.
+- Canvas xuất1080×1920, bố cục logic540×960. Dùng [Browser Source Full HD trong OBS](OBS.md) để tránh thu cửa sổ nhỏ rồi phóng lớn.
 - Trên20%: khán đài6 khách ngẫu nhiên có hoạt ảnh đứng và cổng xuất hiện. Mỗi60s đang chạy thay đội khách mới. Tạm dừng sẽ dừng đồng hồ này.
 - Giữa55%: thanh máu đội, sân đá riêng, nhân vật/skill, màn giới thiệu và kết quả. Spawn đội A phía trên, B phía dưới;1/2/5 người mỗi đội. Camera chiến thắng giữ từ game; chữ kết quả được bố trí lại cho dọc.
 - Dưới25%: đen hoàn toàn ở mọi giai đoạn, dành chỗ cho phần bình luận của nền tảng. Không hiện bình luận mẫu, không ghi chữ lên vùng này.

@@ -1,3 +1,4 @@
+import {configurePortraitOutput,obsMode,startOBSOutput} from './obs-output.js';
 import {drawGogetaBlueActor,drawGogetaBlueBack,drawGogetaBlueWorld,drawGogetaBlueCinematic,drawGogetaBlueShot,drawGogetaBlueBurst,gogetaBlueSprite} from './render/gogeta-blue.js';
 import {drawMadaraEntrance,drawMadaraActor,drawMadaraBack,drawMadaraWorld,drawMadaraCinematic,drawMadaraShot,drawMadaraBurst,madaraSprite} from './render/madara.js';
 import {drawNarutoV2Actor,drawNarutoV2Back,drawNarutoV2World,drawNarutoV2Cinematic,drawNarutoV2Shot,drawNarutoV2Burst,narutoV2Sprite} from './render/naruto-v2.js';
@@ -46,6 +47,7 @@ let hpMultiplier=1;try{hpMultiplier=normalizeHpMultiplier(window.localStorage.ge
 let musicSettings={};try{musicSettings=JSON.parse(window.localStorage.getItem('down-arena-music-v1')||'{}')||{};}catch{}
 const music=new ArenaMusic(musicSettings);const audio=new ArenaAudio();let guardFlash={},hitFlash={},shake=0,resultAge=0,resultShown=false,victoryScene=null,particles=[],ghosts=[],bursts=[],visualClock=0;
 const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d');const portraitCanvas=$('portraitGame'),portraitCtx=portraitCanvas.getContext('2d'),dialogueCanvas=document.createElement('canvas');dialogueCanvas.width=960;dialogueCanvas.height=540;const dialogueCtx=dialogueCanvas.getContext('2d');let duel=new Duel(),running=false,started=false,swap=false,acc=0,last=0,seen=0,fx=[],images={};
+configurePortraitOutput(portraitCanvas,portraitCtx);
 $('sound').onclick=()=>{audio.unlock();audio.setMuted(!audio.muted);$('sound').textContent=audio.muted?'♪ Hiệu ứng & giọng tắt':'♪ Hiệu ứng & giọng bật';$('sound').setAttribute('aria-pressed',String(audio.muted));};$('volume').oninput=e=>audio.setVolume(e.target.value);
 $('musicTrack').value=music.track;$('musicVolume').value=String(music.volume);function saveMusicSettings(){try{window.localStorage.setItem('down-arena-music-v1',JSON.stringify({track:music.track,volume:music.volume}));}catch{}$('musicVolumeValue').textContent=Math.round(music.volume*100)+'%';}saveMusicSettings();$('musicTrack').onchange=()=>{music.setTrack($('musicTrack').value);music.unlock();saveMusicSettings();music.update(tournament.live&&tournament.active?Object.assign(Object.create(duel),{result:null}):duel,(running||(tournament.live&&tournament.active&&!tournament.paused&&!['loading','error'].includes(tournament.phase)))&&!document.hidden);};$('musicVolume').oninput=e=>{music.setVolume(e.target.value);saveMusicSettings();};
 const names=Object.fromEntries(Object.entries(ACTIVE_CHARACTERS).map(([id,c])=>[id,c.name])),rows={idle:0,run:1,melee:2,dash:3,beam:4,powerup:5,hurt:6,defeat:7,teleport:3,kaioken:5,volley:2,final:5,rush:3,wave:5,roar:4};
@@ -160,4 +162,6 @@ function loop(t){const elapsed=Math.min((t-last)/1000||0,.1);last=t;
 
 window.arena={get tournament(){return tournament},get simulation(){return duel},get ready(){return assetTask},get loadedAssets(){return Object.keys(images)},get stats(){return normalizeStats(appliedStats)},reset,start:toggle};
 
-setupModeMenu({$,body:document.body,stop:()=>{tournament.leave();running=false;acc=0;audio.stop();music.pause();}});
+const modeMenu=setupModeMenu({$,body:document.body,stop:()=>{tournament.leave();running=false;acc=0;audio.stop();music.pause();}});
+
+startOBSOutput({mode:obsMode(window.location?.search),menu:modeMenu,start:()=>$('liveStart').onclick(),unlock:()=>{audio.unlock();music.unlock();},document}).catch(error=>console.error('OBS feed startup failed',error));

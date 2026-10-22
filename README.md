@@ -10,6 +10,10 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ---
 
+## Nguồn OBS Full HD
+
+Để hình Live rõ hơn, dùng **Browser Source1080×1920** với URL [Live bình chọn cho OBS](https://tai23082004l02-svg.github.io/Live-Youtube-American/dist/?obs=vote). Game tự mở chế độ Live; chữ được vẽ trực tiếp ở Full HD. [Hướng dẫn OBS](docs/OBS.md).
+
 ## Gogeta Blue — đã có trong game
 
 Chọn **Đấu thường → Gogeta Blue**. Nhân vật mới có combo ba đòn, Meteor Assault lao áp sát, Stardust Breaker cầu vồng, God Punisher năm cầu năng lượng và **Full Force Kamehameha** lớn. Màn xuất hiện chuyển tóc đen sang Blue; câu hô tiếng Nhật2giây. Có trong đấu đơn, FFA, đội, giải đấu và Live.
