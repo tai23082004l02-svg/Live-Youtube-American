@@ -1,5 +1,5 @@
 """Real-browser voting QA. Start a static server on port8767 first.
-Requires Playwright and Chromium. Fixtures accelerate voting and match completion.
+Requires Playwright and Chromium. Fixtures force battle results to validate vote closure.
 """
 from playwright.sync_api import sync_playwright
 from pathlib import Path
@@ -29,15 +29,16 @@ with sync_playwright() as p:
  page.keyboard.press('Escape');page.fill('#voteTestViewer','alice');page.select_option('#voteTestNumber','1');page.click('#voteTestCast');page.select_option('#voteTestNumber','2');page.click('#voteTestCast')
  assert page.evaluate('window.arena.tournament.ballot.votes.size')==1
  assert page.evaluate('window.arena.tournament.ballot.rows[1].count')==1
- # Pause freezes both timer and battle.
- page.click('#liveStart');before=page.evaluate('window.arena.tournament.ballot.remaining');page.wait_for_timeout(350);assert page.evaluate('window.arena.tournament.ballot.remaining')==before
+ # Pause freezes battle progression.
+ page.click('#liveStart');before=page.evaluate('window.arena.tournament.age');page.wait_for_timeout(350);assert page.evaluate('window.arena.tournament.age')==before
  page.click('#liveStart')
  page.wait_for_function('window.arena.tournament.phase==="battle"',timeout=10000)
- page.evaluate("()=>{const u=window.arena.tournament;u.ballot.cast('bob',3);u.ballot.cast('charlie',3);u.ballot.remaining=.1;}")
- page.wait_for_function('window.arena.tournament.ballot.locked')
- winners=page.evaluate('window.arena.tournament.ballot.winners')
+ page.evaluate("()=>{const u=window.arena.tournament;u.ballot.cast('bob',3);u.ballot.cast('charlie',3);}")
+ assert not page.evaluate('window.arena.tournament.ballot.locked')
  assert page.evaluate('window.arena.tournament.matchNumber')==1
  page.evaluate("()=>{const d=window.arena.simulation;d.fighters.filter(f=>f.team==='B').forEach(f=>f.hp=0);d.result='teamA';}")
+ page.wait_for_function('window.arena.tournament.ballot.locked')
+ winners=page.evaluate('window.arena.tournament.ballot.winners')
  page.wait_for_function('window.arena.tournament.matchNumber===2',timeout=15000);page.evaluate('async()=>await window.arena.ready')
  assert page.evaluate('window.arena.simulation.fighters.map(f=>f.id)')==winners
  assert not page.evaluate('window.arena.tournament.ballot.locked')
@@ -49,7 +50,7 @@ with sync_playwright() as p:
  assert not page.locator('#game').evaluate('e=>e.hidden')
  print('errors',errors,'failed',failed,flush=True)
  assert not errors and not failed
- (out/'results.json').write_text(json.dumps({'checks':['real assets','portrait frame/horizontal arena','operator vote replacement','pause timer','lock retains current match','top-two next match','new round','stop and mode cleanup'],'pageErrors':errors,'failedResponses':failed},indent=2))
+ (out/'results.json').write_text(json.dumps({'checks':['real assets','portrait frame/horizontal arena','operator vote replacement','pause battle','battle result locks votes immediately','top-two next match','new round','stop and mode cleanup'],'pageErrors':errors,'failedResponses':failed},indent=2))
  mobile=browser.new_context(viewport={'width':393,'height':852},is_mobile=True,has_touch=True,device_scale_factor=1)
  phone=mobile.new_page();phone.on('pageerror',lambda e:errors.append(str(e)))
  phone.goto('http://127.0.0.1:8767/',wait_until='networkidle');phone.click('#chooseLive');phone.click('#chooseVote');phone.evaluate('async()=>await window.arena.ready');phone.click('#liveStart');phone.evaluate('async()=>await window.arena.ready')

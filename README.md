@@ -12,7 +12,7 @@ README là trang giới thiệu; bấm liên kết để mở game trên GitHub 
 
 ## Bình chọn đối thủ — bản mô phỏng
 
-Chọn **Live → Bình chọn đối thủ → Bắt đầu Live Arena** để mở khung dọc9:16: bảng6 tên phía trên, trận ngang16:9 ở giữa, phần dưới đen. Lượt45 giây chọn top2 cho trận tiếp theo; không có chân dung. **Chưa kết nối chat YouTube: số phiếu hiện là mô phỏng.** Có thể tắt mô phỏng và thử đổi phiếu trong bảng điều khiển.
+Chọn **Live → Bình chọn đối thủ → Bắt đầu Live Arena** để mở khung dọc9:16: bảng6 tên phía trên, trận ngang16:9 ở giữa, phần dưới đen. Bình chọn mở đến khi trận hiện tại kết thúc, rồi chốt top2 cho trận tiếp theo; không có chân dung. **Chưa kết nối chat YouTube: số phiếu hiện là mô phỏng.** Có thể tắt mô phỏng và thử đổi phiếu trong bảng điều khiển.
 
 [Xem hướng dẫn OBS và bình chọn](docs/VIEWER_VOTE.md) · [Xem bố cục](docs/viewer-vote-qa/broadcast.png)
 

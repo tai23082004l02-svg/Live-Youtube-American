@@ -1,3 +1,7 @@
+## Voting closes with battle result — 2026-10-22 (latest)
+
+`live_vote` no longer has a45-second voting deadline or countdown. The ballot remains open for the battle duration and locks immediately when `duel.result` appears, before the victory animation and intermission. Top2 then form the next match. On a draw, the same pair rematches and voting reopens with the same candidate numbers and accumulated votes. Demo labeling and all other Live modes are unchanged. Tests cover battles longer than45s, immediate lock/late rejection and rematch reopening; see `tests/viewer-vote-tests.mjs` and updated browser evidence.
+
 ## Viewer choice demo broadcast — 2026-10-22 (latest)
 
 New `live_vote` menu route (**Live → Bình chọn đối thủ**) uses a540×960 broadcast with a bounded six-name voting board above a centered horizontal16:9 battle. Existing Live modes are unchanged. Voting is explicitly labeled DEMO; no YouTube chat connection or subscription enforcement exists yet. Read `docs/VIEWER_VOTE.md` before connecting real chat.
